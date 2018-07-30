@@ -1,0 +1,83 @@
+﻿[
+	{
+	
+	"settings" :
+		{
+		"autoTabbing":true,
+		"animBaseDuration":200,
+		"masterIntTester":33,
+		"encodeAnswers":true,
+		"illegalCharsList":"¼½¾Ð¶¢®©ª¤£¦§±þ§Þß¥º·¹²³¨÷|"
+		},
+		
+	"activity" :
+		{
+		"activity_type":"standard",
+		"question_skipping_enabled":true,
+		"tracking_enabled":false,
+		"recap_required":false,
+		"trigger_course_completion":false,
+		"trigger_completion_score":100,
+		"final_feedback_score_threshold":100,
+		"submit_all_at_once":false,
+		"submit_aao_disable_right_anwers":true,
+		"simple_act_disable_mode":"any",
+		"reset_retry_enabled":false,
+		"animations_and_transitions":"none",
+		"auto_scroll_to_question":true,
+		"force_insert_final_submit":true
+		},
+		
+	"exercise" :
+		{
+		"exercise_type":"standard",
+		"pool_picks":"null",
+		"random_order":"null",
+		"feedback_type":"instant",
+		"randomize_answers":false,
+		"submit_all_at_once":false
+		},
+		
+	"question" :
+		{
+		"question_type":"type-1",
+		"branching_type":"none",
+		"question_value":1
+		},
+		
+	"type_0" :
+		{
+		"empty_allowed":false,
+		"min_char_required":1
+		},
+	
+	"type_1" :
+		{
+		"crypt_answers":true,
+		"persistent_vsfb":true
+		},
+	
+	"type_2" :
+		{
+		"crypt_answers":true,
+		"empty_allowed":false
+		},
+	
+	"type_3" :
+		{
+		"ignore_case":true
+		},
+	
+	"type_4" :
+		{
+		"allow_duplicate_answer":false,
+		"substitute_recap_label":"data-recap-label",
+		"randomize_options":false
+		},
+	
+	"type_5" :
+		{
+		"crypt_answers":true
+		}
+	}
+]

@@ -1,0 +1,150 @@
+//---------- Global -----------//
+$error-color: #904136; 
+$warning-color: #FF851B;
+$base-text-color: #222;
+$link-color: #295376;
+$link-color-visited: #7834bc;
+$box-shadox-color: #999;
+$button-default-color: #fff;
+$button-default-color-hover: #fff;
+$button-default-background-color: #3b3b3b;
+$button-default-background-color-hover: #4f4f4f;
+$button-default-border-color: #dcdee1;
+$button-default-border-color-hover: #bbbfc5;
+$box-shadow-color: #2f2f2f;
+$spinner-overlay-background-color: #fff;
+
+
+//---------- Modules ----------//
+
+//Progress-bar
+$progressBar-color: grey;
+$progressBar-border-color: grey;
+
+//Admin Mode
+$adminMode-background-color: white;
+$adminMode-border-color: #e1e1e1;
+
+//Favorites
+$favorites-background-color: #f9f9f9;
+$favorites-icon-color: #e6ddb7;
+$favorites-icon-shadow-color: #333;
+$favorites-icon-color-hover: #efce4a;
+$favorites-icon-color-focus: #295376;
+$favorites-icon-fav-added-color: #efce4a; 
+
+//Sitemap
+$sitemap-link-background-color: #f1f1f1;
+$sitemap-checkmark-color: #fff;
+$sitemap-checkmark-background-color: #3b3b3b;
+
+
+//---------- Widgets ----------//
+
+//Collapsible Box
+$collapsibleBox-background-color: #fafafa;
+$collapsibleBox-border-color: #aaa;
+$collapsibleBox-border-bottom-color: #666;
+$collapsibleBox-handle-color: #222;
+
+//Modal
+$modal-header-color: #fff;
+$modal-header-background-color: #555;
+$modal-body-background-color: #fff;
+
+//Zoom
+$zoomin-focus-outline: #a6c8ff;
+
+//Tutorial
+$tutorial-background-color: rgba(0, 0, 0, 0.8);
+//Mouse-scroll
+$tutorial-mouse-container-background-color: #171717;
+$tutorial-mouse-background-color: #d7e059;
+$tutorial-mouse-cable-border-color: #d7e059;
+$tutorial-mouse-spacer-h-border-color: black;
+$tutorial-mouse-spacer-v-border-color: black;
+$tutorial-mouse-wheel-background-color: #111;
+
+//Cards
+$card-background-color: transparent;
+$card-background-color-hover: #d7e059;
+$card-border-color: #d7e059;
+$card-text-color: #d7e059;
+$card-text-color-hover: #3f4040;
+
+
+//---------- Layout ----------//
+
+//Footer
+$footer-button-color: #fff;
+$footer-button-color-mobile: #fff;
+$footer-button-background-color: #555;
+$footer-button-color-hover: #fff;
+$footer-button-background-color-hover: #6e6e6e;
+$footer-text-color: #fff;
+$footer-page-of-text-color: #fff;
+$footer-page-of-text-color-mobile: $base-text-color;
+$footer-container-background-color: #555;
+$footer-button-border-color: #fff;
+$footer-button-color-disabled: #5b5b5b;
+$footer-button-background-color-disabled: #e6e6e6;
+$footer-mobile-button-background-color: #555;
+
+//Header
+$header-background-color: #555;
+$header-text-color: #fff;
+$header-banner-title-color: #555;
+$header-module-name-color: #555;
+$header-button-background-color: transparent;
+$header-button-color-hover: #fff;
+$header-button-background-color-hover: #6e6e6e;
+$header-button-color: #fff;
+//Top Navigation
+$top-nav-text-color: $base-text-color;
+$top-nav-button-color: $base-text-color;
+//mobile only
+$top-nav-button-color-mobile: #fff;
+$top-nav-button-background-color: #777;
+$hamburger-menu-color-mobile: #fff;
+
+//Toolbar
+$toolbox-link-color: $base-text-color;
+$toolbox-link-background-color: #fff;
+$toolbox-link-color-hover: #fff;
+$toolbox-link-background-color-hover: #6e6e6e;
+
+//Supermenu
+$supermenu-button-color: #fff;
+$supermenu-button-background-color: #555;
+$supermenu-button-color-hover: #fff;
+$supermenu-button-background-color-hover: #6e6e6e;
+$supermenu-dropdown-button-color: $base-text-color;
+$supermenu-dropdown-border-color: #000;
+$supermenu-dropdown-button-background-color: #fff;
+$supermenu-dropdown-button-color-hover: #fff;
+$supermenu-dropdown-button-background-color-hover: #6e6e6e;
+//mobile only
+$supermenu-link-color: #555;
+//icons
+$supermenu-dropdown-icons-color:#777;
+$supermenu-dropdown-icons-color-hover:#fff;
+
+//Scrollbar
+$scrollbar-track-background-color: #222;
+$scrollbar-thumb-background-color: #d7e059;
+
+
+//---------- Micro-learning ----------//
+
+$micro-body-background-color: #2f2f2f;
+$micro-footer-arrows-color: #d7df58;
+$micro-mobile-footer-arrows-color: #d7df58;
+$micro-module-info-button-color: #d7e059;
+$micro-vertical-spacers-lines-border-color: #d7e059;
+$micro-mobile-edges-background-color: #222;
+$micro-mobile-course-title-color: #d7df58;
+
+//Micro-menu
+$micro-menu-toc-marker-background-color: #111;
+$micro-menu-mobile-bullet-list-item-border-color: #d7e059;
+$micro-menu-mobile-bullet-list-item-border-color-active: #d7e059;

@@ -1,0 +1,151 @@
+%transform-hide {
+   visibility: hidden;
+   @include transform(translate3d(0,100px,0));
+   opacity: 0;
+}
+
+$number-of-delay-classes: 20;
+
+@mixin animate() {
+   .animate {
+      //the active class runs the animation
+      &.active [class*=ae-] {
+         opacity: 1;
+         visibility: visible;
+         @include transform(translate3d(0,0,0));
+         filter: none;
+      }
+      //default state, e.g: fading out elements
+      [class*=ae-] {
+         @include transition-duration(.5s);
+      }
+      
+      @for $i from 0 through $number-of-delay-classes {
+         .ae-#{$i+1} {
+            @include transition-delay(0s);
+         }
+      }
+   }
+   [class*=ae-] {
+      & {
+         @extend %transform-hide;
+      }
+      &.slideInBottom {
+         @extend %transform-hide;
+      }
+      &.slideInTop {
+         @include transform(translate3d(0,-100px,0));
+      }
+      &.slideInLeft {
+         @include transform(translate3d(-50px,0,0));
+      }
+      &.slideInRight {
+         @include transform(translate3d(50px,0,0));
+      }
+      &.slideInCenter {
+         @include transform(scale(.8) translate3d(0,0,0));
+      }
+      &.slideInAbove {
+         @include transform(scale(1.2) translate3d(0,0,0));
+      }
+      &.slideInBottomLeft {
+         @include transform(translate3d(-100px,100px,0));
+      }
+      &.slideInTopLeft {
+         @include transform(translate3d(-100px,-100px,0));
+      }
+      &.slideInBottomRight {
+         @include transform(translate3d(100px,100px,0));
+      }
+      &.slideInTopRight {
+         @include transform(translate3d(100px,-100px,0));
+      }
+      &.fadeIn {
+         @include transform(scale(1) translate3d(0,0,0));
+      }
+      &.fromBlur {
+         @include transform(scale(1) translate3d(0,0,0));
+         filter: blur(10px);
+      }
+   }
+   &.slow .animate.active {
+      [class*=ae-] {
+         @include transition-duration(1s);
+      }
+      $base-delay: 400ms;
+      @for $i from 0 through $number-of-delay-classes {
+         .ae-#{$i+1} {
+            @include transition-delay($base-delay*($i+1));
+         }
+      }
+      .ae-1 {
+         @include transition-delay(10ms);
+      }
+   }
+   &.normal .animate.active {
+      [class*=ae-] {
+         @include transition-duration(.8s);
+      }
+      //normal animation
+      $base-delay: 160ms;
+      @for $i from 0 through $number-of-delay-classes {
+         .ae-#{$i+1} {
+            @include transition-delay($base-delay*($i+1));
+         }
+      }
+      .ae-1 {
+         @include transition-delay(10ms);
+      }
+   }
+   &.fast .animate.active {
+      [class*=ae-] {
+         @include transition-duration(.6s);
+      }
+      $base-delay: 140ms;
+      @for $i from 0 through $number-of-delay-classes {
+         .ae-#{$i+1} {
+            @include transition-delay($base-delay*($i+1));
+         }
+      }
+      .ae-1 {
+         @include transition-delay(10ms);
+      }
+   }
+   .slideInBottom [class*=ae-], &.slideInBottom [class*=ae-] {
+      @extend %transform-hide;
+   }
+   .slideInTop [class*=ae-], &.slideInTop [class*=ae-] {
+      @include transform(translate3d(0,-100px,0));
+   }
+   .slideInLeft [class*=ae-], &.slideInLeft [class*=ae-] {
+      @include transform(translate3d(-50px,0,0));
+   }
+   .slideInRight [class*=ae-], &.slideInRight [class*=ae-] {
+      @include transform(translate3d(50px,0,0));
+   }
+   .slideInCenter [class*=ae-], &.slideInCenter [class*=ae-] {
+      @include transform(scale(.8) translate3d(0,0,0));
+   }
+   .slideInAbove [class*=ae-], &.slideInAbove [class*=ae-] {
+      @include transform(scale(1.2) translate3d(0,0,0));
+   }
+   .slideInBottomLeft [class*=ae-], &.slideInBottomLeft [class*=ae-] {
+      @include transform(translate3d(-100px,100px,0));
+   }
+   .slideInTopLeft [class*=ae-], &.slideInTopLeft [class*=ae-] {
+      @include transform(translate3d(-100px,-100px,0));
+   }
+   .slideInBottomRight [class*=ae-], &.slideInBottomRight [class*=ae-] {
+      @include transform(translate3d(100px,100px,0));
+   }
+   .slideInTopRight [class*=ae-], &.slideInTopRight [class*=ae-] {
+      @include transform(translate3d(100px,-100px,0));
+   }
+   .fadeIn [class*=ae-], &.fadeIn [class*=ae-] {
+      @include transform(scale(1) translate3d(0,0,0));
+   }
+   .fromBlur [class*=ae-], &.fromBlur [class*=ae-] {
+      @include transform(scale(1) translate3d(0,0,0));
+      filter: blur(10px);
+   }
+}

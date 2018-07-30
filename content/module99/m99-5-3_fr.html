@@ -1,0 +1,17 @@
+<h1>Mécanisme de vérouillage (soft lock) &amp;  Déverouiller la page suivante</h1>
+
+
+<section class="quality_assurance row">
+	<h2 class="col-md-12">Mécanisme de vérouillage (Soft Lock)</h2>
+    <p class="col-md-10">Ceci devrait tester si la page est réglée sur "verrouillé". Si oui, en quittant cette page, vous aurez un message d'avertissement avant de la quitter.</p>
+    <p class="col-md-2" id="qa_lockedin">Essai...</p>
+
+</section>
+
+
+<section class="quality_assurance row">
+	<h2 class="col-md-12">Déverouiller la page suivante</h2>
+    <p class="col-md-10">Ceci devrait tester si la page suivante est verouillée.</p>
+    <p class="col-md-2" id="qa_lockedout">Essai...</p>
+    <p class="col-md-12"><button id="unlocknextBTN" onclick="unlockPage('m99-5-4'); unlockNext(); return false;">Déverouiller la page suivante!</button></p>
+</section>

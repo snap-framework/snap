@@ -1,0 +1,82 @@
+// TOOLBAR (top icons)
+// TOOLBAR BAR
+// list of buttons
+
+#wb-lng {
+  height: 100%;
+
+  > ul {
+    margin-bottom: 0;
+    display: inline-table;
+    height: 100%;
+  }
+  
+  ul:not(.tb-container) > li {
+    margin: 0 auto;
+    padding: 0;
+    height: 100%;
+    display: inline-table;
+    vertical-align: middle;
+  }
+  a {
+    &:not(.tb-item) {
+      @extend %header-button;
+      display: inline-table;
+      height: 100%;
+      vertical-align: middle;
+    }
+    &:not(.lang):not(.tb-item) {
+      @include hide-text;
+      width: 50px;
+	  height:40px;
+    }
+    &.lang { padding-left: 8px; padding-right: 8px; display: table-cell; }
+  }
+  
+  ul.tb-container {
+    position: absolute;
+    text-align: left;
+    width: 160px;
+    margin-left: -5px;
+    z-index: 100;
+    border: 1px solid;
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px 0px $box-shadox-color;
+
+    a {
+      @extend %toolbox-link;
+    }
+  }
+  
+  li a.lang, .tb-container a {
+    background-image: none !important;
+  }
+}
+
+// TOOLBAR BUTTONS
+// LI contains each BTN
+#wb-lng ul.text-right > li > a, #mb-pnl ul.list-inline > li > a.lang {
+  white-space: nowrap;
+  text-align: left;
+  text-decoration: none;
+}
+#wb-lng ul.text-right > li > a { color: $header-button-color; }
+
+
+//mobile and desktop
+ul.tb-container {
+  > li > a {
+    display: block;
+    padding: 4px 10px;
+    text-decoration: none;
+  }
+  li:first-child a {
+    border: 0;
+  }
+}
+
+//mobile
+#mb-tb > li > a {
+  display: block;
+  padding: 8px 20px;
+}

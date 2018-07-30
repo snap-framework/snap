@@ -1,0 +1,61 @@
+/* ----------------collapsible-box----------------*/
+
+div.collapsible-box {
+  position: relative;
+  border: 1px solid $collapsibleBox-border-color;
+  border-bottom: 4px solid $collapsibleBox-border-bottom-color;
+  background: $collapsibleBox-background-color;
+  height: 80px;
+  margin-bottom: 20px;
+  &.opened {
+    height: auto;
+    padding-bottom: 30px;
+    p.handle {
+      background: none;
+    }
+  }
+  > div.wrapper {
+    overflow: hidden;
+    height: 100%;
+    margin-bottom: 8px;
+    padding: 5px;
+  }
+  p.handle {
+    position: absolute;
+    font-weight: bold;
+    color: $collapsibleBox-handle-color;
+    z-index: 200;
+    width: 100%;
+    bottom: 0px;
+    height: 60px;
+    text-align: center;
+    background: url(base/collapsible-fade.png) repeat-x;
+    margin: 0;
+    > span {
+      position: absolute;
+      z-index: 200;
+      bottom: 0px;
+      left: 50%;
+      display: block;
+      width: 36px;
+      height: 36px;
+      margin-left: -18px;
+      a {
+        width: 36px;
+        height: 36px;
+        background: url(base/collapsible-handle.png) no-repeat;
+        display: block;
+        text-decoration: none;
+        &:hover,&:focus {
+          background-position: -36px 0;
+        }
+        &.opened {
+          background-position: 0 -36px;
+          &:hover,&:focus {
+            background-position: -36px -36px;
+          }
+        }
+      }
+    }
+  }
+}

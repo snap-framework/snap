@@ -1,0 +1,69 @@
+<h1 class="wb-inv">Module Information</h1>
+<section class="col-md-4 objectifs module-obj">
+		<h2>Module 3 - Training Objectives</h2>
+        <ol>
+            <li>Understand and apply the basic concepts associated with job descriptions</li>
+            <li>Be able to:
+            	<dl>
+					<dt>2.1 Management level</dt><dd>Modify and approve job descriptions</dd>
+					<dt>2.2 Advisor level</dt><dd>Advise and offer options regarding the content, modification, and use of job descriptions</dd>
+				</dl>
+			</li>   
+        </ol> 
+        <h2 class='wb-inv'>Plus d'information sur le module</h2>
+        <ul class="mod-list">
+        </ul>               
+</section>
+
+
+<section class="mod-index col-md-8">
+	<h2>Index du Module 3</h2>
+</section>
+
+<script>
+
+$( document ).ready(function() {
+	var module=masterStructure.subs[masterStructure.currentNav[0]]	
+	
+	//-------------------------OBJECTIVE section---------------------------------
+	
+
+	if (module.quizSubs.length>0){
+		var targetNav=module.quizSubs[module.quizSubs.length-1].sPosition;
+		var targetClick="fNav('"+targetNav+"'); return false"
+		
+	}
+	$(".mod-list").append("<li class='mod-progress'></li>")
+
+	//generate progress(target)
+	module.generateProgress(".mod-progress");
+
+
+	//---------------------------the other progressbar
+	var proportionViewedPages=40/100;
+	var proportionSucess=60/100;
+	var nbModules=masterStructure.modCount;
+	var totalPercent=0;
+	for(var allModules=0;allModules<masterStructure.subs.length;allModules++){
+		var thisMod=masterStructure.subs[allModules];
+		if(!thisMod.isPage){
+			var modPercent=thisMod.viewCount/thisMod.totalPages*100;
+			modPercent=modPercent/nbModules*proportionViewedPages;
+			totalPercent+=modPercent;
+			if(thisMod.moduleStatus=="completed"){
+				totalPercent+=100/nbModules*proportionSucess;
+			}
+		}
+	}
+
+
+
+
+	
+	var percentMod=Math.round(module.viewCount/module.totalPages*100)
+	$(".mod-progress").append("<p>Module 4 : "+percentMod+" % completed</p>")
+	
+});
+
+
+</script>

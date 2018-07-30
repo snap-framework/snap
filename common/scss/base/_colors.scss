@@ -1,0 +1,150 @@
+//---------- Global -----------//
+$error-color: #904136 !default;
+$warning-color: #FF851B !default;
+$base-text-color: #222 !default;
+$link-color: #295376 !default;
+$link-color-visited: #7834bc !default;
+$box-shadox-color: #999 !default;
+$button-default-color: #fff !default;
+$button-default-color-hover: #fff !default;
+$button-default-background-color: #3b3b3b !default;
+$button-default-background-color-hover: #4f4f4f !default;
+$button-default-border-color: #dcdee1 !default;
+$button-default-border-color-hover: #bbbfc5 !default;
+$box-shadow-color: #2f2f2f !default;
+$spinner-overlay-background-color: #fff !default;
+
+
+//---------- Modules ----------//
+
+//Progress-bar
+$progressBar-color: grey !default;
+$progressBar-border-color: grey !default;
+
+//Admin Mode
+$adminMode-background-color: white !default;
+$adminMode-border-color: #e1e1e1 !default;
+
+//Favorites
+$favorites-background-color: #f9f9f9 !default;
+$favorites-icon-color: #e6ddb7 !default;
+$favorites-icon-shadow-color: #333 !default;
+$favorites-icon-color-hover: #efce4a !default;
+$favorites-icon-color-focus: #295376 !default;
+$favorites-icon-fav-added-color: #efce4a !default;
+
+//Sitemap
+$sitemap-link-background-color: #f1f1f1 !default;
+$sitemap-checkmark-color: #fff !default;
+$sitemap-checkmark-background-color: #3b3b3b !default;
+
+
+//---------- Widgets ----------//
+
+//Collapsible Box
+$collapsibleBox-background-color: #fafafa !default;
+$collapsibleBox-border-color: #aaa !default;
+$collapsibleBox-border-bottom-color: #666 !default;
+$collapsibleBox-handle-color: #222 !default;
+
+//Modal
+$modal-header-color: #fff !default;
+$modal-header-background-color: #555 !default;
+$modal-body-background-color: #fff !default;
+
+//Zoom
+$zoomin-focus-outline: #a6c8ff !default;
+
+//Tutorial
+$tutorial-background-color: rgba(0, 0, 0, 0.8) !default;
+//Mouse-scroll
+$tutorial-mouse-container-background-color: #171717 !default;
+$tutorial-mouse-background-color: white !default;
+$tutorial-mouse-cable-border-color: white !default;
+$tutorial-mouse-spacer-h-border-color: black !default;
+$tutorial-mouse-spacer-v-border-color: black !default;
+$tutorial-mouse-wheel-background-color: black !default;
+
+//Cards
+$card-background-color: #fff !default;
+$card-background-color-hover: #222 !default;
+$card-border-color: #222 !default;
+$card-text-color: #222 !default;
+$card-text-color-hover: #fff !default;
+
+
+//---------- Layout ----------//
+
+//Footer
+$footer-button-color: #fff !default;
+$footer-button-color-mobile: #fff !default;
+$footer-button-background-color: #555 !default;
+$footer-button-color-hover: #fff !default;
+$footer-button-background-color-hover: #6e6e6e !default;
+$footer-text-color: #fff !default;
+$footer-page-of-text-color: #fff !default;
+$footer-page-of-text-color-mobile: $base-text-color !default;
+$footer-container-background-color: #555 !default;
+$footer-button-border-color: #fff !default;
+$footer-button-color-disabled: #5b5b5b !default;
+$footer-button-background-color-disabled: #e6e6e6 !default;
+$footer-mobile-button-background-color: #555 !default;
+
+//Header
+$header-background-color: #555 !default;
+$header-text-color: #fff !default;
+$header-banner-title-color: #555 !default;
+$header-module-name-color: #555 !default;
+$header-button-background-color: transparent !default;
+$header-button-color-hover: #fff !default;
+$header-button-background-color-hover: #6e6e6e !default;
+$header-button-color: #fff !default;
+//Top Navigation
+$top-nav-text-color: $base-text-color !default;
+$top-nav-button-color: $base-text-color !default;
+//mobile only
+$top-nav-button-color-mobile: #fff;
+$top-nav-button-background-color: #777 !default;
+$hamburger-menu-color-mobile: #fff !default;
+
+//Toolbar
+$toolbox-link-color: $base-text-color !default;
+$toolbox-link-background-color: #fff !default;
+$toolbox-link-color-hover: #fff !default;
+$toolbox-link-background-color-hover: #6e6e6e !default;
+
+//Supermenu
+$supermenu-button-color: #fff !default;
+$supermenu-button-background-color: #555 !default;
+$supermenu-button-color-hover: #fff !default;
+$supermenu-button-background-color-hover: #6e6e6e !default;
+$supermenu-dropdown-button-color: $base-text-color !default;
+$supermenu-dropdown-border-color: #000 !default;
+$supermenu-dropdown-button-background-color: #fff !default;
+$supermenu-dropdown-button-color-hover: #fff !default;
+$supermenu-dropdown-button-background-color-hover: #6e6e6e !default;
+//mobile only
+$supermenu-link-color: #555 !default;
+//icons
+$supermenu-dropdown-icons-color:#777;
+$supermenu-dropdown-icons-color-hover:#fff;
+
+//Scrollbar
+$scrollbar-track-background-color: transparent !default;
+$scrollbar-thumb-background-color: #222 !default;
+
+
+//---------- Micro-learning ----------//
+
+$micro-body-background-color: #fff !default;
+$micro-footer-arrows-color: #222 !default;
+$micro-mobile-footer-arrows-color: #fff !default;
+$micro-module-info-button-color: #222 !default;
+$micro-vertical-spacers-lines-border-color: #222 !default;
+$micro-mobile-edges-background-color: #222 !default;
+$micro-mobile-course-title-color: #fff !default;
+
+//Micro-menu
+$micro-menu-toc-marker-background-color: #111 !default;
+$micro-menu-mobile-bullet-list-item-border-color: #fff !default;
+$micro-menu-mobile-bullet-list-item-border-color-active: #fff !default;

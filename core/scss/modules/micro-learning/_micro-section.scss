@@ -1,0 +1,96 @@
+//Be sure to change the transform duration below if you change the "scrollingSpeed" setting
+$SECTION_ANIM_SPEED: 1000ms;
+
+body.microModule {
+	.micro-section {
+	   padding: 5px 40px 20px;
+	   float: none;
+	   //make room for the menu
+	   padding-left: 25%;
+	   //allow space for header
+	   padding-top: 2em;
+	   h2 {
+	      float: none;
+	      .sub-title {
+	         display: block;
+	         font-size: 0.5em;
+	      }
+	   }
+	   h3 {
+	      margin-bottom: 10px;
+	      margin-top: 0;
+	   }
+	   .wrap {
+	      display: table;
+	      position: relative;
+	      top: 40%;
+	      @include translateY(-40%);
+	      width: 100%;
+	   }
+	}
+}
+
+//Desktop animation for the sections (on scroll)
+.desktop body.microModule {
+	.micro-section {
+		position: fixed;
+      z-index: 10;
+      opacity: 1;
+      @include transition(transform $SECTION_ANIM_SPEED, opacity 1s);
+
+	   &.active, &.selected {
+	      -webkit-transition-timing-function: cubic-bezier(.4, 1.15, .35, 1) !important;
+	      -o-transition-timing-function: cubic-bezier(.4, 1.15, .35, 1) !important;
+	         transition-timing-function: cubic-bezier(.4, 1.15, .35, 1) !important;
+
+	      @include transition(transform $SECTION_ANIM_SPEED, opacity 1s);
+	   }
+	   &.active {
+	      -webkit-transform-style: preserve-3d;
+	      -moz-backface-visibility: hidden;
+	      -ms-backface-visibility: hidden
+	   }
+	   &.selected {
+	      -webkit-transform: translate3d(0, 0, 0) !important;
+	      -ms-transform: translate3d(0, 0, 0) !important;
+	      transform: translate3d(0, 0, 0) !important;
+	      opacity: 1 !important;
+	      z-index: 10;
+	   }
+	   &.before, &.after {
+	      opacity: 0 !important;
+	   }
+	   
+	   &.before {
+	      @include translate3d(0, -50%, 0);
+	      @include translateY(-100%);
+	      z-index: 11;
+	   }
+
+	   &, &.after {
+	      will-change: transform;
+	      opacity: initial;
+	      z-index: 8;
+	   	@include translate3d(0, 50%, 0);
+	      @include translateY(10%);
+	   }
+	}
+}
+
+.mobile body.microModule {
+   section.micro-section {
+      height: 100% !important;
+      padding-left: 5% !important;
+	   padding-right: 5% !important;
+	   h2 {
+	      font-size: 2.5em;
+	      .title {
+	         padding-left: 50px;
+	      }
+	   }
+	   .wrap {
+	      top: 0;
+	      @include translateY(0);
+	   }
+   }
+}

@@ -1,0 +1,53 @@
+#admin_window {
+  z-index: 999;
+  padding: 20px;
+  position: absolute;
+  display: none;
+  top: 0px;
+  right: 0px;
+  max-width: 20em;
+  background-color: $adminMode-background-color;
+  border: $adminMode-border-color 1px solid;
+  box-shadow: 0 0 5px 0px black;
+
+  #adminMode {
+    margin-top: 20px;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    margin: 10px 0px;
+  }
+
+  .infos {
+    font-style: italic;
+    b {
+      color: #0074D9;
+    }
+    margin-bottom: 20px;
+  }
+}
+
+.status {
+  background-color: #f7f36e;
+  color: black;
+  padding: 5px 10px;
+  box-shadow: 0 0 5px 0px black;
+  font-weight: bold;
+  display: inline-block;
+}
+
+#scorm-status {
+  @extend .status;
+  background-color: #fd4e33;
+  color: #000;
+}
+
+#debug-status {
+  @extend .status;
+  float: right;
+}
+
+.locks-admin #details-panellocklist {
+  padding-bottom: 0;
+}

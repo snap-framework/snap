@@ -1,0 +1,39 @@
+{
+"Navigation" :
+	{
+	"Toolbox":
+		{
+		"SkipContent":"a.wb-sl",
+		"Lang": "a.lang",
+		"Home": "a.home",
+		"Help": "a.help",
+		"Toolbox": "a.toolbox",
+		"Glossary": "a.glossary",
+		"Resources": "a.resources",
+		"Print": "a.print",
+		"Sitemap": "a.sitemap",
+		"Quit": "a.quit",
+		"Mobile": "#wb-glb-mn>ul>li>a",
+		"Logo": "#wb-sttl>a"	
+		},
+	"Supermenu":
+		{
+		"Lvl1": "a[data-id='lvl1']",
+		"Lvl2": "a[data-id='lvl2']",
+		"Lvl3": "a[data-id='lvl3']",
+		"Lvl4": "a[data-id='lvl4']"
+		},
+	"TopNav":
+		{
+		"Back":".nvbar a.back",
+		"Next":".nvbar a.next"
+
+		},
+	"BottomNav":
+		{
+		"Back":"footer a.back",
+		"Next":"footer a.next"
+
+		}
+	}
+}

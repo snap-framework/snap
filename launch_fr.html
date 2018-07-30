@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+
+    <title>Page de démarrage de la plateforme d'apprentissage EFPC</title>
+    
+	<script src="./core/js/lib/require.js"></script>
+    
+    <script src="./core/js/scorm/APIWrapper.js" type="text/javascript"></script>
+    <script type="text/javascript">
+		require(['core/js/require-configs'], function() {
+			require(['jquery', "settings-core", 'settings-general',	"settingsOverride", 'popper/popupwindowscripts'], function($, CoreSettings, GeneralSettings, settingsOverride, PopupWindowScripts) {
+				$(document).ready(function(e) {
+					checkLaunch('index_fr.html');
+					$("#series-title").html(CoreSettings.seriesTitle_fr);
+					$("#coursename").html(CoreSettings.courseTitle_fr);
+					$("#subcoursename").html(CoreSettings.courseSubtitle_fr);
+				});
+			});
+		});
+    </script>
+	<link rel="stylesheet" class="theme" id="theme-style" href="./core/static/launch.css" />
+   	<link rel="stylesheet" class="theme" id="theme-style" href="./theme/theme.css" />	
+</head>
+<body class="launchpage">
+
+	<span id="noclose" class="obfuscated">Ne pas fermer cette fenêtre. Si vous quittez, la session en cours sera fermée.</span>
+    <header id="wordmark"><img src="./WET/assets/CSPS_FIP_BlackRed_F.png" alt="Mot-symbole de l'École de la fonction publique" /></header>
+	<main id="splash-content">
+    	
+        <h1 id="title-area">
+        	<span id="title-welcome">Bienvenue à</span>
+            <span id="series-title"></span>
+            <span id="coursename">La plateforme d'apprentissage en ligne de l'EFPC</span>
+            <span id="subcoursename"></span>
+        </h1>
+        <div id="launch-area">
+        	<div id="launch-placement">
+            	<span id="manualpop">Si le cours ne s'ouvre pas automatiquement, cliquez sur </span>
+                <a href="#" onclick="launchPop('index_fr.html')" id="launch-btn">Démarrer</a>
+        	</div>
+        </div>
+    </main>
+    <footer id="canada-logo"><img src="./WET/assets/canada_flag.png" alt="Canada Logo" /></footer>
+
+</body>
+</html>

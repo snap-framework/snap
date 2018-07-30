@@ -1,0 +1,42 @@
+%header-button {
+	color: $header-button-color;
+    background-color: $header-button-background-color;
+    &:hover, &:focus {
+    	color: $header-button-color-hover;
+    	background-color: $header-button-background-color-hover;
+	}
+}
+%supermenu-button {
+	color: $supermenu-button-color;
+    background-color: $supermenu-button-background-color;
+    &:hover, &:focus {
+    	color: $supermenu-button-color-hover;
+    	background-color: $supermenu-button-background-color-hover;
+    }
+}
+%supermenu-dropdown-button {
+	color: $supermenu-dropdown-button-color;
+    background-color: $supermenu-dropdown-button-background-color;
+    &:hover, &:focus {
+    	color: $supermenu-dropdown-button-color-hover;
+    	background-color: $supermenu-dropdown-button-background-color-hover;
+    }
+}
+
+%toolbox-link {
+	color: $toolbox-link-color;
+	background-color: $toolbox-link-background-color;
+	&:hover, &:focus {
+		color: $toolbox-link-color-hover;
+		background-color: $toolbox-link-background-color-hover;
+	}
+}
+
+%footer-button {
+	color: $footer-button-color;
+    background-color: $footer-button-background-color;
+    &:hover, &:focus {
+    	color: $footer-button-color-hover;
+    	background-color: $footer-button-background-color-hover;
+    }
+}

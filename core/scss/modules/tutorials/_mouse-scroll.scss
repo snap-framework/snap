@@ -1,0 +1,105 @@
+.tutorial-mouse {
+   position: absolute;
+   right: 20%;
+   top: 30%;
+   background-color: $tutorial-mouse-container-background-color;
+   border-radius: 100%;
+   @include size(18em);
+   @include breakpoint-lte('xlarge') {
+      @include size(15em);
+   }   
+
+   .mouse {
+      position: absolute;
+      bottom: 40px;
+      top: 20%;
+      left: 50%;
+      z-index: 9000;
+      border-radius: 15px;
+      background-color: $tutorial-mouse-background-color;
+      @include translateX(-50%);
+      @include size(50px, 80px);
+      @include breakpoint-lte('xlarge') {
+         @include size(35px, 60px);
+      }
+      //top curve of the cable
+      .cable-1 {
+         position: absolute;
+         top: -66%;
+         right: -45%;
+         border-bottom: 2px solid darken($tutorial-mouse-cable-border-color, 30%);
+         border-radius: 0 0 360px 0;
+         border-right: 2px solid darken($tutorial-mouse-cable-border-color, 30%);
+         @include transform(translateX(-50%) rotate(0deg));
+         @include size(42%, 31%);
+         @include breakpoint-lte('xlarge') {
+            @include size(55%, 20%);
+            top: -58%;
+            right: -64%;
+         }
+      }
+      //bottom curve of the cable
+      .cable-2 {
+         position: absolute;
+         top: -30%;
+         right: -30%;
+         border-bottom: 2px solid darken($tutorial-mouse-cable-border-color, 30%);
+         border-radius: 0 0 0 360px;
+         border-left: 2px solid darken($tutorial-mouse-cable-border-color, 30%);
+         @include transform(translateX(-50%) rotate(90deg));
+         @include size(2em, 1.2em);
+         @include breakpoint-lte('xlarge') {
+            @include size(70%, 20%);
+            top: -30%;
+            right: -35%;
+         }
+      }
+      //button spacer under the buttons
+      .spacer-h {
+         position: relative;
+         top: 45%;
+         border: 1px solid $tutorial-mouse-spacer-h-border-color;
+         display: block;
+         @include size(100%, 1px);
+      }
+      //middle spacer between the buttons
+      .spacer-v {
+         position: absolute;
+         top: 0px;
+         left: 50%;
+         z-index: 1;
+         border: 1px solid darken($tutorial-mouse-spacer-v-border-color, 30%);
+         display: block;
+         @include translateX(-50%);
+         @include size(1px, 45%);
+      }
+      .mouse-wheel {
+         position: relative;
+         z-index: 100;
+         display: block;
+         margin: 6px auto;
+         border-radius: 4px;
+         background-color: $tutorial-mouse-wheel-background-color;
+         @include size(8px, 15px);
+         @include animation(wheel 1s infinite);
+         @include breakpoint-lte('xlarge') {
+            @include size(5px, 10px);
+         }
+      }
+   }
+}
+
+@include keyframes(wheel) {
+   0% {
+      opacity: 1;
+   }
+   50% {
+      @include translateY(10px);
+      @include breakpoint-lte('xlarge') {
+         @include translateY(5px);
+      }
+   }
+   100% {
+      @include translateY(0px);
+   }
+}

@@ -1,0 +1,5242 @@
+@charset "UTF-8";
+/* line 1, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule [class*=ae-], body.microModule [class*=ae-].slideInBottom, body.microModule .slideInBottom [class*=ae-], body.microModule.slideInBottom [class*=ae-] {
+  visibility: hidden;
+  -moz-transform: translate3d(0, 100px, 0);
+  -ms-transform: translate3d(0, 100px, 0);
+  -o-transform: translate3d(0, 100px, 0);
+  -ms-transform: translate3d(0, 100px, 0);
+  -webkit-transform: translate3d(0, 100px, 0);
+  transform: translate3d(0, 100px, 0);
+  opacity: 0;
+}
+
+/* line 1, ../common/scss/utils/_shorthands.scss */
+.alignLeft {
+  text-align: left;
+}
+
+/* line 4, ../common/scss/utils/_shorthands.scss */
+.alignRight {
+  text-align: right;
+}
+
+/* line 7, ../common/scss/utils/_shorthands.scss */
+.alignCenter {
+  text-align: center;
+}
+
+/* line 11, ../common/scss/utils/_shorthands.scss */
+.verticalCenter {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 22, ../common/scss/utils/_shorthands.scss */
+.w10 {
+  width: 10%;
+}
+
+/* line 22, ../common/scss/utils/_shorthands.scss */
+.w20 {
+  width: 20%;
+}
+
+/* line 22, ../common/scss/utils/_shorthands.scss */
+.w30 {
+  width: 30%;
+}
+
+/* line 22, ../common/scss/utils/_shorthands.scss */
+.w40 {
+  width: 40%;
+}
+
+/* line 22, ../common/scss/utils/_shorthands.scss */
+.w50 {
+  width: 50%;
+}
+
+/* line 22, ../common/scss/utils/_shorthands.scss */
+.w60 {
+  width: 60%;
+}
+
+/* line 22, ../common/scss/utils/_shorthands.scss */
+.w70 {
+  width: 70%;
+}
+
+/* line 22, ../common/scss/utils/_shorthands.scss */
+.w80 {
+  width: 80%;
+}
+
+/* line 22, ../common/scss/utils/_shorthands.scss */
+.w90 {
+  width: 90%;
+}
+
+/* line 22, ../common/scss/utils/_shorthands.scss */
+.w100 {
+  width: 100%;
+}
+
+/* line 1, ../common/scss/base/_global-styles.scss */
+body {
+  margin: 0;
+  color: #222;
+}
+
+/* line 5, ../common/scss/base/_global-styles.scss */
+.error {
+  color: #904136;
+}
+
+/* line 6, ../common/scss/base/_global-styles.scss */
+.warning {
+  color: #FF851B;
+}
+
+/* line 8, ../common/scss/base/_global-styles.scss */
+a {
+  color: #295376;
+  /*****************External open in a new window*******/
+}
+/* line 10, ../common/scss/base/_global-styles.scss */
+a:visited {
+  color: #7834bc;
+}
+/* line 13, ../common/scss/base/_global-styles.scss */
+a:hover, a:focus {
+  text-decoration: none;
+}
+/* line 17, ../common/scss/base/_global-styles.scss */
+a.external::after {
+  background: url("base/icon_external_link.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  content: '';
+  display: inline-block;
+  margin-left: 3px;
+}
+
+/* line 29, ../common/scss/base/_global-styles.scss */
+.download-icon {
+  background: url(base/icon_download.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 28px;
+  content: '';
+  position: absolute;
+  right: 5%;
+  margin-top: 10px;
+  z-index: 5;
+  text-indent: -9999px;
+}
+/* line 41, ../common/scss/base/_global-styles.scss */
+.download-icon:hover {
+  background-position: 0px -28px;
+}
+
+/* line 46, ../common/scss/base/_global-styles.scss */
+.disabled, .locked, .module-is-locked, .module-is-locked a {
+  cursor: not-allowed !important;
+}
+
+/* line 50, ../common/scss/base/_global-styles.scss */
+.disabled, .locked, .module-is-locked, .module-is-locked a {
+  cursor: not-allowed !important;
+}
+
+/* line 55, ../common/scss/base/_global-styles.scss */
+.btn-default {
+  color: #fff;
+  background-color: #3b3b3b;
+  border-color: #dcdee1;
+}
+/* line 59, ../common/scss/base/_global-styles.scss */
+.btn-default:hover {
+  color: #fff;
+  background-color: #4f4f4f;
+  border-color: #bbbfc5;
+}
+
+/* line 1, ../common/scss/base/_placeholders.scss */
+#wb-bar .top-menu > .row #wb-lng a:not(.tb-item), .mobile header #topbacknext a {
+  color: #fff;
+  background-color: transparent;
+}
+/* line 4, ../common/scss/base/_placeholders.scss */
+#wb-bar .top-menu > .row #wb-lng a:hover:not(.tb-item), .mobile header #topbacknext a:hover, #wb-bar .top-menu > .row #wb-lng a:focus:not(.tb-item), .mobile header #topbacknext a:focus {
+  color: #fff;
+  background-color: #6e6e6e;
+}
+
+/* line 9, ../common/scss/base/_placeholders.scss */
+#wb-sm .supermenu > li > a.item {
+  color: #fff;
+  background-color: #555;
+}
+/* line 12, ../common/scss/base/_placeholders.scss */
+#wb-sm .supermenu > li > a.item:hover, #wb-sm .supermenu > li > a.item:focus {
+  color: #fff;
+  background-color: #6e6e6e;
+}
+
+/* line 17, ../common/scss/base/_placeholders.scss */
+#wb-sm .sm.open li a {
+  color: #222;
+  background-color: #fff;
+}
+/* line 20, ../common/scss/base/_placeholders.scss */
+#wb-sm .sm.open li a:hover, #wb-sm .sm.open li a:focus {
+  color: #fff;
+  background-color: #6e6e6e;
+}
+
+/* line 26, ../common/scss/base/_placeholders.scss */
+#wb-bar .top-menu > .row #wb-lng ul.tb-container a {
+  color: #222;
+  background-color: #fff;
+}
+/* line 29, ../common/scss/base/_placeholders.scss */
+#wb-bar .top-menu > .row #wb-lng ul.tb-container a:hover, #wb-bar .top-menu > .row #wb-lng ul.tb-container a:focus {
+  color: #fff;
+  background-color: #6e6e6e;
+}
+
+/* line 35, ../common/scss/base/_placeholders.scss */
+footer .backnext a {
+  color: #fff;
+  background-color: #555;
+}
+/* line 38, ../common/scss/base/_placeholders.scss */
+footer .backnext a:hover, footer .backnext a:focus {
+  color: #fff;
+  background-color: #6e6e6e;
+}
+
+/* ------------------ HEADERS ------------------*/
+/* line 2, ../common/scss/base/_typography.scss */
+h1 {
+  margin-top: 0;
+  font-size: 1.4em;
+  padding-top: 15px;
+}
+
+/* line 8, ../common/scss/base/_typography.scss */
+h2 {
+  font-size: 1.3em;
+}
+
+/* line 12, ../common/scss/base/_typography.scss */
+h3 {
+  font-size: 1.2em;
+}
+
+/* ------------------ Font ------------------ */
+/* line 18, ../common/scss/base/_typography.scss */
+.smaller {
+  font-size: 0.8em;
+}
+
+/* line 22, ../common/scss/base/_typography.scss */
+.smallest {
+  font-size: 0.5em;
+}
+
+/* line 1, ../core/scss/fixes/_bootstrap.scss */
+.glyphicon-search:before {
+  content: '';
+}
+
+/* -------------------------
+	CHEVRON issues
+----------------------*/
+/* line 9, ../core/scss/fixes/_bootstrap.scss */
+span.glyphicon-chevron-down {
+  margin-right: -27px;
+}
+
+/* bootstrap addition - offset right */
+/* line 16, ../core/scss/fixes/_bootstrap.scss */
+.col-xs-offset-right-12 {
+  margin-right: 100%;
+}
+
+/* line 20, ../core/scss/fixes/_bootstrap.scss */
+.col-xs-offset-right-11 {
+  margin-right: 91.66666667%;
+}
+
+/* line 24, ../core/scss/fixes/_bootstrap.scss */
+.col-xs-offset-right-10 {
+  margin-right: 83.33333333%;
+}
+
+/* line 28, ../core/scss/fixes/_bootstrap.scss */
+.col-xs-offset-right-9 {
+  margin-right: 75%;
+}
+
+/* line 32, ../core/scss/fixes/_bootstrap.scss */
+.col-xs-offset-right-8 {
+  margin-right: 66.66666667%;
+}
+
+/* line 36, ../core/scss/fixes/_bootstrap.scss */
+.col-xs-offset-right-7 {
+  margin-right: 58.33333333%;
+}
+
+/* line 40, ../core/scss/fixes/_bootstrap.scss */
+.col-xs-offset-right-6 {
+  margin-right: 50%;
+}
+
+/* line 44, ../core/scss/fixes/_bootstrap.scss */
+.col-xs-offset-right-5 {
+  margin-right: 41.66666667%;
+}
+
+/* line 48, ../core/scss/fixes/_bootstrap.scss */
+.col-xs-offset-right-4 {
+  margin-right: 33.33333333%;
+}
+
+/* line 52, ../core/scss/fixes/_bootstrap.scss */
+.col-xs-offset-right-3 {
+  margin-right: 25%;
+}
+
+/* line 56, ../core/scss/fixes/_bootstrap.scss */
+.col-xs-offset-right-2 {
+  margin-right: 16.66666667%;
+}
+
+/* line 60, ../core/scss/fixes/_bootstrap.scss */
+.col-xs-offset-right-1 {
+  margin-right: 8.33333333%;
+}
+
+/* line 64, ../core/scss/fixes/_bootstrap.scss */
+.col-xs-offset-right-0 {
+  margin-right: 0;
+}
+
+@media (min-width: 768px) {
+  /* line 69, ../core/scss/fixes/_bootstrap.scss */
+  .col-sm-offset-right-12 {
+    margin-right: 100%;
+  }
+
+  /* line 72, ../core/scss/fixes/_bootstrap.scss */
+  .col-sm-offset-right-11 {
+    margin-right: 91.66666667%;
+  }
+
+  /* line 75, ../core/scss/fixes/_bootstrap.scss */
+  .col-sm-offset-right-10 {
+    margin-right: 83.33333333%;
+  }
+
+  /* line 78, ../core/scss/fixes/_bootstrap.scss */
+  .col-sm-offset-right-9 {
+    margin-right: 75%;
+  }
+
+  /* line 81, ../core/scss/fixes/_bootstrap.scss */
+  .col-sm-offset-right-8 {
+    margin-right: 66.66666667%;
+  }
+
+  /* line 84, ../core/scss/fixes/_bootstrap.scss */
+  .col-sm-offset-right-7 {
+    margin-right: 58.33333333%;
+  }
+
+  /* line 87, ../core/scss/fixes/_bootstrap.scss */
+  .col-sm-offset-right-6 {
+    margin-right: 50%;
+  }
+
+  /* line 90, ../core/scss/fixes/_bootstrap.scss */
+  .col-sm-offset-right-5 {
+    margin-right: 41.66666667%;
+  }
+
+  /* line 93, ../core/scss/fixes/_bootstrap.scss */
+  .col-sm-offset-right-4 {
+    margin-right: 33.33333333%;
+  }
+
+  /* line 96, ../core/scss/fixes/_bootstrap.scss */
+  .col-sm-offset-right-3 {
+    margin-right: 25%;
+  }
+
+  /* line 99, ../core/scss/fixes/_bootstrap.scss */
+  .col-sm-offset-right-2 {
+    margin-right: 16.66666667%;
+  }
+
+  /* line 102, ../core/scss/fixes/_bootstrap.scss */
+  .col-sm-offset-right-1 {
+    margin-right: 8.33333333%;
+  }
+
+  /* line 105, ../core/scss/fixes/_bootstrap.scss */
+  .col-sm-offset-right-0 {
+    margin-right: 0;
+  }
+}
+@media (min-width: 992px) {
+  /* line 111, ../core/scss/fixes/_bootstrap.scss */
+  .col-md-offset-right-12 {
+    margin-right: 100%;
+  }
+
+  /* line 114, ../core/scss/fixes/_bootstrap.scss */
+  .col-md-offset-right-11 {
+    margin-right: 91.66666667%;
+  }
+
+  /* line 117, ../core/scss/fixes/_bootstrap.scss */
+  .col-md-offset-right-10 {
+    margin-right: 83.33333333%;
+  }
+
+  /* line 120, ../core/scss/fixes/_bootstrap.scss */
+  .col-md-offset-right-9 {
+    margin-right: 75%;
+  }
+
+  /* line 123, ../core/scss/fixes/_bootstrap.scss */
+  .col-md-offset-right-8 {
+    margin-right: 66.66666667%;
+  }
+
+  /* line 126, ../core/scss/fixes/_bootstrap.scss */
+  .col-md-offset-right-7 {
+    margin-right: 58.33333333%;
+  }
+
+  /* line 129, ../core/scss/fixes/_bootstrap.scss */
+  .col-md-offset-right-6 {
+    margin-right: 50%;
+  }
+
+  /* line 132, ../core/scss/fixes/_bootstrap.scss */
+  .col-md-offset-right-5 {
+    margin-right: 41.66666667%;
+  }
+
+  /* line 135, ../core/scss/fixes/_bootstrap.scss */
+  .col-md-offset-right-4 {
+    margin-right: 33.33333333%;
+  }
+
+  /* line 138, ../core/scss/fixes/_bootstrap.scss */
+  .col-md-offset-right-3 {
+    margin-right: 25%;
+  }
+
+  /* line 141, ../core/scss/fixes/_bootstrap.scss */
+  .col-md-offset-right-2 {
+    margin-right: 16.66666667%;
+  }
+
+  /* line 144, ../core/scss/fixes/_bootstrap.scss */
+  .col-md-offset-right-1 {
+    margin-right: 8.33333333%;
+  }
+
+  /* line 147, ../core/scss/fixes/_bootstrap.scss */
+  .col-md-offset-right-0 {
+    margin-right: 0;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 153, ../core/scss/fixes/_bootstrap.scss */
+  .col-lg-offset-right-12 {
+    margin-right: 100%;
+  }
+
+  /* line 156, ../core/scss/fixes/_bootstrap.scss */
+  .col-lg-offset-right-11 {
+    margin-right: 91.66666667%;
+  }
+
+  /* line 159, ../core/scss/fixes/_bootstrap.scss */
+  .col-lg-offset-right-10 {
+    margin-right: 83.33333333%;
+  }
+
+  /* line 162, ../core/scss/fixes/_bootstrap.scss */
+  .col-lg-offset-right-9 {
+    margin-right: 75%;
+  }
+
+  /* line 165, ../core/scss/fixes/_bootstrap.scss */
+  .col-lg-offset-right-8 {
+    margin-right: 66.66666667%;
+  }
+
+  /* line 168, ../core/scss/fixes/_bootstrap.scss */
+  .col-lg-offset-right-7 {
+    margin-right: 58.33333333%;
+  }
+
+  /* line 171, ../core/scss/fixes/_bootstrap.scss */
+  .col-lg-offset-right-6 {
+    margin-right: 50%;
+  }
+
+  /* line 174, ../core/scss/fixes/_bootstrap.scss */
+  .col-lg-offset-right-5 {
+    margin-right: 41.66666667%;
+  }
+
+  /* line 177, ../core/scss/fixes/_bootstrap.scss */
+  .col-lg-offset-right-4 {
+    margin-right: 33.33333333%;
+  }
+
+  /* line 180, ../core/scss/fixes/_bootstrap.scss */
+  .col-lg-offset-right-3 {
+    margin-right: 25%;
+  }
+
+  /* line 183, ../core/scss/fixes/_bootstrap.scss */
+  .col-lg-offset-right-2 {
+    margin-right: 16.66666667%;
+  }
+
+  /* line 186, ../core/scss/fixes/_bootstrap.scss */
+  .col-lg-offset-right-1 {
+    margin-right: 8.33333333%;
+  }
+
+  /* line 189, ../core/scss/fixes/_bootstrap.scss */
+  .col-lg-offset-right-0 {
+    margin-right: 0;
+  }
+}
+/* line 2, ../core/scss/fixes/_wet.scss */
+.mobile .wb-overlay {
+  transition: right 0.5s ease;
+  position: fixed;
+  display: inline-block;
+  right: -150%;
+}
+/* line 8, ../core/scss/fixes/_wet.scss */
+.mobile .wb-overlay.open {
+  transition: right 0.5s ease;
+  right: 0;
+}
+
+/* ====== Zoom effect ====== */
+/* line 18, ../core/scss/fixes/_wet.scss */
+.mfp-zoom-in {
+  /* start state */
+  /* animate in */
+  /* animate out */
+}
+/* line 20, ../core/scss/fixes/_wet.scss */
+.mfp-zoom-in .mfp-with-anim {
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  transform: scale(0.8);
+}
+/* line 25, ../core/scss/fixes/_wet.scss */
+.mfp-zoom-in.mfp-bg {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+/* line 31, ../core/scss/fixes/_wet.scss */
+.mfp-zoom-in.mfp-ready .mfp-with-anim {
+  opacity: 1;
+  transform: scale(1);
+}
+/* line 35, ../core/scss/fixes/_wet.scss */
+.mfp-zoom-in.mfp-ready.mfp-bg {
+  opacity: 0.8;
+}
+/* line 41, ../core/scss/fixes/_wet.scss */
+.mfp-zoom-in.mfp-removing .mfp-with-anim {
+  transform: scale(0.8);
+  opacity: 0;
+}
+/* line 45, ../core/scss/fixes/_wet.scss */
+.mfp-zoom-in.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+
+/* ====== Move-horizontal effect ====== */
+/* line 52, ../core/scss/fixes/_wet.scss */
+.mfp-move-horizontal {
+  /* start state */
+  /* animate in */
+  /* animate out */
+}
+/* line 54, ../core/scss/fixes/_wet.scss */
+.mfp-move-horizontal .mfp-with-anim {
+  opacity: 0;
+  transition: all 0.3s;
+  transform: translateX(-50px);
+}
+/* line 59, ../core/scss/fixes/_wet.scss */
+.mfp-move-horizontal.mfp-bg {
+  opacity: 0;
+  transition: all 0.3s;
+}
+/* line 65, ../core/scss/fixes/_wet.scss */
+.mfp-move-horizontal.mfp-ready .mfp-with-anim {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* line 69, ../core/scss/fixes/_wet.scss */
+.mfp-move-horizontal.mfp-ready.mfp-bg {
+  opacity: 0.8;
+}
+/* line 75, ../core/scss/fixes/_wet.scss */
+.mfp-move-horizontal.mfp-removing .mfp-with-anim {
+  transform: translateX(50px);
+  opacity: 0;
+}
+/* line 79, ../core/scss/fixes/_wet.scss */
+.mfp-move-horizontal.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+
+/* ====== Move-vertical effect ====== */
+/* line 86, ../core/scss/fixes/_wet.scss */
+.mfp-move-vertical {
+  /* start state */
+  /* animate in */
+  /* animate out */
+}
+/* line 88, ../core/scss/fixes/_wet.scss */
+.mfp-move-vertical .mfp-with-anim {
+  opacity: 0;
+  transition: all 0.3s;
+  transform: translateY(-50px);
+}
+/* line 93, ../core/scss/fixes/_wet.scss */
+.mfp-move-vertical.mfp-bg {
+  opacity: 0;
+  transition: all 0.3s;
+}
+/* line 99, ../core/scss/fixes/_wet.scss */
+.mfp-move-vertical.mfp-ready .mfp-with-anim {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* line 103, ../core/scss/fixes/_wet.scss */
+.mfp-move-vertical.mfp-ready.mfp-bg {
+  opacity: 0.8;
+}
+/* line 109, ../core/scss/fixes/_wet.scss */
+.mfp-move-vertical.mfp-removing .mfp-with-anim {
+  transform: translateY(50px);
+  opacity: 0;
+}
+/* line 113, ../core/scss/fixes/_wet.scss */
+.mfp-move-vertical.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+
+/* ====== Move-from-top effect ====== */
+/* line 121, ../core/scss/fixes/_wet.scss */
+.mfp-move-from-top {
+  /* start state */
+  /* animate in */
+  /* animate out */
+}
+/* line 122, ../core/scss/fixes/_wet.scss */
+.mfp-move-from-top .mfp-content {
+  vertical-align: top;
+}
+/* line 126, ../core/scss/fixes/_wet.scss */
+.mfp-move-from-top .mfp-with-anim {
+  opacity: 0;
+  transition: all 0.2s;
+  transform: translateY(-100px);
+}
+/* line 131, ../core/scss/fixes/_wet.scss */
+.mfp-move-from-top.mfp-bg {
+  opacity: 0;
+  transition: all 0.2s;
+}
+/* line 137, ../core/scss/fixes/_wet.scss */
+.mfp-move-from-top.mfp-ready .mfp-with-anim {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* line 141, ../core/scss/fixes/_wet.scss */
+.mfp-move-from-top.mfp-ready.mfp-bg {
+  opacity: 0.8;
+}
+/* line 147, ../core/scss/fixes/_wet.scss */
+.mfp-move-from-top.mfp-removing .mfp-with-anim {
+  transform: translateY(-50px);
+  opacity: 0;
+}
+/* line 151, ../core/scss/fixes/_wet.scss */
+.mfp-move-from-top.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+
+/* line 1, ../core/scss/icons/_ribbons.scss */
+.ribbon {
+  padding-left: 40px;
+  min-height: 100px;
+}
+/* line 4, ../core/scss/icons/_ribbons.scss */
+.ribbon:before {
+  position: absolute;
+  margin-left: -64px;
+  content: '';
+  background-image: url(base/ico_bundle_ribbons.png);
+  width: 70px;
+  height: 90px;
+  display: block;
+}
+/* line 13, ../core/scss/icons/_ribbons.scss */
+.ribbon h2 {
+  margin: 30px 15px;
+}
+/* line 16, ../core/scss/icons/_ribbons.scss */
+.ribbon.tip:before {
+  background-position: -0px -0px;
+}
+/* line 19, ../core/scss/icons/_ribbons.scss */
+.ribbon.information:before {
+  background-position: -75px -0px;
+}
+/* line 22, ../core/scss/icons/_ribbons.scss */
+.ribbon.dyk:before {
+  background-position: -150px -0px;
+}
+/* line 25, ../core/scss/icons/_ribbons.scss */
+.ribbon.warning:before {
+  background-position: -225px -0px;
+}
+/* line 28, ../core/scss/icons/_ribbons.scss */
+.ribbon.exam:before {
+  background-position: -300px -0px;
+}
+/* line 31, ../core/scss/icons/_ribbons.scss */
+.ribbon.click:before {
+  background-position: -375px -0px;
+}
+/* line 34, ../core/scss/icons/_ribbons.scss */
+.ribbon.alarm:before {
+  background-position: -450px -0px;
+}
+/* line 37, ../core/scss/icons/_ribbons.scss */
+.ribbon.clock:before {
+  background-position: -525px -0px;
+}
+/* line 40, ../core/scss/icons/_ribbons.scss */
+.ribbon.graph:before {
+  background-position: -600px -0px;
+}
+/* line 43, ../core/scss/icons/_ribbons.scss */
+.ribbon.docs:before {
+  background-position: -675px -0px;
+}
+/* line 46, ../core/scss/icons/_ribbons.scss */
+.ribbon.links:before {
+  background-position: -750px -0px;
+}
+/* line 49, ../core/scss/icons/_ribbons.scss */
+.ribbon.activity:before {
+  background-position: -825px -0px;
+}
+/* line 52, ../core/scss/icons/_ribbons.scss */
+.ribbon.magnifyingGlass:before {
+  background-position: -900px -0px;
+}
+
+/* ----------------RIBBONS TOP----------------*/
+/* line 59, ../core/scss/icons/_ribbons.scss */
+.ribbon-top {
+  padding-left: 40px;
+  min-height: 100px;
+}
+/* line 62, ../core/scss/icons/_ribbons.scss */
+.ribbon-top:before {
+  position: absolute;
+  margin-left: -40px;
+  margin-top: -8px;
+  content: '';
+  background-image: url(base/ico_bundle_ribbons_top.png) !important;
+  width: 90px;
+  height: 60px;
+  display: block;
+}
+/* line 72, ../core/scss/icons/_ribbons.scss */
+.ribbon-top h2 {
+  margin: 55px 0px 5px 0px;
+}
+/* line 75, ../core/scss/icons/_ribbons.scss */
+.ribbon-top.tip:before {
+  background-position: -0px -0px;
+}
+/* line 78, ../core/scss/icons/_ribbons.scss */
+.ribbon-top.information:before {
+  background-position: -90px -0px;
+}
+/* line 81, ../core/scss/icons/_ribbons.scss */
+.ribbon-top.dyk:before {
+  background-position: -180px -0px;
+}
+/* line 84, ../core/scss/icons/_ribbons.scss */
+.ribbon-top.warning:before {
+  background-position: -275px -0px;
+}
+/* line 87, ../core/scss/icons/_ribbons.scss */
+.ribbon-top.exam:before {
+  background-position: -360px -0px;
+}
+/* line 90, ../core/scss/icons/_ribbons.scss */
+.ribbon-top.click:before {
+  background-position: -450px -0px;
+}
+/* line 93, ../core/scss/icons/_ribbons.scss */
+.ribbon-top.alarm:before {
+  background-position: -540px -0px;
+}
+/* line 96, ../core/scss/icons/_ribbons.scss */
+.ribbon-top.clock:before {
+  background-position: -630px -0px;
+}
+/* line 99, ../core/scss/icons/_ribbons.scss */
+.ribbon-top.graph:before {
+  background-position: -720px -0px;
+}
+/* line 102, ../core/scss/icons/_ribbons.scss */
+.ribbon-top.docs:before {
+  background-position: -810px -0px;
+}
+/* line 105, ../core/scss/icons/_ribbons.scss */
+.ribbon-top.links:before {
+  background-position: -900px -0px;
+}
+/* line 108, ../core/scss/icons/_ribbons.scss */
+.ribbon-top.activity:before {
+  background-position: -990px -0px;
+}
+
+/* ----------------Icon pack----------------*/
+/* line 2, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right > li a, .supermenu > li > .home {
+  background: url("base/ico_stack.png") no-repeat;
+}
+
+/* line 7, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right > li a.home {
+  background-position: 5px 4px;
+}
+/* line 9, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right > li a.home:hover {
+  background-position: 5px -38px;
+}
+/* line 14, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right li a.home:focus {
+  background-position: 5px -38px;
+}
+/* line 17, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right li a.help:focus {
+  background-position: -102px -38px;
+}
+/* line 20, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right li a.toolbox:focus {
+  background-position: -49px -38px;
+}
+/* line 23, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right li a.sitemap:focus {
+  background-position: -200px -38px;
+}
+/* line 26, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right li a.quit:focus {
+  background-position: -150px -38px;
+}
+/* line 29, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right li a.print:focus {
+  background-position: -247px -38px;
+}
+/* line 33, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right > li a.help {
+  background-position: -102px 4px;
+}
+/* line 35, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right > li a.help:hover {
+  background-position: -102px -38px;
+}
+/* line 39, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right > li a.toolbox {
+  background-position: -49px 4px;
+}
+/* line 41, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right > li a.toolbox:hover {
+  background-position: -49px -38px;
+}
+/* line 45, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right > li a.sitemap {
+  background-position: -200px 4px;
+}
+/* line 47, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right > li a.sitemap:hover {
+  background-position: -200px -38px;
+}
+/* line 51, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right > li a.quit {
+  background-position: -150px 4px;
+}
+/* line 53, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right > li a.quit:hover {
+  background-position: -150px -38px;
+}
+/* line 57, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right > li a.print {
+  background-position: -252px 4px;
+}
+/* line 59, ../core/scss/icons/_icon-pack.scss */
+#wb-bar ul.text-right > li a.print:hover {
+  background-position: -252px -38px;
+}
+
+/* ----------------Circle bundle----------------*/
+/* line 68, ../core/scss/icons/_icon-pack.scss */
+.circle-bundle:before {
+  content: "";
+  background-image: url(base/ico_bundle_circles.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+}
+/* line 76, ../core/scss/icons/_icon-pack.scss */
+.circle-bundle.tip:before {
+  background-position: -15px -60px;
+}
+/* line 79, ../core/scss/icons/_icon-pack.scss */
+.circle-bundle.magnify:before {
+  background-position: -60px -60px;
+}
+/* line 82, ../core/scss/icons/_icon-pack.scss */
+.circle-bundle.dyk:before {
+  background-position: -105px -60px;
+}
+/* line 85, ../core/scss/icons/_icon-pack.scss */
+.circle-bundle.warning:before {
+  background-position: -150px -60px;
+}
+/* line 88, ../core/scss/icons/_icon-pack.scss */
+.circle-bundle.exam:before {
+  background-position: -195px -60px;
+}
+/* line 91, ../core/scss/icons/_icon-pack.scss */
+.circle-bundle.interaction:before {
+  background-position: -240px -60px;
+}
+/* line 94, ../core/scss/icons/_icon-pack.scss */
+.circle-bundle.lock:before {
+  background-position: -285px -60px;
+}
+/* line 97, ../core/scss/icons/_icon-pack.scss */
+.circle-bundle.unlock:before {
+  background-position: -330px -60px;
+}
+/* line 100, ../core/scss/icons/_icon-pack.scss */
+.circle-bundle.objectif:before {
+  background-position: -375px -60px;
+}
+/* line 103, ../core/scss/icons/_icon-pack.scss */
+.circle-bundle.audio:before {
+  background-position: -420px -60px;
+}
+/* line 106, ../core/scss/icons/_icon-pack.scss */
+.circle-bundle.unassigned:before {
+  background-position: -465px -60px;
+}
+
+/* line 111, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle {
+  background-image: url(base/ico_bundle_circles.png);
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  overflow: hidden;
+  text-indent: -9999px;
+}
+/* line 117, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.tip {
+  background-position: -15px -60px;
+}
+/* line 119, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.tip:hover, a.circle-bundle.tip:focus {
+  background-position: -15px -105px;
+}
+/* line 123, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.magnify {
+  background-position: -60px -60px;
+}
+/* line 125, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.magnify:hover, a.circle-bundle.magnify:focus {
+  background-position: -60px -105px;
+}
+/* line 129, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.dyk {
+  background-position: -105px -60px;
+}
+/* line 131, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.dyk:hover, a.circle-bundle.dyk:focus {
+  background-position: -105px -105px;
+}
+/* line 135, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.warning {
+  background-position: -150px -60px;
+}
+/* line 137, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.warning:hover, a.circle-bundle.warning:focus {
+  background-position: -150px -105px;
+}
+/* line 141, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.exam {
+  background-position: -195px -60px;
+}
+/* line 143, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.exam:hover, a.circle-bundle.exam:focus {
+  background-position: -195px -105px;
+}
+/* line 147, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.interaction {
+  background-position: -240px -60px;
+}
+/* line 149, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.interaction:hover, a.circle-bundle.interaction:focus {
+  background-position: -240px -105px;
+}
+/* line 153, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.lock {
+  background-position: -285px -60px;
+}
+/* line 155, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.lock:hover, a.circle-bundle.lock:focus {
+  background-position: -285px -105px;
+}
+/* line 159, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.unlock {
+  background-position: -330px -60px;
+}
+/* line 161, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.unlock:hover, a.circle-bundle.unlock:focus {
+  background-position: -330px -105px;
+}
+/* line 165, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.objectif {
+  background-position: -375px -60px;
+}
+/* line 167, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.objectif:hover, a.circle-bundle.objectif:focus {
+  background-position: -375px -105px;
+}
+/* line 171, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.audio {
+  background-position: -420px -60px;
+}
+/* line 173, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.audio:hover, a.circle-bundle.audio:focus {
+  background-position: -420px -105px;
+}
+/* line 177, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.unassigned {
+  background-position: -465px -60px;
+}
+/* line 179, ../core/scss/icons/_icon-pack.scss */
+a.circle-bundle.unassigned:hover, a.circle-bundle.unassigned:focus {
+  background-position: -465px -105px;
+}
+
+/* ------------------GENERAL LOOK-----------------------------*/
+/*mobile only*/
+/* line 4, ../core/scss/layout/_general.scss */
+.breadcrumb {
+  clear: both;
+  border-radius: 0;
+}
+
+/* line 10, ../core/scss/layout/_general.scss */
+#dynamic_content {
+  min-height: 400px;
+}
+
+/* line 14, ../core/scss/layout/_general.scss */
+.loading.loaded {
+  opacity: 1;
+}
+
+/* line 18, ../core/scss/layout/_general.scss */
+.loading {
+  opacity: 0;
+}
+
+/* line 22, ../core/scss/layout/_general.scss */
+.spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-image: url("base/spinner.svg");
+  background-repeat: no-repeat;
+  background-size: 60px;
+  background-position: center;
+  background-color: #fff;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  text-indent: -9999px;
+}
+
+/* line 37, ../core/scss/layout/_general.scss */
+main {
+  position: relative;
+}
+/* line 40, ../core/scss/layout/_general.scss */
+main .spinner {
+  position: absolute;
+}
+
+/* line 46, ../core/scss/layout/_general.scss */
+.ie10 .spinner, .ie11 .spinner {
+  background-image: url("base/spinner.gif") !important;
+}
+
+/* line 2, ../core/scss/layout/_scrollbar.scss */
+main::-webkit-scrollbar {
+  width: 0.9em;
+}
+
+/* line 5, ../core/scss/layout/_scrollbar.scss */
+main::-webkit-scrollbar-track {
+  background-color: #222;
+}
+
+/* line 8, ../core/scss/layout/_scrollbar.scss */
+main::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 4px solid transparent;
+  -webkit-background-clip: content;
+  -moz-background-clip: content;
+  background-clip: content-box;
+  background-color: #d7e059;
+}
+
+/* line 17, ../core/scss/layout/_scrollbar.scss */
+main {
+  scrollbar-3dlight-color: #d7e059;
+  scrollbar-arrow-color: #d7e059;
+  scrollbar-face-color: #d7e059;
+  scrollbar-highlight-color: #222;
+  scrollbar-shadow-color: #d7e059;
+}
+
+/* line 1, ../core/scss/layout/header/_header.scss */
+.wb-sl {
+  font-size: 1em !important;
+}
+
+/* line 3, ../core/scss/layout/header/_header.scss */
+#wb-bar {
+  background-color: #555;
+}
+/* line 6, ../core/scss/layout/header/_header.scss */
+#wb-bar .top-menu {
+  position: relative;
+  display: table;
+  height: 45px;
+}
+/* line 12, ../core/scss/layout/header/_header.scss */
+#wb-bar #topbacknext {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 17, ../core/scss/layout/header/_header.scss */
+#wb-bar a {
+  text-decoration: none;
+  height: 100%;
+  vertical-align: middle;
+}
+/* line 22, ../core/scss/layout/header/_header.scss */
+#wb-bar a:visited {
+  text-decoration: none;
+}
+/* line 27, ../core/scss/layout/header/_header.scss */
+#wb-bar .top-menu h2.series-title {
+  color: #fff;
+  margin: 0;
+  display: table-cell;
+  vertical-align: middle;
+}
+/* line 32, ../core/scss/layout/header/_header.scss */
+#wb-bar .top-menu h2.series-title a {
+  text-decoration: none;
+  color: inherit;
+}
+/* line 37, ../core/scss/layout/header/_header.scss */
+#wb-bar .top-menu > .row {
+  display: inline-block;
+  float: right;
+  height: 100%;
+}
+/* line 5, ../core/scss/layout/header/_toolbar.scss */
+#wb-bar .top-menu > .row #wb-lng {
+  height: 100%;
+}
+/* line 8, ../core/scss/layout/header/_toolbar.scss */
+#wb-bar .top-menu > .row #wb-lng > ul {
+  margin-bottom: 0;
+  display: inline-table;
+  height: 100%;
+}
+/* line 14, ../core/scss/layout/header/_toolbar.scss */
+#wb-bar .top-menu > .row #wb-lng ul:not(.tb-container) > li {
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+  display: inline-table;
+  vertical-align: middle;
+}
+/* line 22, ../core/scss/layout/header/_toolbar.scss */
+#wb-bar .top-menu > .row #wb-lng a:not(.tb-item) {
+  display: inline-table;
+  height: 100%;
+  vertical-align: middle;
+}
+/* line 28, ../core/scss/layout/header/_toolbar.scss */
+#wb-bar .top-menu > .row #wb-lng a:not(.lang):not(.tb-item) {
+  text-indent: -9999px;
+  width: 50px;
+  height: 40px;
+}
+/* line 33, ../core/scss/layout/header/_toolbar.scss */
+#wb-bar .top-menu > .row #wb-lng a.lang {
+  padding-left: 8px;
+  padding-right: 8px;
+  display: table-cell;
+}
+/* line 36, ../core/scss/layout/header/_toolbar.scss */
+#wb-bar .top-menu > .row #wb-lng ul.tb-container {
+  position: absolute;
+  text-align: left;
+  width: 160px;
+  margin-left: -5px;
+  z-index: 100;
+  border: 1px solid;
+  border-radius: 3px;
+  box-shadow: 0px 2px 5px 0px #999;
+}
+/* line 51, ../core/scss/layout/header/_toolbar.scss */
+#wb-bar .top-menu > .row #wb-lng li a.lang, #wb-bar .top-menu > .row #wb-lng .tb-container a {
+  background-image: none !important;
+}
+/* line 58, ../core/scss/layout/header/_toolbar.scss */
+#wb-bar .top-menu > .row #wb-lng ul.text-right > li > a, #wb-bar .top-menu > .row #mb-pnl ul.list-inline > li > a.lang {
+  white-space: nowrap;
+  text-align: left;
+  text-decoration: none;
+}
+/* line 63, ../core/scss/layout/header/_toolbar.scss */
+#wb-bar .top-menu > .row #wb-lng ul.text-right > li > a {
+  color: #fff;
+}
+/* line 68, ../core/scss/layout/header/_toolbar.scss */
+#wb-bar .top-menu > .row ul.tb-container > li > a {
+  display: block;
+  padding: 4px 10px;
+  text-decoration: none;
+}
+/* line 73, ../core/scss/layout/header/_toolbar.scss */
+#wb-bar .top-menu > .row ul.tb-container li:first-child a {
+  border: 0;
+}
+/* line 79, ../core/scss/layout/header/_toolbar.scss */
+#wb-bar .top-menu > .row #mb-tb > li > a {
+  display: block;
+  padding: 8px 20px;
+}
+
+/* ------------------ SUPERMENU BAR --------------*/
+/* navigation style 2 */
+/* line 4, ../core/scss/layout/header/_supermenu.scss */
+.removeLvl1 .supermenu > li:first-child > a {
+  width: 0px;
+  overflow: hidden;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  border: 0 !important;
+}
+/* line 10, ../core/scss/layout/header/_supermenu.scss */
+.removeLvl1 .supermenu > li:first-child > a:focus {
+  width: auto;
+}
+
+/*supermenu wrapper*/
+/* line 17, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm {
+  height: 40px;
+}
+/* line 19, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .backnext {
+  float: right;
+  height: 100%;
+  margin: 0 30px 0 0;
+  font-size: 0.8em;
+  color: #222;
+  z-index: 1;
+  position: relative;
+}
+/* line 27, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .backnext > a.disabled {
+  cursor: none;
+}
+/* line 30, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .backnext a {
+  display: inline-block;
+  padding: 10px;
+}
+/* line 33, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .backnext a.back, #wb-sm .backnext a.next {
+  text-indent: -9999px;
+}
+/* line 34, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .backnext a.back {
+  position: relative;
+}
+/* line 18, ../common/scss/utils/mixins/helpers/_various.scss */
+#wb-sm .backnext a.back:before, #wb-sm .backnext a.back:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+/* line 49, ../common/scss/utils/mixins/helpers/_various.scss */
+#wb-sm .backnext a.back:before {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-right: 6px solid #222;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+}
+/* line 36, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .backnext a.back:before {
+  left: 10px;
+}
+/* line 40, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .backnext a.next {
+  position: relative;
+}
+/* line 18, ../common/scss/utils/mixins/helpers/_various.scss */
+#wb-sm .backnext a.next:before, #wb-sm .backnext a.next:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+/* line 38, ../common/scss/utils/mixins/helpers/_various.scss */
+#wb-sm .backnext a.next:after {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-left: 6px solid #222;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+}
+/* line 42, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .backnext a.next:after {
+  right: 10px;
+}
+/* line 47, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .backnext .pagelbl {
+  display: none;
+}
+/* line 51, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm > div.nvbar > div.row {
+  max-height: 40px;
+  height: 40px;
+}
+/* line 55, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .supermenu {
+  margin-bottom: 0px;
+  /*actual supermenu*/
+  /*SECOND HOME (before levels)*/
+}
+/* line 59, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .supermenu .sm {
+  position: absolute !important;
+}
+/* line 64, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .supermenu > li {
+  height: 40px;
+}
+/* line 67, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .supermenu > li.sm-open a[href^="#"]:after {
+  /* little arrow right> */
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content: "\e114";
+  font-size: 0.7em;
+  right: 10px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/* line 83, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .supermenu > li > a {
+  /*mobile*/
+  padding-right: 35px;
+  text-align: left;
+  cursor: pointer;
+  color: #555;
+  white-space: nowrap;
+  text-decoration: none;
+}
+/* line 91, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .supermenu > li > a.home {
+  margin-left: 15px;
+  min-width: 30px;
+  background: url(base/smallhome.png) no-repeat 0px -5px;
+  height: 25px;
+  padding-right: 5px !important;
+  border-right: 1px solid;
+  margin-top: 3px;
+  text-indent: -9999px;
+  width: 40px;
+}
+/* line 102, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .supermenu > li > a.item {
+  position: relative;
+  padding: 0px 30px 0px 20px;
+  line-height: 40px;
+  height: 40px;
+  border-right: 1px solid;
+}
+/* line 112, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .supermenu > li .glyphicon-chevron-down:before {
+  content: "\e080" !important;
+}
+/* line 116, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .supermenu > li.sm-open .glyphicon-chevron-down:before {
+  content: "\e114" !important;
+}
+
+/* ------------------ LEVELS / MENUCRUMBS --------------*/
+/* levels of the site menu*/
+/* line 127, ../core/scss/layout/header/_supermenu.scss */
+#mb-pnl .lng-ofr {
+  /*mobile*/
+  height: 38px;
+  padding-right: 35px;
+  text-align: left;
+  display: inline;
+}
+
+/* line 136, ../core/scss/layout/header/_supermenu.scss */
+#mb-pnl summary:hover, #mb-pnl summary:focus {
+  background: none !important;
+}
+
+/* ------------------ SUPERMENU DROPDOWNS / PANELS --------------*/
+/*general menu open panel (ul), entire background */
+/* ------------------ SUPERMENU DROPDOWNS / ITEMS --------------*/
+/*mobile*/
+/* line 149, ../core/scss/layout/header/_supermenu.scss */
+ul.mb-sm > li > a {
+  color: #555;
+}
+
+/*items that have subitems*/
+/* line 154, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .sm.open {
+  overflow-y: auto;
+  border-top: 1px solid #000;
+  margin-top: -1px;
+}
+/* line 158, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .sm.open li {
+  /*menu open panel, individual items */
+  /* LOCKED ITEMS */
+}
+/* line 159, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .sm.open li a {
+  position: relative;
+}
+/* line 164, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .sm.open li a, #wb-sm .sm.open li summary {
+  /*mobile*/
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-color: #000;
+  padding: 3px 30px 3px 10px;
+}
+/* line 171, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .sm.open li a:before, #wb-sm .sm.open li summary:before {
+  font-family: 'Glyphicons Halflings';
+  content: ' ';
+  font-size: 0.8em;
+  display: inline-block;
+  width: 20px;
+  color: #777;
+}
+/* line 181, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .sm.open li a.viewed:before, #wb-sm .sm.open li summary.viewed:before {
+  content: '\e013';
+}
+/* line 184, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .sm.open li a.locked:before, #wb-sm .sm.open li summary.locked:before {
+  content: '\e033';
+}
+/* line 190, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .sm.open li a[href='#']:after {
+  /* little arrow right> */
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  color: #777;
+  -webkit-font-smoothing: antialiased;
+  content: "\e080";
+  font-size: 1em;
+  right: 5px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/* line 207, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .sm.open li > a.locked {
+  cursor: not-allowed;
+}
+/* line 212, ../core/scss/layout/header/_supermenu.scss */
+#wb-sm .sm.open li a:hover:before, #wb-sm .sm.open li a:hover:after, #wb-sm .sm.open li a:focus:before, #wb-sm .sm.open li a:focus:after {
+  color: #fff;
+}
+
+/* -------------------------
+mobile menu fix attempt 1
+----------------------*/
+/* line 226, ../core/scss/layout/header/_supermenu.scss */
+li[data-depth='1'] > details {
+  margin-left: 15px;
+}
+/* line 229, ../core/scss/layout/header/_supermenu.scss */
+li[data-depth='2'] > details {
+  margin-left: 30px;
+}
+
+/* line 237, ../core/scss/layout/header/_supermenu.scss */
+.mb-menu > li > details[open] > summary > .mb-lvl-title {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------------------------------------------
+---------------------------------------------------MOBILE BUTTON (BURGER)
+----------------------------------------------------------------------------------------------------------------*/
+/* line 249, ../core/scss/layout/header/_supermenu.scss */
+#wb-glb-mn > ul > li > a {
+  background-image: none !important;
+}
+/* line 252, ../core/scss/layout/header/_supermenu.scss */
+#wb-glb-mn .pnl-btn {
+  float: right;
+  margin-top: 3px;
+  margin-bottom: 0px;
+}
+/* line 256, ../core/scss/layout/header/_supermenu.scss */
+#wb-glb-mn .pnl-btn a {
+  /*open mobile panel btn*/
+  display: block;
+  font-size: 1.3em;
+  line-height: 1em;
+  width: 100%;
+}
+
+/* line 266, ../core/scss/layout/header/_supermenu.scss */
+ul.pnl-btn > li > a > span > span.glyphicon-th-list {
+  color: #fff;
+  font-size: 1em;
+}
+
+@media (max-width: 992px) {
+  /* line 49, ../core/scss/layout/header/_header.scss */
+  #wb-bar .top-menu {
+    margin: 0;
+    width: 100%;
+  }
+  /* line 52, ../core/scss/layout/header/_header.scss */
+  #wb-bar .top-menu h2.series-title {
+    width: 100%;
+    padding-right: 45px;
+  }
+  /* line 56, ../core/scss/layout/header/_header.scss */
+  #wb-bar .top-menu > .row {
+    position: absolute;
+    float: none;
+    right: 10px;
+  }
+}
+/* line 69, ../core/scss/layout/header/_header.scss */
+.mobile header #topbacknext span.pagelbl {
+  display: none;
+}
+
+/* line 76, ../core/scss/layout/header/_header.scss */
+#wb-sttl > a {
+  color: #555;
+  font-size: 1.6em;
+  text-decoration: none;
+}
+/* line 80, ../core/scss/layout/header/_header.scss */
+#wb-sttl > a > span.subtitle {
+  font-size: 0.6em;
+}
+/* line 84, ../core/scss/layout/header/_header.scss */
+#wb-sttl #csps-modulename {
+  font-size: 1.3em;
+  padding: 5px 15px 5px 15px;
+}
+/* line 87, ../core/scss/layout/header/_header.scss */
+#wb-sttl #csps-modulename > a {
+  color: #555;
+  text-decoration: none;
+}
+/* line 91, ../core/scss/layout/header/_header.scss */
+#wb-sttl #csps-modulename > a:focus, #wb-sttl #csps-modulename > a:hover {
+  text-decoration: underline;
+}
+/* line 96, ../core/scss/layout/header/_header.scss */
+#wb-sttl #csps-modulenum {
+  display: none;
+}
+/* line 99, ../core/scss/layout/header/_header.scss */
+#wb-sttl small {
+  display: block;
+  font-size: 0.4em;
+}
+/* line 104, ../core/scss/layout/header/_header.scss */
+#wb-sttl object {
+  pointer-events: none;
+}
+
+@media (max-width: 992px) {
+  /* line 113, ../core/scss/layout/header/_header.scss */
+  #wb-sttl #csps-modulename {
+    display: none;
+  }
+  /* line 116, ../core/scss/layout/header/_header.scss */
+  #wb-sttl object, #wb-sttl img {
+    height: 1.21em;
+    margin: 0;
+    position: absolute;
+    top: -10px;
+    width: 2.6em;
+  }
+
+  /* line 125, ../core/scss/layout/header/_header.scss */
+  [dir=rtl] #wb-sttl object, [dir=rtl] #wb-sttl img {
+    margin: 0;
+  }
+}
+@media (max-width: 991px) {
+  /* line 135, ../core/scss/layout/header/_header.scss */
+  #topbacknext {
+    height: 45px;
+  }
+  /* line 137, ../core/scss/layout/header/_header.scss */
+  #topbacknext .backnext {
+    width: 100%;
+    height: 100%;
+    display: table;
+  }
+  /* line 141, ../core/scss/layout/header/_header.scss */
+  #topbacknext .backnext a, #topbacknext .backnext span:not(.pagelbl) {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    width: 33%;
+  }
+  /* line 148, ../core/scss/layout/header/_header.scss */
+  #topbacknext .backnext span:not(.pagelbl) {
+    line-height: 45px;
+  }
+  /* line 149, ../core/scss/layout/header/_header.scss */
+  #topbacknext .backnext a {
+    text-indent: -9999px;
+    background-color: #777 !important;
+    text-align: center;
+    display: table-cell;
+  }
+  /* line 154, ../core/scss/layout/header/_header.scss */
+  #topbacknext .backnext a.back {
+    position: relative;
+  }
+  /* line 18, ../common/scss/utils/mixins/helpers/_various.scss */
+  #topbacknext .backnext a.back:before, #topbacknext .backnext a.back:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+  /* line 49, ../common/scss/utils/mixins/helpers/_various.scss */
+  #topbacknext .backnext a.back:before {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-right: 6px solid #fff;
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+  }
+  /* line 156, ../core/scss/layout/header/_header.scss */
+  #topbacknext .backnext a.back:before {
+    left: 50%;
+  }
+  /* line 160, ../core/scss/layout/header/_header.scss */
+  #topbacknext .backnext a.next {
+    position: relative;
+  }
+  /* line 18, ../common/scss/utils/mixins/helpers/_various.scss */
+  #topbacknext .backnext a.next:before, #topbacknext .backnext a.next:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+  /* line 38, ../common/scss/utils/mixins/helpers/_various.scss */
+  #topbacknext .backnext a.next:after {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-left: 6px solid #fff;
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+  }
+  /* line 162, ../core/scss/layout/header/_header.scss */
+  #topbacknext .backnext a.next:after {
+    right: 50%;
+  }
+
+  /* line 169, ../core/scss/layout/header/_header.scss */
+  #info-pnl {
+    display: none;
+  }
+}
+/* line 175, ../core/scss/layout/header/_header.scss */
+#wb-tphp li > a {
+  background-color: #555;
+  color: #fff;
+}
+
+/* ----------------WELCOME----------------*/
+/* line 4, ../core/scss/layout/_welcome.scss */
+.welcome .module-info {
+  float: none;
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 8, ../core/scss/layout/_welcome.scss */
+.welcome .module-info .mod-list {
+  padding: 0;
+}
+/* line 10, ../core/scss/layout/_welcome.scss */
+.welcome .module-info .mod-list li {
+  list-style-type: none;
+}
+/* line 14, ../core/scss/layout/_welcome.scss */
+.welcome .module-info.module-is-locked a {
+  cursor: not-allowed;
+}
+/* line 18, ../core/scss/layout/_welcome.scss */
+.welcome nav#wb-sm, .welcome #topbacknext, .welcome #wb-bnr > .container > .row {
+  display: none !important;
+}
+/* line 21, ../core/scss/layout/_welcome.scss */
+.welcome footer > .container > .backnext {
+  visibility: hidden !important;
+}
+
+/* line 2, ../core/scss/layout/_footer.scss */
+footer {
+  margin: 20px 0 0;
+  height: 45px;
+}
+/* line 3, ../core/scss/layout/_footer.scss */
+footer #topbacknext {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 9, ../core/scss/layout/_footer.scss */
+footer .container {
+  padding-right: 0px;
+  padding-left: 0;
+  background-color: #555;
+  color: #fff;
+  height: 100%;
+}
+/* line 16, ../core/scss/layout/_footer.scss */
+footer .backnext {
+  float: right;
+  height: 100%;
+  text-align: right;
+}
+/* line 20, ../core/scss/layout/_footer.scss */
+footer .backnext a {
+  width: 150px;
+  height: 100%;
+  vertical-align: middle;
+  padding: 0;
+  line-height: 45px;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #fff;
+  border-top: none;
+  border-bottom: none;
+  text-decoration: none;
+}
+/* line 33, ../core/scss/layout/_footer.scss */
+footer .backnext a.disabled:hover {
+  color: #5b5b5b !important;
+}
+/* line 36, ../core/scss/layout/_footer.scss */
+footer .backnext a.back {
+  position: relative;
+}
+/* line 18, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.back:before, footer .backnext a.back:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+/* line 49, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.back:before {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-right: 6px solid #fff;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+}
+/* line 38, ../core/scss/layout/_footer.scss */
+footer .backnext a.back.disabled {
+  position: relative;
+}
+/* line 18, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.back.disabled:before, footer .backnext a.back.disabled:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+/* line 49, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.back.disabled:before {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-right: 6px solid #5b5b5b !important;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+}
+/* line 40, ../core/scss/layout/_footer.scss */
+footer .backnext a.back.disabled:hover {
+  position: relative;
+}
+/* line 18, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.back.disabled:hover:before, footer .backnext a.back.disabled:hover:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+/* line 49, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.back.disabled:hover:before {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-right: 6px solid #5b5b5b !important;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+}
+/* line 44, ../core/scss/layout/_footer.scss */
+footer .backnext a.back:before {
+  left: 10px;
+}
+/* line 47, ../core/scss/layout/_footer.scss */
+footer .backnext a.back:hover {
+  position: relative;
+}
+/* line 18, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.back:hover:before, footer .backnext a.back:hover:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+/* line 49, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.back:hover:before {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-right: 6px solid #fff;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+}
+/* line 51, ../core/scss/layout/_footer.scss */
+footer .backnext a.next {
+  position: relative;
+}
+/* line 18, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.next:before, footer .backnext a.next:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+/* line 38, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.next:after {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-left: 6px solid #fff;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+}
+/* line 53, ../core/scss/layout/_footer.scss */
+footer .backnext a.next.disabled {
+  position: relative;
+}
+/* line 18, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.next.disabled:before, footer .backnext a.next.disabled:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+/* line 38, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.next.disabled:after {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-left: 6px solid #5b5b5b !important;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+}
+/* line 55, ../core/scss/layout/_footer.scss */
+footer .backnext a.next.disabled:hover {
+  position: relative;
+}
+/* line 18, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.next.disabled:hover:before, footer .backnext a.next.disabled:hover:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+/* line 38, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.next.disabled:hover:after {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-left: 6px solid #5b5b5b !important;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+}
+/* line 59, ../core/scss/layout/_footer.scss */
+footer .backnext a.next:after {
+  right: 10px;
+}
+/* line 62, ../core/scss/layout/_footer.scss */
+footer .backnext a.next:hover {
+  position: relative;
+}
+/* line 18, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.next:hover:before, footer .backnext a.next:hover:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+/* line 38, ../common/scss/utils/mixins/helpers/_various.scss */
+footer .backnext a.next:hover:after {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-left: 6px solid #fff;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+}
+/* line 66, ../core/scss/layout/_footer.scss */
+footer .backnext a.disabled {
+  color: #5b5b5b !important;
+  background-color: #e6e6e6 !important;
+}
+/* line 71, ../core/scss/layout/_footer.scss */
+footer .backnext span {
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+  margin: 0 5px;
+}
+/* line 76, ../core/scss/layout/_footer.scss */
+footer .backnext span .pagelbl {
+  display: none;
+}
+
+/* line 86, ../core/scss/layout/_footer.scss */
+html.mobile footer .container {
+  width: 100%;
+}
+/* line 88, ../core/scss/layout/_footer.scss */
+html.mobile footer .container:before, html.mobile footer .container:after {
+  content: "";
+  display: inherit;
+  clear: none;
+}
+/* line 93, ../core/scss/layout/_footer.scss */
+html.mobile footer .container .backnext {
+  float: none;
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+/* line 98, ../core/scss/layout/_footer.scss */
+html.mobile footer .container .backnext a, html.mobile footer .container .backnext span:not(.pagelbl) {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  border: none;
+}
+/* line 105, ../core/scss/layout/_footer.scss */
+html.mobile footer .container .backnext a {
+  color: #fff;
+  text-align: center;
+  display: inline-block;
+  background-position: center center;
+  background-color: #555;
+  text-indent: -9999px;
+}
+/* line 112, ../core/scss/layout/_footer.scss */
+html.mobile footer .container .backnext a.back {
+  position: relative;
+}
+/* line 18, ../common/scss/utils/mixins/helpers/_various.scss */
+html.mobile footer .container .backnext a.back:before, html.mobile footer .container .backnext a.back:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+/* line 49, ../common/scss/utils/mixins/helpers/_various.scss */
+html.mobile footer .container .backnext a.back:before {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-right: 6px solid #fff;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+}
+/* line 114, ../core/scss/layout/_footer.scss */
+html.mobile footer .container .backnext a.back:before {
+  left: 50%;
+}
+/* line 118, ../core/scss/layout/_footer.scss */
+html.mobile footer .container .backnext a.next {
+  position: relative;
+}
+/* line 18, ../common/scss/utils/mixins/helpers/_various.scss */
+html.mobile footer .container .backnext a.next:before, html.mobile footer .container .backnext a.next:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+/* line 38, ../common/scss/utils/mixins/helpers/_various.scss */
+html.mobile footer .container .backnext a.next:after {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-left: 6px solid #fff;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+}
+/* line 120, ../core/scss/layout/_footer.scss */
+html.mobile footer .container .backnext a.next:after {
+  right: 50%;
+}
+/* line 125, ../core/scss/layout/_footer.scss */
+html.mobile footer .container .backnext span:not(.pagelbl) {
+  display: table-cell;
+  line-height: 45px;
+  margin: 0;
+  color: #222;
+  background-color: #fff;
+}
+
+/* ----------------collapsible-box----------------*/
+/* line 3, ../core/scss/widgets/_collapsible-box.scss */
+div.collapsible-box {
+  position: relative;
+  border: 1px solid #aaa;
+  border-bottom: 4px solid #666;
+  background: #fafafa;
+  height: 80px;
+  margin-bottom: 20px;
+}
+/* line 10, ../core/scss/widgets/_collapsible-box.scss */
+div.collapsible-box.opened {
+  height: auto;
+  padding-bottom: 30px;
+}
+/* line 13, ../core/scss/widgets/_collapsible-box.scss */
+div.collapsible-box.opened p.handle {
+  background: none;
+}
+/* line 17, ../core/scss/widgets/_collapsible-box.scss */
+div.collapsible-box > div.wrapper {
+  overflow: hidden;
+  height: 100%;
+  margin-bottom: 8px;
+  padding: 5px;
+}
+/* line 23, ../core/scss/widgets/_collapsible-box.scss */
+div.collapsible-box p.handle {
+  position: absolute;
+  font-weight: bold;
+  color: #222;
+  z-index: 200;
+  width: 100%;
+  bottom: 0px;
+  height: 60px;
+  text-align: center;
+  background: url(base/collapsible-fade.png) repeat-x;
+  margin: 0;
+}
+/* line 34, ../core/scss/widgets/_collapsible-box.scss */
+div.collapsible-box p.handle > span {
+  position: absolute;
+  z-index: 200;
+  bottom: 0px;
+  left: 50%;
+  display: block;
+  width: 36px;
+  height: 36px;
+  margin-left: -18px;
+}
+/* line 43, ../core/scss/widgets/_collapsible-box.scss */
+div.collapsible-box p.handle > span a {
+  width: 36px;
+  height: 36px;
+  background: url(base/collapsible-handle.png) no-repeat;
+  display: block;
+  text-decoration: none;
+}
+/* line 49, ../core/scss/widgets/_collapsible-box.scss */
+div.collapsible-box p.handle > span a:hover, div.collapsible-box p.handle > span a:focus {
+  background-position: -36px 0;
+}
+/* line 52, ../core/scss/widgets/_collapsible-box.scss */
+div.collapsible-box p.handle > span a.opened {
+  background-position: 0 -36px;
+}
+/* line 54, ../core/scss/widgets/_collapsible-box.scss */
+div.collapsible-box p.handle > span a.opened:hover, div.collapsible-box p.handle > span a.opened:focus {
+  background-position: -36px -36px;
+}
+
+/*
+Usage:
+<div class="zoomin">
+  <p>Some description about the image</p>
+  <a class="wb-lbx" href="#largeImage">
+    <img src="path/to/image.jpg" class="img-responsive">
+  </a>
+</div>
+*/
+/* line 11, ../core/scss/widgets/_zoom.scss */
+.zoomin {
+  position: relative;
+  display: block;
+  margin: 5px 0;
+}
+/* line 15, ../core/scss/widgets/_zoom.scss */
+.zoomin a {
+  text-decoration: none;
+}
+/* line 18, ../core/scss/widgets/_zoom.scss */
+.zoomin p {
+  padding-left: 30px;
+}
+/* line 21, ../core/scss/widgets/_zoom.scss */
+.zoomin img {
+  -webkit-transition: 400ms cubic-bezier(0.08, 0.52, 0.52, 1) -webkit-transform;
+  transition: 400ms cubic-bezier(0.08, 0.52, 0.52, 1) -webkit-transform;
+  transition: 400ms cubic-bezier(0.08, 0.52, 0.52, 1) transform;
+  transition: 400ms cubic-bezier(0.08, 0.52, 0.52, 1) transform, 400ms cubic-bezier(0.08, 0.52, 0.52, 1) -webkit-transform;
+}
+/* line 27, ../core/scss/widgets/_zoom.scss */
+.zoomin::after {
+  content: '';
+  background-image: url("base/icon_magnify.svg");
+  width: 30px;
+  height: 50px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-size: contain;
+  position: absolute;
+  left: -10px;
+  top: -10px;
+}
+/* line 39, ../core/scss/widgets/_zoom.scss */
+.zoomin:focus img {
+  outline: 1px solid #a6c8ff;
+  /*CSPS-TD ÔåÆ CHEAP IE FIX*/
+}
+/* line 43, ../core/scss/widgets/_zoom.scss */
+.zoomin:hover {
+  color: inherit;
+}
+/* line 45, ../core/scss/widgets/_zoom.scss */
+.zoomin:hover img {
+  -webkit-transform: scale(1.01);
+  transform: scale(1.01);
+}
+
+/* line 53, ../core/scss/widgets/_zoom.scss */
+html.largeview a.zoomin::after, html.xlargeview a.zoomin::after {
+  width: 42px;
+}
+/* line 56, ../core/scss/widgets/_zoom.scss */
+html.xxsmallview a.zoomin::after {
+  width: 60px;
+  height: 100px;
+  opacity: 0.8;
+  margin: 0 auto;
+  left: 0;
+}
+
+/* line 2, ../core/scss/widgets/_modal.scss */
+.overlay-def header {
+  background-color: #555;
+}
+/* line 5, ../core/scss/widgets/_modal.scss */
+.overlay-def header, .overlay-def button.mfp-close {
+  color: #fff;
+}
+/* line 9, ../core/scss/widgets/_modal.scss */
+.overlay-def, .overlay-def .modal-body {
+  background-color: #fff;
+}
+
+/* line 15, ../core/scss/widgets/_modal.scss */
+.modal-dialog > .modal-body {
+  overflow: auto;
+}
+/* line 18, ../core/scss/widgets/_modal.scss */
+.modal-dialog.modal-content.overlay-def {
+  margin: 0 auto;
+}
+@media (min-width: 481px) {
+  /* line 18, ../core/scss/widgets/_modal.scss */
+  .modal-dialog.modal-content.overlay-def {
+    width: 70%;
+  }
+}
+@media (max-width: 480px) {
+  /* line 18, ../core/scss/widgets/_modal.scss */
+  .modal-dialog.modal-content.overlay-def {
+    width: 100%;
+  }
+}
+
+/* Small view */
+@media (min-width: 479px) and (max-width: 992px) {
+  /* line 35, ../core/scss/widgets/_modal.scss */
+  .modal-dialog.modal-content.overlay-def {
+    width: auto !important;
+  }
+}
+/* line 19, ../core/scss/widgets/_cards.scss */
+.cards {
+  position: relative;
+  float: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 350px;
+}
+
+/* line 25, ../core/scss/widgets/_cards.scss */
+.card-wrap {
+  height: 100%;
+}
+/* line 27, ../core/scss/widgets/_cards.scss */
+.card-wrap:last-of-type {
+  margin-right: 0px;
+}
+
+/* line 31, ../core/scss/widgets/_cards.scss */
+.card {
+  display: inline-block;
+  vertical-align: top;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  background: none;
+  outline: none;
+  -moz-transform: 0.8s ease;
+  -ms-transform: 0.8s ease;
+  -o-transform: 0.8s ease;
+  -ms-transform: 0.8s ease;
+  -webkit-transform: 0.8s ease;
+  transform: 0.8s ease;
+  width: 100%;
+  height: 100%;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-perspective: 800px;
+  -ms-perspective: 800px;
+  -o-perspective: 800px;
+  -webkit-perspective: 800px;
+  perspective: 800px;
+}
+
+/* line 44, ../core/scss/widgets/_cards.scss */
+.card div {
+  position: absolute;
+  /*IE fixes...*/
+  top: 0;
+  left: 0;
+  border-radius: 0;
+  padding: 0 15px;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  justify-content: inherit;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+/* line 61, ../core/scss/widgets/_cards.scss */
+.cards .card .front, .cards .card .back {
+  background: transparent;
+  /*just so that we can see a "card" when animating*/
+  border: 1px solid #d7e059;
+  color: #d7e059;
+}
+/* line 66, ../core/scss/widgets/_cards.scss */
+.cards .card .front:hover, .cards .card .back:hover {
+  background-color: #d7e059;
+  color: #3f4040;
+}
+
+/* line 72, ../core/scss/widgets/_cards.scss */
+.cards .card .back {
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+/* line 75, ../core/scss/widgets/_cards.scss */
+.cards .card.flipped .back {
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #d7e059;
+  color: #3f4040;
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+/* line 82, ../core/scss/widgets/_cards.scss */
+.cards .card .front {
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+/* line 85, ../core/scss/widgets/_cards.scss */
+.cards .card.flipped .front {
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/* line 89, ../core/scss/widgets/_cards.scss */
+.cards .card,
+.cards .card > div,
+.cards .card:hover > div {
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+/* line 8, ../core/scss/widgets/_debug.scss */
+html body.highlight-headings h1, html body.highlight-headings h2, html body.highlight-headings h3, html body.highlight-headings h4, html body.highlight-headings h5, html body.highlight-headings h6 {
+  display: block !important;
+  visibility: visible !important;
+  color: #333 !important;
+  background-color: white;
+  border: 1px coral solid;
+  min-height: 30px;
+  min-width: 60px;
+  clip: rect(auto, auto, auto, auto) !important;
+  z-index: 1000 !important;
+}
+/* line 18, ../core/scss/widgets/_debug.scss */
+html body.highlight-headings h1 *, html body.highlight-headings h2 *, html body.highlight-headings h3 *, html body.highlight-headings h4 *, html body.highlight-headings h5 *, html body.highlight-headings h6 * {
+  color: #333;
+}
+/* line 19, ../core/scss/widgets/_debug.scss */
+html body.highlight-headings h1:before, html body.highlight-headings h2:before, html body.highlight-headings h3:before, html body.highlight-headings h4:before, html body.highlight-headings h5:before, html body.highlight-headings h6:before {
+  float: left;
+  border: 1px coral solid;
+  background-color: white;
+  position: absolute;
+  z-index: 2000;
+  left: -10px;
+}
+/* line 29, ../core/scss/widgets/_debug.scss */
+html body.highlight-headings h1:before {
+  content: 'H1';
+}
+/* line 30, ../core/scss/widgets/_debug.scss */
+html body.highlight-headings h2:before {
+  content: 'H2';
+}
+/* line 31, ../core/scss/widgets/_debug.scss */
+html body.highlight-headings h3:before {
+  content: 'H3';
+}
+/* line 32, ../core/scss/widgets/_debug.scss */
+html body.highlight-headings h4:before {
+  content: 'H4';
+}
+/* line 33, ../core/scss/widgets/_debug.scss */
+html body.highlight-headings h5:before {
+  content: 'H5';
+}
+/* line 34, ../core/scss/widgets/_debug.scss */
+html body.highlight-headings h6:before {
+  content: 'H6';
+}
+
+/* line 1, ../core/scss/modules/_favorites.scss */
+.favorite {
+  border: 1px solid;
+  background-color: #f9f9f9;
+}
+
+/* line 6, ../core/scss/modules/_favorites.scss */
+.favorite-item {
+  clear: both;
+  margin: 15px 0px 30px 0px;
+  border-top: 1px coral solid;
+}
+
+/* line 13, ../core/scss/modules/_favorites.scss */
+.btn-fav.autofav {
+  float: right;
+}
+/* line 17, ../core/scss/modules/_favorites.scss */
+.btn-fav[data-fav] {
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 9999px;
+  white-space: nowrap;
+  cursor: pointer;
+  width: 30px;
+  font-size: 2em;
+}
+/* line 25, ../core/scss/modules/_favorites.scss */
+.btn-fav[data-fav]:before {
+  content: '\2605';
+  color: #e6ddb7;
+  text-shadow: 0 0 1px #333;
+  text-indent: -9999px;
+  display: inline-block;
+}
+/* line 32, ../core/scss/modules/_favorites.scss */
+.btn-fav[data-fav]:hover:before {
+  content: '\2605';
+  color: #efce4a;
+}
+/* line 36, ../core/scss/modules/_favorites.scss */
+.btn-fav[data-fav]:focus:before {
+  text-shadow: 0 0 3px #295376 !important;
+}
+/* line 41, ../core/scss/modules/_favorites.scss */
+.btn-fav.fav-added[data-fav]:before {
+  content: '\2605';
+  color: #efce4a;
+}
+
+/* line 1, ../core/scss/modules/_progress-bar.scss */
+ul.mod-list > li.mod-progress {
+  clear: both;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border: 1px solid;
+  padding: 5px 10px;
+  list-style-type: none;
+}
+/* line 9, ../core/scss/modules/_progress-bar.scss */
+ul.mod-list > li.mod-progress > .progress-bar {
+  width: 100%;
+  height: 15px;
+  /*border-radius: 6px;*/
+  border: 2px solid grey;
+  /*CSPS-TD*/
+  overflow: hidden;
+  float: none;
+}
+/* line 18, ../core/scss/modules/_progress-bar.scss */
+ul.mod-list > li.mod-progress > p {
+  margin: 0;
+}
+
+/* line 25, ../core/scss/modules/_progress-bar.scss */
+.progress-bar {
+  background-color: grey;
+}
+
+/* line 28, ../core/scss/modules/_progress-bar.scss */
+.ie10 .progress-bar, .ie11 .progress-bar {
+  color: grey;
+  background: url(base/progressbarbg.png);
+}
+
+/* line 30, ../core/scss/modules/_progress-bar.scss */
+progress {
+  /* Turns off styling - not usually needed, but good to know. */
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  /* gets rid of default border in Firefox and Opera. */
+  border: none;
+  /* Needs to be in here for Safari polyfill so background images work as expected. */
+  background-size: auto;
+  /* Dimensions */
+  width: 400px;
+  height: 60px;
+  color: grey;
+}
+/* line 42, ../core/scss/modules/_progress-bar.scss */
+progress[role] {
+  /* Turns off styling - not usually needed, but good to know. */
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  /* gets rid of default border in Firefox and Opera. */
+  border: none;
+  /* Needs to be in here for Safari polyfill so background images work as expected. */
+  background-size: auto;
+  /* Dimensions */
+  width: 400px;
+  height: 60px;
+}
+/* line 54, ../core/scss/modules/_progress-bar.scss */
+progress[role]:after {
+  background-image: none;
+  /* removes default background from polyfill */
+}
+/* line 58, ../core/scss/modules/_progress-bar.scss */
+progress[role] strong {
+  display: none;
+}
+/* line 64, ../core/scss/modules/_progress-bar.scss */
+progress::-moz-progress-bar {
+  background: grey;
+}
+/* line 67, ../core/scss/modules/_progress-bar.scss */
+progress::-webkit-progress-value {
+  background: grey;
+}
+/* line 70, ../core/scss/modules/_progress-bar.scss */
+progress[value]::-webkit-progress-bar {
+  background: url("base/progressbarbg.png");
+}
+/* line 73, ../core/scss/modules/_progress-bar.scss */
+progress[aria-valuenow]:before {
+  background: grey;
+}
+
+/* line 1, ../core/scss/modules/_admin-mode.scss */
+#admin_window {
+  z-index: 999;
+  padding: 20px;
+  position: absolute;
+  display: none;
+  top: 0px;
+  right: 0px;
+  max-width: 20em;
+  background-color: white;
+  border: #e1e1e1 1px solid;
+  box-shadow: 0 0 5px 0px black;
+}
+/* line 13, ../core/scss/modules/_admin-mode.scss */
+#admin_window #adminMode {
+  margin-top: 20px;
+}
+/* line 17, ../core/scss/modules/_admin-mode.scss */
+#admin_window h2 {
+  font-size: 1.2em;
+  margin: 10px 0px;
+}
+/* line 22, ../core/scss/modules/_admin-mode.scss */
+#admin_window .infos {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+/* line 24, ../core/scss/modules/_admin-mode.scss */
+#admin_window .infos b {
+  color: #0074D9;
+}
+
+/* line 31, ../core/scss/modules/_admin-mode.scss */
+.status, #scorm-status, #debug-status {
+  background-color: #f7f36e;
+  color: black;
+  padding: 5px 10px;
+  box-shadow: 0 0 5px 0px black;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* line 40, ../core/scss/modules/_admin-mode.scss */
+#scorm-status {
+  background-color: #fd4e33;
+  color: #000;
+}
+
+/* line 46, ../core/scss/modules/_admin-mode.scss */
+#debug-status {
+  float: right;
+}
+
+/* line 51, ../core/scss/modules/_admin-mode.scss */
+.locks-admin #details-panellocklist {
+  padding-bottom: 0;
+}
+
+/* line 22, ../core/scss/modules/micro-learning/_micro-learning.scss */
+.microLearning.fp-enabled, .microLearning.fp-enabled body {
+  /*this allows us to have the fullPage.js option scrollBar: true*/
+  /*while also allowing us the ability to tab through the page*/
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+/* line 29, ../core/scss/modules/micro-learning/_micro-learning.scss */
+.mobile.fp-enabled, .fp-enabled body {
+  overflow: auto !important;
+}
+
+/* line 33, ../core/scss/modules/micro-learning/_micro-learning.scss */
+.microLearning, .microLearning body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 40, ../core/scss/modules/micro-learning/_micro-learning.scss */
+.microLearning main .spinner {
+  position: fixed;
+}
+
+/* line 46, ../core/scss/modules/micro-learning/_micro-learning.scss */
+#fullpage {
+  transform: none !important;
+}
+
+/* line 50, ../core/scss/modules/micro-learning/_micro-learning.scss */
+body.microModule {
+  overflow: hidden;
+  background-color: #2f2f2f;
+}
+/* line 12, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate.active [class*=ae-] {
+  opacity: 1;
+  visibility: visible;
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  filter: none;
+}
+/* line 19, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate [class*=ae-] {
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-1 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-2 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-3 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-4 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-5 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-6 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-7 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-8 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-9 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-10 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-11 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-12 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-13 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-14 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-15 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-16 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-17 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-18 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-19 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-20 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 24, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .animate .ae-21 {
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 36, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule [class*=ae-].slideInTop {
+  -moz-transform: translate3d(0, -100px, 0);
+  -ms-transform: translate3d(0, -100px, 0);
+  -o-transform: translate3d(0, -100px, 0);
+  -ms-transform: translate3d(0, -100px, 0);
+  -webkit-transform: translate3d(0, -100px, 0);
+  transform: translate3d(0, -100px, 0);
+}
+/* line 39, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule [class*=ae-].slideInLeft {
+  -moz-transform: translate3d(-50px, 0, 0);
+  -ms-transform: translate3d(-50px, 0, 0);
+  -o-transform: translate3d(-50px, 0, 0);
+  -ms-transform: translate3d(-50px, 0, 0);
+  -webkit-transform: translate3d(-50px, 0, 0);
+  transform: translate3d(-50px, 0, 0);
+}
+/* line 42, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule [class*=ae-].slideInRight {
+  -moz-transform: translate3d(50px, 0, 0);
+  -ms-transform: translate3d(50px, 0, 0);
+  -o-transform: translate3d(50px, 0, 0);
+  -ms-transform: translate3d(50px, 0, 0);
+  -webkit-transform: translate3d(50px, 0, 0);
+  transform: translate3d(50px, 0, 0);
+}
+/* line 45, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule [class*=ae-].slideInCenter {
+  -moz-transform: scale(0.8) translate3d(0, 0, 0);
+  -ms-transform: scale(0.8) translate3d(0, 0, 0);
+  -o-transform: scale(0.8) translate3d(0, 0, 0);
+  -ms-transform: scale(0.8) translate3d(0, 0, 0);
+  -webkit-transform: scale(0.8) translate3d(0, 0, 0);
+  transform: scale(0.8) translate3d(0, 0, 0);
+}
+/* line 48, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule [class*=ae-].slideInAbove {
+  -moz-transform: scale(1.2) translate3d(0, 0, 0);
+  -ms-transform: scale(1.2) translate3d(0, 0, 0);
+  -o-transform: scale(1.2) translate3d(0, 0, 0);
+  -ms-transform: scale(1.2) translate3d(0, 0, 0);
+  -webkit-transform: scale(1.2) translate3d(0, 0, 0);
+  transform: scale(1.2) translate3d(0, 0, 0);
+}
+/* line 51, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule [class*=ae-].slideInBottomLeft {
+  -moz-transform: translate3d(-100px, 100px, 0);
+  -ms-transform: translate3d(-100px, 100px, 0);
+  -o-transform: translate3d(-100px, 100px, 0);
+  -ms-transform: translate3d(-100px, 100px, 0);
+  -webkit-transform: translate3d(-100px, 100px, 0);
+  transform: translate3d(-100px, 100px, 0);
+}
+/* line 54, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule [class*=ae-].slideInTopLeft {
+  -moz-transform: translate3d(-100px, -100px, 0);
+  -ms-transform: translate3d(-100px, -100px, 0);
+  -o-transform: translate3d(-100px, -100px, 0);
+  -ms-transform: translate3d(-100px, -100px, 0);
+  -webkit-transform: translate3d(-100px, -100px, 0);
+  transform: translate3d(-100px, -100px, 0);
+}
+/* line 57, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule [class*=ae-].slideInBottomRight {
+  -moz-transform: translate3d(100px, 100px, 0);
+  -ms-transform: translate3d(100px, 100px, 0);
+  -o-transform: translate3d(100px, 100px, 0);
+  -ms-transform: translate3d(100px, 100px, 0);
+  -webkit-transform: translate3d(100px, 100px, 0);
+  transform: translate3d(100px, 100px, 0);
+}
+/* line 60, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule [class*=ae-].slideInTopRight {
+  -moz-transform: translate3d(100px, -100px, 0);
+  -ms-transform: translate3d(100px, -100px, 0);
+  -o-transform: translate3d(100px, -100px, 0);
+  -ms-transform: translate3d(100px, -100px, 0);
+  -webkit-transform: translate3d(100px, -100px, 0);
+  transform: translate3d(100px, -100px, 0);
+}
+/* line 63, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule [class*=ae-].fadeIn {
+  -moz-transform: scale(1) translate3d(0, 0, 0);
+  -ms-transform: scale(1) translate3d(0, 0, 0);
+  -o-transform: scale(1) translate3d(0, 0, 0);
+  -ms-transform: scale(1) translate3d(0, 0, 0);
+  -webkit-transform: scale(1) translate3d(0, 0, 0);
+  transform: scale(1) translate3d(0, 0, 0);
+}
+/* line 66, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule [class*=ae-].fromBlur {
+  -moz-transform: scale(1) translate3d(0, 0, 0);
+  -ms-transform: scale(1) translate3d(0, 0, 0);
+  -o-transform: scale(1) translate3d(0, 0, 0);
+  -ms-transform: scale(1) translate3d(0, 0, 0);
+  -webkit-transform: scale(1) translate3d(0, 0, 0);
+  transform: scale(1) translate3d(0, 0, 0);
+  filter: blur(10px);
+}
+/* line 72, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active [class*=ae-] {
+  -moz-transition-duration: 1s;
+  -ms-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-1 {
+  -moz-transition-delay: 400ms;
+  -ms-transition-delay: 400ms;
+  -o-transition-delay: 400ms;
+  -webkit-transition-delay: 400ms;
+  transition-delay: 400ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-2 {
+  -moz-transition-delay: 800ms;
+  -ms-transition-delay: 800ms;
+  -o-transition-delay: 800ms;
+  -webkit-transition-delay: 800ms;
+  transition-delay: 800ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-3 {
+  -moz-transition-delay: 1200ms;
+  -ms-transition-delay: 1200ms;
+  -o-transition-delay: 1200ms;
+  -webkit-transition-delay: 1200ms;
+  transition-delay: 1200ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-4 {
+  -moz-transition-delay: 1600ms;
+  -ms-transition-delay: 1600ms;
+  -o-transition-delay: 1600ms;
+  -webkit-transition-delay: 1600ms;
+  transition-delay: 1600ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-5 {
+  -moz-transition-delay: 2000ms;
+  -ms-transition-delay: 2000ms;
+  -o-transition-delay: 2000ms;
+  -webkit-transition-delay: 2000ms;
+  transition-delay: 2000ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-6 {
+  -moz-transition-delay: 2400ms;
+  -ms-transition-delay: 2400ms;
+  -o-transition-delay: 2400ms;
+  -webkit-transition-delay: 2400ms;
+  transition-delay: 2400ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-7 {
+  -moz-transition-delay: 2800ms;
+  -ms-transition-delay: 2800ms;
+  -o-transition-delay: 2800ms;
+  -webkit-transition-delay: 2800ms;
+  transition-delay: 2800ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-8 {
+  -moz-transition-delay: 3200ms;
+  -ms-transition-delay: 3200ms;
+  -o-transition-delay: 3200ms;
+  -webkit-transition-delay: 3200ms;
+  transition-delay: 3200ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-9 {
+  -moz-transition-delay: 3600ms;
+  -ms-transition-delay: 3600ms;
+  -o-transition-delay: 3600ms;
+  -webkit-transition-delay: 3600ms;
+  transition-delay: 3600ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-10 {
+  -moz-transition-delay: 4000ms;
+  -ms-transition-delay: 4000ms;
+  -o-transition-delay: 4000ms;
+  -webkit-transition-delay: 4000ms;
+  transition-delay: 4000ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-11 {
+  -moz-transition-delay: 4400ms;
+  -ms-transition-delay: 4400ms;
+  -o-transition-delay: 4400ms;
+  -webkit-transition-delay: 4400ms;
+  transition-delay: 4400ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-12 {
+  -moz-transition-delay: 4800ms;
+  -ms-transition-delay: 4800ms;
+  -o-transition-delay: 4800ms;
+  -webkit-transition-delay: 4800ms;
+  transition-delay: 4800ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-13 {
+  -moz-transition-delay: 5200ms;
+  -ms-transition-delay: 5200ms;
+  -o-transition-delay: 5200ms;
+  -webkit-transition-delay: 5200ms;
+  transition-delay: 5200ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-14 {
+  -moz-transition-delay: 5600ms;
+  -ms-transition-delay: 5600ms;
+  -o-transition-delay: 5600ms;
+  -webkit-transition-delay: 5600ms;
+  transition-delay: 5600ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-15 {
+  -moz-transition-delay: 6000ms;
+  -ms-transition-delay: 6000ms;
+  -o-transition-delay: 6000ms;
+  -webkit-transition-delay: 6000ms;
+  transition-delay: 6000ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-16 {
+  -moz-transition-delay: 6400ms;
+  -ms-transition-delay: 6400ms;
+  -o-transition-delay: 6400ms;
+  -webkit-transition-delay: 6400ms;
+  transition-delay: 6400ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-17 {
+  -moz-transition-delay: 6800ms;
+  -ms-transition-delay: 6800ms;
+  -o-transition-delay: 6800ms;
+  -webkit-transition-delay: 6800ms;
+  transition-delay: 6800ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-18 {
+  -moz-transition-delay: 7200ms;
+  -ms-transition-delay: 7200ms;
+  -o-transition-delay: 7200ms;
+  -webkit-transition-delay: 7200ms;
+  transition-delay: 7200ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-19 {
+  -moz-transition-delay: 7600ms;
+  -ms-transition-delay: 7600ms;
+  -o-transition-delay: 7600ms;
+  -webkit-transition-delay: 7600ms;
+  transition-delay: 7600ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-20 {
+  -moz-transition-delay: 8000ms;
+  -ms-transition-delay: 8000ms;
+  -o-transition-delay: 8000ms;
+  -webkit-transition-delay: 8000ms;
+  transition-delay: 8000ms;
+}
+/* line 77, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-21 {
+  -moz-transition-delay: 8400ms;
+  -ms-transition-delay: 8400ms;
+  -o-transition-delay: 8400ms;
+  -webkit-transition-delay: 8400ms;
+  transition-delay: 8400ms;
+}
+/* line 81, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.slow .animate.active .ae-1 {
+  -moz-transition-delay: 10ms;
+  -ms-transition-delay: 10ms;
+  -o-transition-delay: 10ms;
+  -webkit-transition-delay: 10ms;
+  transition-delay: 10ms;
+}
+/* line 86, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active [class*=ae-] {
+  -moz-transition-duration: 0.8s;
+  -ms-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-1 {
+  -moz-transition-delay: 160ms;
+  -ms-transition-delay: 160ms;
+  -o-transition-delay: 160ms;
+  -webkit-transition-delay: 160ms;
+  transition-delay: 160ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-2 {
+  -moz-transition-delay: 320ms;
+  -ms-transition-delay: 320ms;
+  -o-transition-delay: 320ms;
+  -webkit-transition-delay: 320ms;
+  transition-delay: 320ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-3 {
+  -moz-transition-delay: 480ms;
+  -ms-transition-delay: 480ms;
+  -o-transition-delay: 480ms;
+  -webkit-transition-delay: 480ms;
+  transition-delay: 480ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-4 {
+  -moz-transition-delay: 640ms;
+  -ms-transition-delay: 640ms;
+  -o-transition-delay: 640ms;
+  -webkit-transition-delay: 640ms;
+  transition-delay: 640ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-5 {
+  -moz-transition-delay: 800ms;
+  -ms-transition-delay: 800ms;
+  -o-transition-delay: 800ms;
+  -webkit-transition-delay: 800ms;
+  transition-delay: 800ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-6 {
+  -moz-transition-delay: 960ms;
+  -ms-transition-delay: 960ms;
+  -o-transition-delay: 960ms;
+  -webkit-transition-delay: 960ms;
+  transition-delay: 960ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-7 {
+  -moz-transition-delay: 1120ms;
+  -ms-transition-delay: 1120ms;
+  -o-transition-delay: 1120ms;
+  -webkit-transition-delay: 1120ms;
+  transition-delay: 1120ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-8 {
+  -moz-transition-delay: 1280ms;
+  -ms-transition-delay: 1280ms;
+  -o-transition-delay: 1280ms;
+  -webkit-transition-delay: 1280ms;
+  transition-delay: 1280ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-9 {
+  -moz-transition-delay: 1440ms;
+  -ms-transition-delay: 1440ms;
+  -o-transition-delay: 1440ms;
+  -webkit-transition-delay: 1440ms;
+  transition-delay: 1440ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-10 {
+  -moz-transition-delay: 1600ms;
+  -ms-transition-delay: 1600ms;
+  -o-transition-delay: 1600ms;
+  -webkit-transition-delay: 1600ms;
+  transition-delay: 1600ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-11 {
+  -moz-transition-delay: 1760ms;
+  -ms-transition-delay: 1760ms;
+  -o-transition-delay: 1760ms;
+  -webkit-transition-delay: 1760ms;
+  transition-delay: 1760ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-12 {
+  -moz-transition-delay: 1920ms;
+  -ms-transition-delay: 1920ms;
+  -o-transition-delay: 1920ms;
+  -webkit-transition-delay: 1920ms;
+  transition-delay: 1920ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-13 {
+  -moz-transition-delay: 2080ms;
+  -ms-transition-delay: 2080ms;
+  -o-transition-delay: 2080ms;
+  -webkit-transition-delay: 2080ms;
+  transition-delay: 2080ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-14 {
+  -moz-transition-delay: 2240ms;
+  -ms-transition-delay: 2240ms;
+  -o-transition-delay: 2240ms;
+  -webkit-transition-delay: 2240ms;
+  transition-delay: 2240ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-15 {
+  -moz-transition-delay: 2400ms;
+  -ms-transition-delay: 2400ms;
+  -o-transition-delay: 2400ms;
+  -webkit-transition-delay: 2400ms;
+  transition-delay: 2400ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-16 {
+  -moz-transition-delay: 2560ms;
+  -ms-transition-delay: 2560ms;
+  -o-transition-delay: 2560ms;
+  -webkit-transition-delay: 2560ms;
+  transition-delay: 2560ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-17 {
+  -moz-transition-delay: 2720ms;
+  -ms-transition-delay: 2720ms;
+  -o-transition-delay: 2720ms;
+  -webkit-transition-delay: 2720ms;
+  transition-delay: 2720ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-18 {
+  -moz-transition-delay: 2880ms;
+  -ms-transition-delay: 2880ms;
+  -o-transition-delay: 2880ms;
+  -webkit-transition-delay: 2880ms;
+  transition-delay: 2880ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-19 {
+  -moz-transition-delay: 3040ms;
+  -ms-transition-delay: 3040ms;
+  -o-transition-delay: 3040ms;
+  -webkit-transition-delay: 3040ms;
+  transition-delay: 3040ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-20 {
+  -moz-transition-delay: 3200ms;
+  -ms-transition-delay: 3200ms;
+  -o-transition-delay: 3200ms;
+  -webkit-transition-delay: 3200ms;
+  transition-delay: 3200ms;
+}
+/* line 92, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-21 {
+  -moz-transition-delay: 3360ms;
+  -ms-transition-delay: 3360ms;
+  -o-transition-delay: 3360ms;
+  -webkit-transition-delay: 3360ms;
+  transition-delay: 3360ms;
+}
+/* line 96, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.normal .animate.active .ae-1 {
+  -moz-transition-delay: 10ms;
+  -ms-transition-delay: 10ms;
+  -o-transition-delay: 10ms;
+  -webkit-transition-delay: 10ms;
+  transition-delay: 10ms;
+}
+/* line 101, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active [class*=ae-] {
+  -moz-transition-duration: 0.6s;
+  -ms-transition-duration: 0.6s;
+  -o-transition-duration: 0.6s;
+  -webkit-transition-duration: 0.6s;
+  transition-duration: 0.6s;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-1 {
+  -moz-transition-delay: 140ms;
+  -ms-transition-delay: 140ms;
+  -o-transition-delay: 140ms;
+  -webkit-transition-delay: 140ms;
+  transition-delay: 140ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-2 {
+  -moz-transition-delay: 280ms;
+  -ms-transition-delay: 280ms;
+  -o-transition-delay: 280ms;
+  -webkit-transition-delay: 280ms;
+  transition-delay: 280ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-3 {
+  -moz-transition-delay: 420ms;
+  -ms-transition-delay: 420ms;
+  -o-transition-delay: 420ms;
+  -webkit-transition-delay: 420ms;
+  transition-delay: 420ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-4 {
+  -moz-transition-delay: 560ms;
+  -ms-transition-delay: 560ms;
+  -o-transition-delay: 560ms;
+  -webkit-transition-delay: 560ms;
+  transition-delay: 560ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-5 {
+  -moz-transition-delay: 700ms;
+  -ms-transition-delay: 700ms;
+  -o-transition-delay: 700ms;
+  -webkit-transition-delay: 700ms;
+  transition-delay: 700ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-6 {
+  -moz-transition-delay: 840ms;
+  -ms-transition-delay: 840ms;
+  -o-transition-delay: 840ms;
+  -webkit-transition-delay: 840ms;
+  transition-delay: 840ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-7 {
+  -moz-transition-delay: 980ms;
+  -ms-transition-delay: 980ms;
+  -o-transition-delay: 980ms;
+  -webkit-transition-delay: 980ms;
+  transition-delay: 980ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-8 {
+  -moz-transition-delay: 1120ms;
+  -ms-transition-delay: 1120ms;
+  -o-transition-delay: 1120ms;
+  -webkit-transition-delay: 1120ms;
+  transition-delay: 1120ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-9 {
+  -moz-transition-delay: 1260ms;
+  -ms-transition-delay: 1260ms;
+  -o-transition-delay: 1260ms;
+  -webkit-transition-delay: 1260ms;
+  transition-delay: 1260ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-10 {
+  -moz-transition-delay: 1400ms;
+  -ms-transition-delay: 1400ms;
+  -o-transition-delay: 1400ms;
+  -webkit-transition-delay: 1400ms;
+  transition-delay: 1400ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-11 {
+  -moz-transition-delay: 1540ms;
+  -ms-transition-delay: 1540ms;
+  -o-transition-delay: 1540ms;
+  -webkit-transition-delay: 1540ms;
+  transition-delay: 1540ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-12 {
+  -moz-transition-delay: 1680ms;
+  -ms-transition-delay: 1680ms;
+  -o-transition-delay: 1680ms;
+  -webkit-transition-delay: 1680ms;
+  transition-delay: 1680ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-13 {
+  -moz-transition-delay: 1820ms;
+  -ms-transition-delay: 1820ms;
+  -o-transition-delay: 1820ms;
+  -webkit-transition-delay: 1820ms;
+  transition-delay: 1820ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-14 {
+  -moz-transition-delay: 1960ms;
+  -ms-transition-delay: 1960ms;
+  -o-transition-delay: 1960ms;
+  -webkit-transition-delay: 1960ms;
+  transition-delay: 1960ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-15 {
+  -moz-transition-delay: 2100ms;
+  -ms-transition-delay: 2100ms;
+  -o-transition-delay: 2100ms;
+  -webkit-transition-delay: 2100ms;
+  transition-delay: 2100ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-16 {
+  -moz-transition-delay: 2240ms;
+  -ms-transition-delay: 2240ms;
+  -o-transition-delay: 2240ms;
+  -webkit-transition-delay: 2240ms;
+  transition-delay: 2240ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-17 {
+  -moz-transition-delay: 2380ms;
+  -ms-transition-delay: 2380ms;
+  -o-transition-delay: 2380ms;
+  -webkit-transition-delay: 2380ms;
+  transition-delay: 2380ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-18 {
+  -moz-transition-delay: 2520ms;
+  -ms-transition-delay: 2520ms;
+  -o-transition-delay: 2520ms;
+  -webkit-transition-delay: 2520ms;
+  transition-delay: 2520ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-19 {
+  -moz-transition-delay: 2660ms;
+  -ms-transition-delay: 2660ms;
+  -o-transition-delay: 2660ms;
+  -webkit-transition-delay: 2660ms;
+  transition-delay: 2660ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-20 {
+  -moz-transition-delay: 2800ms;
+  -ms-transition-delay: 2800ms;
+  -o-transition-delay: 2800ms;
+  -webkit-transition-delay: 2800ms;
+  transition-delay: 2800ms;
+}
+/* line 106, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-21 {
+  -moz-transition-delay: 2940ms;
+  -ms-transition-delay: 2940ms;
+  -o-transition-delay: 2940ms;
+  -webkit-transition-delay: 2940ms;
+  transition-delay: 2940ms;
+}
+/* line 110, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule.fast .animate.active .ae-1 {
+  -moz-transition-delay: 10ms;
+  -ms-transition-delay: 10ms;
+  -o-transition-delay: 10ms;
+  -webkit-transition-delay: 10ms;
+  transition-delay: 10ms;
+}
+/* line 117, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .slideInTop [class*=ae-], body.microModule.slideInTop [class*=ae-] {
+  -moz-transform: translate3d(0, -100px, 0);
+  -ms-transform: translate3d(0, -100px, 0);
+  -o-transform: translate3d(0, -100px, 0);
+  -ms-transform: translate3d(0, -100px, 0);
+  -webkit-transform: translate3d(0, -100px, 0);
+  transform: translate3d(0, -100px, 0);
+}
+/* line 120, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .slideInLeft [class*=ae-], body.microModule.slideInLeft [class*=ae-] {
+  -moz-transform: translate3d(-50px, 0, 0);
+  -ms-transform: translate3d(-50px, 0, 0);
+  -o-transform: translate3d(-50px, 0, 0);
+  -ms-transform: translate3d(-50px, 0, 0);
+  -webkit-transform: translate3d(-50px, 0, 0);
+  transform: translate3d(-50px, 0, 0);
+}
+/* line 123, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .slideInRight [class*=ae-], body.microModule.slideInRight [class*=ae-] {
+  -moz-transform: translate3d(50px, 0, 0);
+  -ms-transform: translate3d(50px, 0, 0);
+  -o-transform: translate3d(50px, 0, 0);
+  -ms-transform: translate3d(50px, 0, 0);
+  -webkit-transform: translate3d(50px, 0, 0);
+  transform: translate3d(50px, 0, 0);
+}
+/* line 126, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .slideInCenter [class*=ae-], body.microModule.slideInCenter [class*=ae-] {
+  -moz-transform: scale(0.8) translate3d(0, 0, 0);
+  -ms-transform: scale(0.8) translate3d(0, 0, 0);
+  -o-transform: scale(0.8) translate3d(0, 0, 0);
+  -ms-transform: scale(0.8) translate3d(0, 0, 0);
+  -webkit-transform: scale(0.8) translate3d(0, 0, 0);
+  transform: scale(0.8) translate3d(0, 0, 0);
+}
+/* line 129, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .slideInAbove [class*=ae-], body.microModule.slideInAbove [class*=ae-] {
+  -moz-transform: scale(1.2) translate3d(0, 0, 0);
+  -ms-transform: scale(1.2) translate3d(0, 0, 0);
+  -o-transform: scale(1.2) translate3d(0, 0, 0);
+  -ms-transform: scale(1.2) translate3d(0, 0, 0);
+  -webkit-transform: scale(1.2) translate3d(0, 0, 0);
+  transform: scale(1.2) translate3d(0, 0, 0);
+}
+/* line 132, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .slideInBottomLeft [class*=ae-], body.microModule.slideInBottomLeft [class*=ae-] {
+  -moz-transform: translate3d(-100px, 100px, 0);
+  -ms-transform: translate3d(-100px, 100px, 0);
+  -o-transform: translate3d(-100px, 100px, 0);
+  -ms-transform: translate3d(-100px, 100px, 0);
+  -webkit-transform: translate3d(-100px, 100px, 0);
+  transform: translate3d(-100px, 100px, 0);
+}
+/* line 135, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .slideInTopLeft [class*=ae-], body.microModule.slideInTopLeft [class*=ae-] {
+  -moz-transform: translate3d(-100px, -100px, 0);
+  -ms-transform: translate3d(-100px, -100px, 0);
+  -o-transform: translate3d(-100px, -100px, 0);
+  -ms-transform: translate3d(-100px, -100px, 0);
+  -webkit-transform: translate3d(-100px, -100px, 0);
+  transform: translate3d(-100px, -100px, 0);
+}
+/* line 138, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .slideInBottomRight [class*=ae-], body.microModule.slideInBottomRight [class*=ae-] {
+  -moz-transform: translate3d(100px, 100px, 0);
+  -ms-transform: translate3d(100px, 100px, 0);
+  -o-transform: translate3d(100px, 100px, 0);
+  -ms-transform: translate3d(100px, 100px, 0);
+  -webkit-transform: translate3d(100px, 100px, 0);
+  transform: translate3d(100px, 100px, 0);
+}
+/* line 141, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .slideInTopRight [class*=ae-], body.microModule.slideInTopRight [class*=ae-] {
+  -moz-transform: translate3d(100px, -100px, 0);
+  -ms-transform: translate3d(100px, -100px, 0);
+  -o-transform: translate3d(100px, -100px, 0);
+  -ms-transform: translate3d(100px, -100px, 0);
+  -webkit-transform: translate3d(100px, -100px, 0);
+  transform: translate3d(100px, -100px, 0);
+}
+/* line 144, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .fadeIn [class*=ae-], body.microModule.fadeIn [class*=ae-] {
+  -moz-transform: scale(1) translate3d(0, 0, 0);
+  -ms-transform: scale(1) translate3d(0, 0, 0);
+  -o-transform: scale(1) translate3d(0, 0, 0);
+  -ms-transform: scale(1) translate3d(0, 0, 0);
+  -webkit-transform: scale(1) translate3d(0, 0, 0);
+  transform: scale(1) translate3d(0, 0, 0);
+}
+/* line 147, ../common/scss/utils/mixins/helpers/_animations.scss */
+body.microModule .fromBlur [class*=ae-], body.microModule.fromBlur [class*=ae-] {
+  -moz-transform: scale(1) translate3d(0, 0, 0);
+  -ms-transform: scale(1) translate3d(0, 0, 0);
+  -o-transform: scale(1) translate3d(0, 0, 0);
+  -ms-transform: scale(1) translate3d(0, 0, 0);
+  -webkit-transform: scale(1) translate3d(0, 0, 0);
+  transform: scale(1) translate3d(0, 0, 0);
+  filter: blur(10px);
+}
+/* line 56, ../core/scss/modules/micro-learning/_micro-learning.scss */
+body.microModule footer .backnext .next {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMaxYMin' viewBox='0 0 26 45'%3E%3Cg fill='%23d7df58'%3E%3Cpath d='M2.8 4.1c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z'/%3E%3Ccircle cx='2.8' cy='7.2' r='2'/%3E%3Ccircle cx='2.8' cy='12.3' r='2'/%3E%3Ccircle cx='2.8' cy='17.4' r='2'/%3E%3Cpath d='M2.8 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM2.8 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9z'/%3E%3Ccircle cx='2.8' cy='32.7' r='2'/%3E%3Ccircle cx='2.8' cy='37.8' r='2'/%3E%3Cpath d='M2.8 44.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z'/%3E%3Ccircle cx='7.9' cy='7.2' r='2'/%3E%3Ccircle cx='7.9' cy='12.3' r='2'/%3E%3Ccircle cx='7.9' cy='17.4' r='2'/%3E%3Cpath d='M7.9 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM7.9 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9z'/%3E%3Ccircle cx='7.9' cy='32.7' r='2'/%3E%3Ccircle cx='7.9' cy='37.8' r='2'/%3E%3Cpath d='M13 14.3c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 19.4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9zM13 34.6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c0 1.2-.9 2-2 2zM18.1 19.4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2zM18.1 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2zM18.1 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2c-.1 1.1-.9 1.9-2 1.9zM23.2 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center;
+}
+/* line 15, ../core/scss/modules/micro-learning/_micro-learning.scss */
+body.microModule footer .backnext .next:hover {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMaxYMin' viewBox='0 0 26 45'%3E%3Cg fill='%23a7af22'%3E%3Cpath d='M2.8 4.1c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z'/%3E%3Ccircle cx='2.8' cy='7.2' r='2'/%3E%3Ccircle cx='2.8' cy='12.3' r='2'/%3E%3Ccircle cx='2.8' cy='17.4' r='2'/%3E%3Cpath d='M2.8 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM2.8 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9z'/%3E%3Ccircle cx='2.8' cy='32.7' r='2'/%3E%3Ccircle cx='2.8' cy='37.8' r='2'/%3E%3Cpath d='M2.8 44.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z'/%3E%3Ccircle cx='7.9' cy='7.2' r='2'/%3E%3Ccircle cx='7.9' cy='12.3' r='2'/%3E%3Ccircle cx='7.9' cy='17.4' r='2'/%3E%3Cpath d='M7.9 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM7.9 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9z'/%3E%3Ccircle cx='7.9' cy='32.7' r='2'/%3E%3Ccircle cx='7.9' cy='37.8' r='2'/%3E%3Cpath d='M13 14.3c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 19.4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9zM13 34.6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c0 1.2-.9 2-2 2zM18.1 19.4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2zM18.1 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2zM18.1 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2c-.1 1.1-.9 1.9-2 1.9zM23.2 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center;
+}
+/* line 59, ../core/scss/modules/micro-learning/_micro-learning.scss */
+body.microModule footer .backnext .back {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin' viewBox='0 0 26 45'%3E%3Cg fill='%23d7df58'%3E%3Cpath d='M23.2 40.9c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z'/%3E%3Ccircle cx='23.2' cy='37.8' r='2'/%3E%3Ccircle cx='23.2' cy='32.7' r='2'/%3E%3Ccircle cx='23.2' cy='27.6' r='2'/%3E%3Cpath d='M23.2 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM23.2 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9z'/%3E%3Ccircle cx='23.2' cy='12.3' r='2'/%3E%3Ccircle cx='23.2' cy='7.2' r='2'/%3E%3Cpath d='M23.2.2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z'/%3E%3Ccircle cx='18.1' cy='37.8' r='2'/%3E%3Ccircle cx='18.1' cy='32.7' r='2'/%3E%3Ccircle cx='18.1' cy='27.6' r='2'/%3E%3Cpath d='M18.1 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM18.1 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9z'/%3E%3Ccircle cx='18.1' cy='12.3' r='2'/%3E%3Ccircle cx='18.1' cy='7.2' r='2'/%3E%3Cpath d='M13 30.7c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 25.6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9zM13 10.4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c0-1.2.9-2 2-2zM7.9 25.6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2zM7.9 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2zM7.9 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2c.1-1.1.9-1.9 2-1.9zM2.8 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center;
+}
+/* line 6, ../core/scss/modules/micro-learning/_micro-learning.scss */
+body.microModule footer .backnext .back:hover {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin' viewBox='0 0 26 45'%3E%3Cg fill='%23a7af22'%3E%3Cpath d='M23.2 40.9c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z'/%3E%3Ccircle cx='23.2' cy='37.8' r='2'/%3E%3Ccircle cx='23.2' cy='32.7' r='2'/%3E%3Ccircle cx='23.2' cy='27.6' r='2'/%3E%3Cpath d='M23.2 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM23.2 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9z'/%3E%3Ccircle cx='23.2' cy='12.3' r='2'/%3E%3Ccircle cx='23.2' cy='7.2' r='2'/%3E%3Cpath d='M23.2.2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z'/%3E%3Ccircle cx='18.1' cy='37.8' r='2'/%3E%3Ccircle cx='18.1' cy='32.7' r='2'/%3E%3Ccircle cx='18.1' cy='27.6' r='2'/%3E%3Cpath d='M18.1 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM18.1 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9z'/%3E%3Ccircle cx='18.1' cy='12.3' r='2'/%3E%3Ccircle cx='18.1' cy='7.2' r='2'/%3E%3Cpath d='M13 30.7c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 25.6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9zM13 10.4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c0-1.2.9-2 2-2zM7.9 25.6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2zM7.9 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2zM7.9 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2c.1-1.1.9-1.9 2-1.9zM2.8 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center;
+}
+
+/* line 65, ../core/scss/modules/micro-learning/_micro-learning.scss */
+.mobile body.microModule footer .backnext .next {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMaxYMin' viewBox='0 0 26 45'%3E%3Cg fill='%23d7df58'%3E%3Cpath d='M2.8 4.1c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z'/%3E%3Ccircle cx='2.8' cy='7.2' r='2'/%3E%3Ccircle cx='2.8' cy='12.3' r='2'/%3E%3Ccircle cx='2.8' cy='17.4' r='2'/%3E%3Cpath d='M2.8 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM2.8 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9z'/%3E%3Ccircle cx='2.8' cy='32.7' r='2'/%3E%3Ccircle cx='2.8' cy='37.8' r='2'/%3E%3Cpath d='M2.8 44.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z'/%3E%3Ccircle cx='7.9' cy='7.2' r='2'/%3E%3Ccircle cx='7.9' cy='12.3' r='2'/%3E%3Ccircle cx='7.9' cy='17.4' r='2'/%3E%3Cpath d='M7.9 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM7.9 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9z'/%3E%3Ccircle cx='7.9' cy='32.7' r='2'/%3E%3Ccircle cx='7.9' cy='37.8' r='2'/%3E%3Cpath d='M13 14.3c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 19.4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9zM13 34.6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c0 1.2-.9 2-2 2zM18.1 19.4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2zM18.1 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2zM18.1 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2c-.1 1.1-.9 1.9-2 1.9zM23.2 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center;
+}
+/* line 15, ../core/scss/modules/micro-learning/_micro-learning.scss */
+.mobile body.microModule footer .backnext .next:hover {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMaxYMin' viewBox='0 0 26 45'%3E%3Cg fill='%23a7af22'%3E%3Cpath d='M2.8 4.1c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z'/%3E%3Ccircle cx='2.8' cy='7.2' r='2'/%3E%3Ccircle cx='2.8' cy='12.3' r='2'/%3E%3Ccircle cx='2.8' cy='17.4' r='2'/%3E%3Cpath d='M2.8 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM2.8 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9z'/%3E%3Ccircle cx='2.8' cy='32.7' r='2'/%3E%3Ccircle cx='2.8' cy='37.8' r='2'/%3E%3Cpath d='M2.8 44.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z'/%3E%3Ccircle cx='7.9' cy='7.2' r='2'/%3E%3Ccircle cx='7.9' cy='12.3' r='2'/%3E%3Ccircle cx='7.9' cy='17.4' r='2'/%3E%3Cpath d='M7.9 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM7.9 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9z'/%3E%3Ccircle cx='7.9' cy='32.7' r='2'/%3E%3Ccircle cx='7.9' cy='37.8' r='2'/%3E%3Cpath d='M13 14.3c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 19.4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9zM13 34.6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c0 1.2-.9 2-2 2zM18.1 19.4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2zM18.1 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2zM18.1 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2c-.1 1.1-.9 1.9-2 1.9zM23.2 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center;
+}
+/* line 68, ../core/scss/modules/micro-learning/_micro-learning.scss */
+.mobile body.microModule footer .backnext .back {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin' viewBox='0 0 26 45'%3E%3Cg fill='%23d7df58'%3E%3Cpath d='M23.2 40.9c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z'/%3E%3Ccircle cx='23.2' cy='37.8' r='2'/%3E%3Ccircle cx='23.2' cy='32.7' r='2'/%3E%3Ccircle cx='23.2' cy='27.6' r='2'/%3E%3Cpath d='M23.2 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM23.2 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9z'/%3E%3Ccircle cx='23.2' cy='12.3' r='2'/%3E%3Ccircle cx='23.2' cy='7.2' r='2'/%3E%3Cpath d='M23.2.2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z'/%3E%3Ccircle cx='18.1' cy='37.8' r='2'/%3E%3Ccircle cx='18.1' cy='32.7' r='2'/%3E%3Ccircle cx='18.1' cy='27.6' r='2'/%3E%3Cpath d='M18.1 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM18.1 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9z'/%3E%3Ccircle cx='18.1' cy='12.3' r='2'/%3E%3Ccircle cx='18.1' cy='7.2' r='2'/%3E%3Cpath d='M13 30.7c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 25.6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9zM13 10.4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c0-1.2.9-2 2-2zM7.9 25.6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2zM7.9 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2zM7.9 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2c.1-1.1.9-1.9 2-1.9zM2.8 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center;
+}
+/* line 6, ../core/scss/modules/micro-learning/_micro-learning.scss */
+.mobile body.microModule footer .backnext .back:hover {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin' viewBox='0 0 26 45'%3E%3Cg fill='%23a7af22'%3E%3Cpath d='M23.2 40.9c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z'/%3E%3Ccircle cx='23.2' cy='37.8' r='2'/%3E%3Ccircle cx='23.2' cy='32.7' r='2'/%3E%3Ccircle cx='23.2' cy='27.6' r='2'/%3E%3Cpath d='M23.2 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM23.2 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9z'/%3E%3Ccircle cx='23.2' cy='12.3' r='2'/%3E%3Ccircle cx='23.2' cy='7.2' r='2'/%3E%3Cpath d='M23.2.2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z'/%3E%3Ccircle cx='18.1' cy='37.8' r='2'/%3E%3Ccircle cx='18.1' cy='32.7' r='2'/%3E%3Ccircle cx='18.1' cy='27.6' r='2'/%3E%3Cpath d='M18.1 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM18.1 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9z'/%3E%3Ccircle cx='18.1' cy='12.3' r='2'/%3E%3Ccircle cx='18.1' cy='7.2' r='2'/%3E%3Cpath d='M13 30.7c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 25.6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9zM13 10.4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c0-1.2.9-2 2-2zM7.9 25.6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2zM7.9 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2zM7.9 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2c.1-1.1.9-1.9 2-1.9zM2.8 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center;
+}
+
+/* line 7, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome header {
+  position: relative;
+  z-index: 1000;
+}
+/* line 11, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome #wb-bar .top-menu > .row #wb-lng ul.text-right > li > a {
+  font-weight: bold;
+  font-size: 30px;
+}
+/* line 15, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome .modIndex {
+  position: relative;
+  border: 2px dotted;
+  border-left: 0;
+  border-right: 0;
+  margin: 50px 0;
+  padding-right: 10%;
+}
+@media (max-width: 1200px) {
+  /* line 22, ../core/scss/modules/micro-learning/_overrides.scss */
+  .microLearning .welcome .modIndex .module-info {
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+}
+/* line 28, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome .modIndex .module-info h3 {
+  margin: 0;
+}
+/* line 31, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome .modIndex .module-info a {
+  color: #d7e059;
+  padding: 20px 0;
+  width: 100%;
+  display: table;
+  text-decoration: none;
+}
+@media (max-width: 1200px) {
+  /* line 31, ../core/scss/modules/micro-learning/_overrides.scss */
+  .microLearning .welcome .modIndex .module-info a {
+    padding: 0;
+  }
+}
+/* line 41, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome .modIndex .module-info:hover a {
+  color: #f1f4c4;
+}
+/* line 45, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome .modIndex .arrows-bottom {
+  top: 50px;
+  position: absolute;
+  margin-left: 7px;
+  -moz-transition: left 0.5s ease;
+  -ms-transition: left 0.5s ease;
+  -o-transition: left 0.5s ease;
+  -webkit-transition: left 0.5s ease;
+  transition: left 0.5s ease;
+}
+@media (max-width: 1200px) {
+  /* line 45, ../core/scss/modules/micro-learning/_overrides.scss */
+  .microLearning .welcome .modIndex .arrows-bottom {
+    margin-left: 0;
+  }
+}
+/* line 53, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome .modIndex .arrows-bottom:before, .microLearning .welcome .modIndex .arrows-bottom:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  z-index: 1000;
+  border-style: dotted;
+  border-width: 2px 2px 0 0;
+  width: 1em;
+  height: 1em;
+  -moz-transform: translateY(-50%) rotate(135deg);
+  -ms-transform: translateY(-50%) rotate(135deg);
+  -o-transform: translateY(-50%) rotate(135deg);
+  -ms-transform: translateY(-50%) rotate(135deg);
+  -webkit-transform: translateY(-50%) rotate(135deg);
+  transform: translateY(-50%) rotate(135deg);
+}
+@media (max-width: 1200px) {
+  /* line 53, ../core/scss/modules/micro-learning/_overrides.scss */
+  .microLearning .welcome .modIndex .arrows-bottom:before, .microLearning .welcome .modIndex .arrows-bottom:after {
+    left: 15px;
+    bottom: 5px;
+  }
+}
+/* line 68, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome .modIndex .arrows-bottom:before {
+  bottom: 20px;
+}
+@media (max-width: 1200px) {
+  /* line 68, ../core/scss/modules/micro-learning/_overrides.scss */
+  .microLearning .welcome .modIndex .arrows-bottom:before {
+    bottom: 15px;
+  }
+}
+/* line 75, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome .modIndex .mod-name {
+  display: table-cell;
+  text-align: right;
+  padding-right: 20px;
+}
+/* line 80, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome .modIndex .ribbon-module {
+  display: table-cell;
+  text-align: center;
+}
+@media (max-width: 1200px) {
+  /* line 80, ../core/scss/modules/micro-learning/_overrides.scss */
+  .microLearning .welcome .modIndex .ribbon-module {
+    text-align: right;
+  }
+}
+/* line 86, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome .modIndex .ribbon-module .modnum {
+  font-size: 5em;
+}
+@media (max-width: 1200px) {
+  /* line 86, ../core/scss/modules/micro-learning/_overrides.scss */
+  .microLearning .welcome .modIndex .ribbon-module .modnum {
+    font-size: 3em;
+  }
+}
+/* line 94, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome main {
+  width: 100%;
+  height: 100%;
+}
+/* line 97, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome h1 {
+  font-size: 5em;
+}
+@media (max-width: 1200px) {
+  /* line 97, ../core/scss/modules/micro-learning/_overrides.scss */
+  .microLearning .welcome h1 {
+    font-size: 3em;
+  }
+}
+/* line 103, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome #dynamic_content {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: calc(100% - 22%);
+  padding: 0;
+  overflow: hidden;
+}
+@media (max-width: 1600px) {
+  /* line 103, ../core/scss/modules/micro-learning/_overrides.scss */
+  .microLearning .welcome #dynamic_content {
+    width: calc(100% - 10%);
+  }
+}
+/* line 114, ../core/scss/modules/micro-learning/_overrides.scss */
+.microLearning .welcome #dynamic_content h1, .microLearning .welcome #dynamic_content p {
+  padding-right: 50px;
+}
+
+@media (max-width: 992px) {
+  /* line 121, ../core/scss/modules/micro-learning/_overrides.scss */
+  .mobile .welcome h1 {
+    font-size: 4em;
+  }
+}
+@media (max-width: 768px) {
+  /* line 126, ../core/scss/modules/micro-learning/_overrides.scss */
+  .mobile .welcome h1 {
+    font-size: 3em;
+  }
+}
+@media (max-width: 1200px) {
+  /* line 130, ../core/scss/modules/micro-learning/_overrides.scss */
+  .mobile .welcome main {
+    width: 100%;
+  }
+}
+/* line 135, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .welcome .breadcrumb {
+  display: none !important;
+}
+/* line 138, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .welcome .arrows-bottom {
+  display: none;
+}
+/* line 141, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .welcome #dynamic_content {
+  padding: 20px;
+  margin-top: 45px;
+  margin-bottom: 0 !important;
+}
+/* line 147, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .welcome .module-info {
+  text-align: center;
+}
+@media (max-width: 1200px) {
+  /* line 147, ../core/scss/modules/micro-learning/_overrides.scss */
+  .mobile .welcome .module-info {
+    text-align: right;
+  }
+}
+/* line 153, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .welcome .modIndex {
+  padding-right: 0;
+}
+@media (max-width: 992px) {
+  /* line 156, ../core/scss/modules/micro-learning/_overrides.scss */
+  .mobile .welcome .modIndex .ribbon-module .modnum {
+    font-size: 4em;
+  }
+}
+@media (max-width: 768px) {
+  /* line 161, ../core/scss/modules/micro-learning/_overrides.scss */
+  .mobile .welcome .modIndex .ribbon-module .modnum {
+    font-size: 3em;
+  }
+}
+/* line 167, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .welcome footer {
+  display: none !important;
+}
+
+/* line 172, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule {
+  /*hide the prev and next buttons of the header*/
+  /*since the ones in the footer are present*/
+}
+/* line 174, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule header[role=banner] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /*on top of others*/
+  z-index: 1002;
+  width: 100%;
+}
+/* line 181, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule header[role=banner] #wb-bar .top-menu > .row {
+  top: 0;
+}
+/* line 186, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule main[role=main] {
+  width: 100%;
+  padding: 0;
+  display: block;
+  /*sometimes the fullPage.js can create a white space on the right*/
+  overflow-x: hidden;
+}
+/* line 194, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule #wb-sttl {
+  width: 25%;
+  padding-right: 4em;
+  position: absolute;
+  left: 0;
+  margin-top: 20px;
+  text-align: right;
+}
+/* line 201, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule #wb-sttl #csps-modulenum {
+  display: inline-block;
+  width: 100%;
+}
+/* line 205, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule #wb-sttl #csps-modulename {
+  padding: 0;
+  padding-left: 10px;
+  border-bottom: 2px dotted;
+  display: block;
+}
+@media (max-width: 1200px) {
+  /* line 205, ../core/scss/modules/micro-learning/_overrides.scss */
+  body.microModule #wb-sttl #csps-modulename {
+    font-size: 1em;
+  }
+}
+/* line 217, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule h2.series-title {
+  position: fixed;
+  left: 22%;
+  padding-left: 0;
+  float: left;
+  display: table !important;
+  height: 45px;
+  vertical-align: middle;
+}
+/* line 225, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule h2.series-title a {
+  display: table-cell;
+}
+/* line 227, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule h2.series-title a:before {
+  content: "";
+  border-bottom: 2px dotted #d7e059;
+  width: calc(25% - 3em);
+  position: fixed;
+  left: 0px;
+  top: 30px;
+}
+/* line 239, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule #wb-bar {
+  position: relative;
+}
+/* line 242, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule #wb-bar .top-menu > .row #wb-lng ul.text-right > li > a {
+  font-weight: bold;
+  font-size: 30px;
+}
+/* line 248, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule #topbacknext {
+  display: none !important;
+}
+/* line 251, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule .breadcrumb {
+  position: fixed;
+  width: 100%;
+  /*allow the menu to be on top of the breadcrumb*/
+  z-index: 1000;
+  background-color: transparent;
+}
+/* line 261, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule .supermenu-wrapper {
+  display: none !important;
+}
+/* line 264, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule #dynamic_content {
+  position: relative;
+  padding: 0;
+}
+/* line 270, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule footer {
+  z-index: 1001;
+  position: fixed;
+}
+/* line 273, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule footer .container {
+  width: 100%;
+}
+/* line 276, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule footer .backnext {
+  position: fixed;
+  height: auto;
+  padding: 0 !important;
+}
+/* line 280, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule footer .backnext > span {
+  margin: 0 40px;
+}
+@media (max-width: 1200px) {
+  /* line 280, ../core/scss/modules/micro-learning/_overrides.scss */
+  body.microModule footer .backnext > span {
+    margin: 0;
+  }
+}
+/* line 286, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule footer .backnext .next, body.microModule footer .backnext .back {
+  outline: none;
+  font-size: 0;
+}
+/* line 290, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule footer .backnext .next:after, body.microModule footer .backnext .next:before, body.microModule footer .backnext .back:after, body.microModule footer .backnext .back:before {
+  display: none;
+}
+/* line 294, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule footer .backnext span {
+  margin: 0 25px;
+}
+@media (max-width: 1600px) {
+  /* line 294, ../core/scss/modules/micro-learning/_overrides.scss */
+  body.microModule footer .backnext span {
+    margin: 0;
+  }
+}
+/* line 301, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule footer .backnext a {
+  display: inline-block;
+  width: 30px;
+  height: 35px;
+}
+/* line 304, ../core/scss/modules/micro-learning/_overrides.scss */
+body.microModule footer .backnext a, body.microModule footer .backnext a:hover, body.microModule footer .backnext a:focus, body.microModule footer .backnext a:active, body.microModule footer .backnext a.disabled, body.microModule footer .backnext a.disabled:hover {
+  text-indent: -9999px;
+}
+
+/* line 311, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile, .mobile body.microModule {
+  height: 100%;
+}
+
+/* line 315, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule header[role=banner], .mobile .microModule footer {
+  background-color: #222;
+  box-shadow: 45px 1px 1px 1px #2f2f2f;
+}
+/* line 318, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule header[role=banner] .backnext a, .mobile .microModule footer .backnext a {
+  display: table-cell !important;
+  width: 33%;
+  height: 35px;
+}
+/* line 323, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule main {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+/* line 330, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule h2.series-title {
+  position: absolute;
+  left: 0;
+  text-align: center;
+}
+/* line 334, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule h2.series-title a:before {
+  display: none;
+}
+/* line 338, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule .breadcrumb {
+  display: none !important;
+}
+/* line 343, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule #dynamic_content {
+  overflow: hidden;
+}
+/* line 346, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule #wb-sttl {
+  padding-right: 2em;
+  width: 100%;
+  color: #d7df58;
+  position: relative;
+  text-align: right;
+  margin: 0;
+}
+/* line 353, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule #wb-sttl #csps-modulenum {
+  display: inline;
+  font-size: 2em;
+}
+/* line 357, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule #wb-sttl #csps-modulename {
+  display: inline;
+  padding: 0;
+  margin-left: 20px;
+}
+/* line 363, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule .mb-lvl-nb {
+  display: none;
+}
+/* line 366, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule :not(.welcome) main[role=main] {
+  position: absolute;
+  right: 0;
+}
+/* line 371, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule footer {
+  position: fixed;
+  bottom: 0;
+  z-index: 1002;
+  width: 100%;
+}
+/* line 376, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule footer .backnext .next, .mobile .microModule footer .backnext .back {
+  text-indent: -9999px;
+}
+/* line 379, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule footer .backnext .next, .mobile .microModule footer .backnext .back,
+.mobile .microModule footer .backnext .next:hover, .mobile .microModule footer .backnext .back:hover {
+  background-size: 15px !important;
+}
+/* line 383, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule footer .backnext > span {
+  background-color: transparent !important;
+}
+/* line 387, ../core/scss/modules/micro-learning/_overrides.scss */
+.mobile .microModule .dyk {
+  position: relative;
+  width: 100%;
+  left: 0;
+  margin-top: 40px;
+}
+
+/* line 395, ../core/scss/modules/micro-learning/_overrides.scss */
+.ie11.mobile body.microModule footer .backnext a {
+  background-size: cover !important;
+}
+
+/* line 2, ../core/scss/modules/micro-learning/_micro-menu.scss */
+body.microModule .micro-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  line-height: 1.2;
+  padding-right: 4em;
+  z-index: 1001;
+}
+/* line 11, ../core/scss/modules/micro-learning/_micro-menu.scss */
+body.microModule .micro-menu .wrap {
+  overflow: hidden;
+}
+/* line 12, ../core/scss/modules/micro-learning/_micro-menu.scss */
+body.microModule .micro-menu ul.toc {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* line 17, ../core/scss/modules/micro-learning/_micro-menu.scss */
+body.microModule .micro-menu ul.toc.left {
+  left: 0;
+}
+/* line 20, ../core/scss/modules/micro-learning/_micro-menu.scss */
+body.microModule .micro-menu ul.toc.right {
+  right: 0;
+}
+/* line 24, ../core/scss/modules/micro-learning/_micro-menu.scss */
+body.microModule .micro-menu .toc-marker {
+  position: absolute;
+  top: 0;
+  border-radius: 10px;
+  background-color: #111;
+  width: 10px;
+  height: 10px;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -moz-transition: top 0.5s ease;
+  -ms-transition: top 0.5s ease;
+  -o-transition: top 0.5s ease;
+  -webkit-transition: top 0.5s ease;
+  transition: top 0.5s ease;
+}
+/* line 32, ../core/scss/modules/micro-learning/_micro-menu.scss */
+body.microModule .micro-menu .toc-marker.left {
+  left: -20px;
+}
+/* line 35, ../core/scss/modules/micro-learning/_micro-menu.scss */
+body.microModule .micro-menu .toc-marker.right {
+  right: -20px;
+}
+/* line 40, ../core/scss/modules/micro-learning/_micro-menu.scss */
+body.microModule .micro-menu li {
+  text-align: right;
+  text-transform: uppercase;
+}
+@media (max-width: 1600px) {
+  /* line 40, ../core/scss/modules/micro-learning/_micro-menu.scss */
+  body.microModule .micro-menu li {
+    font-size: 0.8em;
+  }
+}
+/* line 46, ../core/scss/modules/micro-learning/_micro-menu.scss */
+body.microModule .micro-menu li.active a {
+  -moz-transform: translateX(0px) !important;
+  -o-transform: translateX(0px) !important;
+  -ms-transform: translateX(0px) !important;
+  -webkit-transform: translateX(0px) !important;
+  transform: translateX(0px) !important;
+}
+/* line 55, ../core/scss/modules/micro-learning/_micro-menu.scss */
+body.microModule .micro-menu li a {
+  margin: 5px 0;
+  display: inline-block;
+  text-decoration: none;
+  -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  -ms-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  -o-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+/* line 63, ../core/scss/modules/micro-learning/_micro-menu.scss */
+body.microModule .micro-menu li a:hover, body.microModule .micro-menu li a:focus {
+  font-weight: bold;
+}
+/* line 66, ../core/scss/modules/micro-learning/_micro-menu.scss */
+body.microModule .micro-menu li a:focus {
+  outline: none;
+}
+
+/* line 73, ../core/scss/modules/micro-learning/_micro-menu.scss */
+.desktop body.microModule .micro-menu li.active > a {
+  -moz-transform: translate(5px);
+  -ms-transform: translate(5px);
+  -o-transform: translate(5px);
+  -ms-transform: translate(5px);
+  -webkit-transform: translate(5px);
+  transform: translate(5px);
+  font-weight: bold;
+  background-color: transparent !important;
+}
+
+/* line 81, ../core/scss/modules/micro-learning/_micro-menu.scss */
+.mobile body.microModule .micro-menu {
+  padding-right: 1em;
+  height: 100%;
+  box-shadow: 0px 0px 1px 1px #2f2f2f;
+  width: 45px;
+  background-color: #222;
+  /*custom marker for mobile, hide the desktop one*/
+}
+/* line 90, ../core/scss/modules/micro-learning/_micro-menu.scss */
+.mobile body.microModule .micro-menu .toc-marker {
+  display: none;
+}
+/* line 91, ../core/scss/modules/micro-learning/_micro-menu.scss */
+.mobile body.microModule .micro-menu ul {
+  position: relative;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/* line 95, ../core/scss/modules/micro-learning/_micro-menu.scss */
+.mobile body.microModule .micro-menu ul li {
+  text-align: center;
+}
+/* line 97, ../core/scss/modules/micro-learning/_micro-menu.scss */
+.mobile body.microModule .micro-menu ul li a {
+  text-indent: -9999px;
+  width: 12px;
+  height: 12px;
+  outline: none;
+  border-radius: 10px;
+  border: 2px solid #d7e059;
+}
+/* line 104, ../core/scss/modules/micro-learning/_micro-menu.scss */
+.mobile body.microModule .micro-menu ul li.active a {
+  background-color: #d7e059;
+}
+
+/* line 5, ../core/scss/modules/micro-learning/_micro-section.scss */
+body.microModule .micro-section {
+  padding: 5px 40px 20px;
+  float: none;
+  padding-left: 25%;
+  padding-top: 2em;
+}
+/* line 12, ../core/scss/modules/micro-learning/_micro-section.scss */
+body.microModule .micro-section h2 {
+  float: none;
+}
+/* line 14, ../core/scss/modules/micro-learning/_micro-section.scss */
+body.microModule .micro-section h2 .sub-title {
+  display: block;
+  font-size: 0.5em;
+}
+/* line 19, ../core/scss/modules/micro-learning/_micro-section.scss */
+body.microModule .micro-section h3 {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+/* line 23, ../core/scss/modules/micro-learning/_micro-section.scss */
+body.microModule .micro-section .wrap {
+  display: table;
+  position: relative;
+  top: 40%;
+  -moz-transform: translateY(-40%);
+  -ms-transform: translateY(-40%);
+  -o-transform: translateY(-40%);
+  -ms-transform: translateY(-40%);
+  -webkit-transform: translateY(-40%);
+  transform: translateY(-40%);
+  width: 100%;
+}
+
+/* line 35, ../core/scss/modules/micro-learning/_micro-section.scss */
+.desktop body.microModule .micro-section {
+  position: fixed;
+  z-index: 10;
+  opacity: 1;
+  -moz-transition: transform 1000ms, opacity 1s;
+  -ms-transition: transform 1000ms, opacity 1s;
+  -o-transition: transform 1000ms, opacity 1s;
+  -webkit-transition: transform 1000ms, opacity 1s;
+  transition: transform 1000ms, opacity 1s;
+}
+/* line 41, ../core/scss/modules/micro-learning/_micro-section.scss */
+.desktop body.microModule .micro-section.active, .desktop body.microModule .micro-section.selected {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 1.15, 0.35, 1) !important;
+  -o-transition-timing-function: cubic-bezier(0.4, 1.15, 0.35, 1) !important;
+  transition-timing-function: cubic-bezier(0.4, 1.15, 0.35, 1) !important;
+  -moz-transition: transform 1000ms, opacity 1s;
+  -ms-transition: transform 1000ms, opacity 1s;
+  -o-transition: transform 1000ms, opacity 1s;
+  -webkit-transition: transform 1000ms, opacity 1s;
+  transition: transform 1000ms, opacity 1s;
+}
+/* line 48, ../core/scss/modules/micro-learning/_micro-section.scss */
+.desktop body.microModule .micro-section.active {
+  -webkit-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+}
+/* line 53, ../core/scss/modules/micro-learning/_micro-section.scss */
+.desktop body.microModule .micro-section.selected {
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -ms-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+  opacity: 1 !important;
+  z-index: 10;
+}
+/* line 60, ../core/scss/modules/micro-learning/_micro-section.scss */
+.desktop body.microModule .micro-section.before, .desktop body.microModule .micro-section.after {
+  opacity: 0 !important;
+}
+/* line 64, ../core/scss/modules/micro-learning/_micro-section.scss */
+.desktop body.microModule .micro-section.before {
+  -moz-transform: translate3d(0, -50%, 0);
+  -ms-transform: translate3d(0, -50%, 0);
+  -o-transform: translate3d(0, -50%, 0);
+  -ms-transform: translate3d(0, -50%, 0);
+  -webkit-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  z-index: 11;
+}
+/* line 70, ../core/scss/modules/micro-learning/_micro-section.scss */
+.desktop body.microModule .micro-section, .desktop body.microModule .micro-section.after {
+  will-change: transform;
+  opacity: initial;
+  z-index: 8;
+  -moz-transform: translate3d(0, 50%, 0);
+  -ms-transform: translate3d(0, 50%, 0);
+  -o-transform: translate3d(0, 50%, 0);
+  -ms-transform: translate3d(0, 50%, 0);
+  -webkit-transform: translate3d(0, 50%, 0);
+  transform: translate3d(0, 50%, 0);
+  -moz-transform: translateY(10%);
+  -ms-transform: translateY(10%);
+  -o-transform: translateY(10%);
+  -ms-transform: translateY(10%);
+  -webkit-transform: translateY(10%);
+  transform: translateY(10%);
+}
+
+/* line 81, ../core/scss/modules/micro-learning/_micro-section.scss */
+.mobile body.microModule section.micro-section {
+  height: 100% !important;
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+}
+/* line 85, ../core/scss/modules/micro-learning/_micro-section.scss */
+.mobile body.microModule section.micro-section h2 {
+  font-size: 2.5em;
+}
+/* line 87, ../core/scss/modules/micro-learning/_micro-section.scss */
+.mobile body.microModule section.micro-section h2 .title {
+  padding-left: 50px;
+}
+/* line 91, ../core/scss/modules/micro-learning/_micro-section.scss */
+.mobile body.microModule section.micro-section .wrap {
+  top: 0;
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+/* line 1, ../core/scss/modules/tutorials/_tutorials.scss */
+.tutorials {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  z-index: 1002 !important;
+}
+/* line 10, ../core/scss/modules/tutorials/_tutorials.scss */
+.tutorials > [class^='tutorial-'] {
+  -moz-transform: translateX(-1000%);
+  -ms-transform: translateX(-1000%);
+  -o-transform: translateX(-1000%);
+  -ms-transform: translateX(-1000%);
+  -webkit-transform: translateX(-1000%);
+  transform: translateX(-1000%);
+}
+/* line 16, ../core/scss/modules/tutorials/_tutorials.scss */
+.tutorials > [class^='tutorial-'].slide-in {
+  -webkit-animation: slideInFromRight 1s forwards;
+  -moz-animation: slideInFromRight 1s forwards;
+  -ms-animation: slideInFromRight 1s forwards;
+  -o-animation: slideInFromRight 1s forwards;
+  animation: slideInFromRight 1s forwards;
+}
+/* line 19, ../core/scss/modules/tutorials/_tutorials.scss */
+.tutorials > [class^='tutorial-'].slide-out {
+  -webkit-animation: slideOutRight 1s forwards;
+  -moz-animation: slideOutRight 1s forwards;
+  -ms-animation: slideOutRight 1s forwards;
+  -o-animation: slideOutRight 1s forwards;
+  animation: slideOutRight 1s forwards;
+}
+/* line 23, ../core/scss/modules/tutorials/_tutorials.scss */
+.tutorials .confirm, .tutorials .skip-tutorial {
+  position: absolute;
+  left: 50%;
+  min-width: 90px;
+  height: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  border-radius: 0;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+@media (max-width: 1600px) {
+  /* line 23, ../core/scss/modules/tutorials/_tutorials.scss */
+  .tutorials .confirm, .tutorials .skip-tutorial {
+    height: 35px;
+    font-size: 1em;
+    padding: 4px;
+  }
+}
+/* line 39, ../core/scss/modules/tutorials/_tutorials.scss */
+.tutorials .confirm {
+  bottom: 25%;
+}
+/* line 42, ../core/scss/modules/tutorials/_tutorials.scss */
+.tutorials .skip-tutorial {
+  top: 0;
+}
+/* line 1, ../core/scss/modules/tutorials/_mouse-scroll.scss */
+.tutorials .tutorial-mouse {
+  position: absolute;
+  right: 20%;
+  top: 30%;
+  background-color: #171717;
+  border-radius: 100%;
+  width: 18em;
+  height: 18em;
+}
+@media (max-width: 1600px) {
+  /* line 1, ../core/scss/modules/tutorials/_mouse-scroll.scss */
+  .tutorials .tutorial-mouse {
+    width: 15em;
+    height: 15em;
+  }
+}
+/* line 12, ../core/scss/modules/tutorials/_mouse-scroll.scss */
+.tutorials .tutorial-mouse .mouse {
+  position: absolute;
+  bottom: 40px;
+  top: 20%;
+  left: 50%;
+  z-index: 9000;
+  border-radius: 15px;
+  background-color: #d7e059;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 50px;
+  height: 80px;
+}
+@media (max-width: 1600px) {
+  /* line 12, ../core/scss/modules/tutorials/_mouse-scroll.scss */
+  .tutorials .tutorial-mouse .mouse {
+    width: 35px;
+    height: 60px;
+  }
+}
+/* line 26, ../core/scss/modules/tutorials/_mouse-scroll.scss */
+.tutorials .tutorial-mouse .mouse .cable-1 {
+  position: absolute;
+  top: -66%;
+  right: -45%;
+  border-bottom: 2px solid #808719;
+  border-radius: 0 0 360px 0;
+  border-right: 2px solid #808719;
+  -moz-transform: translateX(-50%) rotate(0deg);
+  -ms-transform: translateX(-50%) rotate(0deg);
+  -o-transform: translateX(-50%) rotate(0deg);
+  -ms-transform: translateX(-50%) rotate(0deg);
+  -webkit-transform: translateX(-50%) rotate(0deg);
+  transform: translateX(-50%) rotate(0deg);
+  width: 42%;
+  height: 31%;
+}
+@media (max-width: 1600px) {
+  /* line 26, ../core/scss/modules/tutorials/_mouse-scroll.scss */
+  .tutorials .tutorial-mouse .mouse .cable-1 {
+    width: 55%;
+    height: 20%;
+    top: -58%;
+    right: -64%;
+  }
+}
+/* line 42, ../core/scss/modules/tutorials/_mouse-scroll.scss */
+.tutorials .tutorial-mouse .mouse .cable-2 {
+  position: absolute;
+  top: -30%;
+  right: -30%;
+  border-bottom: 2px solid #808719;
+  border-radius: 0 0 0 360px;
+  border-left: 2px solid #808719;
+  -moz-transform: translateX(-50%) rotate(90deg);
+  -ms-transform: translateX(-50%) rotate(90deg);
+  -o-transform: translateX(-50%) rotate(90deg);
+  -ms-transform: translateX(-50%) rotate(90deg);
+  -webkit-transform: translateX(-50%) rotate(90deg);
+  transform: translateX(-50%) rotate(90deg);
+  width: 2em;
+  height: 1.2em;
+}
+@media (max-width: 1600px) {
+  /* line 42, ../core/scss/modules/tutorials/_mouse-scroll.scss */
+  .tutorials .tutorial-mouse .mouse .cable-2 {
+    width: 70%;
+    height: 20%;
+    top: -30%;
+    right: -35%;
+  }
+}
+/* line 58, ../core/scss/modules/tutorials/_mouse-scroll.scss */
+.tutorials .tutorial-mouse .mouse .spacer-h {
+  position: relative;
+  top: 45%;
+  border: 1px solid black;
+  display: block;
+  width: 100%;
+  height: 1px;
+}
+/* line 66, ../core/scss/modules/tutorials/_mouse-scroll.scss */
+.tutorials .tutorial-mouse .mouse .spacer-v {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  z-index: 1;
+  border: 1px solid black;
+  display: block;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 1px;
+  height: 45%;
+}
+/* line 76, ../core/scss/modules/tutorials/_mouse-scroll.scss */
+.tutorials .tutorial-mouse .mouse .mouse-wheel {
+  position: relative;
+  z-index: 100;
+  display: block;
+  margin: 6px auto;
+  border-radius: 4px;
+  background-color: #111;
+  width: 8px;
+  height: 15px;
+  -webkit-animation: wheel 1s infinite;
+  -moz-animation: wheel 1s infinite;
+  -ms-animation: wheel 1s infinite;
+  -o-animation: wheel 1s infinite;
+  animation: wheel 1s infinite;
+}
+@media (max-width: 1600px) {
+  /* line 76, ../core/scss/modules/tutorials/_mouse-scroll.scss */
+  .tutorials .tutorial-mouse .mouse .mouse-wheel {
+    width: 5px;
+    height: 10px;
+  }
+}
+@-webkit-keyframes wheel {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    -moz-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+    @media (max-width: 1600px) {
+      -moz-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+      -o-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+      -webkit-transform: translateY(5px);
+      transform: translateY(5px);
+    }
+  }
+  100% {
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+@-moz-keyframes wheel {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    -moz-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+    @media (max-width: 1600px) {
+      -moz-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+      -o-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+      -webkit-transform: translateY(5px);
+      transform: translateY(5px);
+    }
+  }
+  100% {
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+@-ms-keyframes wheel {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    -moz-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+    @media (max-width: 1600px) {
+      -moz-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+      -o-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+      -webkit-transform: translateY(5px);
+      transform: translateY(5px);
+    }
+  }
+  100% {
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+@-o-keyframes wheel {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    -moz-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+    @media (max-width: 1600px) {
+      -moz-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+      -o-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+      -webkit-transform: translateY(5px);
+      transform: translateY(5px);
+    }
+  }
+  100% {
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+@keyframes wheel {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    -moz-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+    @media (max-width: 1600px) {
+      -moz-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+      -o-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+      -webkit-transform: translateY(5px);
+      transform: translateY(5px);
+    }
+  }
+  100% {
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -o-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@-moz-keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -o-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@-ms-keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -o-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@-o-keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -o-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -o-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes slideOutRight {
+  0% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -o-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+}
+@-moz-keyframes slideOutRight {
+  0% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -o-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+}
+@-ms-keyframes slideOutRight {
+  0% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -o-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+}
+@-o-keyframes slideOutRight {
+  0% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -o-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+}
+@keyframes slideOutRight {
+  0% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -o-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+}
+/* line 1, ../core/scss/modules/toolbox/_sitemap.scss */
+#map_origin {
+  padding-left: 0;
+}
+
+/* line 5, ../core/scss/modules/toolbox/_sitemap.scss */
+.mod-index {
+  margin-top: 25px;
+}
+/* line 7, ../core/scss/modules/toolbox/_sitemap.scss */
+.mod-index > h2 {
+  margin-top: 35px;
+  margin-left: 30px;
+}
+/* line 11, ../core/scss/modules/toolbox/_sitemap.scss */
+.mod-index h3, .mod-index h4, .mod-index h5 {
+  margin: 5px 0px 5px 0px;
+  font-size: 1em;
+}
+
+/* line 16, ../core/scss/modules/toolbox/_sitemap.scss */
+body > [data-id=sitemap_pop] {
+  display: none;
+}
+/* line 22, ../core/scss/modules/toolbox/_sitemap.scss */
+body > [data-id=sitemap_pop] > .modal-body h3, body > [data-id=sitemap_pop] > .modal-body h4, body > [data-id=sitemap_pop] > .modal-body h5 {
+  margin: 5px 0px 5px 0px;
+  font-size: 1em;
+}
+
+/* line 33, ../core/scss/modules/toolbox/_sitemap.scss */
+.checkmark-viewed {
+  font-weight: normal;
+  display: inline-block;
+}
+@media (min-width: 481px) {
+  /* line 33, ../core/scss/modules/toolbox/_sitemap.scss */
+  .checkmark-viewed {
+    color: #fff;
+    background-color: #3b3b3b;
+  }
+}
+@media (min-width: 481px) {
+  /* line 33, ../core/scss/modules/toolbox/_sitemap.scss */
+  .checkmark-viewed {
+    float: right;
+    padding: 0px 8px;
+  }
+}
+@media (max-width: 480px) {
+  /* line 33, ../core/scss/modules/toolbox/_sitemap.scss */
+  .checkmark-viewed {
+    padding: 0px 0px;
+    margin-right: 3px;
+  }
+}
+/* line 51, ../core/scss/modules/toolbox/_sitemap.scss */
+.checkmark-viewed:before {
+  content: '\2713';
+}
+
+@media (min-width: 481px) {
+  /* line 58, ../core/scss/modules/toolbox/_sitemap.scss */
+  ul.index-list {
+    padding-left: 30px;
+  }
+}
+@media (max-width: 480px) {
+  /* line 58, ../core/scss/modules/toolbox/_sitemap.scss */
+  ul.index-list {
+    padding-left: 10px;
+  }
+}
+/* line 70, ../core/scss/modules/toolbox/_sitemap.scss */
+ul.index-list > li {
+  margin: 0px 0px;
+  list-style: none;
+}
+/* line 73, ../core/scss/modules/toolbox/_sitemap.scss */
+ul.index-list > li.sub-page {
+  min-height: 25px;
+}
+@media (min-width: 481px) {
+  /* line 73, ../core/scss/modules/toolbox/_sitemap.scss */
+  ul.index-list > li.sub-page {
+    padding-left: 30px;
+  }
+}
+@media (max-width: 480px) {
+  /* line 73, ../core/scss/modules/toolbox/_sitemap.scss */
+  ul.index-list > li.sub-page {
+    padding-left: 10px;
+  }
+}
+/* line 84, ../core/scss/modules/toolbox/_sitemap.scss */
+ul.index-list > li.isActivity, ul.index-list > li.isQuiz {
+  background: url(base/ico_bundle_sitemap.png) no-repeat;
+  font-weight: 600;
+}
+@media (max-width: 480px) {
+  /* line 84, ../core/scss/modules/toolbox/_sitemap.scss */
+  ul.index-list > li.isActivity, ul.index-list > li.isQuiz {
+    background: none;
+  }
+}
+/* line 92, ../core/scss/modules/toolbox/_sitemap.scss */
+ul.index-list > li.isActivity {
+  background-position: -0px -25px;
+}
+/* line 95, ../core/scss/modules/toolbox/_sitemap.scss */
+ul.index-list > li.isQuiz {
+  background-position: -0px -50px;
+}
+/* line 98, ../core/scss/modules/toolbox/_sitemap.scss */
+ul.index-list > li > a.sitemap-page {
+  background-color: #f1f1f1;
+  display: block;
+}
+
+/* line 2, ../core/scss/modules/_quality.scss */
+.quality_assurance .successful {
+  border: green 1px solid;
+}
+/* line 5, ../core/scss/modules/_quality.scss */
+.quality_assurance .successful:after {
+  float: right;
+  content: '\2713';
+  font-weight: 600;
+  color: green;
+}
+/* line 12, ../core/scss/modules/_quality.scss */
+.quality_assurance .failed {
+  border: red 1px solid;
+}
+/* line 15, ../core/scss/modules/_quality.scss */
+.quality_assurance .failed:after {
+  float: right;
+  content: '\2713';
+  font-weight: 600;
+  color: red;
+}
+
+/* ------------------ SPLASH FUNCTIONAL --------------*/
+/* line 3, ../core/scss/launch.scss */
+.obfuscated {
+  display: none;
+}
+
+/* ------------------ SPLASH ELEMENTS --------------*/
+/* line 9, ../core/scss/launch.scss */
+#wordmark, #canada-logo {
+  position: fixed;
+  width: 98%;
+  padding-left: 1%;
+  padding-right: 1%;
+  background-color: #fff;
+}
+
+/* line 17, ../core/scss/launch.scss */
+#launch-placement > a {
+  text-decoration: none;
+  padding: 5px 15px;
+  font-weight: 600;
+}
+
+/* line 23, ../core/scss/launch.scss */
+#splash-content {
+  font-size: 1.5em;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 40%;
+  -webkit-transform: translateY(-40%);
+  transform: translateY(-40%);
+}
+/* line 31, ../core/scss/launch.scss */
+#splash-content h1 {
+  font-size: 1.5em;
+}
+/* line 32, ../core/scss/launch.scss */
+#splash-content:before {
+  background: none;
+  border: none;
+}
+
+/* line 39, ../core/scss/launch.scss */
+#manualpop {
+  visibility: hidden;
+  display: block;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* line 47, ../core/scss/launch.scss */
+#title-welcome {
+  display: block;
+}
+
+/* line 51, ../core/scss/launch.scss */
+#canada-logo {
+  bottom: 0px;
+  text-align: right;
+  margin-bottom: 0px;
+  padding-top: 10px;
+}
+
+/* line 59, ../core/scss/launch.scss */
+#wordmark {
+  height: 30px;
+}
+
+/*# sourceMappingURL=main.css.map */

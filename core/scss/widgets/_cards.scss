@@ -1,0 +1,93 @@
+//Basic html:
+// <div class="cards">
+//   <div class="card-wrap">
+//      <button class="card">
+//         <div class="front">
+//            <h3>Some Title</h3>
+//         </div>
+//         <div class="back">
+//            <div class="content">
+//               <p>Some text</p>
+//            </div>
+//         </div>
+//      </button>
+//   </div>
+//   ...more card-wrap
+// </div>
+
+
+.cards {
+   position: relative;
+   float: none;
+   @include display-flex();
+   @include size(100%, 350px);
+}
+.card-wrap {
+   height: 100%;
+   &:last-of-type {
+      margin-right: 0px;
+   }
+}
+.card {
+   display: inline-block;
+   vertical-align: top;
+   box-shadow: none;
+   border: none;
+   cursor: pointer;
+   background: none;
+   outline: none;
+   @include transform(0.8s ease);
+   @include size(100%);
+   @include transform-style(preserve-3d);
+   @include perspective(800px);
+}
+.card div {
+   position: absolute;
+   /*IE fixes...*/
+   top: 0;
+   left: 0;
+   
+   border-radius: 0;
+   padding: 0 15px;
+   text-align: left;
+   @include size(100%);
+   @include display-flex();
+   @include backface-visibility(hidden);
+   @include display-align(center);
+   @include justify-content(inherit);
+   @include transform-style(preserve-3d);
+}
+
+.cards .card .front, .cards .card .back {
+   background: $card-background-color;
+   /*just so that we can see a "card" when animating*/
+   border: 1px solid $card-border-color;
+   color: $card-text-color;
+   &:hover {
+      background-color: $card-background-color-hover;
+      color: $card-text-color-hover;
+   }
+}
+
+.cards .card .back {
+   @include rotateY(-180);
+}
+.cards .card.flipped .back {
+   overflow-x: hidden;
+   overflow-y: auto;
+   background-color: $card-background-color-hover;
+   color: $card-text-color-hover;
+   @include rotateY(0);
+}
+.cards .card .front {
+   @include rotateY(0);
+}
+.cards .card.flipped .front {
+   @include rotateY(180);
+}
+
+.cards .card,
+.cards .card > div,
+.cards .card:hover > div {
+   @include transition(all 0.4s ease);
+}

@@ -1,0 +1,71 @@
+/* ------------------ SPLASH FUNCTIONAL --------------*/
+/* line 3, ../core/scss/launch.scss */
+.obfuscated {
+  display: none;
+}
+
+/* ------------------ SPLASH ELEMENTS --------------*/
+/* line 9, ../core/scss/launch.scss */
+#wordmark, #canada-logo {
+  position: fixed;
+  width: 98%;
+  padding-left: 1%;
+  padding-right: 1%;
+  background-color: #fff;
+}
+
+/* line 17, ../core/scss/launch.scss */
+#launch-placement > a {
+  text-decoration: none;
+  padding: 5px 15px;
+  font-weight: 600;
+}
+
+/* line 23, ../core/scss/launch.scss */
+#splash-content {
+  font-size: 1.5em;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 40%;
+  -webkit-transform: translateY(-40%);
+  transform: translateY(-40%);
+}
+/* line 31, ../core/scss/launch.scss */
+#splash-content h1 {
+  font-size: 1.5em;
+}
+/* line 32, ../core/scss/launch.scss */
+#splash-content:before {
+  background: none;
+  border: none;
+}
+
+/* line 39, ../core/scss/launch.scss */
+#manualpop {
+  visibility: hidden;
+  display: block;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* line 47, ../core/scss/launch.scss */
+#title-welcome {
+  display: block;
+}
+
+/* line 51, ../core/scss/launch.scss */
+#canada-logo {
+  bottom: 0px;
+  text-align: right;
+  margin-bottom: 0px;
+  padding-top: 10px;
+}
+
+/* line 59, ../core/scss/launch.scss */
+#wordmark {
+  height: 30px;
+}
+
+/*# sourceMappingURL=launch.css.map */

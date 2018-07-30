@@ -1,0 +1,69 @@
+.tutorials {
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   background-color: $tutorial-background-color !important;
+   z-index: 1002 !important;
+   
+   > [class^='tutorial-'] {
+      & {
+         //make sure to hide the element first so that interactions are not visible
+         //as we cannot use visibility:hidden; 
+         //because of animation transition behavior with buttons
+         @include translateX(-1000%);
+      }
+      &.slide-in {
+         @include animation(slideInFromRight 1s forwards);
+      }
+      &.slide-out {
+         @include animation(slideOutRight 1s forwards);
+      }
+   }
+   .confirm, .skip-tutorial {
+      position: absolute;
+      left: 50%;
+      min-width: 90px;
+      height: 40px;
+      text-transform: uppercase;
+      font-weight: bold;
+      border: none;
+      border-radius: 0;
+      @include translateX(-50%);
+      @include breakpoint-lte('xlarge') {
+         height: 35px;
+         font-size: 1em;
+         padding: 4px;
+      }
+   }
+   .confirm {
+      bottom: 25%;
+   }
+   .skip-tutorial {
+      top: 0;
+   }
+
+   //import the different tutorials
+   @import './_mouse-scroll';
+}
+
+@include keyframes(slideInFromRight) {
+   0% {
+      opacity: 0;
+      @include translateX(50px);
+   }
+   100% {
+      opacity: 1;
+      @include translateX(0);
+   }
+}
+@include keyframes(slideOutRight) {
+   0% {
+      opacity: 1;
+      @include translateX(0);
+   }
+   100% {
+      opacity: 0;
+      @include translateX(50px);
+   }
+}

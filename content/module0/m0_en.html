@@ -1,0 +1,123 @@
+<h1>Introduction</h1>   
+
+<section>
+
+
+
+
+
+</section> 
+<section>
+	<h2 class="learning-modules"><span>Modules</span></h2>
+	<div class="row modIndex">
+    
+    
+    	<!-- EXAMPLE de bracket -->
+         <section id="mod_xxx" class="module-info col-md-3 col-sm-6 col-xs-12" style="display: none;">
+            <h3>
+            	<div class="ribbon-module"><span class="wb-inv">Module</span><span class="modnum">x</span></div>
+            	<a href="#">
+                	<span class="mod-name">Subject 1</span>
+                    <span class="mod-launch">Launch Module</span>
+				</a>
+			</h3>
+            
+            <div class="mod-content">
+                <div id="moditems_1">
+                    <p class="wb-inv">Information about this module:</p>
+                    <ul class="mod-list">
+						<!-- Progress Bar -->
+	                    <li class="mod-progress"></li>
+                        <!-- entire module is locked -->
+                        <li class="mod-locked"><a href="#" class="">This Learning Module is Locked</a></li>
+                        <!-- fast track is locked -->
+                        <li class="fast-track-locked"><a href="#" class="fasttrack disabled">Fasttrack is disabled</a></li>
+                        <!-- fast track enabled-->
+                        <li class="mod-evaluation unlocked"><a href="#" class="fasttrack" onclick="fNav('m1-2');return false;">Fast Track to Final Exam</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>   
+    
+    
+    
+    </div>
+</section>
+
+
+
+
+<script>
+
+$( ".modIndex" ).each(function() {
+	var modnum=0;
+	var htmlAppend="";
+	var modinfoObj=$(this).find(".module-info").eq(0);
+	var modID;
+	var target;
+	var lastQuiz;
+	// Removing the html after caching it, break in IE
+	//$(this).html("");
+	if(modinfoObj.length>0){
+		for (var mods=0;mods<masterStructure.subs.length;mods++){
+			thisMod=masterStructure.subs[mods]
+			if(!thisMod.isPage){
+
+				modnum++;
+				modID = "mod_"+masterStructure.currentSub.sPosition+"_"+modnum;
+				htmlAppend="<section id=\""+modID+"\" class=\""+modinfoObj.attr("class")+"\">";
+				$(this).append(htmlAppend+modinfoObj.html()+"</section>");
+				$("#"+modID).children("h3").children("a").children("span").eq(0).html(thisMod.title);
+				$("#"+modID).children("h3").attr("id", "titleprogress"+modID)
+				masterStructure.subs[mods].generateProgress("#"+modID+" .mod-progress", true);
+				$("#"+modID).find("progress").attr("aria-label", "progress of: "+thisMod.title)
+				target=thisMod.subs[0].sPosition;
+				$("#"+modID).children("h3").children("a").attr("onclick","fNav('"+target+"'); return false;");
+				$("#"+modID).children("h3").find(".modnum").html(modnum);
+				
+// 				if(masterStructure.isLocked(thisMod.aPosition)){
+// 					//if it's locked
+// 					$("#"+modID).addClass("module-is-locked")
+// 					//no point in having the others
+// 					$("#"+modID).children(".mod-content").find(".fast-track-locked").remove();
+// 					$("#"+modID).children(".mod-content").find(".mod-evaluation").remove();
+// 					$("#"+modID).children(".mod-content").find(".mod-locked").eq(0).children("a").attr("onclick","fNav('"+target+"');return false;");
+					
+// 				}else{
+					//module isn't locked
+					$("#"+modID).children(".mod-content").find(".mod-locked ").remove();
+					//is there an exam?
+					if(thisMod.quizSubs.length>0){
+						
+						lastQuiz=thisMod.quizSubs[thisMod.quizSubs.length-1];
+						if ($(lastQuiz.obj).hasClass("locked") || $(lastQuiz.getTop().obj).hasClass("locked")) {
+
+							$("#"+modID).children(".mod-content").find(".mod-evaluation").remove();
+							
+						}else{
+							$("#"+modID).children(".mod-content").find(".fast-track-locked").remove();
+							
+						}
+
+						
+						
+					}else{
+					$("#"+modID).addClass("simple-module")
+					$("#"+modID).addClass("mod-"+(thisMod.title).substring(0, 3).toLowerCase());
+					$("#"+modID).children(".mod-content").find(".fast-track-locked").remove();
+					$("#"+modID).children(".mod-content").find(".mod-evaluation").remove();
+					$("#"+modID).children(".mod-content").find(".mod-locked ").remove();
+						//$("#"+modID).find(".mod-list").append("<li>There is no Quiz for this Module</li>")
+					}
+					
+					
+				//}
+				
+			}
+			
+		}
+	}
+});
+$("#mod_xxx").remove();
+
+</script>

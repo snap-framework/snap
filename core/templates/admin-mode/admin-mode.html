@@ -1,0 +1,49 @@
+<div id='scorm-status'>{{#if isScormOnline}}{{labels.err.online}}{{else}}{{labels.err.offline}}{{/if}}</div>
+<div id='debug-status' class="{{#unless debugMode}}wb-inv{{/unless}}">Debug</div>
+
+<div id="adminMode">
+    <div class="infos">
+        <span>FW: <b>{{version}}</b></span>
+        <br>
+        <span>WET: <b>{{WETversion}}</b></span>
+        <br>
+        <span>Connection Mode: <b>{{connectionMode}}</b></span>
+    </div>
+    <section>
+        <h2>Admin Mode</h2> 
+        <ul>
+            <li><a href="#" class="debug-btn">{{#if debugMode}}Deactivate {{else}}Activate {{/if}} Debug</a></li>
+        </ul>
+    </section>
+    <section class="locks-admin">
+          <details id="details-panellocklist">
+             <summary class="wb-details"><h2>Locks</h2></summary>
+             <ul></ul>
+          </details>   
+    </section>    
+    <section class="scorm-admin">
+        <h2>Scorm</h2>
+        <ul>
+            <li><a href="#" class="scormreset-btn disabled">Reset Scorm Values</a>
+            </li>    
+            <li><a href="#" class="scorm-btn disabled">Activate Scorm Tracking</a>
+                <div id='scorm-tracker'><dl></dl></div>
+            </li>
+        </ul>
+    </section>        
+    <section class="diagnosis-admin">   
+        <h2>Diagnosis</h2>
+        <ul>
+            <!--<li><a href="#" onclick='masterStructure.adminMode.toggleDiagnosis();return false' class="diagnosis-btn disabled">Turn AutoScan On</a></li>-->
+            <li><a href="#" class="comment-btn">Add a comment</a></li>
+            <!--li><a href="#" onclick='diagnoseImages();return false' class="comment-btn">Check broken Images</a></li-->
+        </ul>
+        <div class='diag-window'></div>
+    </section>
+    <section class="aqa-tools">
+    	<h2>AQA Tools</h2>
+        <ul>
+	        <li><a href="#" class="headings-btn">Headings Toggle</a></li>
+		</ul>
+    </section>
+</div>

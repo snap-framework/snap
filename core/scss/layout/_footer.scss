@@ -1,0 +1,135 @@
+// BACKNEXT FOOTER
+footer {
+  #topbacknext {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  margin: 20px 0 0;
+  height: $footer-height;
+  .container {
+    padding-right: 0px;
+    padding-left: 0;
+    background-color: $footer-container-background-color;
+    color: $footer-page-of-text-color;
+    height: 100%;
+  }
+  .backnext {
+    float: right;
+    height: 100%;
+    text-align: right;
+    a {
+      @extend %footer-button;
+      width: 150px;
+      height: 100%;
+      vertical-align: middle;
+      padding: 0;
+      line-height: $footer-height;
+      display: inline-block;
+      text-align: center;
+      border: 1px solid $footer-button-border-color;
+      border-top: none;
+      border-bottom: none;
+      text-decoration: none;
+      &.disabled:hover {
+        color: $footer-button-color-disabled !important;
+      }
+      &.back {
+        @include triangle(left, $footer-button-color, 4px);
+        &.disabled {
+          @include triangle(left, $footer-button-color-disabled, 4px, !important);
+          &:hover {
+            @include triangle(left, $footer-button-color-disabled, 4px, !important);
+          }
+        }
+        &:before {
+          left: 10px;
+        }
+        &:hover {
+          @include triangle(left, $footer-button-color-hover, 4px);
+        }
+      }
+      &.next {
+        @include triangle(right, $footer-button-color, 4px);
+        &.disabled {
+          @include triangle(right, $footer-button-color-disabled, 4px, !important);
+          &:hover {
+            @include triangle(right, $footer-button-color-disabled, 4px, !important);
+          }
+        }
+        &:after {
+          right: 10px;
+        }
+        &:hover {
+          @include triangle(right, $footer-button-color-hover, 4px);
+        }
+      }
+      &.disabled {
+        color: $footer-button-color-disabled !important;
+        background-color: $footer-button-background-color-disabled !important;
+      }
+    }
+    span {
+      vertical-align: middle;
+      text-align: center;
+      display: inline-block;
+      margin: 0 5px;
+      .pagelbl {
+        display: none;
+      }
+    }
+  }
+}
+
+// BACKNEXT MOBILE
+html.mobile {
+  footer {
+    .container {
+      width: 100%;
+      &:before, &:after {
+          content: "";
+          display: inherit;
+          clear: none;
+      }
+      .backnext {
+        float: none;
+        width: 100%;
+        display: table;
+        text-align: center;
+        a, span:not(.pagelbl) {
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            height: 100%;
+            border: none;
+        }
+        a {
+            color: $footer-button-color;
+            text-align: center;
+            display: inline-block;
+            background-position: center center;
+            background-color: $footer-mobile-button-background-color;
+            @include hide-text;
+            &.back {
+              @include triangle(left, $footer-button-color-mobile, 4px);
+              &:before {
+                left: 50%;
+              }
+            }
+            &.next {
+              @include triangle(right, $footer-button-color-mobile, 4px);
+              &:after {
+                right: 50%;
+              }
+            }
+        }
+        span:not(.pagelbl) {
+          display: table-cell;
+          line-height: $footer-height;
+          margin: 0;
+          color: $footer-page-of-text-color-mobile;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}

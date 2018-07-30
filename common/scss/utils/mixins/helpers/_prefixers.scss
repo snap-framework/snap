@@ -1,0 +1,156 @@
+@mixin perspective($perspective...) {
+   -moz-perspective: $perspective;
+   -ms-perspective: $perspective;
+   -o-perspective: $perspective;
+   -webkit-perspective: $perspective;
+   perspective: $perspective;
+}
+
+@mixin transition($transition...) {
+   -moz-transition: $transition;
+   -ms-transition: $transition;
+   -o-transition: $transition;
+   -webkit-transition: $transition;
+   transition: $transition;
+}
+
+@mixin transition-property($property...) {
+   -moz-transition-property: $property;
+   -ms-transition-property: $property;
+   -o-transition-property: $property;
+   -webkit-transition-property: $property;
+   transition-property: $property;
+}
+
+@mixin transition-duration($duration...) {
+   -moz-transition-duration: $duration;
+   -ms-transition-duration: $duration;
+   -o-transition-duration: $duration;
+   -webkit-transition-duration: $duration;
+   transition-duration: $duration;
+}
+
+@mixin transition-timing-function($timing...) {
+   -moz-transition-timing-function: $timing;
+   -ms-transition-timing-function: $timing;
+   -o-transition-timing-function: $timing;
+   -webkit-transition-timing-function: $timing;
+   transition-timing-function: $timing;
+}
+
+@mixin transition-delay($delay...) {
+   -moz-transition-delay: $delay;
+   -ms-transition-delay: $delay;
+   -o-transition-delay: $delay;
+   -webkit-transition-delay: $delay;
+   transition-delay: $delay;
+}
+
+@mixin transform($transforms...) {
+   -moz-transform: $transforms;
+   -ms-transform: $transforms;
+   -o-transform: $transforms;
+   -ms-transform: $transforms;
+   -webkit-transform: $transforms;
+   transform: $transforms;
+}
+
+@mixin transform-origin ($origin) {
+   -moz-transform-origin: $origin;
+   -ms-transform-origin: $origin;
+   -o-transform-origin: $origin;
+   -ms-transform-origin: $origin;
+   -webkit-transform-origin: $origin;
+   transform-origin: $origin;
+}
+
+@mixin transform-style ($style) {
+   -moz-transform-style: $style;
+   -ms-transform-style: $style;
+   -o-transform-style: $style;
+   -ms-transform-style: $style;
+   -webkit-transform-style: $style;
+   transform-style: $style;
+}
+
+@mixin rotate($deg) {
+   @include transform(rotate(#{$deg}deg));
+}
+
+@mixin rotateX($deg) {
+   @include transform(rotateX(#{$deg}deg));
+}
+
+@mixin rotateY($deg) {
+   @include transform(rotateY(#{$deg}deg));
+}
+
+@mixin scale($scale) {
+   @include transform(scale($scale));
+}
+
+@mixin translate($val...) {
+   @include transform(translate($val));
+}
+
+@mixin translateX($x) {
+   @include transform(translateX($x));
+}
+
+@mixin translateY($y) {
+   @include transform(translateY($y));
+}
+
+@mixin translate3d($val...) {
+   @include transform(translate3d($val));
+}
+
+@mixin skew($x, $y) {
+   @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+@mixin keyframes($animation-name) {
+   @-webkit-keyframes #{$animation-name} {
+      @content;
+   }
+   @-moz-keyframes #{$animation-name} {
+      @content;
+   }
+   @-ms-keyframes #{$animation-name} {
+      @content;
+   }
+   @-o-keyframes #{$animation-name} {
+      @content;
+   }
+   @keyframes #{$animation-name} {
+      @content;
+   }
+}
+
+@mixin animation($str) {
+   -webkit-animation: #{$str};
+   -moz-animation: #{$str};
+   -ms-animation: #{$str};
+   -o-animation: #{$str};
+   animation: #{$str};
+}
+
+@mixin display-flex() {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+}
+@mixin display-align($val) {
+   -webkit-box-align: $val;
+   -ms-flex-align: $val;
+   align-items: $val;
+}
+@mixin justify-content($val) {
+   -webkit-box-pack: $val;
+   -ms-flex-pack: $val;
+   justify-content: $val;
+}
+@mixin backface-visibility($val) {
+   -webkit-backface-visibility: $val;
+   backface-visibility: $val;
+}

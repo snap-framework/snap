@@ -1,0 +1,48 @@
+/* ------------------GENERAL LOOK-----------------------------*/
+
+/*mobile only*/
+.breadcrumb {
+  clear: both;
+  //wet override
+  border-radius: 0;
+}
+
+#dynamic_content {
+	min-height: 400px;
+}
+
+.loading.loaded {
+	//transition: opacity 0.5s ease;
+	opacity: 1;
+}
+.loading {
+	opacity: 0;
+}
+//spinner image generated from https://preloaders.net/
+.spinner {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	background-image: url('base/spinner.svg');
+	background-repeat: no-repeat;
+	background-size: 60px;
+	background-position: center;
+	background-color: $spinner-overlay-background-color;
+	display: block;
+	overflow: hidden;
+	@include size(100%);
+	@include hide-text;
+}
+main {
+	//allow the spinner to be placed relatively to the main element
+	position: relative;
+	.spinner {
+		position: absolute;
+	}
+}
+//IE doesn't support SVG animation straight up, without adding JS.
+//Simple gif will do.
+.ie10 .spinner, .ie11 .spinner {
+	background-image: url('base/spinner.gif') !important;
+}

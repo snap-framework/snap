@@ -1,0 +1,77 @@
+<section class="objectifs">
+	<h1>TITRE</h1>
+   <p>j'ai utilisé la version EN ... allez checker ça</p>
+</section>    
+<section>
+	<h2 class="learning-modules"><span>Modules</span></h2>
+	<div id="modIndex" class="row col-md-10 col-md-offset-1 col-md-offset-right-1"></div>
+</section>
+
+
+
+
+<script>
+$( document ).ready(function() {
+	//settings	
+	var bootstrap="col-md-3" ; //12 divisé par le nombre de colonnes
+	var fasttrack=(lang=="en")?"Fast Track to Final Exam":"Aller à l'évaluation finale";
+	var progressTxt=(lang=="en")?"Module progress":"Progression du module";	
+	
+	
+	//init
+	var modnum=0;
+	var addHTML="";
+	var title;
+	var target;
+	var modRef;
+	var finalCompletion=true;
+
+	for (mods=0;mods<masterStructure.subs.length;mods++){
+		if(!masterStructure.subs[mods].isPage){
+
+			modnum++;
+			thisMod=masterStructure.subs[mods];
+			title=thisMod.title;
+			target=thisMod.subs[0].sPosition;
+			
+
+			$("#modIndex").append("<section id='mod_"+mods+"' class='module-info "+bootstrap+"'></section>");
+	
+			$("#mod_"+mods).append("<h3><div class='ribbon-module'></div><a href='#' onclick=\"fNav('"+target+"'); return false;\"><span class='mod-name'>"+title+"</span><span class='mod-launch'>Lancer le module</span></h3>");
+			$("#mod_"+mods+">h3").children(".ribbon-module").append("<span class='wb-inv'>Module</span><span class='modnum'>"+modnum+"</span>");
+			addHTML="<div id='moditems_"+modnum+"'><p class='wb-inv'>Information about this module:</p><ul class='mod-list'></ul></div>"
+			$("#mod_"+mods).append("<div class='mod-content'>"+addHTML+"</div>")
+			//if it has quizzes
+
+			if (thisMod.quizSubs.length>0){
+				//last evaluation
+				var lastEval=thisMod.quizSubs[thisMod.quizSubs.length-1];
+
+
+				addHTML="<li class='mod-progress'></li>";
+	
+				$("#moditems_"+modnum+">ul.mod-list").append(addHTML);
+				thisMod.generateProgress("#moditems_"+modnum+">ul.mod-list>.mod-progress", true)					
+				$("#moditems_"+modnum+">ul>li.mod-progress").append("<p>"+progressTxt+"</p>")
+				if(thisMod.moduleStatus=="completed"){
+					$("#moditems_"+modnum+">ul.mod-list").append("<li class='mod-complete'><p>Module complété</p></li>")
+				}else{
+					finalCompletion=false;
+					
+					if (!$(lastEval.obj).hasClass("locked")){
+						//$("#moditems_"+modnum+">ul.mod-list").append("<li class='mod-evaluation unlocked'><a href='#' class='fasttrack' onclick=\"fNav('"+lastEval.sPosition+"');return false;\">"+fasttrack+"</a></li>");
+					}else{
+						//$("#moditems_"+modnum+">ul.mod-list").append("<li class='mod-evaluation locked'><a href='#' class='lockicon' onclick='clickLock();return false;'>This Learning Module is Locked</a><a href='#'  class='fasttrack disabled' onclick=\"fNav('"+lastEval.sPosition+"');return false;\">"+fasttrack+"</a></li>");
+					}
+				}
+
+			}
+		}
+	}
+	if (finalCompletion==true){
+		$("#dynamic_content").append("<section class='col-md-9 col-md-offset-3 course-complete'><h2>Félicitations</h2><p>Vous avez complétés avec succès le cours d’Introduction à l’organisation et la classification.</p></section>")
+	}
+})
+
+
+</script>

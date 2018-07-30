@@ -1,0 +1,108 @@
+#map_origin {
+  padding-left: 0;
+}
+
+.mod-index {
+  margin-top: 25px;
+  > h2 {
+    margin-top: 35px;
+    margin-left: 30px;
+  }
+  h3, h4, h5 {
+    margin: 5px 0px 5px 0px;
+    font-size: 1em;
+  }
+}
+body > [data-id=sitemap_pop] {
+	//make sure to hide the popper
+	//this will only be outputed in the html for conveniance
+	//it will NOT be used for display
+	display: none;
+	&>.modal-body{  
+		h3, h4, h5 {
+			margin: 5px 0px 5px 0px;
+			font-size: 1em;
+		}
+		
+	}
+}
+
+
+
+
+.checkmark-viewed {
+	font-weight: normal;
+	display: inline-block;
+	@include breakpoint-gt('xsmall') {	
+		color: $sitemap-checkmark-color;
+		background-color: $sitemap-checkmark-background-color;
+	}
+
+
+	@include breakpoint-gt('xsmall') {
+		float: right;
+  		padding: 0px 8px;
+	}
+	@include breakpoint-lte('xsmall') {
+  		padding: 0px 0px;
+		//float: left;
+		margin-right:3px;
+	}
+	&:before {
+		content: '\2713';
+	}
+}
+
+
+ul{
+	&.index-list{
+		@include breakpoint-gt('xsmall') {
+			padding-left: 30px;
+		}
+		@include breakpoint-lte('xsmall') {
+			padding-left: 10px;
+		}
+		&>*{
+			//overflow:hidden;
+		}
+		
+
+		&>li{
+			margin: 0px 0px;
+			list-style: none;
+			&.sub-page{
+				min-height:25px; 
+				@include breakpoint-gt('xsmall') {
+					padding-left: 30px;
+					
+				}
+				@include breakpoint-lte('xsmall') {
+					padding-left: 10px;
+				}
+			
+			}
+			&.isActivity,&.isQuiz{
+				background: url(base/ico_bundle_sitemap.png) no-repeat;
+				font-weight: 600;
+				//height: 25px;				
+				@include breakpoint-lte('xsmall') {
+					background:none;
+				}
+			}
+			&.isActivity{
+				background-position: -0px -25px;
+			}
+			&.isQuiz{
+				background-position: -0px -50px;
+			}
+			&>a.sitemap-page{
+				  background-color: $sitemap-link-background-color;
+				  //height: inherit;
+				  display: block;
+			}
+		}
+	}
+}
+
+
+

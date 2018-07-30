@@ -1,0 +1,110 @@
+body.microModule {
+	.micro-menu {
+	   position: fixed;
+	   top: 0;
+	   left: 0;
+	   padding: 1em;
+	   line-height: 1.2;
+	   padding-right: 4em;
+	   z-index: $fixed-z-index;
+	   
+	   .wrap { overflow: hidden; }
+	   ul.toc {
+	      position: relative;
+	      list-style: none;
+	      padding: 0;
+	      margin: 0;
+	      &.left {
+	         left: 0;
+	      }
+	      &.right {
+	         right: 0;
+	      }
+	   }
+	   .toc-marker {
+	      position: absolute;
+	      top: 0;
+	      border-radius: 10px;
+	      background-color: $micro-menu-toc-marker-background-color;
+	      @include size(10px);
+	      @include translateY(-50%);
+	      @include transition(top 0.5s ease);
+	      &.left {
+	         left: -20px;
+	      }
+	      &.right {
+	         right: -20px;
+	      }
+	   }
+
+	   li {
+	      text-align: right;
+	      text-transform: uppercase;
+	      @include breakpoint-lte('xlarge') {
+	         font-size: 0.8em;
+	      }
+	      &.active a {
+	         //can't use the prefixer here as we need to apply an !important
+	         //which is not yet compatible in SCSS
+	         -moz-transform: translateX(0px) !important;
+	         -o-transform: translateX(0px) !important;
+	         -ms-transform: translateX(0px) !important;
+	         -webkit-transform: translateX(0px) !important;
+	         transform: translateX(0px) !important;
+	      }
+	      a {
+		      margin: 5px 0;
+		      display: inline-block;
+		      text-decoration: none;
+		      @include transition(all 0.3s cubic-bezier(0.230, 1.000, 0.320, 1.000));
+		   }
+	      //make sure we can differenciate
+	      //which link in the menu is selected
+	      a:hover, a:focus {
+	         font-weight: bold;
+	      }
+	      a:focus {
+	         outline: none;
+	      }
+	   }
+	}
+}
+.desktop body.microModule {
+	.micro-menu li.active > a {
+	   @include translate(5px);
+	   font-weight: bold;
+	   background-color: transparent !important;
+	}
+}
+
+.mobile body.microModule {
+	.micro-menu {
+		padding-right: 1em;
+      height: 100%;
+      box-shadow: 0px 0px 1px 1px $box-shadow-color;
+      //same width as the height of the footer
+		width: 45px;
+		background-color: $micro-mobile-edges-background-color;
+
+      /*custom marker for mobile, hide the desktop one*/
+      .toc-marker { display: none; }
+      ul {
+	      position: relative;
+	      top: 50%;
+	      @include translateY(-50%);
+	      li {
+	         text-align: center;
+	         a {
+	            @include hide-text();
+	            @include size(12px);
+	            outline: none;
+	            border-radius: 10px;
+	            border: 2px solid $micro-menu-mobile-bullet-list-item-border-color;
+	         }
+	         &.active a {
+	         	background-color: $micro-menu-mobile-bullet-list-item-border-color-active;
+	         }
+	      }
+	   }
+	}
+}

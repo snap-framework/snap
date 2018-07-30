@@ -1,0 +1,48 @@
+.completed{
+	border-radius: 0px;
+	background-image:url(base/diploma.png);
+	
+	background-repeat:repeat;
+    border-radius: 0px;
+	border-style:double;
+    background-image: url(base/diploma.png);
+    background-repeat: repeat;
+	
+    border-color: white;
+    border-style: thin;
+    border-width: 10px;
+    box-sizing: border-box;
+	
+	
+	 -webkit-box-shadow:inset 0px 0px 0px 3px darkgoldenrod;
+    -moz-box-shadow:inset 0px 0px 0px 3px darkgoldenrod;
+    box-shadow:inset 0px 0px 0px 3px darkgoldenrod;
+	
+	header{
+		background-color: transparent;
+		color:$base-text-color;
+		border-bottom: none;
+		button.mfp-close{
+			color:$base-text-color;
+		}
+	}
+	.modal-body{
+		background-color:transparent;
+		text-align:center;
+		font-size:1.1em;
+		margin-top:0px;
+		h3{
+			color:darkgoldenrod;
+			margin-top:0px;
+			margin-bottom:30px;
+			font-size:2em;
+		font-family:Georgia, serif;
+		}
+	}
+	.modal-footer{
+		border-top: none;
+		background-color:transparent;
+		visibility: hidden;
+
+	}
+}

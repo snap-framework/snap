@@ -1,0 +1,30 @@
+{{#if subs}}
+    {{#each subs}}
+        {{#if this.isPage}}
+            <li class="sub-page{{#if this.isIntro}} isIntro{{/if}}{{#if this.isActivity}} isActivity{{/if}}{{#if this.isQuiz}} isQuiz{{/if}} sitemap_{{this.sPosition}}">
+                <a href="#" class="sitemap-page{{#if this.isLocked}} locked{{/if}}" data-position="{{this.sPosition}}">
+                    {{this.title}}
+                    {{#if ../CoreSettings.debugMode}} ( {{this.sPosition}} ) {{/if}}
+                    {{#if this.viewed}}
+                        <span class='checkmark-viewed'>
+                            <span class='wb-inv'>{{../labels.err.isViewed}}</span>
+                        </span>
+                    {{/if}}
+                </a>
+                {{#if this.isActivity}}<span class="wb-inv">{{../labels.err.isActivity}}</span>{{/if}}
+                {{#if this.isQuiz}}<span class="wb-inv">{{../labels.err.isQuiz}}</span>{{/if}}
+            </li>
+        {{else}}
+            {{#if this.subs}}
+                <li class="sub sitemap_{{this.sPosition}} {{#if this.viewed}} viewed{{/if}}"> 
+                <h{{../startingHeader}}>{{this.title}}</h{{../startingHeader}}>
+                    <ul data-id="map_{{this.sPosition}}" class="index-list">
+                       
+                        {{! Recursively call the template with new params, until there are no more subs }}
+                        {{> ./_sitemap-sub subs=this.subs CoreSettings=../CoreSettings startingHeader=(math ../startingHeader "+" 1) labels=../labels }}
+                    </ul>
+                </li>
+            {{/if}}
+        {{/if}}
+    {{/each}}
+{{/if}}

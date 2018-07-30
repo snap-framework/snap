@@ -1,0 +1,64 @@
+//Taken from: https://github.com/digitaledgeit/sass-breakpoints
+
+$breakpoints: (
+  'xxsmall':	479px,
+  'xsmall':		480px,
+  'small': 		768px,
+  'medium': 	992px,
+  'large': 		1200px,
+  'xlarge': 	1600px,
+  'xxlarge':  1920px
+) !default;
+
+//
+// Usage:
+//  @include breakpoint(medium) {
+//    color: blue;
+//  }
+//
+
+@mixin breakpoint-lt($to) {
+   @media (max-width: map-get($breakpoints, $to) - 1) {
+      @content;
+   }
+}
+
+@mixin breakpoint-lte($to) {
+   @media (max-width: map-get($breakpoints, $to)) {
+      @content;
+   }
+}
+
+@mixin breakpoint-gt($from) {
+   @media (min-width: map-get($breakpoints, $from) + 1) {
+      @content;
+   }
+}
+
+@mixin breakpoint-gte($from) {
+   @media (min-width: map-get($breakpoints, $from)) {
+      @content;
+   }
+}
+
+@mixin breakpoint-between($from, $to) {
+   @media (min-width: map-get($breakpoints, $from)) and (max-width: map-get($breakpoints, $to)) {
+      @content;
+   }
+}
+
+@mixin breakpoint($from, $to: null) {
+   @if ($from and $to) {
+      @include breakpoint-between($from, $to) {
+         @content;
+      }
+   }
+   @else if ($from) {
+      @include breakpoint-gte($from) {
+         @content;
+      }
+   }
+   @else {
+      @content;
+   }
+}

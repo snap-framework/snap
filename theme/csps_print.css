@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+#dynamic_content div.linebreak h1{
+	color:red;
+	page-break-before: always;
+	}
+
+#dynamic_content details>p{
+	display:block!important;
+	visibility:visible!important;
+
+}
+details, details > * { display:block !important; }
+
+.qs-question{display:block!important;}
+
+html print .tabpanels >details,html print  .tabpanels >details *{
+
+	opacity: 100!important;
+	position:relative!important;
+	visibility:visible!important;
+	display:block!important;
+	}
+	
+#wb-sm, #topbacknext, video{
+	display:none!important;
+	}
+	.breadcrumb{display:none!important;}
+	
+.breadcrumb{
+	display:block!important;}
+	
+h1{
+	padding-bottom:7px;
+	border-bottom:#ccc 3px solid;}

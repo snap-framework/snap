@@ -1,0 +1,61 @@
+			/* ------------------ SPLASH FUNCTIONAL --------------*/
+
+			.obfuscated {
+			  display: none;
+			}  //
+
+			/* ------------------ SPLASH ELEMENTS --------------*/
+
+			#wordmark, #canada-logo {
+			  position: fixed;
+			  width: 98%;
+			  padding-left: 1%;
+			  padding-right: 1%;
+			  background-color: #fff;
+			}
+
+			#launch-placement > a {
+			  text-decoration: none;
+			  padding: 5px 15px;
+			  font-weight: 600;
+			}
+
+			#splash-content {
+				font-size: 1.5em;
+				text-align: center;
+				width: 100%;
+				position: absolute;
+				top: 40%;
+				-webkit-transform: translateY(-40%);
+				transform: translateY(-40%);
+				h1 { font-size: 1.5em; }
+				&:before {
+				  background: none;
+				  border: none;
+				}
+
+			}
+
+			#manualpop {
+			  visibility: hidden;
+			  display: block;
+			  width: 1px;
+			  height: 1px;
+			  overflow: hidden;
+			}
+
+			#title-welcome {
+			  display: block;
+			}
+
+			#canada-logo {
+			  bottom: 0px;
+			  text-align: right;
+			  margin-bottom: 0px;
+			  padding-top: 10px;
+			}
+
+
+			#wordmark {
+			  height: 30px;
+			}

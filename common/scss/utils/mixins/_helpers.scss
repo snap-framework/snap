@@ -1,0 +1,59 @@
+@mixin hide-text{
+  // METHOD 1:
+  text-indent: -9999px;
+
+  // METHOD 2:
+  // font: 0/0 a;
+  // text-shadow: none;
+  // color: transparent;
+}
+
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin triangle($direction: left, $color: #fff, $size: 1em, $importance: null) {
+	position: relative;
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 0;
+	}
+
+	@if $direction == top or $direction == bottom {
+		&:after {
+			top: 50%;
+			-webkit-transform: translateY(-50%);
+			transform: translateY(-50%);
+			border-#{opposite-direction($direction)}: $size * 1.5 solid $color $importance;
+    		$perpendicular-border: $size solid transparent !global;
+			border-left:   $perpendicular-border;
+			border-right:  $perpendicular-border;
+		}
+	}
+
+	@else if $direction == right {
+		&:after {
+			top: 50%;
+			-webkit-transform: translateY(-50%);
+			transform: translateY(-50%);
+			border-#{opposite-direction($direction)}: $size * 1.5 solid $color $importance;
+    		$perpendicular-border: $size solid transparent !global;
+			border-bottom: $perpendicular-border;
+			border-top:    $perpendicular-border;
+		}
+	}
+	@else if $direction == left {
+		&:before {
+			top: 50%;
+			-webkit-transform: translateY(-50%);
+			transform: translateY(-50%);
+			border-#{opposite-direction($direction)}: $size * 1.5 solid $color $importance;
+    		$perpendicular-border: $size solid transparent !global;
+			border-bottom: $perpendicular-border;
+			border-top:    $perpendicular-border;
+		}
+	}
+}

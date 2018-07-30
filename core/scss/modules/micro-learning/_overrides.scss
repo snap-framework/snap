@@ -1,0 +1,397 @@
+//This will override the 'normal' styling
+//that is used when we are not in a micro-learning course
+
+
+//Introduction page
+.microLearning .welcome {
+   header {
+      position: relative;
+      z-index: 1000;
+   }
+   #wb-bar .top-menu > .row #wb-lng ul.text-right > li > a {
+      font-weight: bold;
+      font-size: 30px;
+   }
+   .modIndex {
+      position: relative;
+      border: 2px dotted;
+      border-left: 0;
+      border-right: 0;
+      margin: 50px 0;
+      padding-right: 10%;
+      .module-info {
+         @include breakpoint-lte('large') {
+            //leave space for the arrows-bottom
+            padding-top: 30px;
+            padding-bottom: 20px;
+         }
+         h3 {
+            margin: 0;
+         }
+         a {
+            color: $micro-module-info-button-color;
+            padding: 20px 0;
+            width: 100%;
+            display: table;
+            text-decoration: none;
+            @include breakpoint-lte('large') {
+               padding: 0;
+            }
+         }
+         &:hover a {
+            color: lighten($micro-module-info-button-color, 25%);
+         }
+      }
+      .arrows-bottom {
+         top: 50px;
+         position: absolute;
+         margin-left: 7px;
+         @include breakpoint-lte('large') {
+            margin-left: 0;
+         }
+         @include transition(left 0.5s ease);
+         &:before, &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            z-index: 1000;
+            border-style: dotted;
+            border-width: 2px 2px 0 0;
+            @include breakpoint-lte('large') {
+               left: 15px;
+               bottom: 5px;
+            }
+            @include size(1em);
+            @include transform(translateY(-50%) rotate(135deg));
+         }
+         &:before {
+            bottom: 20px;
+            @include breakpoint-lte('large') {
+               bottom: 15px;
+            }
+         }
+      }
+      .mod-name {
+         display: table-cell;
+         text-align: right;
+         padding-right: 20px;
+      }
+      .ribbon-module {
+         display: table-cell;
+         text-align: center;
+         @include breakpoint-lte('large') {
+            text-align: right;
+         }
+         .modnum {
+            font-size: 5em;
+            @include breakpoint-lte('large') {
+               font-size: 3em;
+            }
+         }
+      }
+   }
+   main {
+      @include size(100%);
+   }
+   h1 {
+      font-size: 5em;
+      @include breakpoint-lte('large') {
+         font-size: 3em;
+      }
+   }
+   #dynamic_content {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      @include translateY(-50%);
+      width: calc(100% - 22%);
+      padding: 0;
+      overflow: hidden;
+      @include breakpoint-lte('xlarge') {
+         width: calc(100% - 10%);
+      }
+      h1, p {
+         padding-right: 50px;
+      }
+   }
+}
+.mobile .welcome {
+   @include breakpoint-lte('medium') {
+      h1 {
+         font-size: 4em;
+      }
+   }
+   @include breakpoint-lte('small') {
+      h1 {
+         font-size: 3em;
+      }
+   }
+   main {
+      @include breakpoint-lte('large') {
+         width: 100%;
+      }
+   }
+   .breadcrumb {
+      display: none !important;
+   }
+   .arrows-bottom {
+      display: none;
+   }
+   #dynamic_content {
+      padding: 20px;
+      //height of the header
+      margin-top: 45px;
+      margin-bottom: 0 !important;
+   }
+   .module-info {
+      text-align: center;
+      @include breakpoint-lte('large') {
+         text-align: right;
+      }
+   }
+   .modIndex {
+      padding-right: 0;
+      @include breakpoint-lte('medium') {
+         .ribbon-module .modnum {
+            font-size: 4em;
+         }
+      }
+      @include breakpoint-lte('small') {
+         .ribbon-module .modnum {
+            font-size: 3em;
+         }
+         
+      }
+   }
+   footer {
+      display: none !important;
+   }
+}
+
+body.microModule {
+   //fixed header
+   header[role=banner] {
+      position: fixed;
+      top: 0;
+      left: 0;
+      /*on top of others*/
+      z-index: $fixed-z-index + 1;
+      width: 100%;
+      #wb-bar .top-menu > .row {
+         top: 0;
+      }
+   }
+
+   main[role=main] {
+      width: 100%;
+      padding: 0;
+      display: block;
+      /*sometimes the fullPage.js can create a white space on the right*/
+      overflow-x: hidden;
+   }
+
+   #wb-sttl {
+      width: 25%;
+      padding-right: 4em;
+      position: absolute;
+      left: 0;
+      margin-top: 20px;
+      text-align: right;
+      #csps-modulenum {
+         display: inline-block;
+         width: 100%;
+      }
+      #csps-modulename {
+         padding: 0;
+         padding-left: 10px;
+         border-bottom: 2px dotted;
+         //show the csps-mdulename for every resolutions
+         display: block;
+         @include breakpoint-lte('large') {
+            font-size: 1em;
+         }
+      }
+   }
+
+   h2.series-title {
+      position: fixed;
+      left: 22%;
+      padding-left: 0;
+      float: left;
+      display: table !important;
+      height: 45px;
+      vertical-align: middle;
+      a {
+         display: table-cell;
+         &:before {
+            content: "";
+            border-bottom: 2px dotted $micro-vertical-spacers-lines-border-color;
+            width: calc(25% - 3em);
+            position: fixed;
+            left: 0px;
+            top: 30px;
+         }
+      }
+   }
+
+   //global styles
+   #wb-bar {
+      position: relative;
+   }
+   #wb-bar .top-menu > .row #wb-lng ul.text-right > li > a {
+      font-weight: bold;
+      font-size: 30px;
+   }
+   /*hide the prev and next buttons of the header*/
+   /*since the ones in the footer are present*/
+   #topbacknext {
+      display: none !important;
+   }
+   .breadcrumb {
+      position: fixed;
+      width: 100%;
+      /*allow the menu to be on top of the breadcrumb*/
+      z-index: $fixed-z-index - 1;
+      background-color: transparent;
+   }
+
+   //we don't need the supermenu since it will be cloned somewhere else
+   //so just hide it
+   .supermenu-wrapper {
+      display: none !important;
+   }
+   #dynamic_content {
+      position: relative;
+      padding: 0;
+   }
+
+   //fixed footer
+   footer {
+      z-index: 1001;
+      position: fixed;
+      .container {
+         width: 100%;
+      }
+      .backnext {
+         position: fixed;
+         height: auto;
+         padding: 0 !important;
+         > span {
+            margin: 0 40px;
+            @include breakpoint-lte('large') {
+               margin: 0;
+            }
+         }
+         .next, .back {
+            outline: none;
+            //be sure to remove font-size as it creates a shape along with the SVG next to it.
+            font-size: 0;
+            &:after, &:before {
+               display: none;
+            }
+         }
+         span {
+            margin: 0 25px;
+            @include breakpoint-lte('xlarge') {
+               margin: 0;
+            }
+         }
+      }
+      .backnext a {
+         display: inline-block;
+         @include size(30px, 35px);
+         &, &:hover, &:focus, &:active, &.disabled, &.disabled:hover {
+            @include hide-text();
+         }
+      }
+   }
+}
+
+.mobile, .mobile body.microModule {
+   height: 100%;
+}
+.mobile .microModule {
+   header[role=banner], footer {
+      background-color: $micro-mobile-edges-background-color;
+      box-shadow: 45px 1px 1px 1px $box-shadow-color;
+      .backnext a {
+         display: table-cell !important;
+         @include size(33%, 35px);
+      }
+   }
+   main {
+      position: relative;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      @include translateY(0);
+   }
+   h2.series-title {
+      position: absolute;
+      left: 0;
+      text-align: center;
+      a:before {
+         display: none;
+      }
+   }
+   .breadcrumb {
+      //we will use the #csps-modulename element instead
+      display: none !important;
+   }
+   
+   #dynamic_content {
+      overflow: hidden;
+   }
+   #wb-sttl {
+      padding-right: 2em;
+      width: 100%;
+      color: $micro-mobile-course-title-color;
+      position: relative;
+      text-align: right;
+      margin: 0;
+      #csps-modulenum {
+         display: inline;
+         font-size: 2em;
+      }
+      #csps-modulename {
+         display: inline;
+         padding: 0;
+         margin-left: 20px;
+      }
+   }
+   .mb-lvl-nb {
+      display: none;
+   }
+   :not(.welcome) main[role=main] {
+      position: absolute;
+      right: 0;
+   }
+   
+   footer {
+      position: fixed;
+      bottom: 0;
+      z-index: 1002;
+      width: 100%;
+      .backnext .next, .backnext .back {
+         @include hide-text();
+      }
+      .backnext .next, .backnext .back,
+      .backnext .next:hover, .backnext .back:hover {
+         background-size: 15px !important;
+      }
+      .backnext > span {
+         background-color: transparent !important;
+      }
+   }
+   .dyk {
+      position: relative;
+      width: 100%;
+      left: 0;
+      margin-top: 40px;
+   }
+}
+
+.ie11.mobile body.microModule footer .backnext a {
+   background-size: cover !important;
+}

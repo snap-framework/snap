@@ -1,0 +1,367 @@
+﻿<h1>Charts and graphs</h1>
+
+<section role="content" class="col-md-12"> 
+	<h2>Purpose</h2>
+    <p>Dynamically generates charts and graphs from table data.</p>
+    <p>This feature dynamically generates charts from table data. The table data used to generate the graphic need to have a structure as defined in the techniques for tables. The graphic generated can be easily customized by using the CSS Option set to the tables elements.</p>
+    <p>The charts plugin is a interface between data table and a drawing charts engine. Currently, for extensibility and to ease support, <a target="_blank" href="http://www.flotcharts.org/">Flot</a> is the charts drawing engine used.</p> 
+Links to this widget:
+<ul>
+      <li><a href="http://wet-boew.github.io/wet-boew/demos/charts/custom-en.html" target="_blank">http://wet-boew.github.io/wet-boew/demos/charts/custom-en.html</a></li>
+      <li><a href="http://wet-boew.github.io/wet-boew/demos/charts/piecustom-en.html" target="_blank">http://wet-boew.github.io/wet-boew/demos/charts/piecustom-en.html</a></li>
+      <li><a href="http://wet-boew.github.io/wet-boew/demos/charts/labelsandreferencevalue-en.html" target="_blank">http://wet-boew.github.io/wet-boew/demos/charts/labelsandreferencevalue-en.html</a></li>
+      <li><a href="http://wet-boew.github.io/wet-boew/demos/charts/charts-en.html" target="_blank">http://wet-boew.github.io/wet-boew/demos/charts/charts-en.html</a></li>
+      <li><a href="http://wet-boew.github.io/wet-boew/demos/charts/testing-en.html" target="_blank">http://wet-boew.github.io/wet-boew/demos/charts/testing-en.html</a></li>
+      <li><a href="http://wet-boew.github.io/wet-boew/demos/charts/functionandnumbers-en.html" target="_blank">http://wet-boew.github.io/wet-boew/demos/charts/functionandnumbers-en.html</a></li>
+ </ul>   
+
+
+  <h2>Pie charts</h2>
+  <table style="visibility:hidden;" class="wb-charts wb-charts-pie table" data-flot='{"colors": [ "#8d201c","#ee8310","#2a7da6","#5a306b","#285228"],"series": { "pie": { "radius": 1,"label": { "radius": 1,"show": true }, "innerRadius": 0.45 } } }'>
+        <caption>Public Service Population Breakdown</caption>
+        <tr>
+            <td></td>
+    
+            <th>Correctional Service Canada</th>
+            <th>Employment and Social Development Canada</th>
+            <th>National Defence</th>
+            <th>Canada Revenue Agency</th>
+            <th>Other departments and organizations</th>
+        </tr>
+        <tr>
+            <th>Population</th>
+            <td>18259</td>
+            <td>21097</td>
+            <td>23146</td>
+            <td>40279</td>
+            <td>154357</td>
+        </tr>
+    
+  </table>
+    <details class="mrgn-tp-md">
+    	<summary>View code</summary>
+        <pre>
+        	<code>
+&lt;table style=&quot;visibility:hidden;&quot; class=&quot;wb-charts wb-charts-pie table&quot; data-flot='{
+		&quot;series&quot;: {
+        	 	&quot;pie&quot;: {
+                         &#09;&quot;radius&quot;: 1,
+                         &#09;&quot;label&quot;: { 
+                            &#09;&#09;&quot;radius&quot;: 1,
+                            &#09;&#09;&quot;show&quot;: true
+                            &#09;},
+                     	 &#09;&quot;innerRadius&quot;: 0.45 
+              			} 
+          		} 
+    	}'&gt;
+	&lt;caption&gt;Public Service Population Breakdown&lt;/caption&gt;
+	&lt;tr&gt;
+		&lt;td&gt;&lt;/td&gt;
+        &lt;th&gt;Correctional Service Canada&lt;/th&gt;
+        &lt;th&gt;Employment and Social Development Canada&lt;/th&gt;
+        &lt;th&gt;National Defence&lt;/th&gt;
+        &lt;th&gt;Canada Revenue Agency&lt;/th&gt;
+        &lt;th&gt;Other departments and organizations&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+        &lt;th&gt;Population&lt;/th&gt;
+        &lt;td&gt;18259&lt;/td&gt;
+        &lt;td&gt;21097&lt;/td&gt;
+        &lt;td&gt;23146&lt;/td&gt;
+        &lt;td&gt;40279&lt;/td&gt;
+        &lt;td&gt;154357&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;            
+           
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+	$(document).ready(function(e) {		
+     	wb.add(&#39;.wb-charts&#39;);   
+    });
+&lt;/script&gt; </code>
+        </pre>
+    </details>
+    
+    <h2>Bar charts</h2>
+    <table class="wb-charts wb-charts-bar table" data-flot='{	"colors": [ "#8d201c","#ee8310","#2a7da6","#5a306b","#285228"]}'>
+      <caption>
+      Number of pages by main purpose and audience
+      </caption>
+      <tbody>
+        <tr>
+          <td></td>
+          <th>Education</th>
+          <th>Task</th>
+          <th>Navigation</th>
+          <th>Support</th>
+          <th>Information</th>
+          <th>Corporate</th>
+        </tr>
+        <tr>
+          <th>General</th>
+          <td>2</td>
+          <td>0</td>
+          <td>20</td>
+          <td>4</td>
+          <td>100</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <th>Students</th>
+          <td>2</td>
+          <td>2</td>
+          <td>1</td>
+          <td>5</td>
+          <td>50</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>Business</th>
+          <td>60</td>
+          <td>10</td>
+          <td>20</td>
+          <td>90</td>
+          <td>50</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <th>Professional</th>
+          <td>46</td>
+          <td>26</td>
+          <td>5</td>
+          <td>101</td>
+          <td>200</td>
+          <td>142</td>
+        </tr>
+        <tr>
+          <th>Lawyer</th>
+          <td>0</td>
+          <td>2</td>
+          <td>4</td>
+          <td>0</td>
+          <td>300</td>
+          <td>300</td>
+        </tr>
+      </tbody>
+    </table>
+  <details class="mrgn-tp-md">
+    	<summary>View Code</summary>
+        <pre>
+        	<code>
+&lt;table class=&quot;wb-charts wb-charts-bar table&quot;&gt;
+	&lt;caption&gt;Number of pages by main purpose and audience&lt;/caption&gt;
+	&lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;th&gt;Education&lt;/th&gt;
+            &lt;th&gt;Task&lt;/th&gt;
+            &lt;th&gt;Navigation&lt;/th&gt;
+            &lt;th&gt;Support&lt;/th&gt;
+            &lt;th&gt;Information&lt;/th&gt;
+            &lt;th&gt;Corporate&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;General&lt;/th&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;0&lt;/td&gt;
+            &lt;td&gt;20&lt;/td&gt;
+            &lt;td&gt;4&lt;/td&gt;
+            &lt;td&gt;100&lt;/td&gt;
+            &lt;td&gt;50&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Students&lt;/th&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;5&lt;/td&gt;
+            &lt;td&gt;50&lt;/td&gt;
+            &lt;td&gt;0&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;tr&gt;
+        &lt;th&gt;Business&lt;/th&gt;
+            &lt;td&gt;60&lt;/td&gt;
+            &lt;td&gt;10&lt;/td&gt;
+            &lt;td&gt;20&lt;/td&gt;
+            &lt;td&gt;90&lt;/td&gt;
+            &lt;td&gt;50&lt;/td&gt;
+            &lt;td&gt;8&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Professional&lt;/th&gt;
+            &lt;td&gt;46&lt;/td&gt;
+            &lt;td&gt;26&lt;/td&gt;
+            &lt;td&gt;5&lt;/td&gt;
+            &lt;td&gt;101&lt;/td&gt;
+            &lt;td&gt;200&lt;/td&gt;
+            &lt;td&gt;142&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Lawyer&lt;/th&gt;
+            &lt;td&gt;0&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;4&lt;/td&gt;
+            &lt;td&gt;0&lt;/td&gt;
+            &lt;td&gt;300&lt;/td&gt;
+            &lt;td&gt;300&lt;/td&gt;
+        &lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;            
+            
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+	$(document).ready(function(e) {		
+     	wb.add(&#39;.wb-charts&#39;);   
+    });
+&lt;/script&gt;</code>
+        </pre>
+  </details>
+    <h2>Area charts</h2>
+  <table class="wb-charts wb-charts-area table" data-flot='{	"colors": [ "#8d201c","#ee8310","#2a7da6","#5a306b","#285228"]}'>
+      <caption>Number of pages by main purpose and audience</caption>
+      <tbody>
+        <tr>
+          <td></td>
+          <th>Education</th>
+          <th>Task</th>
+          <th>Navigation</th>
+          <th>Support</th>
+          <th>Information</th>
+          <th>Corporate</th>
+        </tr>
+        <tr>
+          <th>General</th>
+          <td>2</td>
+          <td>0</td>
+          <td>20</td>
+          <td>4</td>
+          <td>100</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <th>Students</th>
+          <td>2</td>
+          <td>2</td>
+          <td>1</td>
+          <td>5</td>
+          <td>50</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>Business</th>
+          <td>60</td>
+          <td>10</td>
+          <td>20</td>
+          <td>90</td>
+          <td>50</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <th>Professional</th>
+          <td>46</td>
+          <td>26</td>
+          <td>5</td>
+          <td>101</td>
+          <td>200</td>
+          <td>142</td>
+        </tr>
+        <tr>
+          <th>Lawyer</th>
+          <td>0</td>
+          <td>2</td>
+          <td>4</td>
+          <td>0</td>
+          <td>300</td>
+          <td>300</td>
+        </tr>
+      </tbody>
+    </table>
+    
+  <details class="mrgn-tp-md">
+    	<summary>View code</summary>
+        	<pre>
+            	<code>
+&lt;table class=&quot;wb-charts wb-charts-area table&quot;&gt;
+	&lt;caption&gt;Number of pages by main purpose and audience&lt;/caption&gt;
+	&lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;th&gt;Education&lt;/th&gt;
+            &lt;th&gt;Task&lt;/th&gt;
+            &lt;th&gt;Navigation&lt;/th&gt;
+            &lt;th&gt;Support&lt;/th&gt;
+            &lt;th&gt;Information&lt;/th&gt;
+            &lt;th&gt;Corporate&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;General&lt;/th&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;0&lt;/td&gt;
+            &lt;td&gt;20&lt;/td&gt;
+            &lt;td&gt;4&lt;/td&gt;
+            &lt;td&gt;100&lt;/td&gt;
+            &lt;td&gt;50&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Students&lt;/th&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;5&lt;/td&gt;
+            &lt;td&gt;50&lt;/td&gt;
+            &lt;td&gt;0&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Business&lt;/th&gt;
+            &lt;td&gt;60&lt;/td&gt;
+            &lt;td&gt;10&lt;/td&gt;
+            &lt;td&gt;20&lt;/td&gt;
+            &lt;td&gt;90&lt;/td&gt;
+            &lt;td&gt;50&lt;/td&gt;
+            &lt;td&gt;8&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Professional&lt;/th&gt;
+            &lt;td&gt;46&lt;/td&gt;
+            &lt;td&gt;26&lt;/td&gt;
+            &lt;td&gt;5&lt;/td&gt;
+            &lt;td&gt;101&lt;/td&gt;
+            &lt;td&gt;200&lt;/td&gt;
+            &lt;td&gt;142&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Lawyer&lt;/th&gt;
+            &lt;td&gt;0&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;4&lt;/td&gt;
+            &lt;td&gt;0&lt;/td&gt;
+            &lt;td&gt;300&lt;/td&gt;
+            &lt;td&gt;300&lt;/td&gt;
+        &lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;                
+               
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+	$(document).ready(function(e) {		
+     	wb.add(&#39;.wb-charts&#39;);   
+    });
+&lt;/script&gt; </code>
+            </pre>
+        </summary>
+    </details>
+
+<script type="text/javascript">
+
+$(document).ready(function(e) {
+	wb.add('.wb-charts');
+//re-initialize
+//notice how we added a lil hidden at the top? yeah it just caused some ewwie glitch this is just so that it reappears.
+
+setTimeout(function() {$('.wb-charts').css("visibility", "visible");},750);
+    
+});
+
+</script>
+</section>
+

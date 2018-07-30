@@ -1,0 +1,38 @@
+.overlay-def {
+  header {
+    background-color: $modal-header-background-color;
+  }
+  header, button.mfp-close {
+    color: $modal-header-color;
+  }
+
+  &, .modal-body {
+    background-color: $modal-body-background-color;
+  }
+}
+
+.modal-dialog {
+  > .modal-body {
+    overflow: auto;
+  }
+  &.modal-content.overlay-def {
+
+    margin: 0 auto;
+	@include breakpoint-gt('xsmall') {
+		width: 70%;
+	}
+	@include breakpoint-lte('xsmall') {
+		width: 100%;
+	}	
+  }
+}
+html.mobile .modal-dialog.modal-content.overlay-def {
+  
+}
+	
+/* Small view */
+@include breakpoint(xxsmall, medium) {
+	.modal-dialog.modal-content.overlay-def {
+        width: auto !important;
+	}		
+}

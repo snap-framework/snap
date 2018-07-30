@@ -1,0 +1,155 @@
+//enable transition for modal on mobile and desktop
+.mobile .wb-overlay {
+   transition: right 0.5s ease;
+   position: fixed;
+   display: inline-block;
+   //make sure the modal is not in viewport
+   right: -150%;
+   &.open {
+      transition: right 0.5s ease;
+      right: 0;
+   }
+}
+
+//Magnific Popup animations
+//http://codepen.io/dimsemenov/pen/GAIkt
+
+/* ====== Zoom effect ====== */
+.mfp-zoom-in {
+   /* start state */
+   .mfp-with-anim {
+      opacity: 0;
+      transition: all 0.2s ease-in-out;
+      transform: scale(0.8);
+   }
+   &.mfp-bg {
+      opacity: 0;
+      transition: all 0.3s ease-out;
+   }
+   /* animate in */
+   &.mfp-ready {
+      .mfp-with-anim {
+         opacity: 1;
+         transform: scale(1);
+      }
+      &.mfp-bg {
+         opacity: 0.8;
+      }
+   }
+   /* animate out */
+   &.mfp-removing {
+      .mfp-with-anim {
+         transform: scale(0.8);
+         opacity: 0;
+      }
+      &.mfp-bg {
+         opacity: 0;
+      }
+   }
+}
+
+/* ====== Move-horizontal effect ====== */
+.mfp-move-horizontal {
+   /* start state */
+   .mfp-with-anim {
+      opacity: 0;
+      transition: all 0.3s;
+      transform: translateX(-50px);
+   }
+   &.mfp-bg {
+      opacity: 0;
+      transition: all 0.3s;
+   }
+   /* animate in */
+   &.mfp-ready {
+      .mfp-with-anim {
+         opacity: 1;
+         transform: translateX(0);
+      }
+      &.mfp-bg {
+         opacity: 0.8;
+      }
+   }
+   /* animate out */
+   &.mfp-removing {
+      .mfp-with-anim {
+         transform: translateX(50px);
+         opacity: 0;
+      }
+      &.mfp-bg {
+         opacity: 0;
+      }
+   }
+}
+
+/* ====== Move-vertical effect ====== */
+.mfp-move-vertical {
+   /* start state */
+   .mfp-with-anim {
+      opacity: 0;
+      transition: all 0.3s;
+      transform: translateY(-50px);
+   }
+   &.mfp-bg {
+      opacity: 0;
+      transition: all 0.3s;
+   }
+   /* animate in */
+   &.mfp-ready {
+      .mfp-with-anim {
+         opacity: 1;
+         transform: translateY(0);
+      }
+      &.mfp-bg {
+         opacity: 0.8;
+      }
+   }
+   /* animate out */
+   &.mfp-removing {
+      .mfp-with-anim {
+         transform: translateY(50px);
+         opacity: 0;
+      }
+      &.mfp-bg {
+         opacity: 0;
+      }
+   }
+}
+
+/* ====== Move-from-top effect ====== */
+
+.mfp-move-from-top {
+   .mfp-content {
+      vertical-align: top;
+   }
+   /* start state */
+   .mfp-with-anim {
+      opacity: 0;
+      transition: all 0.2s;
+      transform: translateY(-100px);
+   }
+   &.mfp-bg {
+      opacity: 0;
+      transition: all 0.2s;
+   }
+   /* animate in */
+   &.mfp-ready {
+      .mfp-with-anim {
+         opacity: 1;
+         transform: translateY(0);
+      }
+      &.mfp-bg {
+         opacity: 0.8;
+      }
+   }
+   /* animate out */
+   &.mfp-removing {
+      .mfp-with-anim {
+         transform: translateY(-50px);
+         opacity: 0;
+      }
+      &.mfp-bg {
+         opacity: 0;
+      }
+   }
+}

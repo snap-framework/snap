@@ -1,0 +1,68 @@
+<h1>Multimedia Player - Audio-only</h1>
+
+<h2>Purpose</h2>
+
+<p>For audio-only, the multimedia player leverages the native HTML5 audio tag and relies on Flash as a fallback mechanism when the HTML5 audio tag is not implemented.</p>
+
+<p>The multimedia player's timeline relies on the HTML5 progress element and uses a polyfill when the element is not supported.</p>
+
+<p>The MP3 format (H264 codec) is the minimum requirement for the player because the Flash fallback relies on it and MP3 is a widely supported format on many mobile devices. An optional but highly recommended format, OGG Vorbis, should be added as well to allow some browsers such as Firefox that do not include native support for MP3 to leverage the HTML5 native performance gains.</p>
+	<p><a href="#" target="_blank" data-ext="ext-wb-2" class="external" >Link to this widget</a></p>
+
+<figure class="wb-mltmd">
+	<audio title="Ride of the Valkyries">
+		<source src="content/module99/audio/Ohsnap.mp3" type="audio/mp3" />
+		<source src="content/module99/audio/Ohsnap.ogg" type="audio/ogg" />
+	</audio>
+	<figcaption>
+		<p>Ride of the Valkyries</p>
+	</figcaption>
+</figure>
+<h2>col-md-6</h2>
+<div class="row">
+<section class="col-md-6">
+<figure class="wb-mltmd">
+	<audio title="Ride of the Valkyries">
+		<source src="content/module99/audio/Ohsnap.mp3" type="audio/mp3" />
+		<source src="content/module99/audio/Ohsnap.ogg" type="audio/ogg" />
+	</audio>
+	<figcaption>
+		<p>Ride of the Valkyries</p>
+	</figcaption>
+</figure>
+</section>
+</div>
+
+
+<h2>Small Player</h2>
+<div class="row">
+<section class="col-md-6">
+<figure class="wb-mltmd small">
+	<audio title="Ride of the Valkyries">
+		<source src="content/module99/audio/Ohsnap.mp3" type="audio/mp3" />
+		<source src="content/module99/audio/Ohsnap.ogg" type="audio/ogg" />
+	</audio>
+</figure>
+</section>
+</div>
+
+<style>
+.wb-mltmd.small .glyphicon-play{color:white;}
+.wb-mltmd.small .wb-mm-ctrls{padding-top:0px; background:#3e3e3e;}
+.wb-mltmd.small{float:left;}
+.wb-mltmd.small .btn-group{padding-top:0px;}
+.wb-mltmd.small{  width: 30px;  border:none; padding:0px;}
+
+.wb-mltmd.small .tline{display:none} 
+.wb-mltmd.small span.fd-slider{display:none;}
+.wb-mltmd.small.waiting .display::before, .wb-mltmd.waiting.small .display::after{display:none!important;} /*BUG FIREFOX*/
+/*.wb-mltmd.small .display{display:none;}*/
+
+
+.wb-mltmd.small button.mute,.wb-mltmd.small input.volume,.wb-mltmd.small  .wb-mm-cc{display:none;}
+</style>
+<script>
+$(document).ready(function(){
+	wb.add('.wb-mltmd');
+});
+</script>

@@ -1,0 +1,66 @@
+<h1 class="wb-inv">Module Information</h1>
+<section class="col-md-4 objectifs module-obj">
+		<h2>Module 1 - Objectives</h2>
+        <ol>
+            <li>Understand and apply the basic concepts associated with organization and classification;</li>
+            <li>Recognize the impacts of classification decisions.</li>    
+        </ol> 
+        <h2 class='wb-inv'>More Information About the Module</h2>
+        <ul class="mod-list">
+        </ul>               
+</section>
+
+
+<section class="mod-index col-md-8">
+	<h2>Module 1 Index</h2>
+</section>
+
+
+<script>
+
+$( document ).ready(function() {
+	var module=masterStructure.subs[masterStructure.currentNav[0]]	
+	
+	$("#map_origin").find("[id$='"+masterStructure.currentSub.sPosition+"']").addClass("viewed");	
+	//-------------------------OBJECTIVE section---------------------------------
+	
+
+	if (module.quizSubs.length>0){
+		var targetNav=module.quizSubs[module.quizSubs.length-1].sPosition;
+		var targetClick="fNav('"+targetNav+"'); return false"
+		
+	}
+	$(".mod-list").append("<li class='mod-progress'></li>")
+
+	//generate progress(target)
+	module.generateProgress(".mod-progress");
+
+
+	//---------------------------the other progressbar
+	var proportionViewedPages=40/100;
+	var proportionSucess=60/100;
+	var nbModules=masterStructure.modCount;
+	var totalPercent=0;
+	for(var allModules=0;allModules<masterStructure.subs.length;allModules++){
+		var thisMod=masterStructure.subs[allModules];
+		if(!thisMod.isPage){
+			var modPercent=thisMod.viewCount/thisMod.totalPages*100;
+			modPercent=modPercent/nbModules*proportionViewedPages;
+			totalPercent+=modPercent;
+			if(thisMod.moduleStatus=="completed"){
+				totalPercent+=100/nbModules*proportionSucess;
+			}
+		}
+	}
+
+
+
+
+	
+	var percentMod=Math.round(module.viewCount/module.totalPages*100);
+	$(".mod-progress").append("<p>Module 1 : "+percentMod+" % completed</p>");
+	
+});
+
+
+</script>

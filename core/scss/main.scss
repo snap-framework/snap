@@ -1,0 +1,22 @@
+@charset 'utf-8';
+
+//import whatever settings file theme there is
+@import "../../theme/scss/_settings";
+//import whatever vars file theme there is
+@import "../../theme/scss/_vars";
+
+@import "../../common/scss/utils/_utils";
+
+@import "../../common/scss/base/_base";
+
+@import "./fixes/_fixes";
+
+@import "./icons/_icons";
+
+@import "./layout/_layout";
+
+//prepare the field and then add the widgets/modules
+@import "./widgets/_widgets";
+
+@import "./modules/_modules";
+@import "./launch";

@@ -1,0 +1,16 @@
+<section data-id='{{sitemapID}}' class='modal-dialog modal-content overlay-def mfp-with-anim mfp-zoom-in'>
+    <header class='modal-header'>
+        <h2 class='modal-title' id='lbx-title'>{{labels.nav.sitemap}}</h2>
+        <button title="Close overlay (escape key)" type="button" class="mfp-close">×<span class="wb-inv"> Close overlay (escape key)</span></button>
+    </header>
+    <div class='modal-body'>
+        {{#each subs}}
+            {{#unless this.isPage}}
+                <h{{../startingHeader}}>{{this.title}}</h{{../startingHeader}}>
+                <ul data-id='sitemodulemap_{{this.aPosition}}' class="index-list">
+                    {{> ./_sitemap-sub subs=this.subs CoreSettings=../CoreSettings startingHeader=(math ../startingHeader "+" 1) labels=../labels }}
+                </ul>
+            {{/unless}}
+        {{/each}}
+    </div>
+</section>

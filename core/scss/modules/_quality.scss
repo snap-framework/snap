@@ -1,0 +1,24 @@
+.quality_assurance{
+	.successful{
+		border:green 1px solid;
+	}
+	.successful:after{
+		float:right;
+		content: '\2713';
+		font-weight:600;
+		color:green;
+		
+	}
+	.failed{
+		border:red 1px solid;
+	}
+	.failed:after{
+		float:right;
+		content: '\2713';
+		font-weight:600;
+		color:red;
+		
+	}
+	
+	
+}

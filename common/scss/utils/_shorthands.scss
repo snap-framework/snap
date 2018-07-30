@@ -1,0 +1,25 @@
+.alignLeft {
+	text-align: left;
+}
+.alignRight {
+	text-align: right;
+}
+.alignCenter {
+	text-align: center;
+}
+
+.verticalCenter {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+//creates width classes with percentages in a base 10.
+//.w10
+//.w20
+//... 
+@for $i from 1 through 10 {
+	$basePercent: 10%;
+	.w#{$i * 10} {
+		width: #{$i * $basePercent};
+	}
+}

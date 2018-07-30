@@ -1,0 +1,24 @@
+/* ----------------WELCOME----------------*/
+
+.welcome {
+  .module-info {
+      float: none;
+      display: inline-block;
+      vertical-align: top;
+      .mod-list {
+          padding: 0;
+          li {
+              list-style-type: none;
+          }
+      }
+      &.module-is-locked a {
+        cursor: not-allowed;
+      }
+  }
+  nav#wb-sm, #topbacknext, #wb-bnr > .container > .row {
+    display: none !important;
+  }
+  footer > .container > .backnext {
+    visibility: hidden !important;
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8" />
+
+    <title>CSPS Framework Launcher</title>
+	
+	<script src="./core/js/lib/require.js"></script>
+    
+    <script src="./core/js/scorm/APIWrapper.js" type="text/javascript"></script>
+    <script type="text/javascript">
+		require(['core/js/require-configs'], function() {
+			require(['jquery', "settings-core", 'settings-general',	"settingsOverride", 'popper/popupwindowscripts'], function($, CoreSettings, GeneralSettings, settingsOverride, PopupWindowScripts) {
+				$(document).ready(function(e) {
+					checkLaunch('index_en.html');
+					$("#series-title").html(CoreSettings.seriesTitle_en);
+					$("#coursename").html(CoreSettings.courseTitle_en);
+					$("#subcoursename").html(CoreSettings.courseSubtitle_en);
+				});
+			});
+		});
+    </script>
+	<link rel="stylesheet" class="theme" id="theme-style" href="./core/static/launch.css" />
+   	<link rel="stylesheet" class="theme" id="theme-style" href="./theme/theme.css" />	
+</head>
+<body class="launchpage">
+
+	<span id="noclose" class="obfuscated">Do not close this window. If you close it you will end your session.</span>
+    <header id="wordmark"><img src="./WET/assets/CSPS_FIP_BlackRed_E.png" alt="Canada School of Public Service Wordmark" /></header>
+	<main id="splash-content">
+    	
+        <h1 id="title-area">
+        	<span id="title-welcome">Welcome to</span>
+            <span id="series-title"></span>
+            <span id="coursename">The CSPS eLearning Framework</span>
+            <span id="subcoursename"></span>
+        </h1>
+        <div id="launch-area">
+        	<div id="launch-placement">
+            	<span id="manualpop">If the course did not start automatically, click </span>
+                <a href="#" onclick="launchPop('index_en.html')" id="launch-btn">Launch</a>
+        	</div>
+        </div>
+    </main>
+    <footer id="canada-logo"><img src="./WET/assets/canada_flag.png" alt="Canada Logo" /></footer>
+
+</body>
+</html>

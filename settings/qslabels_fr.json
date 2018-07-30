@@ -1,0 +1,41 @@
+﻿[
+	{
+	
+	"msgs" :
+		{
+		"msgNoSelection" : "Veuillez sélectionner une réponse.",
+		"msgNoMultiSelection" : "Veuillez cocher une ou plusieurs réponses.",
+		"msgEmptyTextField" : "Veuillez écrire une réponse.",
+		"msgEmptyDropDown" : "Veuillez sélectionner une réponse.",
+		"msgDuplicateDropDown" : "Vous ne pouvez pas sélectionner deux fois la même réponse.",
+		"msgQuestionUnanswered" : "Veuillez compléter la question avant de continuer.",
+		"msgActivityNotCompleted" : "Veuillez terminer l'activité avant de continuer.",
+		"msgFeedbackRecallAnswerPrefix" : "Vous avez répondu&nbsp;: ",
+		"msgFeedbackRecallNoAnswerPrefix" : "Vous n'avez rien répondu à cette question.",
+		"msgUnanweredQuestionGotoPrefix" : "Retourner à la question #",
+		"msgUnanweredQuestionGotoSuffix" : ".",
+		"msgPtsPrefix" : "Cette question vaut <strong>",
+		"msgPtsSuffix" : "</strong> points."
+		},
+
+	"domButtons" : 
+		{
+		"qs_start":"<input class=\"qs-start btn btn-default\" type=\"button\" value=\"Débuter!\">",
+		"qs_getbacktoit":"<input class=\"qs-getbacktoit btn btn-default\" type=\"button\" value=\"Retourner ou vous étiez rendus\">",
+		"qs_resetretry":"<input class=\"qs-resetretry btn btn-default\" type=\"button\" value=\"Réinitialiser l'activité\">",
+		"qs_submit":"<input class=\"qs-submit btn btn-default\" type=\"button\" value=\"Valider\">",
+		"qs_submit_exercise":"null",
+		"qs_submit_activity":"<input class=\"qs-submit-activity btn btn-default\" type=\"button\" value=\"Valider l'activité\">", 
+		"qs_continue":"<input class=\"qs-continue btn btn-default\" type=\"button\" value=\"Suivant\">",
+		"qs_retry_activity":"<input class=\"qs-retry-activity btn btn-default\" type=\"button\" value=\"Réinitialiser l'activité\">",
+		"qs_display_recap":"<input class=\"qs-display-recap btn btn-default\" type=\"button\" value=\"Réviser les questions\">"
+		},
+		
+	"domVisuals" :
+		{
+		"positive_feedback":"<span style=\"display:inline-block;overflow:hidden;text-indent:-9999px;background-image:url('images/ico_right.jpg');width:19px;height:19px;background-size:19px;\">bonne réponse</span>",
+		"negative_feedback":"<span style=\"display:inline-block;overflow:hidden;text-indent:-9999px;background-image:url('images/ico_wrong.jpg');width:19px;height:19px;background-size:19px;\">mauvaise réponse</span>"
+		}
+	
+	}
+]

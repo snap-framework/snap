@@ -1,0 +1,35 @@
+
+
+// AQA
+
+
+
+html body.highlight-headings{
+	h1,h2,h3,h4,h5,h6{
+		display:block!important;
+		visibility:visible!important;
+		color:#333!important;
+		background-color:white;
+		border:1px coral solid;
+		min-height:30px;
+		min-width:60px;
+		clip:rect(auto, auto, auto, auto)!important;
+		z-index:1000!important;
+		*{color:#333;}
+		&:before{
+			float:left;
+			border:1px coral solid;
+			background-color:white;
+			position:absolute;
+			z-index:2000;
+			left:-10px;
+			
+		}
+	}
+	h1:before{content:'H1';}
+	h2:before{content:'H2';}
+	h3:before{content:'H3';}
+	h4:before{content:'H4';}
+	h5:before{content:'H5';}
+	h6:before{content:'H6';}
+}

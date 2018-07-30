@@ -1,0 +1,41 @@
+﻿[
+	{
+	
+	"msgs" :
+		{
+		"msgNoSelection" : "Please select an answer.",
+		"msgNoMultiSelection" : "Please select at least one answer.",
+		"msgEmptyTextField" : "Please write an answer.",
+		"msgEmptyDropDown" : "Please select an answer.",
+		"msgDuplicateDropDown" : "Duplicate answers are not permitted.",
+		"msgQuestionUnanswered" : "Please complete the question before going forward.",
+		"msgActivityNotCompleted" : "Please complete the activity before going forward.",
+		"msgFeedbackRecallAnswerPrefix" : "You answered: ",
+		"msgFeedbackRecallNoAnswerPrefix" : "You did not answer this question.",
+		"msgUnanweredQuestionGotoPrefix" : "Please answer question #",
+		"msgUnanweredQuestionGotoSuffix" : ".",
+		"msgPtsPrefix" : "Question is worth <strong>",
+		"msgPtsSuffix" : "</strong> points."
+		},
+
+	"domButtons" : 
+		{
+		"qs_start":"<input class=\"qs-start btn btn-default\" type=\"button\" value=\"Start Quiz!\">",
+		"qs_getbacktoit":"<input class=\"qs-getbacktoit btn btn-default\" type=\"button\" value=\"Get back to where you were test\">",
+		"qs_resetretry":"<input class=\"qs-resetretry btn btn-default\" type=\"button\" value=\"Reset and retry the test\">",
+		"qs_submit":"<input class=\"qs-submit btn btn-default\" type=\"button\" value=\"Submit\">",
+		"qs_submit_exercise":"null",
+		"qs_submit_activity":"<input class=\"qs-submit-activity btn btn-default\" type=\"button\" value=\"Submit Activity\">", 
+		"qs_continue":"<input class=\"qs-continue btn btn-default\" type=\"button\" value=\"Next\">",
+		"qs_retry_activity":"<input class=\"qs-retry-activity btn btn-default\" type=\"button\" value=\"Retry Activity\">",
+		"qs_display_recap":"<input class=\"qs-display-recap btn btn-default\" type=\"button\" value=\"Review questions\">"
+		},
+		
+	"domVisuals" :
+		{
+		"positive_feedback":"<span style=\"display:inline-block;overflow:hidden;text-indent:-9999px;background-image:url('images/ico_right.jpg');width:19px;height:19px;background-size:19px;\">good answer</span>",
+		"negative_feedback":"<span style=\"display:inline-block;overflow:hidden;text-indent:-9999px;background-image:url('images/ico_wrong.jpg');width:19px;height:19px;background-size:19px;\">wrong answer</span>"
+		}
+	
+	}
+]

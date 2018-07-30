@@ -1,0 +1,269 @@
+/* ------------------ SUPERMENU BAR --------------*/
+
+/* navigation style 2 */
+.removeLvl1 .supermenu > li:first-child > a {
+  width: 0px;
+  overflow: hidden;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  border: 0 !important;
+  &:focus {
+    width: auto;
+  }
+}
+
+
+/*supermenu wrapper*/
+#wb-sm {
+  height: $supermenu-height;
+  .backnext {
+  	float: right;
+  	height: 100%;
+  	margin: 0 30px 0 0;
+  	font-size: 0.8em;
+  	color: $top-nav-text-color;
+	z-index:1;
+	position:relative;
+  	> a.disabled {
+	  cursor: none;
+	}
+	a {
+	  display: inline-block;
+      padding: 10px;
+	  &.back, &.next { @include hide-text; }
+	  &.back {
+        @include triangle(left, $top-nav-button-color, 4px);
+        &:before {
+          left: 10px;
+        }
+      }
+      &.next {
+        @include triangle(right, $top-nav-button-color, 4px);
+        &:after {
+          right: 10px;
+        }
+      }
+	}
+	.pagelbl {
+      display: none;
+    }
+  }
+  > div.nvbar > div.row {
+    max-height: $supermenu-height;
+    height: $supermenu-height;
+  }
+  .supermenu {
+    margin-bottom: 0px;
+
+    /*actual supermenu*/
+	.sm {
+	  position: absolute !important;
+	}
+	
+	/*SECOND HOME (before levels)*/
+	> li {
+		height: $supermenu-height;
+		&.sm-open a[href^="#"] {
+			&:after {
+				/* little arrow right> */
+				font-family: 'Glyphicons Halflings';
+				font-style: normal;
+				font-weight: normal;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				content: "\e114";
+				font-size: 0.7em;
+				right: 10px;
+				position: absolute;
+				top: 50%;
+				-webkit-transform: translateY(-50%);
+				transform: translateY(-50%);
+			}
+		}
+		> a {
+			/*mobile*/
+			padding-right: 35px;
+			text-align: left;
+			cursor: pointer;
+			color: $supermenu-link-color;
+			white-space: nowrap;
+			text-decoration: none;
+			&.home {
+			  margin-left: 15px;
+			  min-width: 30px;
+			  background: url(base/smallhome.png) no-repeat 0px -5px;
+			  height: 25px;
+			  padding-right: 5px !important;
+			  border-right: 1px solid;
+			  margin-top: 3px;
+			  @include hide-text;
+			  width: 40px;
+			}
+			&.item {
+			  position: relative;
+			  padding: 0px 30px 0px 20px;
+			  line-height: $supermenu-height;
+			  height: $supermenu-height;
+			  border-right: 1px solid;
+			  @extend %supermenu-button;
+			}
+		}
+		
+		.glyphicon-chevron-down:before {
+			content: "\e080" !important;
+		}
+		&.sm-open {
+		  .glyphicon-chevron-down:before {
+			content: "\e114" !important;
+		  }
+		}
+	}	
+  }
+}
+
+/* ------------------ LEVELS / MENUCRUMBS --------------*/
+/* levels of the site menu*/
+
+#mb-pnl .lng-ofr {
+	/*mobile*/
+	height: 38px;
+	padding-right: 35px;
+	text-align: left;
+	display:inline;
+}
+
+#mb-pnl summary {
+  &:hover, &:focus {
+    background: none !important;
+  }
+}
+
+
+/* ------------------ SUPERMENU DROPDOWNS / PANELS --------------*/
+
+/*general menu open panel (ul), entire background */
+
+
+/* ------------------ SUPERMENU DROPDOWNS / ITEMS --------------*/
+/*mobile*/
+ul.mb-sm > li > a {
+  color: $supermenu-link-color;
+}
+
+/*items that have subitems*/
+#wb-sm .sm.open {
+  overflow-y: auto;
+  border-top: 1px solid $supermenu-dropdown-border-color;
+  margin-top: -1px;
+  li {
+  	a {
+  	  	@extend %supermenu-dropdown-button;
+		position: relative;
+  	}
+	/*menu open panel, individual items */
+	a, summary {
+		/*mobile*/
+		border-bottom: 1px solid;
+		border-left: 1px solid;
+		border-right: 1px solid;
+		border-color: $supermenu-dropdown-border-color;
+		padding: 3px 30px 3px 10px;
+		&:before{
+
+		    font-family: 'Glyphicons Halflings';
+		    content:' ';
+		    font-size: 0.8em;
+		    display:inline-block;
+		    width:20px;
+		    color:$supermenu-dropdown-icons-color;
+
+		}
+		&.viewed:before{
+			content:'\e013';
+		}
+		&.locked:before{
+			content:'\e033';
+			
+		}
+		
+	}
+	a[href='#']:after {
+		/* little arrow right> */
+		font-family: 'Glyphicons Halflings';
+		font-style: normal;
+		font-weight: normal;
+		line-height: 1;
+		color:$supermenu-dropdown-icons-color;
+		-webkit-font-smoothing: antialiased;
+		content: "\e080";
+		font-size: 1em;
+		right: 5px;
+		position: absolute;
+		top: 50%;
+    	-webkit-transform: translateY(-50%);
+    	transform: translateY(-50%);
+	  }
+	  /* LOCKED ITEMS */
+	  > a.locked {
+		cursor: not-allowed;
+	  }
+	  a:hover, a:focus{
+	  		
+	  		&:before,&:after{
+	  			color:$supermenu-dropdown-icons-color-hover;
+	  		}
+	  	}
+
+  }
+}
+
+
+/* -------------------------
+mobile menu fix attempt 1
+----------------------*/
+
+li {
+  &[data-depth='1'] > details {
+    margin-left: 15px;
+  }
+  &[data-depth='2'] > details {
+    margin-left: 30px;
+  }
+}
+
+
+.mb-menu > li > details[open] {
+  > summary {
+    > .mb-lvl-title {
+      display: none;
+    }
+  }
+}
+
+
+/* --------------------------------------------------------------------------------------------------------------
+---------------------------------------------------MOBILE BUTTON (BURGER)
+----------------------------------------------------------------------------------------------------------------*/
+
+#wb-glb-mn {
+  > ul > li > a {
+    background-image: none !important;
+  }
+  .pnl-btn {
+    float: right;
+    margin-top: 3px;
+    margin-bottom: 0px;
+    a {
+      /*open mobile panel btn*/
+      display: block;
+      font-size: 1.3em;
+      line-height: 1em;
+      width: 100%;
+    }
+  }
+}
+
+ul.pnl-btn > li > a > span > span.glyphicon-th-list {
+	color: $hamburger-menu-color-mobile;
+	font-size: 1em;
+}

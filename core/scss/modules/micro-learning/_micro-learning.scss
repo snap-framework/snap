@@ -1,0 +1,74 @@
+$fixed-z-index: 1001;
+
+@mixin back-arrow($color, $darken: 20%) {
+   $encodedColor: str-replace('#{$color}', '#', '%23');
+   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin' viewBox='0 0 26 45'%3E%3Cg fill='#{$encodedColor}'%3E%3Cpath d='M23.2 40.9c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z'/%3E%3Ccircle cx='23.2' cy='37.8' r='2'/%3E%3Ccircle cx='23.2' cy='32.7' r='2'/%3E%3Ccircle cx='23.2' cy='27.6' r='2'/%3E%3Cpath d='M23.2 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM23.2 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9z'/%3E%3Ccircle cx='23.2' cy='12.3' r='2'/%3E%3Ccircle cx='23.2' cy='7.2' r='2'/%3E%3Cpath d='M23.2.2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z'/%3E%3Ccircle cx='18.1' cy='37.8' r='2'/%3E%3Ccircle cx='18.1' cy='32.7' r='2'/%3E%3Ccircle cx='18.1' cy='27.6' r='2'/%3E%3Cpath d='M18.1 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM18.1 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9z'/%3E%3Ccircle cx='18.1' cy='12.3' r='2'/%3E%3Ccircle cx='18.1' cy='7.2' r='2'/%3E%3Cpath d='M13 30.7c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 25.6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9zM13 10.4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c0-1.2.9-2 2-2zM7.9 25.6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2zM7.9 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2zM7.9 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2c.1-1.1.9-1.9 2-1.9zM2.8 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center;
+   &:hover {
+      $newColor: darken($color, $darken);
+      $encodedColor: str-replace('#{$newColor}', '#', '%23');
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin' viewBox='0 0 26 45'%3E%3Cg fill='#{$encodedColor}'%3E%3Cpath d='M23.2 40.9c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z'/%3E%3Ccircle cx='23.2' cy='37.8' r='2'/%3E%3Ccircle cx='23.2' cy='32.7' r='2'/%3E%3Ccircle cx='23.2' cy='27.6' r='2'/%3E%3Cpath d='M23.2 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM23.2 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9z'/%3E%3Ccircle cx='23.2' cy='12.3' r='2'/%3E%3Ccircle cx='23.2' cy='7.2' r='2'/%3E%3Cpath d='M23.2.2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z'/%3E%3Ccircle cx='18.1' cy='37.8' r='2'/%3E%3Ccircle cx='18.1' cy='32.7' r='2'/%3E%3Ccircle cx='18.1' cy='27.6' r='2'/%3E%3Cpath d='M18.1 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM18.1 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9z'/%3E%3Ccircle cx='18.1' cy='12.3' r='2'/%3E%3Ccircle cx='18.1' cy='7.2' r='2'/%3E%3Cpath d='M13 30.7c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 25.6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM13 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2 .9-1.9 2-1.9zM13 10.4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c0-1.2.9-2 2-2zM7.9 25.6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2zM7.9 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2zM7.9 15.5c1.1 0 2 .9 2 1.9 0 1.1-.9 2-2 2s-2-.9-2-2c.1-1.1.9-1.9 2-1.9zM2.8 20.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2c.1-1.1.9-2 2-2z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center;
+   }
+}
+@mixin next-arrow($color, $darken: 20%) {
+   $encodedColor: str-replace('#{$color}', '#', '%23');
+   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMaxYMin' viewBox='0 0 26 45'%3E%3Cg fill='#{$encodedColor}'%3E%3Cpath d='M2.8 4.1c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z'/%3E%3Ccircle cx='2.8' cy='7.2' r='2'/%3E%3Ccircle cx='2.8' cy='12.3' r='2'/%3E%3Ccircle cx='2.8' cy='17.4' r='2'/%3E%3Cpath d='M2.8 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM2.8 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9z'/%3E%3Ccircle cx='2.8' cy='32.7' r='2'/%3E%3Ccircle cx='2.8' cy='37.8' r='2'/%3E%3Cpath d='M2.8 44.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z'/%3E%3Ccircle cx='7.9' cy='7.2' r='2'/%3E%3Ccircle cx='7.9' cy='12.3' r='2'/%3E%3Ccircle cx='7.9' cy='17.4' r='2'/%3E%3Cpath d='M7.9 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM7.9 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9z'/%3E%3Ccircle cx='7.9' cy='32.7' r='2'/%3E%3Ccircle cx='7.9' cy='37.8' r='2'/%3E%3Cpath d='M13 14.3c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 19.4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9zM13 34.6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c0 1.2-.9 2-2 2zM18.1 19.4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2zM18.1 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2zM18.1 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2c-.1 1.1-.9 1.9-2 1.9zM23.2 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center;
+   &:hover {
+      $newColor: darken($color, $darken);
+      $encodedColor: str-replace('#{$newColor}', '#', '%23');
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMaxYMin' viewBox='0 0 26 45'%3E%3Cg fill='#{$encodedColor}'%3E%3Cpath d='M2.8 4.1c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z'/%3E%3Ccircle cx='2.8' cy='7.2' r='2'/%3E%3Ccircle cx='2.8' cy='12.3' r='2'/%3E%3Ccircle cx='2.8' cy='17.4' r='2'/%3E%3Cpath d='M2.8 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM2.8 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9z'/%3E%3Ccircle cx='2.8' cy='32.7' r='2'/%3E%3Ccircle cx='2.8' cy='37.8' r='2'/%3E%3Cpath d='M2.8 44.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z'/%3E%3Ccircle cx='7.9' cy='7.2' r='2'/%3E%3Ccircle cx='7.9' cy='12.3' r='2'/%3E%3Ccircle cx='7.9' cy='17.4' r='2'/%3E%3Cpath d='M7.9 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM7.9 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9z'/%3E%3Ccircle cx='7.9' cy='32.7' r='2'/%3E%3Ccircle cx='7.9' cy='37.8' r='2'/%3E%3Cpath d='M13 14.3c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 19.4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM13 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2-.9 1.9-2 1.9zM13 34.6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c0 1.2-.9 2-2 2zM18.1 19.4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2zM18.1 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2zM18.1 29.5c-1.1 0-2-.9-2-1.9 0-1.1.9-2 2-2s2 .9 2 2c-.1 1.1-.9 1.9-2 1.9zM23.2 24.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c-.1 1.1-.9 2-2 2z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center;
+   }
+}
+
+.microLearning.fp-enabled, .microLearning.fp-enabled body {
+   /*this allows us to have the fullPage.js option scrollBar: true*/
+   /*while also allowing us the ability to tab through the page*/
+   overflow: hidden !important;
+   height: 100% !important;
+}
+
+.mobile.fp-enabled, .fp-enabled body {
+   overflow: auto !important;
+}
+
+.microLearning, .microLearning body {
+   //this is to prevent a scrollbar to appear when we change page
+   //a.k.a, from a module to the home page, which is not considered to be 'fullPage'-ed
+   overflow: hidden;
+   @include size(100%);
+}
+
+.microLearning main .spinner {
+   position: fixed;
+}
+
+//fixes a negative transform value applied by fullpage.js
+//make the top of the section be 0 instead of calculated one by fullpage
+#fullpage {
+   transform: none !important;
+}
+
+body.microModule {
+   overflow: hidden;
+   background-color: $micro-body-background-color;
+   @include animate();
+
+   footer {
+      .backnext .next {
+         @include next-arrow($micro-footer-arrows-color);
+      }
+      .backnext .back {
+         @include back-arrow($micro-footer-arrows-color);
+      }
+   }
+}
+.mobile body.microModule footer {
+   .backnext .next {
+      @include next-arrow($micro-mobile-footer-arrows-color);
+   }
+   .backnext .back {
+      @include back-arrow($micro-mobile-footer-arrows-color);
+   }
+}
+@import "./_overrides";
+@import "./_micro-menu";
+@import "./_micro-section";

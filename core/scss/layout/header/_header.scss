@@ -151,6 +151,7 @@
 			background-color: $top-nav-button-background-color !important;
 			text-align: center;
 			display: table-cell;
+			padding-top:22px;
 			&.back {
 				@include triangle(left, $top-nav-button-color-mobile, 4px);
 				&:before {

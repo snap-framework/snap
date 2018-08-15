@@ -1,4 +1,4 @@
-﻿<section class="modal-dialog modal-content overlay-def mfp-with-anim mfp-zoom-in">
+﻿<section class="modal-dialog modal-content overlay-def mfp-with-anim mfp-move-horizontal">
 	<header class="modal-header">
 		<h2 class="modal-title" id="lbx-title">Aide</h2>
 		<button class="mfp-close overlay-close" title="Fermer">×<span class="wb-inv"> Fermer</span></button>
@@ -22,7 +22,9 @@
 		<ul>
 			<li>Cliquez sur la barre de navigation pour consulter le contenu des modules ou des sections dans ce cours.</li>
 			<li>Cliquez sur le titre d’un module pour voir ses sections connexes.</li>
+			{{#if settings.trackAllPages}}
 			<li>Des marqueurs apparaîtront à côté des modules et sections complétés.</li>
+			{{/if}}
 		</ul>
 	</div>
 </section>

@@ -53,56 +53,59 @@ body > [data-id=sitemap_pop] {
 	}
 }
 
+ 
+ul.index-list{
+	h3, h4, h5 {
+		margin: 5px 0px 5px 0px;
+		font-size: 1em;
+  	}
+	@include breakpoint-gt('xsmall') {
+		padding-left: 30px;
+	}
+	@include breakpoint-lte('xsmall') {
+		padding-left: 10px;
+	}
+	&>*{
+		//overflow:hidden;
+	}
 
-ul{
-	&.index-list{
-		@include breakpoint-gt('xsmall') {
-			padding-left: 30px;
-		}
-		@include breakpoint-lte('xsmall') {
-			padding-left: 10px;
-		}
-		&>*{
-			//overflow:hidden;
-		}
-		
 
-		&>li{
-			margin: 0px 0px;
-			list-style: none;
-			&.sub-page{
-				min-height:25px; 
-				@include breakpoint-gt('xsmall') {
-					padding-left: 30px;
-					
-				}
-				@include breakpoint-lte('xsmall') {
-					padding-left: 10px;
-				}
-			
+	&>li{
+		margin: 0px 0px;
+		list-style: none;
+		&.sub-page{
+			min-height:25px; 
+			@include breakpoint-gt('xsmall') {
+				padding-left: 30px;
+
 			}
-			&.isActivity,&.isQuiz{
-				background: url(base/ico_bundle_sitemap.png) no-repeat;
-				font-weight: 600;
-				//height: 25px;				
-				@include breakpoint-lte('xsmall') {
-					background:none;
-				}
+			@include breakpoint-lte('xsmall') {
+				padding-left: 10px;
 			}
-			&.isActivity{
-				background-position: -0px -25px;
+
+		}
+		&.isActivity,&.isQuiz{
+			background: url(base/ico_bundle_sitemap.png) no-repeat;
+			font-weight: 600;
+			//height: 25px;				
+			@include breakpoint-lte('xsmall') {
+				background:none;
 			}
-			&.isQuiz{
-				background-position: -0px -50px;
-			}
-			&>a.sitemap-page{
-				  background-color: $sitemap-link-background-color;
-				  //height: inherit;
-				  display: block;
-			}
+		}
+		&.isActivity{
+			background-position: -0px -25px;
+		}
+		&.isQuiz{
+			background-position: -0px -50px;
+		}
+		&>a.sitemap-page{
+			  background-color: $sitemap-link-background-color;
+			  //height: inherit;
+			  display: block;
 		}
 	}
 }
+
 
 
 

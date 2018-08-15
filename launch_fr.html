@@ -2,7 +2,7 @@
 <html lang="fr" class="no-js">
 <head>
     <meta charset="utf-8" />
-
+   <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <title>Page de démarrage de la plateforme d'apprentissage EFPC</title>
     
 	<script src="./core/js/lib/require.js"></script>
@@ -12,15 +12,15 @@
 		require(['core/js/require-configs'], function() {
 			require(['jquery', "settings-core", 'settings-general',	"settingsOverride", 'popper/popupwindowscripts'], function($, CoreSettings, GeneralSettings, settingsOverride, PopupWindowScripts) {
 				$(document).ready(function(e) {
-					checkLaunch('index_fr.html');
 					$("#series-title").html(CoreSettings.seriesTitle_fr);
 					$("#coursename").html(CoreSettings.courseTitle_fr);
 					$("#subcoursename").html(CoreSettings.courseSubtitle_fr);
+					checkLaunch('index_fr.html');
 				});
 			});
 		});
     </script>
-	<link rel="stylesheet" class="theme" id="theme-style" href="./core/static/launch.css" />
+	<link rel="stylesheet" class="theme" id="theme-style" href="./theme/launch.css" />
    	<link rel="stylesheet" class="theme" id="theme-style" href="./theme/theme.css" />	
 </head>
 <body class="launchpage">

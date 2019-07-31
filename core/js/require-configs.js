@@ -23,7 +23,9 @@ define(function() {
             },
             history: {
                 exports: 'History'
-            }
+            },
+            "../../../../js/plugins/ckeditor/ckeditor": { "exports": "CKEDITOR" },
+			// "plugins/nestable/jquery.nestable": { "exports": "NESTABLE" }
         },
         //shorten path for easier usage
         paths: {

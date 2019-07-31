@@ -29,7 +29,7 @@ define({
 	showFavorites: false,
 	showGlossary: false,
 	showResources: true,
-	showExit: true,	
+	showExit: false,	
 	showPrint: false, 		//PLEASE don't turn this on!!
 	showSecondHome: false,
 	//in construction
@@ -50,10 +50,17 @@ define({
 	/*------------------ System settings ---------------*/
 
 	requireLoadPageScript: false, 	
+	
+	enablePopClose:null, 
+	environment: null, //local, public, prod
+	connectionMode: null,//"scorm", 	//currently only supports "scorm" , noscorm
 
-	/*------------------ API (scorm) -----------------*/	
-
-	connectionMode: "scorm", 	//currently only supports "scorm"
+	/*------------------ LEARN-O-MATIC ---------------*/
+	editMode: false, 
+	
+	
+	
+	/*------------------ Scorm settings ---------------*/	
 	trackAllPages: true,
 	triggerCompletionWhenAllPagesViewed: false,
 	markModuleAsViewedOnLastPage: false, //broken	

@@ -44,7 +44,8 @@
    }
 
    //import the different tutorials
-   @import './_mouse-scroll';
+   @import '../tutorials/_mouse-scroll';
+/*   @import './_mouse-scroll';*/
 }
 
 @include keyframes(slideInFromRight) {

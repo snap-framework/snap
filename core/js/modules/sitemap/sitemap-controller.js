@@ -28,6 +28,8 @@ define([
          this.setListeners();
 
          this.render();
+
+         this.renderCompleted();
       },
 
       setListeners: function() {
@@ -105,6 +107,15 @@ define([
          this.tmpl = this.template(this.serializeData());
          this.ui.sitemapContainer.html(this.tmpl);
          this.setMagnificPopupTemplate();
+      },
+
+      //Testing something
+      renderCompleted: function (){
+         if(CoreSettings.editMode){
+            // console.log('->'+StructureObj)
+            // console.log('-->'+masterStructure.editor.structure.doSomething())
+         };
       }
+
    });
 });

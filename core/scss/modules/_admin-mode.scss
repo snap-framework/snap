@@ -1,7 +1,7 @@
 #admin_window {
   z-index: 999;
   padding: 20px;
-  position: absolute;
+  position: fixed;
   display: none;
   top: 0px;
   right: 0px;
@@ -21,7 +21,7 @@
 
   .infos {
     font-style: italic;
-    b {
+    strong {
       color: #0074D9;
     }
     margin-bottom: 20px;

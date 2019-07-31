@@ -79,7 +79,7 @@ define([
 			this.isLoaded = true;
 			this.isSynchronized = true;
 			
-			this.initPing();
+			if (this.scorm !== null){this.initPing();}
 		},
 		
 		//ping the ILMS to keep an active connection and avoid losing data
@@ -138,32 +138,19 @@ define([
 
 		//SYNCHRONIZE DATA; take current this.data{} and save it in iLMS
 		syncData: function() {
-			//window.opener.doLMSSetValue("cmi.comments",JSON.stringify(this.data));
-			//this.scorm.saveCommentsData(JSON.stringify(this.data));
-			//console.log('DataController.syncData: Im not actually saving anything, but dont tell anyone:'+JSON.stringify(this.data));
-			this.scorm.saveSuspendData(JSON.stringify(this.data));
-			this.isSynchronized = true;
+			if (this.scorm !== null){
+				this.scorm.saveSuspendData(JSON.stringify(this.data));
+				this.isSynchronized = true;
+			}
 		},
 
 		//GET TRACKING STRING FROM iLMS
 		fGetLMSData: function() {
-			//console.log('DataController.fGetLMSData: I may return a valid JSON string but, its actually fake content');
-			//return '{"var_1":"somestuffiwanttosave","var_2":{"asd":"asda","awqw":"awweweqw"},"var_3":["1","324","asd3"]}'; //FAKE STRING (*TMP)
-			//return this.scorm.getComments();
-			return this.scorm.getSuspendData();
-			return false;
-			/* tmp = this.scorm.getComments();
-			console.log(tmp);
-			
-			 return tmp; */
-			//return  tmp;//MIGHT WANNA ADD SOME CONDITIONS HERE...*TMP
-			/*try{
+			if (this.scorm!== null){
+				return this.scorm.getSuspendData();
+			}else{
+				return false;
 			}
-			catch(err){
-				//return err;
-			}*/
-			//return false;
-
 		},
 
 		//VALIDATE DATA
@@ -201,7 +188,9 @@ define([
 
 		//SETS THE FINAL cmi.score.raw SCORE - TYPICALLY CALLED IN CONJUNCTION WITH this.scorm.complete();//CSPS-TD-AJOUT G313
 		setFinalScore: function(score) {
-			this.scorm.saveScoreData(score);
+			if(this.scorm!== null){
+				this.scorm.saveScoreData(score);
+			}
 		}
 	});
 

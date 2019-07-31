@@ -19,7 +19,7 @@ define([
 
 		initialize: function(options) {
 			Logger.log("INIT: Admin Mode");
-			
+			this.parent=options.masterStructure;
 			this.options = options;
 			this.navigation = this.options.navigation;
 			this.scorm = this.options.scorm;
@@ -35,14 +35,14 @@ define([
 			var that = this;
 			$(document).keydown(function(e) {
 				//CTRL+SHIFT+F12
-				if (e.ctrlKey && e.shiftKey && e.keyCode == 123) {
+				if (e.ctrlKey && e.shiftKey && e.keyCode === 123) {
 					that.toggleAdminMode();
 				}
 			});
 
 			var $adminMode = this.$el.find("#adminMode");
 			//remove scorm section if offline
-			if (this.scorm.getStatus() !== "online") {
+			if (CoreSettings.connectionMode !=="scorm") {
 				this.$el.find(".scorm-admin").remove();
 			}
 
@@ -61,7 +61,7 @@ define([
 			.end().find('.comment-btn').on('click', function() {
 				that.addComment();
 				return false;
-			})
+			})			
 			.end().find('.headings-btn').on('click', function() {
 				that.highlightHeadings();
 				return false;
@@ -74,12 +74,14 @@ define([
 		},
 
 		serializeData: function() {
+			var that=this;
 			return {
-				version: masterStructure.version,
-				WETversion: masterStructure.WETversion,
+				version: that.parent.version,
+				WETversion: that.parent.WETversion,
 				debugMode: CoreSettings.debugMode,
-				isScormOnline: this.scorm.getStatus() === "online",
-				connectionMode: CoreSettings.connectionMode,
+				environment: CoreSettings.environment,
+				localmode: (CoreSettings.environment==="local")?true:false,
+				connectionMode: (CoreSettings.connectionMode==="scorm")?"Scorm "+CoreSettings.scormversion:"offline",
 				labels: labels
 			};
 		},
@@ -96,8 +98,9 @@ define([
 		},
 
 		initDiagnosis: function() {
+			var that=this;
 			//CSPS-KR: Add to global namespace for now since it is used in non-related functionalities
-			masterStructure.diagnosis = this.diagnosis = new Diagnosis({
+			that.parent.diagnosis = this.diagnosis = new Diagnosis({
 				navigation: this.navigation
 			});
 		},
@@ -115,7 +118,7 @@ define([
 				btn.html("Deactivate Debug");
 				$("html").addClass("debug");
 				this.$el.find("#debug-status").removeClass('wb-inv');
-				if (this.scorm.getStatus() != "online") {
+				if (this.scorm.getStatus() !== "online") {
 					this.$el.find('#scorm-status').html(labels.err.offline);
 				} else {
 					this.$el.find('#scorm-status').html(labels.err.online);
@@ -136,8 +139,8 @@ define([
 		addUnlocks: function() {
 			var that = this;
 			this.ui.locksAdmin.find("ul").html("");
-			var lockSubs = _.where(masterStructure.flatList, {isLocked: true});//this only finds pages
-			Array.prototype.push.apply(lockSubs,_.where(masterStructure.subs, {isLocked: true, isPage:false})); //this adds modules			
+			var lockSubs = _.where(that.parent.flatList, {isLocked: true});//this only finds pages
+			Array.prototype.push.apply(lockSubs,_.where(that.parent.subs, {isLocked: true, isPage:false})); //this adds modules			
 			if (lockSubs.length > 0) {
 				var itemTarget;
 				var addItem;
@@ -182,7 +185,7 @@ define([
 			$("body").toggleClass("highlight-headings");
 			var hiddenHeadings=$("h1:hidden,h2:hidden,h3:hidden,h4:hidden,h5:hidden,h6:hidden");
 
-			$(".headings-btn").html("headings Toggle"+"(hidden:"+hiddenHeadings.length)
+			$(".headings-btn").html("headings Toggle"+"(hidden:"+hiddenHeadings.length);
 			/*for (var h=1;h<7;h++){
 				$("h"+h).addClass("highlight")
 				.before("<span class='heading-highlight'>Heading"+h+"</span>")

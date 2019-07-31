@@ -1,0 +1,284 @@
+@import "../../../theme/scss/_vars";
+
+
+//------------ previous next item skrollr -----
+
+$skrollr-nav-arrow:grey;
+$skrollr-nav-arrow-hover:black;
+
+
+
+html.desktop.skrollr-active{
+//--------------- fixes ------------------
+	// fixed positioning
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+	overflow-x:hidden;	
+	
+	
+	
+	
+	#admin_window{
+		
+		position:fixed;
+	}
+	//main{background-color:transparent;}
+
+	header,footer{
+		z-index:1000!important;
+	}
+
+
+	//make it central
+	header,footer{
+		width:100%;
+
+
+	}
+
+
+	//footer squished to bottom
+	footer{
+		bottom:0px;
+	}
+
+
+
+}
+
+html.skrollr-disabled{
+	body{
+		height:auto!important;
+	}
+	header,footer{
+		position:relative!important;
+	}
+}
+/*-------------IMAGES -------------*/
+.skrollr-img{
+	background-origin: content-box;
+	    width: 100%;
+    height: 100%;
+	background-repeat: no-repeat;
+    background-position: center; 
+	background-size: cover;
+}
+
+
+/*-------------SKROLLR NAV -------------*/
+
+
+#skrollnav{
+	position: fixed;
+    //left: 0;
+	margin-left:-15px;
+    z-index: 1001;
+	
+	//max-width
+	h2{
+		font-size:0.7em;
+	}
+	button,a{
+		padding:5px;
+		display:block;
+	    font-size: 0.8em;
+		overflow-x:hidden;
+
+
+	}
+}
+
+a.itemnav{
+	padding:5px;
+	height: 30px;
+	width: 100%;
+	display: block;
+	text-indent: -9999px;
+	overflow: hidden;
+	line-height: 9999px;
+	&:before{
+		content: '';
+		display: block;
+		height: 100%;
+		width: 15px;
+		margin-left: auto;
+		margin-right: auto;
+		border-left: 15px transparent solid;
+		border-right: 15px transparent solid;
+
+	}
+	&.back:before{border-bottom:15px $skrollr-nav-arrow solid;}
+	&.next:before{border-top:15px $skrollr-nav-arrow solid;}
+	&:hover:before{
+		border-bottom-color:$skrollr-nav-arrow-hover;
+		border-top-color:$skrollr-nav-arrow-hover;
+	}
+}
+
+
+/*-------------MOVIE MODE NAV -------------*/
+
+#movie-controls{
+	h2{
+
+	}
+    z-index: 1002;
+
+}
+
+/* ---------------- MULTIMEDIA PLAYER BUTTONS --------------*/
+$multimedia-btn-color:#555;
+$multimedia-btn-color-hover:black;
+$multi-media-btn-color-disabled:#999;
+
+#movie-controls{z-index:2222;}
+
+
+.multimedia{
+	
+	&.skip-back,
+	&.skip,
+	&.play{
+		height: 15px;
+		width: 15px;
+		padding-top:8px;
+		text-indent: -9999px;
+		overflow: hidden;
+		border:1px transparent solid;
+		&:hover,&:focus{
+			border-color:$multi-media-btn-color-disabled;
+		}
+	}
+	&.skip-back:after, &.skip:before,&.skip-back:before, &.skip:after,&.play:before{
+		content: '';
+		display: block;
+		position: absolute;	
+		border-style: solid;
+		border-radius:4px;
+
+	}	
+	&.skip-back:before,&.skip:after{
+		//BARRE
+		border-color: $multimedia-btn-color;
+		border-style: solid;
+		border-width: 8px 1px 8px 2px;
+		&:hover,&:focus{
+		border-color: $multimedia-btn-color-hover;
+			
+		}
+	}
+	&.skip-back:after,&.skip:before,&.play:before{
+		// FLÈCHES
+		margin-left: -4px;
+		border-width: 8px;
+	}
+	&.skip-back:after{
+		// FLÈCHE GAUCHE
+		border-color: transparent $multimedia-btn-color transparent transparent;
+
+	}
+	&.skip:before,&.play:before{
+		// FLLÈSCHE DROITHE
+		border-color: transparent transparent transparent $multimedia-btn-color;
+	}
+	
+	&.skip:after{
+		//BARRE DROITE
+		margin-left:6px;
+	}	
+	&.play:before{
+		//oplay
+		margin-left:2px;
+	}	
+	&.skip-back:after, &.skip:after{
+		//ITEM À DROITE
+		margin-top: -23px;
+	}
+	&.skip-back:hover,&.skip-back:focus{
+		// ROLL OVER
+		&:before{border-color:$multimedia-btn-color-hover;}
+		&:after{border-color: transparent $multimedia-btn-color-hover transparent transparent;}
+	}
+	&.skip:hover,&.skip:focus{
+		&:before{border-color: transparent transparent transparent $multimedia-btn-color-hover;}
+		&:after{border-color:$multimedia-btn-color-hover;}
+		
+	}
+	
+}
+
+
+
+
+
+
+//--------------------------------------------------admin mode --------------------------------------------
+
+.skrollrstatus {
+	&.inactive{color:#770000;}
+	&.active{color:#007700;}
+	&.transition{color:#A17D00;}
+}
+
+
+html.skrollr body [data-skrollr-status='inactive']{
+    /* width: 1px; */
+    overflow: hidden;
+    height: 1px;
+	z-index: 1!important;
+}
+
+//--------------------------------------------------BOOTSTRAP FIXED --------------------------------------------
+
+.xxsmallview,.xsmallview,.smallview{
+	#skrollnav{
+		display:none;
+	}
+}
+
+
+
+
+
+
+/*
+ * This file is NOT needed in order to use skrollr.
+ * The demo uses it and it may help you as well.
+ */
+
+
+
+.skrollable {
+	/*
+	 * First-level skrollables are positioned relative to window
+	 */
+	position:fixed;
+
+	/*
+	 * Skrollables by default have a z-index of 100 in order to make it easy to position elements in front/back without changing each skrollable
+	 */
+	z-index:100;
+}
+
+.skrollr-mobile .skrollable {
+	/*
+		May cause issues on Android default browser (see #331 on GitHub).
+	*/
+	position:absolute;
+}
+
+.skrollable .skrollable {
+	/*
+	 * Second-level skrollables are positioned relative their parent skrollable
+	 */
+	position:absolute;
+}
+
+.skrollable .skrollable .skrollable {
+	/*
+	 * Third-level (and below) skrollables are positioned static
+	 */
+	position:static;
+}

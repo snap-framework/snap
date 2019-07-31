@@ -40,7 +40,7 @@ define([
 
 		onPageLoaded: function() {
 			this.render();
-			this.scan();
+			//this.scan();
 		},
 
 		setMagnificPopupTemplate: function() {
@@ -57,23 +57,6 @@ define([
 						});
     				}
     			}
-			});
-		},
-
-		scan: function($selector) {
-			var that = this;
-			var terms = [];
-			var $el;
-			($selector == undefined)?$el = $(CoreSettings.contentContainer):$el = $selector;
-			
-			$el.find(".csps-glossary").each(function() {		
-				var options = {
-					term:this,
-					glossary:that.template,
-					$el:$el
-				}
-				$(this).addClass("wb-lbx");
-				terms.push(new glossaryTerm(options));				
 			});
 		}
 	});

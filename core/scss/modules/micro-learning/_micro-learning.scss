@@ -69,6 +69,6 @@ body.microModule {
       @include back-arrow($micro-mobile-footer-arrows-color);
    }
 }
-@import "./_overrides";
-@import "./_micro-menu";
-@import "./_micro-section";
+@import "../micro-learning/_overrides";
+@import "../micro-learning/_micro-menu";
+@import "../micro-learning/_micro-section";

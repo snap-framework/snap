@@ -1,8 +1,9 @@
 define([
 	"settings-core",
+	'labels',
 	'utils',
 	'modules/BaseModule'
-], function(CoreSettings, Utils, BaseModule) {
+], function(CoreSettings, labels, Utils, BaseModule) {
 	'use strict';
 	
 	/*
@@ -61,27 +62,29 @@ define([
 		 * @param {string} newTitle 
 		 */
 		setTitle: function(newTitle) {
-			if(CoreSettings.navigationMode==1){
+			var mbNum;
+			var chevronHtml;
+			if(CoreSettings.navigationMode===1){
 				this.title = newTitle;
-				var mbNum;
-				var chevronHtml = "<span class='expicon glyphicon glyphicon-chevron-down'></span>";
+				
+				chevronHtml = "<span class='expicon glyphicon glyphicon-chevron-down'></span>";
 				this.$el.html(this.title + chevronHtml);
-				if (CoreSettings.navigationMode == 2) {
+				if (CoreSettings.navigationMode === 2) {
 					mbNum = this.depth + 1;
 				} else {
 					mbNum = this.depth + 0;
 				}
 				$(this.objMb).html("<span class='mb-lvl-nb'>"+mbNum+ "</span> <span class='mb-lvl-title'>"+this.title+"</span> <span class='mb-title-instr'>("+labels.nav.selectToChange+")</span>");
 			}else{
-				var lastLevel=masterStructure.levels.length-1;
+				var lastLevel=parent.levels.length-1;
+
 				//if this is a page, don't update the menu
 				if (this.depth<lastLevel){
 					this.title = newTitle;
-					var mbNum;
-					var chevronHtml = "<span class='expicon glyphicon glyphicon-chevron-down'></span>";
-					masterStructure.levels[this.depth+1].$el.html(this.title + chevronHtml);
-					//this.$el.html(this.title + chevronHtml);
-					if (CoreSettings.navigationMode == 2) {
+
+					chevronHtml = "<span class='expicon glyphicon glyphicon-chevron-down'></span>";
+					parent.levels[this.depth+1].$el.html(this.title + chevronHtml);
+					if (CoreSettings.navigationMode === 2) {
 						mbNum = this.depth + 1;
 					} else {
 						mbNum = this.depth + 0;
@@ -110,6 +113,43 @@ define([
 			this.resetTitle();
 			$(".mb-menu").children("li").eq(this.depth).attr("disable", "true").hide();
 			this.$el.attr("disable", "true").hide();
+		},
+/* ---------------------------------------------------------------------------------------------		
+		                                         LOM
+--------------------------------------------------------------------------------------------- */		
+		/*
+		 * return subs which match the aLookFor criteria
+		 * @param {array} aLookFor: a position array to look for
+		 */
+		getSubIndex: function(aLookFor) {
+			for(var i=0;i<this.subs.length;i++){
+				if(Utils.arrays_equal(aLookFor,this.subs[i].aPosition)){
+					return i;
+				}
+			}
+		},
+		generateSupermenu:function($html){
+			var $html_en=$html.children("[lang='en']").find(".supermenu").eq(0);
+			var $html_fr=$html.children("[lang='fr']").find(".supermenu").eq(0);
+
+			//LI>A
+			$html_en.append("\n\t\t\t<li><a href=\"#\" data-ID=\"lvl"+(this.depth+1)+"\" class=\"item\">Choose</a>\n\t\t\t\t<ul class=\"sm list-unstyled\" data-ID=\"nav"+(this.depth+1)+"\" role=\"menu\"></ul></li>");
+			$html_fr.append("\n\t\t\t<li><a href=\"#\" data-ID=\"lvl"+(this.depth+1)+"\" class=\"item\">Choisissez</a>\n\t\t\t\t<ul class=\"sm list-unstyled\" data-ID=\"nav"+(this.depth+1)+"\" role=\"menu\"></ul></li>");
+
+
+			
+			for (var i=0;i<this.subs.length;i++){
+				this.subs[i].generateSupermenu($html);
+			}
+
+
+
+
+			//html_en+="\n\t\t</ul>";
+			//html_en+="\n\t</li>";	
+			return $html;
 		}
+		
+
 	});
 });

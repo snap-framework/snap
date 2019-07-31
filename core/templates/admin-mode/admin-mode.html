@@ -1,19 +1,17 @@
-<div id='scorm-status'>{{#if isScormOnline}}{{labels.err.online}}{{else}}{{labels.err.offline}}{{/if}}</div>
+<div id='scorm-status'>{{environment}}</div>
 <div id='debug-status' class="{{#unless debugMode}}wb-inv{{/unless}}">Debug</div>
 
 <div id="adminMode">
     <div class="infos">
-        <span>FW: <b>{{version}}</b></span>
+        <span>FW: <strong>{{version}}</strong></span>
         <br>
-        <span>WET: <b>{{WETversion}}</b></span>
+        <span>WET: <strong>{{WETversion}}</strong></span>
         <br>
-        <span>Connection Mode: <b>{{connectionMode}}</b></span>
+        <span>Conn Mode: <strong>{{connectionMode}}</strong></span>
     </div>
     <section>
-        <h2>Admin Mode</h2> 
-        <ul>
-            <li><a href="#" class="debug-btn">{{#if debugMode}}Deactivate {{else}}Activate {{/if}} Debug</a></li>
-        </ul>
+        <h2>Admin Mode</h2>
+            <button class="snap-md ico-SNAP-bug debug-btn">{{#if debugMode}}Deactivate {{else}}Activate {{/if}} Debug</button>
     </section>
     <section class="locks-admin">
           <details id="details-panellocklist">
@@ -30,7 +28,12 @@
                 <div id='scorm-tracker'><dl></dl></div>
             </li>
         </ul>
-    </section>        
+    </section>    
+    <section class="skrollr-offset">  
+		<h2>Skrollr</h2>
+		<div></div>
+		<div id="skrollr_status"></div>
+	</section>
     <section class="diagnosis-admin">   
         <h2>Diagnosis</h2>
         <ul>

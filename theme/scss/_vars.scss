@@ -1,5 +1,8 @@
+
+
+
 //---------- Global -----------//
-$error-color: #904136; 
+$error-color: #FF4136;
 $warning-color: #FF851B;
 $base-text-color: #222;
 $link-color: #295376;
@@ -12,7 +15,7 @@ $button-default-background-color-hover: #4f4f4f;
 $button-default-border-color: #dcdee1;
 $button-default-border-color-hover: #bbbfc5;
 $box-shadow-color: #2f2f2f;
-$spinner-overlay-background-color: #fff; 
+$spinner-overlay-background-color: #fff;
 
 
 //---------- Modules ----------//
@@ -48,8 +51,8 @@ $collapsibleBox-border-bottom-color: #666;
 $collapsibleBox-handle-color: #222;
 
 //Modal
-$modal-header-color: #fff;
-$modal-header-background-color: #555;
+$modal-header-color: #555;
+$modal-header-background-color: #eee;
 $modal-body-background-color: #fff;
 
 //Zoom
@@ -76,28 +79,28 @@ $card-text-color-hover: #3f4040;
 //---------- Layout ----------//
 
 //Footer
-$footer-button-color: #fff;
+$footer-button-color: #000;
 $footer-button-color-mobile: #fff;
-$footer-button-background-color: #555;
-$footer-button-color-hover: #fff;
-$footer-button-background-color-hover: #6e6e6e;
-$footer-text-color: #fff;
-$footer-page-of-text-color: #fff;
+$footer-button-background-color: #b4b4b4;
+$footer-button-color-hover: #000;
+$footer-button-background-color-hover: #c6c8ca;
+$footer-text-color: $base-text-color;
+$footer-page-of-text-color: #000;
 $footer-page-of-text-color-mobile: $base-text-color;
-$footer-container-background-color: #555;
+$footer-container-background-color: transparent;
 $footer-button-border-color: #fff;
 $footer-button-color-disabled: #5b5b5b;
 $footer-button-background-color-disabled: #e6e6e6;
-$footer-mobile-button-background-color: #555;
+$footer-mobile-button-background-color: #eee;
 
 //Header
-$header-background-color: #555;
-$header-text-color: #fff;
+$header-background-color: transparent;
+$header-text-color: #666;
 $header-banner-title-color: #555;
-$header-module-name-color: #555;
+$header-module-name-color: #eee;
 $header-button-background-color: transparent;
 $header-button-color-hover: #fff;
-$header-button-background-color-hover: #6e6e6e;
+$header-button-background-color-hover: #eee;
 $header-button-color: #fff;
 //Top Navigation
 $top-nav-text-color: $base-text-color;
@@ -110,21 +113,21 @@ $hamburger-menu-color-mobile: #fff;
 //Toolbar
 $toolbox-link-color: $base-text-color;
 $toolbox-link-background-color: #fff;
-$toolbox-link-color-hover: #fff;
-$toolbox-link-background-color-hover: #6e6e6e;
+$toolbox-link-color-hover: #000;
+$toolbox-link-background-color-hover: #eee;
 
 //Supermenu
-$supermenu-button-color: #fff;
-$supermenu-button-background-color: #555;
-$supermenu-button-color-hover: #fff;
-$supermenu-button-background-color-hover: #6e6e6e;
+$supermenu-button-color: #555;
+$supermenu-button-background-color: #eee;
+$supermenu-button-color-hover: #333;
+$supermenu-button-background-color-hover: #eee;
 $supermenu-dropdown-button-color: $base-text-color;
 $supermenu-dropdown-border-color: #000;
 $supermenu-dropdown-button-background-color: #fff;
-$supermenu-dropdown-button-color-hover: #fff;
-$supermenu-dropdown-button-background-color-hover: #6e6e6e;
+$supermenu-dropdown-button-color-hover: #000;
+$supermenu-dropdown-button-background-color-hover: #eee;
 //mobile only
-$supermenu-link-color: #555;
+$supermenu-link-color: #333 ;
 //icons
 $supermenu-dropdown-icons-color:#777;
 $supermenu-dropdown-icons-color-hover:#fff;
@@ -142,7 +145,7 @@ $micro-mobile-footer-arrows-color: #d7df58;
 $micro-module-info-button-color: #d7e059;
 $micro-vertical-spacers-lines-border-color: #d7e059;
 $micro-mobile-edges-background-color: #222;
-$micro-mobile-course-title-color: #d7df58;
+$micro-mobile-course-title-color: $micro-mobile-footer-arrows-color;
 
 //Micro-menu
 $micro-menu-toc-marker-background-color: #111;

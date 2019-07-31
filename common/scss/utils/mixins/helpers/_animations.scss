@@ -149,3 +149,22 @@ $number-of-delay-classes: 20;
       filter: blur(10px);
    }
 }
+
+
+
+//TEST ANIMATION
+.LOM-feedback-transition {
+   /*-webkit-transition: background-color 1s linear;
+   -moz-transition: background-color 1s linear;
+   -o-transition: background-color 1s linear;
+   transition: background-color 1s linear;*/
+
+   /*background: white;*/
+   animation: color-me-in 0.75s;
+}
+
+
+@keyframes color-me-in {
+  0% {background: #c8f9af;}
+  100% {background: white;}
+}

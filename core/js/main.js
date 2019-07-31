@@ -17,6 +17,7 @@ require(['require-configs'], function() {
 			var courseTitle = Utils.lang === "en" ? CoreSettings.courseTitle_en : CoreSettings.courseTitle_fr;
 			var courseSubtitle = Utils.lang === "en" ? CoreSettings.courseSubtitle_en : CoreSettings.courseSubtitle_fr;
 			var seriesTitle = Utils.lang === "en" ? CoreSettings.seriesTitle_en : CoreSettings.seriesTitle_fr;
+			var altLang=(lang!=="en")?"en":"fr";
 
 		    $(function(e) {
 		    	//custom theme css
@@ -36,8 +37,11 @@ require(['require-configs'], function() {
 				//catch when the supermenu is injected in the navigation by the wet-boew
 				$(document).on("wb-ready.wb", function(event) {
 					Logger.log('App Initialize');
+					//preload supermenu
+					$.get("content/supermenu/supermenu_"+altLang+".html", function (data) {
+						App.initialize(data);
+					});
 					
-					App.initialize();
 				});
 			});
 		});

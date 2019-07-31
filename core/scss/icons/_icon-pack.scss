@@ -29,6 +29,9 @@
     &.print:focus {
       background-position: -247px -38px;
     }
+    &.save-edit-mode:focus {
+      background-position: -400px -38px;
+    }
   }
   > li a.help {
     background-position: -102px 4px;
@@ -60,6 +63,12 @@
       background-position: -252px -38px;
     }
   }
+> li a.save-edit-mode {
+    background-position: -400px 4px;
+    &:hover {
+      background-position: -400px -38px;
+    }
+  }	
 }
 
 /* ----------------Circle bundle----------------*/

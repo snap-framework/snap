@@ -157,7 +157,11 @@ define([
 
 			_.each(_.keys(settingsButtonsMap), function(key, index) {
 				if (!CoreSettings[key]) {
-					$topMenu.find(settingsButtonsMap[key]).parent().remove();
+					if(CoreSettings.editMode){
+						$topMenu.find(settingsButtonsMap[key]).parent().hide();
+					}else{
+						$topMenu.find(settingsButtonsMap[key]).parent().remove();
+					}
 				} else {
 					$topMenu.find(settingsButtonsMap[key]).removeClass("hide");
 				}

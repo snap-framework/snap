@@ -500,8 +500,9 @@ define([
 		delete:function(archive){
 
 			if(this.isPage){
-				if(this.depth===0){
-					this.move("m98-"+archive.length);
+				if(this.depth===0){						
+				    error.log("does this actually exist?");
+					//this.master.editor.findRepository();
 				}else{
 					//This is a page, therefore just archive it
 					if(this.parent.sPosition !== "m98"){

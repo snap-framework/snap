@@ -18,7 +18,7 @@ define([
 			this.id=options.id;
 			this.$el=options.$el;
 			
-			this.term=this.$el.children("dt").children("p").text();
+			this.term=this.$el.children("dt").text();
 			this.definition=this.$el.children("dd").html();
 
 		},

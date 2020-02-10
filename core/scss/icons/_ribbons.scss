@@ -1,228 +1,113 @@
+
+
+$icons: (
+	0:  tip,
+	1:  information,
+	2:  dyk,
+	3:	warning,
+	4:	exam,
+	5: 	click,
+	6:	alarm,
+	7:	clock,
+	8:	graph,
+	9:	docs,
+	10:	links,
+	11:	activity,
+	12:	magnifyingGlass
+);
+
+
+
+/*-----BOTH -----*/
+
+.ribbon, .ribbon-top, .circle-icon{
+	min-height: 100px;
+	&:before{
+    	content: '';
+		position:absolute;
+    	display: block;
+	}
+}
+
+
+
 .ribbon {
-  	padding-left: 50px;
+	padding-left: 50px;
 	padding-top:30px;
-  min-height: 100px;
   &:before {
-    position: absolute;
     margin-left: -74px;
-	  margin-top: -30px;
-    content: '';
+	margin-top: -30px;
     background-image: url(base/ico_bundle_ribbons.png);
     width: 70px;
     height: 90px;
-    display: block;
   }
   h2 {
     margin: 3px 0px 30px 0px;
 	}
-  &.tip:before {
-    background-position: -0px -0px;
-  }
-  &.information:before {
-    background-position: -75px -0px;
-  }
-  &.dyk:before {
-    background-position: -150px -0px;
-  }
-  &.warning:before {
-    background-position: -225px -0px;
-  }
-  &.exam:before {
-    background-position: -300px -0px;
-  }
-  &.click:before {
-    background-position: -375px -0px;
-  }
-  &.alarm:before {
-    background-position: -450px -0px;
-  }
-  &.clock:before {
-    background-position: -525px -0px;
-  }
-  &.graph:before {
-    background-position: -600px -0px;
-  }
-  &.docs:before {
-    background-position: -675px -0px;
-  }
-  &.links:before {
-    background-position: -750px -0px;
-  }
-  &.activity:before {
-    background-position: -825px -0px;
-  }
-  &.magnifyingGlass:before {
-    background-position: -900px -0px;
-  }
 }
 
 /* ----------------RIBBONS TOP----------------*/
 
 .ribbon-top {
-    padding-left: 30px;
-    padding-top: 50px;
-    min-height: 100px;
-    /* border-top: 1px #E5E5E5 solid; */
-  &:before {
-    position: absolute;
-    margin-left: -30px;
-    margin-top: -58px;
-    content: '';
-    background-image: url(base/ico_bundle_ribbons_top.png) !important;
-    width: 90px;
-    height: 60px;
-    display: block;
-  }
-  h2 {
-    margin: 5px 0px 5px 0px;
-  }
-  &.tip:before {
-    background-position: -0px -0px;
-  }
-  &.information:before {
-    background-position: -90px -0px;
-  }
-  &.dyk:before {
-    background-position: -180px -0px;
-  }
-  &.warning:before {
-    background-position: -275px -0px;
-  }
-  &.exam:before {
-    background-position: -360px -0px;
-  }
-  &.click:before {
-    background-position: -450px -0px;
-  }
-  &.alarm:before {
-    background-position: -540px -0px;
-  }
-  &.clock:before {
-    background-position: -630px -0px;
-  }
-  &.graph:before {
-    background-position: -720px -0px;
-  }
-  &.docs:before {
-    background-position: -810px -0px;
-  }
-  &.links:before {
-    background-position: -900px -0px;
-  }
-  &.activity:before {
-    background-position: -990px -0px;
-  }
-}.ribbon {
-  padding-left: 50px;
-	padding-top:30px;
-  min-height: 100px;
-  &:before {
-    position: absolute;
-    margin-left: -74px;
-	  margin-top: -30px;
-    content: '';
-    background-image: url(base/ico_bundle_ribbons.png);
-    width: 70px;
-    height: 90px;
-    display: block;
-  }
-  h2 {
-    margin: 3px 0px 30px 0px;
-	}
-  &.tip:before {
-    background-position: -0px -0px;
-  }
-  &.information:before {
-    background-position: -75px -0px;
-  }
-  &.dyk:before {
-    background-position: -150px -0px;
-  }
-  &.warning:before {
-    background-position: -225px -0px;
-  }
-  &.exam:before {
-    background-position: -300px -0px;
-  }
-  &.click:before {
-    background-position: -375px -0px;
-  }
-  &.alarm:before {
-    background-position: -450px -0px;
-  }
-  &.clock:before {
-    background-position: -525px -0px;
-  }
-  &.graph:before {
-    background-position: -600px -0px;
-  }
-  &.docs:before {
-    background-position: -675px -0px;
-  }
-  &.links:before {
-    background-position: -750px -0px;
-  }
-  &.activity:before {
-    background-position: -825px -0px;
-  }
-  &.magnifyingGlass:before {
-    background-position: -900px -0px;
-  }
-}
-
-/* ----------------RIBBONS TOP----------------*/
-
-.ribbon-top {
-	clear:both;
+	//clear:both;
   padding-left: 40px;
-  min-height: 100px;
   &:before {
-    position: absolute;
     margin-left: -40px;
     margin-top: -8px;
-    content: '';
     background-image: url(base/ico_bundle_ribbons_top.png) !important;
     width: 90px;
     height: 60px;
-    display: block;
   }
   h2 {
     margin: 55px 0px 5px 0px;
   }
-  &.tip:before {
-    background-position: -0px -0px;
+
+}
+
+/* ----------------circle-icon ----------------*/
+
+.circle-icon {
+	//clear:both;
+  padding-left: 40px;
+  &:before {
+	margin-left: -35px;
+    margin-top: 15px;
+    background-image: url(base/ico_bundle_circles.png) !important;
+    width: 30px;
+    height: 30px;
   }
-  &.information:before {
-    background-position: -90px -0px;
+  h2 {
+    margin: 20px 0px 5px 0px;
   }
-  &.dyk:before {
-    background-position: -180px -0px;
-  }
-  &.warning:before {
-    background-position: -275px -0px;
-  }
-  &.exam:before {
-    background-position: -360px -0px;
-  }
-  &.click:before {
-    background-position: -450px -0px;
-  }
-  &.alarm:before {
-    background-position: -540px -0px;
-  }
-  &.clock:before {
-    background-position: -630px -0px;
-  }
-  &.graph:before {
-    background-position: -720px -0px;
-  }
-  &.docs:before {
-    background-position: -810px -0px;
-  }
-  &.links:before {
-    background-position: -900px -0px;
-  }
-  &.activity:before {
-    background-position: -990px -0px;
-  }
+
+}
+//-------------- ICONS!!!--------------
+
+.ribbon{
+	@each $index, $icon-value in $icons{
+		&.#{$icon-value}:before{
+			background-position-y:-0px;
+			background-position-x:-75px*($index);
+		}
+	}
+	
+}
+.ribbon-top{
+	@each $index, $icon-value in $icons{
+		&.#{$icon-value}:before{
+			background-position-y:-0px;
+			background-position-x:-90px*($index);
+		}
+	}
+	
+}
+
+.circle-icon{
+	@each $index, $icon-value in $icons{
+		&.#{$icon-value}:before{
+			background-position-y:-15px;
+			background-position-x:-45px*($index)-15px;
+		}
+	}
+	
 }

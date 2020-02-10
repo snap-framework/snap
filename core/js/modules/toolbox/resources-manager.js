@@ -281,10 +281,10 @@ define([
 			}			
 		},
 /*---------------------------------------------------------------------------------------------
-		-------------------------WIDGETS // CSPS-REPLACE
+		-------------------------SNIPPETS // CSPS-REPLACE
 ---------------------------------------------------------------------------------------------*/			
 		initSnippets:function(){
-			var $snippet=this.$data.children("[id]");
+			var $snippet=this.$data.find("[id]");
 			var id;
 			for (var snippet=0;snippet<$snippet.length;snippet++){
 				id=$snippet.eq(snippet).attr("id");
@@ -294,7 +294,7 @@ define([
 					id:id,
 					html:$snippet.eq(snippet).html()
 				});
-			}				
+			}	
 	
 		},	
 		scanSnippet:function($selector, cleanup){
@@ -303,11 +303,10 @@ define([
 				found;
 			var $snippet = $selector.find("[data-csps-replace]");//gather ext
 			if ($snippet.length > 0) { //if there are ext
-				
-				for (var i = 0; i < $snippet.length; i++) { //go through external links in page
+				for (var i = 0; i < $snippet.length; i++) { //go through external links in page	
 					//page found something, match it
 					$el=$snippet.eq(i);
-					id=$snippet.attr("data-csps-replace");
+					id=$snippet.eq(i).attr("data-csps-replace");
 					found=(typeof this.snippets[id] !== "undefined")?this.snippets[id]:false;
 					
 					if(found!==false){

@@ -43,8 +43,11 @@ define([
 			return false;
 		},		
 		replaceInstance:function($el, html){
-			
-			$el.replaceWith(html);
+			if($el.is("span") || $el.is("li")){
+				$el.html(this.html);
+			}else{
+				$el.replaceWith(html);
+			}
 			
 		}
 		

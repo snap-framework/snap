@@ -108,8 +108,11 @@ $document.on( "click keydown toggle." + componentName, selector, function( event
 		details = currentTarget.parentNode;
 		details.open = !details.open;
 	} else if ( which === 13 || which === 32 ) {
-		event.preventDefault();
-		$( currentTarget ).trigger( "click" );
+		// CSPS-SJ fix for learn-o-matic. intercept this sometime.
+		if(event.target.className.indexOf("cke_editable") < 0){
+			event.preventDefault();
+			$( currentTarget ).trigger( "click" );
+		}
 	}
 
 	/*

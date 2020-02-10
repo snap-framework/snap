@@ -153,3 +153,50 @@
       }
    }
 }
+
+
+[data-lom-element="carousel"]{
+	ul[role="tablist"]{
+		top:0px;
+		height: 100%;
+		.control.prv, .control.nxt{
+			//--
+			height:100%;
+			//padding: 10% 0%;
+			a{
+				height:100%;
+				//opacity:0.6;
+				background-color: rgba(256, 256, 256, 0.3);
+				span{
+					top:40%;
+				}
+				&:hover,&:focus{
+				background-color: rgba(256, 256, 256, 0.8);
+				}
+			}
+			
+		}.control.nxt{ 
+			right: 0px;
+			float: right;
+			margin-right: -20px;
+		}
+		.control.tab-count{
+			clear: both;
+    bottom: -45px;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+		}
+		.control.plypause{
+			display:none;
+		}
+	
+	}
+	[data-lom-element="panel"]{
+		min-height:100px;
+	}
+	.LOM-preview-active & .tabpanels.LOM-holder{
+		padding-left:70px;
+		padding-right:70px;
+	}
+}

@@ -5,6 +5,9 @@
   header, button.mfp-close {
     color: $modal-header-color;
   }
+	button.mfp-close:focus{
+		outline-color: $modal-header-color;
+	}
 
   &, .modal-body {
     background-color: $modal-body-background-color;

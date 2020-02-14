@@ -119,7 +119,7 @@ a {
     margin-left: 3px; }
     /* line 23, ../common/scss/base/_global-styles.scss */
     html[lang='fr'] a.external::after {
-      content: '(Ce contenu ouvrira dans une nouvelle fen├¬tre)'; }
+      content: '(Ce contenu ouvrira dans une nouvelle fenêtre)'; }
     /* line 26, ../common/scss/base/_global-styles.scss */
     html[lang='en'] a.external::after {
       content: '(This content will open in a new window)'; }
@@ -136,7 +136,7 @@ a {
     margin-left: 3px; }
     /* line 41, ../common/scss/base/_global-styles.scss */
     html[lang='fr'] a.csps-glossary::after {
-      content: '(Voir la d├®finition)'; }
+      content: '(Voir la définition)'; }
     /* line 44, ../common/scss/base/_global-styles.scss */
     html[lang='en'] a.csps-glossary::after {
       content: '(See definition)'; }
@@ -6328,7 +6328,7 @@ Usage:
   /* line 39, ../core/scss/widgets/_zoom.scss */
   .zoomin:focus img {
     outline: 1px solid #a6c8ff;
-    /*CSPS-TD ÔåÆ CHEAP IE FIX*/ }
+    /*CSPS-TD → CHEAP IE FIX*/ }
   /* line 43, ../core/scss/widgets/_zoom.scss */
   .zoomin:hover {
     color: inherit; }
@@ -6354,28 +6354,31 @@ html.xxsmallview a.zoomin::after {
 /* line 5, ../core/scss/widgets/_modal.scss */
 .overlay-def header, .overlay-def button.mfp-close {
   color: #555; }
-/* line 9, ../core/scss/widgets/_modal.scss */
+/* line 8, ../core/scss/widgets/_modal.scss */
+.overlay-def button.mfp-close:focus {
+  outline-color: #555; }
+/* line 12, ../core/scss/widgets/_modal.scss */
 .overlay-def, .overlay-def .modal-body {
   background-color: #fff; }
 
-/* line 15, ../core/scss/widgets/_modal.scss */
+/* line 18, ../core/scss/widgets/_modal.scss */
 .modal-dialog > .modal-body {
   overflow: auto; }
-/* line 18, ../core/scss/widgets/_modal.scss */
+/* line 21, ../core/scss/widgets/_modal.scss */
 .modal-dialog.modal-content.overlay-def {
   margin: 0 auto; }
   @media (min-width: 481px) {
-    /* line 18, ../core/scss/widgets/_modal.scss */
+    /* line 21, ../core/scss/widgets/_modal.scss */
     .modal-dialog.modal-content.overlay-def {
       width: 70%; } }
   @media (max-width: 480px) {
-    /* line 18, ../core/scss/widgets/_modal.scss */
+    /* line 21, ../core/scss/widgets/_modal.scss */
     .modal-dialog.modal-content.overlay-def {
       width: 100%; } }
 
 /* Small view */
 @media (min-width: 479px) and (max-width: 992px) {
-  /* line 35, ../core/scss/widgets/_modal.scss */
+  /* line 38, ../core/scss/widgets/_modal.scss */
   .modal-dialog.modal-content.overlay-def {
     width: auto !important; } }
 /* line 19, ../core/scss/widgets/_cards.scss */

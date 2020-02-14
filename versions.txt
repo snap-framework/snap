@@ -1,2 +1,2 @@
-FWversion=1.7.1
+FWversion=1.7.2
 WETversion=4.0.26

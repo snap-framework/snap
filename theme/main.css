@@ -168,7 +168,7 @@ a {
 
 /* line 80, ../common/scss/base/_global-styles.scss */
 .btn-default {
-  color: #fff;
+  color: #555;
   background-color: #3b3b3b;
   border-color: #dcdee1; }
   /* line 84, ../common/scss/base/_global-styles.scss */
@@ -5790,7 +5790,7 @@ li[data-depth='2'] > details {
 
 /* line 266, ../core/scss/layout/header/_supermenu.scss */
 ul.pnl-btn > li > a > span > span.glyphicon-th-list {
-  color: #fff;
+  color: #555;
   font-size: 1em; }
 
 /* @import "./_supermenu"; */

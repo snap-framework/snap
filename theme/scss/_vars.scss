@@ -5,7 +5,7 @@ $base-text-color: #222;
 $link-color: #295376;
 $link-color-visited: #7834bc;
 $box-shadox-color: #999;
-$button-default-color: #fff;
+$button-default-color: #555;
 $button-default-color-hover: #fff;
 $button-default-background-color: #3b3b3b;
 $button-default-background-color-hover: #4f4f4f;
@@ -105,7 +105,7 @@ $top-nav-button-color: $base-text-color;
 //mobile only
 $top-nav-button-color-mobile: #fff;
 $top-nav-button-background-color: #777;
-$hamburger-menu-color-mobile: #fff;
+$hamburger-menu-color-mobile: $button-default-color;
 
 //Toolbar
 $toolbox-link-color: $base-text-color;

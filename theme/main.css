@@ -955,7 +955,7 @@ html.skrollr body [data-skrollr-status='inactive'] {
   background-position-y: -0px;
   background-position-x: -825px; }
 /* line 88, ../core/scss/icons/_ribbons.scss */
-.ribbon.magnifyingGlass:before {
+.ribbon.magnify:before {
   background-position-y: -0px;
   background-position-x: -900px; }
 
@@ -1008,62 +1008,86 @@ html.skrollr body [data-skrollr-status='inactive'] {
   background-position-y: -0px;
   background-position-x: -990px; }
 /* line 97, ../core/scss/icons/_ribbons.scss */
-.ribbon-top.magnifyingGlass:before {
+.ribbon-top.magnify:before {
   background-position-y: -0px;
   background-position-x: -1080px; }
 
-/* line 107, ../core/scss/icons/_ribbons.scss */
-.circle-icon.tip:before {
+/* line 106, ../core/scss/icons/_ribbons.scss */
+.circle-icon:before, .circle-bundle:before {
+  content: "";
+  background-image: url(base/ico_bundle_circles.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  overflow: hidden;
+  width: 30px;
+  height: 30px; }
+/* line 115, ../core/scss/icons/_ribbons.scss */
+.circle-icon.tip:before, .circle-bundle.tip:before {
   background-position-y: -15px;
   background-position-x: -15px; }
-/* line 107, ../core/scss/icons/_ribbons.scss */
-.circle-icon.information:before {
+/* line 115, ../core/scss/icons/_ribbons.scss */
+.circle-icon.information:before, .circle-bundle.information:before {
   background-position-y: -15px;
   background-position-x: -60px; }
-/* line 107, ../core/scss/icons/_ribbons.scss */
-.circle-icon.dyk:before {
+/* line 115, ../core/scss/icons/_ribbons.scss */
+.circle-icon.dyk:before, .circle-bundle.dyk:before {
   background-position-y: -15px;
   background-position-x: -105px; }
-/* line 107, ../core/scss/icons/_ribbons.scss */
-.circle-icon.warning:before {
+/* line 115, ../core/scss/icons/_ribbons.scss */
+.circle-icon.warning:before, .circle-bundle.warning:before {
   background-position-y: -15px;
   background-position-x: -150px; }
-/* line 107, ../core/scss/icons/_ribbons.scss */
-.circle-icon.exam:before {
+/* line 115, ../core/scss/icons/_ribbons.scss */
+.circle-icon.exam:before, .circle-bundle.exam:before {
   background-position-y: -15px;
   background-position-x: -195px; }
-/* line 107, ../core/scss/icons/_ribbons.scss */
-.circle-icon.click:before {
+/* line 115, ../core/scss/icons/_ribbons.scss */
+.circle-icon.click:before, .circle-bundle.click:before {
   background-position-y: -15px;
   background-position-x: -240px; }
-/* line 107, ../core/scss/icons/_ribbons.scss */
-.circle-icon.alarm:before {
+/* line 115, ../core/scss/icons/_ribbons.scss */
+.circle-icon.alarm:before, .circle-bundle.alarm:before {
   background-position-y: -15px;
   background-position-x: -285px; }
-/* line 107, ../core/scss/icons/_ribbons.scss */
-.circle-icon.clock:before {
+/* line 115, ../core/scss/icons/_ribbons.scss */
+.circle-icon.clock:before, .circle-bundle.clock:before {
   background-position-y: -15px;
   background-position-x: -330px; }
-/* line 107, ../core/scss/icons/_ribbons.scss */
-.circle-icon.graph:before {
+/* line 115, ../core/scss/icons/_ribbons.scss */
+.circle-icon.graph:before, .circle-bundle.graph:before {
   background-position-y: -15px;
   background-position-x: -375px; }
-/* line 107, ../core/scss/icons/_ribbons.scss */
-.circle-icon.docs:before {
+/* line 115, ../core/scss/icons/_ribbons.scss */
+.circle-icon.docs:before, .circle-bundle.docs:before {
   background-position-y: -15px;
   background-position-x: -420px; }
-/* line 107, ../core/scss/icons/_ribbons.scss */
-.circle-icon.links:before {
+/* line 115, ../core/scss/icons/_ribbons.scss */
+.circle-icon.links:before, .circle-bundle.links:before {
   background-position-y: -15px;
   background-position-x: -465px; }
-/* line 107, ../core/scss/icons/_ribbons.scss */
-.circle-icon.activity:before {
+/* line 115, ../core/scss/icons/_ribbons.scss */
+.circle-icon.activity:before, .circle-bundle.activity:before {
   background-position-y: -15px;
   background-position-x: -510px; }
-/* line 107, ../core/scss/icons/_ribbons.scss */
-.circle-icon.magnifyingGlass:before {
+/* line 115, ../core/scss/icons/_ribbons.scss */
+.circle-icon.magnify:before, .circle-bundle.magnify:before {
   background-position-y: -15px;
   background-position-x: -555px; }
+
+/* line 123, ../core/scss/icons/_ribbons.scss */
+a.circle-bundle {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  overflow: hidden;
+  text-indent: -9999px; }
+  /* line 129, ../core/scss/icons/_ribbons.scss */
+  a.circle-bundle:before {
+    left: 0px;
+    background-position-y: -60px !important; }
+  /* line 134, ../core/scss/icons/_ribbons.scss */
+  a.circle-bundle:hover:before, a.circle-bundle:focus:before {
+    background-position-y: -105px !important; }
 
 /*---------------------------------------------------------------------------------------------
 		-------------------------standard BUTTONS
@@ -5236,124 +5260,6 @@ button.align-right.snap-sm, input.align-right[type='button'].snap-sm {
     background-position: -400px -38px; }
 
 /* ----------------Circle bundle----------------*/
-/* line 77, ../core/scss/icons/_icon-pack.scss */
-.circle-bundle:before {
-  content: "";
-  background-image: url(base/ico_bundle_circles.png);
-  background-repeat: no-repeat;
-  display: inline-block;
-  overflow: hidden;
-  width: 30px;
-  height: 30px; }
-/* line 85, ../core/scss/icons/_icon-pack.scss */
-.circle-bundle.tip:before {
-  background-position: -15px -60px; }
-/* line 88, ../core/scss/icons/_icon-pack.scss */
-.circle-bundle.magnify:before {
-  background-position: -60px -60px; }
-/* line 91, ../core/scss/icons/_icon-pack.scss */
-.circle-bundle.dyk:before {
-  background-position: -105px -60px; }
-/* line 94, ../core/scss/icons/_icon-pack.scss */
-.circle-bundle.warning:before {
-  background-position: -150px -60px; }
-/* line 97, ../core/scss/icons/_icon-pack.scss */
-.circle-bundle.exam:before {
-  background-position: -195px -60px; }
-/* line 100, ../core/scss/icons/_icon-pack.scss */
-.circle-bundle.interaction:before {
-  background-position: -240px -60px; }
-/* line 103, ../core/scss/icons/_icon-pack.scss */
-.circle-bundle.lock:before {
-  background-position: -285px -60px; }
-/* line 106, ../core/scss/icons/_icon-pack.scss */
-.circle-bundle.unlock:before {
-  background-position: -330px -60px; }
-/* line 109, ../core/scss/icons/_icon-pack.scss */
-.circle-bundle.objectif:before {
-  background-position: -375px -60px; }
-/* line 112, ../core/scss/icons/_icon-pack.scss */
-.circle-bundle.audio:before {
-  background-position: -420px -60px; }
-/* line 115, ../core/scss/icons/_icon-pack.scss */
-.circle-bundle.unassigned:before {
-  background-position: -465px -60px; }
-
-/* line 120, ../core/scss/icons/_icon-pack.scss */
-a.circle-bundle {
-  background-image: url(base/ico_bundle_circles.png);
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  overflow: hidden;
-  text-indent: -9999px; }
-  /* line 126, ../core/scss/icons/_icon-pack.scss */
-  a.circle-bundle.tip {
-    background-position: -15px -60px; }
-    /* line 128, ../core/scss/icons/_icon-pack.scss */
-    a.circle-bundle.tip:hover, a.circle-bundle.tip:focus {
-      background-position: -15px -105px; }
-  /* line 132, ../core/scss/icons/_icon-pack.scss */
-  a.circle-bundle.magnify {
-    background-position: -60px -60px; }
-    /* line 134, ../core/scss/icons/_icon-pack.scss */
-    a.circle-bundle.magnify:hover, a.circle-bundle.magnify:focus {
-      background-position: -60px -105px; }
-  /* line 138, ../core/scss/icons/_icon-pack.scss */
-  a.circle-bundle.dyk {
-    background-position: -105px -60px; }
-    /* line 140, ../core/scss/icons/_icon-pack.scss */
-    a.circle-bundle.dyk:hover, a.circle-bundle.dyk:focus {
-      background-position: -105px -105px; }
-  /* line 144, ../core/scss/icons/_icon-pack.scss */
-  a.circle-bundle.warning {
-    background-position: -150px -60px; }
-    /* line 146, ../core/scss/icons/_icon-pack.scss */
-    a.circle-bundle.warning:hover, a.circle-bundle.warning:focus {
-      background-position: -150px -105px; }
-  /* line 150, ../core/scss/icons/_icon-pack.scss */
-  a.circle-bundle.exam {
-    background-position: -195px -60px; }
-    /* line 152, ../core/scss/icons/_icon-pack.scss */
-    a.circle-bundle.exam:hover, a.circle-bundle.exam:focus {
-      background-position: -195px -105px; }
-  /* line 156, ../core/scss/icons/_icon-pack.scss */
-  a.circle-bundle.interaction {
-    background-position: -240px -60px; }
-    /* line 158, ../core/scss/icons/_icon-pack.scss */
-    a.circle-bundle.interaction:hover, a.circle-bundle.interaction:focus {
-      background-position: -240px -105px; }
-  /* line 162, ../core/scss/icons/_icon-pack.scss */
-  a.circle-bundle.lock {
-    background-position: -285px -60px; }
-    /* line 164, ../core/scss/icons/_icon-pack.scss */
-    a.circle-bundle.lock:hover, a.circle-bundle.lock:focus {
-      background-position: -285px -105px; }
-  /* line 168, ../core/scss/icons/_icon-pack.scss */
-  a.circle-bundle.unlock {
-    background-position: -330px -60px; }
-    /* line 170, ../core/scss/icons/_icon-pack.scss */
-    a.circle-bundle.unlock:hover, a.circle-bundle.unlock:focus {
-      background-position: -330px -105px; }
-  /* line 174, ../core/scss/icons/_icon-pack.scss */
-  a.circle-bundle.objectif {
-    background-position: -375px -60px; }
-    /* line 176, ../core/scss/icons/_icon-pack.scss */
-    a.circle-bundle.objectif:hover, a.circle-bundle.objectif:focus {
-      background-position: -375px -105px; }
-  /* line 180, ../core/scss/icons/_icon-pack.scss */
-  a.circle-bundle.audio {
-    background-position: -420px -60px; }
-    /* line 182, ../core/scss/icons/_icon-pack.scss */
-    a.circle-bundle.audio:hover, a.circle-bundle.audio:focus {
-      background-position: -420px -105px; }
-  /* line 186, ../core/scss/icons/_icon-pack.scss */
-  a.circle-bundle.unassigned {
-    background-position: -465px -60px; }
-    /* line 188, ../core/scss/icons/_icon-pack.scss */
-    a.circle-bundle.unassigned:hover, a.circle-bundle.unassigned:focus {
-      background-position: -465px -105px; }
-
 /*@import './_vars';*/
 /* ------------------GENERAL LOOK-----------------------------*/
 /*mobile only*/

@@ -69,6 +69,10 @@ define({
 	
 	googleAnalyticsID: "",	/*UA-101907595-7*/
 
+	/*------------------ DATA / Matomo Analytics -----------------*/
+
+	matomoAnalytics: true,
+
 	/*------------------ Navigation -----------------*/
 	topNavFullwidth:     true,
 	breadCrumbs: 	     true,

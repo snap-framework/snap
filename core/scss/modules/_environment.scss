@@ -8,23 +8,23 @@
 //------------------------------------------------- ENVIRONMENT-----------------------------
 
 //--------------------- ONLY LOCAL / HIDE WHEN NOT LOCAL ----------------------
-html[data-env='public']:not(.LOM-active),html[data-env='prod']:not(.LOM-active){.only-local{@include hide-value;}}
+html[data-env='public']:not(.LOM-pageEdit-active),html[data-env='prod']:not(.LOM-pageEdit-active){.only-local{@include hide-value;}}
 
 //--------------------- ONLY PUBLIC / HIDE WHEN NOT PUBLIC ----------------------
-html[data-env='prod']:not(.LOM-active),html[data-env='local']:not(.LOM-active){.only-public{@include hide-value;}}
+html[data-env='prod']:not(.LOM-pageEdit-active),html[data-env='local']:not(.LOM-pageEdit-active){.only-public{@include hide-value;}}
 
 //--------------------- ONLY PROD / HIDE WHEN NOT PROD ----------------------
-html[data-env='public']:not(.LOM-active),html[data-env='local']:not(.LOM-active){.only-prod{@include hide-value;}}
+html[data-env='public']:not(.LOM-pageEdit-active),html[data-env='local']:not(.LOM-pageEdit-active){.only-prod{@include hide-value;}}
 
 
 
 
 //---------------------- NOT!!! -------------------------------------------------
-html[data-env='local']:not(.LOM-active){.not-local{@include hide-value;}}
-html[data-env='public']:not(.LOM-active){.not-public{@include hide-value;}}
-html[data-env='prod']:not(.LOM-active){.not-prod{@include hide-value;}}
+html[data-env='local']:not(.LOM-pageEdit-active){.not-local{@include hide-value;}}
+html[data-env='public']:not(.LOM-pageEdit-active){.not-public{@include hide-value;}}
+html[data-env='prod']:not(.LOM-pageEdit-active){.not-prod{@include hide-value;}}
 
 
 //------------------------------------------------- CONNECTION-----------------------------
-html[data-conn='offline']:not(.LOM-active){.not-offline{@include hide-value;}}
-html[data-conn='scorm']:not(.LOM-active){.only-offline{@include hide-value;}}
+html[data-conn='offline']:not(.LOM-pageEdit-active){.not-offline{@include hide-value;}}
+html[data-conn='scorm']:not(.LOM-pageEdit-active){.only-offline{@include hide-value;}}

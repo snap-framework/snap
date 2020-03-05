@@ -6633,35 +6633,35 @@ progress {
   padding-bottom: 0; }
 
 /* line 11, ../core/scss/modules/_environment.scss */
-html[data-env='public']:not(.LOM-active) .only-local, html[data-env='prod']:not(.LOM-active) .only-local {
+html[data-env='public']:not(.LOM-pageEdit-active) .only-local, html[data-env='prod']:not(.LOM-pageEdit-active) .only-local {
   display: none !important; }
 
 /* line 14, ../core/scss/modules/_environment.scss */
-html[data-env='prod']:not(.LOM-active) .only-public, html[data-env='local']:not(.LOM-active) .only-public {
+html[data-env='prod']:not(.LOM-pageEdit-active) .only-public, html[data-env='local']:not(.LOM-pageEdit-active) .only-public {
   display: none !important; }
 
 /* line 17, ../core/scss/modules/_environment.scss */
-html[data-env='public']:not(.LOM-active) .only-prod, html[data-env='local']:not(.LOM-active) .only-prod {
+html[data-env='public']:not(.LOM-pageEdit-active) .only-prod, html[data-env='local']:not(.LOM-pageEdit-active) .only-prod {
   display: none !important; }
 
 /* line 23, ../core/scss/modules/_environment.scss */
-html[data-env='local']:not(.LOM-active) .not-local {
+html[data-env='local']:not(.LOM-pageEdit-active) .not-local {
   display: none !important; }
 
 /* line 24, ../core/scss/modules/_environment.scss */
-html[data-env='public']:not(.LOM-active) .not-public {
+html[data-env='public']:not(.LOM-pageEdit-active) .not-public {
   display: none !important; }
 
 /* line 25, ../core/scss/modules/_environment.scss */
-html[data-env='prod']:not(.LOM-active) .not-prod {
+html[data-env='prod']:not(.LOM-pageEdit-active) .not-prod {
   display: none !important; }
 
 /* line 29, ../core/scss/modules/_environment.scss */
-html[data-conn='offline']:not(.LOM-active) .not-offline {
+html[data-conn='offline']:not(.LOM-pageEdit-active) .not-offline {
   display: none !important; }
 
 /* line 30, ../core/scss/modules/_environment.scss */
-html[data-conn='scorm']:not(.LOM-active) .only-offline {
+html[data-conn='scorm']:not(.LOM-pageEdit-active) .only-offline {
   display: none !important; }
 
 /* line 22, ../core/scss/modules/micro-learning/_micro-learning.scss */

@@ -3,26 +3,66 @@
 	display:none!important;
 }
 
-
+@mixin highlight-hidden{
+	opacity: 0.5;
+	min-height:35px;
+	outline:1px solid grey;
+	content:'Content hidden';
+	&:before{
+		content:'';
+		//background-color:white;
+		//outline:1px solid grey;
+		position:absolute;
+		@include iconpack(delete, md, hover);
+		margin-left:-35px;
+	}
+	&:hover,&:focus{
+		outline:solid grey 1px;
+		content:inherit;
+		&:after{
+			content:'Content hidden in this environment';
+			position: relative;
+			background-color: white;
+			outline: 1px solid grey;
+		}
+	}
+}
 
 //------------------------------------------------- ENVIRONMENT-----------------------------
 
-//--------------------- ONLY LOCAL / HIDE WHEN NOT LOCAL ----------------------
-html[data-env='public']:not(.LOM-pageEdit-active),html[data-env='prod']:not(.LOM-pageEdit-active){.only-local{@include hide-value;}}
+html{
+	&:not(.LOM-pageEdit-active){
+		//--------------------- ONLY LOCAL / HIDE WHEN NOT LOCAL ----------------------
+		&[data-env='public'],&[data-env='prod']{.only-local{@include hide-value;}}
+		//--------------------- ONLY PUBLIC / HIDE WHEN NOT PUBLIC ----------------------
+		&[data-env='local'],&[data-env='prod']{.only-public{@include hide-value;}}
+		//--------------------- ONLY PROD / HIDE WHEN NOT PROD ----------------------
+		&[data-env='local'],&[data-env='public']{.only-prod{@include hide-value;}}
+		&[data-env='local']{.not-local{@include hide-value;}}
+		&[data-env='public']{.not-public{@include hide-value;}}
+		&[data-env='prod']{.not-prod{@include hide-value;}}
+		
+	}
+	&.LOM-pageEdit-active{
+		//--------------------- ONLY LOCAL / HIDE WHEN NOT LOCAL ----------------------
+		&[data-env='public'],&[data-env='prod']{.only-local{@include highlight-hidden;}}
+		//--------------------- ONLY PUBLIC / HIDE WHEN NOT PUBLIC ----------------------
+		&[data-env='local'],&[data-env='prod']{.only-public{@include highlight-hidden;}}
+		//--------------------- ONLY PROD / HIDE WHEN NOT PROD ----------------------
+		&[data-env='local'],&[data-env='public']{.only-prod{@include highlight-hidden;}}	
+	&[data-env='local']{.not-local{@include highlight-hidden;}}
+	&[data-env='public']{.not-public{@include highlight-hidden;}}
+	&[data-env='prod']{.not-prod{@include highlight-hidden;}}		
+	}
+	//--------------------- NOT ALL 3 ---------------------
 
-//--------------------- ONLY PUBLIC / HIDE WHEN NOT PUBLIC ----------------------
-html[data-env='prod']:not(.LOM-pageEdit-active),html[data-env='local']:not(.LOM-pageEdit-active){.only-public{@include hide-value;}}
-
-//--------------------- ONLY PROD / HIDE WHEN NOT PROD ----------------------
-html[data-env='public']:not(.LOM-pageEdit-active),html[data-env='local']:not(.LOM-pageEdit-active){.only-prod{@include hide-value;}}
+}
 
 
 
 
-//---------------------- NOT!!! -------------------------------------------------
-html[data-env='local']:not(.LOM-pageEdit-active){.not-local{@include hide-value;}}
-html[data-env='public']:not(.LOM-pageEdit-active){.not-public{@include hide-value;}}
-html[data-env='prod']:not(.LOM-pageEdit-active){.not-prod{@include hide-value;}}
+
+
 
 
 //------------------------------------------------- CONNECTION-----------------------------

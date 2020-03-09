@@ -6632,35 +6632,192 @@ progress {
 .locks-admin #details-panellocklist {
   padding-bottom: 0; }
 
-/* line 11, ../core/scss/modules/_environment.scss */
-html[data-env='public']:not(.LOM-pageEdit-active) .only-local, html[data-env='prod']:not(.LOM-pageEdit-active) .only-local {
+/* line 36, ../core/scss/modules/_environment.scss */
+html:not(.LOM-pageEdit-active)[data-env='public'] .only-local, html:not(.LOM-pageEdit-active)[data-env='prod'] .only-local {
   display: none !important; }
-
-/* line 14, ../core/scss/modules/_environment.scss */
-html[data-env='prod']:not(.LOM-pageEdit-active) .only-public, html[data-env='local']:not(.LOM-pageEdit-active) .only-public {
+/* line 38, ../core/scss/modules/_environment.scss */
+html:not(.LOM-pageEdit-active)[data-env='local'] .only-public, html:not(.LOM-pageEdit-active)[data-env='prod'] .only-public {
   display: none !important; }
-
-/* line 17, ../core/scss/modules/_environment.scss */
-html[data-env='public']:not(.LOM-pageEdit-active) .only-prod, html[data-env='local']:not(.LOM-pageEdit-active) .only-prod {
+/* line 40, ../core/scss/modules/_environment.scss */
+html:not(.LOM-pageEdit-active)[data-env='local'] .only-prod, html:not(.LOM-pageEdit-active)[data-env='public'] .only-prod {
   display: none !important; }
-
-/* line 23, ../core/scss/modules/_environment.scss */
-html[data-env='local']:not(.LOM-pageEdit-active) .not-local {
+/* line 41, ../core/scss/modules/_environment.scss */
+html:not(.LOM-pageEdit-active)[data-env='local'] .not-local {
   display: none !important; }
-
-/* line 24, ../core/scss/modules/_environment.scss */
-html[data-env='public']:not(.LOM-pageEdit-active) .not-public {
+/* line 42, ../core/scss/modules/_environment.scss */
+html:not(.LOM-pageEdit-active)[data-env='public'] .not-public {
   display: none !important; }
-
-/* line 25, ../core/scss/modules/_environment.scss */
-html[data-env='prod']:not(.LOM-pageEdit-active) .not-prod {
+/* line 43, ../core/scss/modules/_environment.scss */
+html:not(.LOM-pageEdit-active)[data-env='prod'] .not-prod {
   display: none !important; }
+/* line 48, ../core/scss/modules/_environment.scss */
+html.LOM-pageEdit-active[data-env='public'] .only-local, html.LOM-pageEdit-active[data-env='prod'] .only-local {
+  opacity: 0.5;
+  min-height: 35px;
+  outline: 1px solid grey;
+  content: 'Content hidden'; }
+  /* line 11, ../core/scss/modules/_environment.scss */
+  html.LOM-pageEdit-active[data-env='public'] .only-local:before, html.LOM-pageEdit-active[data-env='prod'] .only-local:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 35px;
+    height: 35px;
+    background-image: url(base/btn-iconpack_SNAP.png);
+    background-position-x: -105px;
+    background-position-y: -35px;
+    margin-left: -35px; }
+  /* line 19, ../core/scss/modules/_environment.scss */
+  html.LOM-pageEdit-active[data-env='public'] .only-local:hover, html.LOM-pageEdit-active[data-env='public'] .only-local:focus, html.LOM-pageEdit-active[data-env='prod'] .only-local:hover, html.LOM-pageEdit-active[data-env='prod'] .only-local:focus {
+    outline: solid grey 1px;
+    content: inherit; }
+    /* line 22, ../core/scss/modules/_environment.scss */
+    html.LOM-pageEdit-active[data-env='public'] .only-local:hover:after, html.LOM-pageEdit-active[data-env='public'] .only-local:focus:after, html.LOM-pageEdit-active[data-env='prod'] .only-local:hover:after, html.LOM-pageEdit-active[data-env='prod'] .only-local:focus:after {
+      content: 'Content hidden in this environment';
+      position: relative;
+      background-color: white;
+      outline: 1px solid grey; }
+/* line 50, ../core/scss/modules/_environment.scss */
+html.LOM-pageEdit-active[data-env='local'] .only-public, html.LOM-pageEdit-active[data-env='prod'] .only-public {
+  opacity: 0.5;
+  min-height: 35px;
+  outline: 1px solid grey;
+  content: 'Content hidden'; }
+  /* line 11, ../core/scss/modules/_environment.scss */
+  html.LOM-pageEdit-active[data-env='local'] .only-public:before, html.LOM-pageEdit-active[data-env='prod'] .only-public:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 35px;
+    height: 35px;
+    background-image: url(base/btn-iconpack_SNAP.png);
+    background-position-x: -105px;
+    background-position-y: -35px;
+    margin-left: -35px; }
+  /* line 19, ../core/scss/modules/_environment.scss */
+  html.LOM-pageEdit-active[data-env='local'] .only-public:hover, html.LOM-pageEdit-active[data-env='local'] .only-public:focus, html.LOM-pageEdit-active[data-env='prod'] .only-public:hover, html.LOM-pageEdit-active[data-env='prod'] .only-public:focus {
+    outline: solid grey 1px;
+    content: inherit; }
+    /* line 22, ../core/scss/modules/_environment.scss */
+    html.LOM-pageEdit-active[data-env='local'] .only-public:hover:after, html.LOM-pageEdit-active[data-env='local'] .only-public:focus:after, html.LOM-pageEdit-active[data-env='prod'] .only-public:hover:after, html.LOM-pageEdit-active[data-env='prod'] .only-public:focus:after {
+      content: 'Content hidden in this environment';
+      position: relative;
+      background-color: white;
+      outline: 1px solid grey; }
+/* line 52, ../core/scss/modules/_environment.scss */
+html.LOM-pageEdit-active[data-env='local'] .only-prod, html.LOM-pageEdit-active[data-env='public'] .only-prod {
+  opacity: 0.5;
+  min-height: 35px;
+  outline: 1px solid grey;
+  content: 'Content hidden'; }
+  /* line 11, ../core/scss/modules/_environment.scss */
+  html.LOM-pageEdit-active[data-env='local'] .only-prod:before, html.LOM-pageEdit-active[data-env='public'] .only-prod:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 35px;
+    height: 35px;
+    background-image: url(base/btn-iconpack_SNAP.png);
+    background-position-x: -105px;
+    background-position-y: -35px;
+    margin-left: -35px; }
+  /* line 19, ../core/scss/modules/_environment.scss */
+  html.LOM-pageEdit-active[data-env='local'] .only-prod:hover, html.LOM-pageEdit-active[data-env='local'] .only-prod:focus, html.LOM-pageEdit-active[data-env='public'] .only-prod:hover, html.LOM-pageEdit-active[data-env='public'] .only-prod:focus {
+    outline: solid grey 1px;
+    content: inherit; }
+    /* line 22, ../core/scss/modules/_environment.scss */
+    html.LOM-pageEdit-active[data-env='local'] .only-prod:hover:after, html.LOM-pageEdit-active[data-env='local'] .only-prod:focus:after, html.LOM-pageEdit-active[data-env='public'] .only-prod:hover:after, html.LOM-pageEdit-active[data-env='public'] .only-prod:focus:after {
+      content: 'Content hidden in this environment';
+      position: relative;
+      background-color: white;
+      outline: 1px solid grey; }
+/* line 53, ../core/scss/modules/_environment.scss */
+html.LOM-pageEdit-active[data-env='local'] .not-local {
+  opacity: 0.5;
+  min-height: 35px;
+  outline: 1px solid grey;
+  content: 'Content hidden'; }
+  /* line 11, ../core/scss/modules/_environment.scss */
+  html.LOM-pageEdit-active[data-env='local'] .not-local:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 35px;
+    height: 35px;
+    background-image: url(base/btn-iconpack_SNAP.png);
+    background-position-x: -105px;
+    background-position-y: -35px;
+    margin-left: -35px; }
+  /* line 19, ../core/scss/modules/_environment.scss */
+  html.LOM-pageEdit-active[data-env='local'] .not-local:hover, html.LOM-pageEdit-active[data-env='local'] .not-local:focus {
+    outline: solid grey 1px;
+    content: inherit; }
+    /* line 22, ../core/scss/modules/_environment.scss */
+    html.LOM-pageEdit-active[data-env='local'] .not-local:hover:after, html.LOM-pageEdit-active[data-env='local'] .not-local:focus:after {
+      content: 'Content hidden in this environment';
+      position: relative;
+      background-color: white;
+      outline: 1px solid grey; }
+/* line 54, ../core/scss/modules/_environment.scss */
+html.LOM-pageEdit-active[data-env='public'] .not-public {
+  opacity: 0.5;
+  min-height: 35px;
+  outline: 1px solid grey;
+  content: 'Content hidden'; }
+  /* line 11, ../core/scss/modules/_environment.scss */
+  html.LOM-pageEdit-active[data-env='public'] .not-public:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 35px;
+    height: 35px;
+    background-image: url(base/btn-iconpack_SNAP.png);
+    background-position-x: -105px;
+    background-position-y: -35px;
+    margin-left: -35px; }
+  /* line 19, ../core/scss/modules/_environment.scss */
+  html.LOM-pageEdit-active[data-env='public'] .not-public:hover, html.LOM-pageEdit-active[data-env='public'] .not-public:focus {
+    outline: solid grey 1px;
+    content: inherit; }
+    /* line 22, ../core/scss/modules/_environment.scss */
+    html.LOM-pageEdit-active[data-env='public'] .not-public:hover:after, html.LOM-pageEdit-active[data-env='public'] .not-public:focus:after {
+      content: 'Content hidden in this environment';
+      position: relative;
+      background-color: white;
+      outline: 1px solid grey; }
+/* line 55, ../core/scss/modules/_environment.scss */
+html.LOM-pageEdit-active[data-env='prod'] .not-prod {
+  opacity: 0.5;
+  min-height: 35px;
+  outline: 1px solid grey;
+  content: 'Content hidden'; }
+  /* line 11, ../core/scss/modules/_environment.scss */
+  html.LOM-pageEdit-active[data-env='prod'] .not-prod:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 35px;
+    height: 35px;
+    background-image: url(base/btn-iconpack_SNAP.png);
+    background-position-x: -105px;
+    background-position-y: -35px;
+    margin-left: -35px; }
+  /* line 19, ../core/scss/modules/_environment.scss */
+  html.LOM-pageEdit-active[data-env='prod'] .not-prod:hover, html.LOM-pageEdit-active[data-env='prod'] .not-prod:focus {
+    outline: solid grey 1px;
+    content: inherit; }
+    /* line 22, ../core/scss/modules/_environment.scss */
+    html.LOM-pageEdit-active[data-env='prod'] .not-prod:hover:after, html.LOM-pageEdit-active[data-env='prod'] .not-prod:focus:after {
+      content: 'Content hidden in this environment';
+      position: relative;
+      background-color: white;
+      outline: 1px solid grey; }
 
-/* line 29, ../core/scss/modules/_environment.scss */
+/* line 69, ../core/scss/modules/_environment.scss */
 html[data-conn='offline']:not(.LOM-pageEdit-active) .not-offline {
   display: none !important; }
 
-/* line 30, ../core/scss/modules/_environment.scss */
+/* line 70, ../core/scss/modules/_environment.scss */
 html[data-conn='scorm']:not(.LOM-pageEdit-active) .only-offline {
   display: none !important; }
 

@@ -1006,7 +1006,7 @@ console.log('ACTIVATE MATOMO!');
 			if (this.currentNav.length > 1) {
 				var module = ObjSubUtils.findSub([this.currentNav[0]]);
 				//var firstPageObj=
-				if (this.currentSub == module.findFirst()) {
+				if (this.currentSub == module.findFirst() && !$("html").hasClass("LOM-pageEdit-active")) {
 					$(CoreSettings.contentContainer).find("h1").eq(0).prepend("<span class='wb-inv'>Module : " + module.title + "<br></span>");
 				}
 			}

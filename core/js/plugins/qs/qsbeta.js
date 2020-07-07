@@ -6,8 +6,10 @@
 \___\_\__,_/_/ /___/____/ .___/\__,_/ |__/|__/_/ /_/\___/_/  /_____/\___/\__/\__,_/  
                        /_/                                                           
 
-					   V0.9036_C
+					   V0.9036_LOM(SJ)
 //TESTED USING JQuery 1-11-1
+
+ADDED in 0.9036_LOM : allow <label><input></label> instead of label for=id
 
 ADDED IN 0.9036_C
 -New settings files path + alternative
@@ -107,10 +109,10 @@ if(typeof String.prototype.trim !== 'function') {
 // <<THANK YOU SO MUCH IE8 FOR NOT SUPPORTING ARRAY.INDEXOF CORRECTLY>> FIX
 if (!Array.prototype.indexOf) {
 	Array.prototype.indexOf = function(obj, start) {
-		 for (var i = (start || 0), j = this.length; i < j; i++) {
-			 if (this[i] === obj) { return i; }
-		 }
-		 return -1;
+		for (var i = (start || 0), j = this.length; i < j; i++) {
+			if (this[i] === obj) { return i; }
+		}
+		return -1;
 	}
 }
 // <<THANK YOU SO MUCH IE8 FOR NOT SUPPORTING THE CONSOLE CORRECTLY>> FIX by jpswain
@@ -166,32 +168,31 @@ function qsBeta(objAcc,paramObj) {
 	this.qsValidateSettingData = function (sData){
 		fCl('qsValidateSettingData()');
 		//VALIDATE SETTINGS DATA
-	  	var validSettingsAttributes = {
-	  		settings:["autoTabbing","animBaseDuration","masterIntTester","encodeAnswers","illegalCharsList"],
-	  		activity:["activity_type","question_skipping_enabled","tracking_enabled","recap_required","trigger_course_completion","trigger_completion_score","final_feedback_score_threshold","submit_all_at_once","submit_aao_disable_right_anwers","simple_act_disable_mode","reset_retry_enabled","animations_and_transitions","auto_scroll_to_question","force_insert_final_submit"],
-	  		exercise:["exercise_type","pool_picks","random_order","feedback_type","randomize_answers","submit_all_at_once"],
-	  		question:["question_type","branching_type","question_value"],
-	  		type_0:["empty_allowed","min_char_required"],
-	  		type_1:["crypt_answers","persistent_vsfb"],
-	  		type_2:["crypt_answers","empty_allowed"],
-	  		type_3:["ignore_case"],
-	  		type_4:["allow_duplicate_answer","substitute_recap_label","randomize_options"],
-	  		type_5:["crypt_answers"]
-	  	};
-	  	var invalidSettingsStack = "";
-  		for(var i in validSettingsAttributes){
-  			for(var ii in validSettingsAttributes[i]){
-  				if(sData[0][i][validSettingsAttributes[i][ii]] === undefined){
+		var validSettingsAttributes = {
+			settings:["autoTabbing","animBaseDuration","masterIntTester","encodeAnswers","illegalCharsList"],
+			activity:["activity_type","question_skipping_enabled","tracking_enabled","recap_required","trigger_course_completion","trigger_completion_score","final_feedback_score_threshold","submit_all_at_once","submit_aao_disable_right_anwers","simple_act_disable_mode","reset_retry_enabled","animations_and_transitions","auto_scroll_to_question","force_insert_final_submit"],
+			exercise:["exercise_type","pool_picks","random_order","feedback_type","randomize_answers","submit_all_at_once"],
+			question:["question_type","branching_type","question_value"],
+			type_0:["empty_allowed","min_char_required"],
+			type_1:["crypt_answers","persistent_vsfb"],
+			type_2:["crypt_answers","empty_allowed"],
+			type_3:["ignore_case"],
+			type_4:["allow_duplicate_answer","substitute_recap_label","randomize_options"],
+			type_5:["crypt_answers"]
+		};
+		var invalidSettingsStack = "";
+		for(var i in validSettingsAttributes){
+			for(var ii in validSettingsAttributes[i]){
+				if(sData[0][i][validSettingsAttributes[i][ii]] === undefined){
 					invalidSettingsStack += i+' / '+validSettingsAttributes[i][ii]+"\n";
-  				}
-
-  			}
-  		}
-
-  		//STOP IF MISSING SETTING FOUND
-  		if(invalidSettingsStack!==""){
-		  	throw new Error('Missing setting:\n'+invalidSettingsStack);
-		  	return false;
+				}
+			}
+		}
+		
+		//STOP IF MISSING SETTING FOUND
+		if(invalidSettingsStack!==""){
+			throw new Error('Missing setting:\n'+invalidSettingsStack);
+			return false;
 		}else{
 			return true;
 		}
@@ -2136,6 +2137,7 @@ fCe('type-5 → test for highlite all mode...');
 				//DISPLAY FEEDBACK RIGHT AWAY IF NEEDED (HIDE OPPOSITE FEEDBACK)
 				qsShow($(this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]].elem).find('.qs-feedback .qs-wrong, .qs-feedback .qs-generic'));
 				qsHide($(this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]].elem).find('.qs-feedback .qs-right'));
+
 				//SETS QUESTION AS FAILED + class
 				$(elem).closest('.qs-question').attr('data-status','failed');
 				this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]].dv.status = "failed";
@@ -2458,7 +2460,7 @@ fCe('type-5 → test for highlite all mode...');
 		$(recapTemplateElem).find('.qs-recap-item').remove();
 		if(this.activities[ancestryIDARR[0]].recap_required && $(recapTemplateElem).length){
 			fCl("recap required - add in validation a checker for qs-recap-template");
-			
+
 			//SHOW FINAL RECAP HOLDER
 			//qsShow(recapTemplateElem);
 			
@@ -2474,25 +2476,38 @@ fCe('type-5 → test for highlite all mode...');
 					appendBuffer += "<div class='qs-post-question'>"+$(this.activities[ancestryIDARR[0]].exercises[i].questions[ii].elem).find('.qs-text').html()+"</div>";
 					//appendBuffer += "<div class='qs-post-answers'>"+$(this.activities[ancestryIDARR[0]].exercises[i].questions[ii].elem).find('.qs-answers').html()+"</div>";
 					
+					// for radio buttons, changed the way it goes to get the .text() CSPS-SJ
+					var myAnswerId=this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id;
+					var $inputLabel;
+					var answerText="";
+
 					//GENERATE MY ANSWERS RECAP DEPENDING ON QUESTION TYPE
 					switch(this.activities[ancestryIDARR[0]].exercises[i].questions[ii].question_type){
 						case "type-0":
 							appendBuffer += "<div class='qs-post-answers'>"+this.msgs.msgFeedbackRecallAnswerPrefix;
-							for(iii=0;iii<(this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(qSplt[1]).length;iii++){
-								appendBuffer += (this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(qSplt[1])[iii].split(qSplt[0])[1]+(((this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(qSplt[1]).length===iii+1)?"":", ");
+							for(iii=0;iii<(myAnswerId).split(qSplt[1]).length;iii++){
+								//CSPS-SJ see type-1 and 2 to see what needs to be tweaked
+								appendBuffer += (myAnswerId).split(qSplt[1])[iii].split(qSplt[0])[1]+(((myAnswerId).split(qSplt[1]).length===iii+1)?"":", ");
 							}
 							appendBuffer += "</div>";
 							break;
 						case "type-1":
-							appendBuffer += "<div class='qs-post-answers'>"+this.msgs.msgFeedbackRecallAnswerPrefix+$('label[for='+this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id+']').text()+"</div>";
+							$inputLabel=$('label[for='+myAnswerId+']');
+							answerText=($inputLabel.length>0)?$inputLabel.text():$("#"+myAnswerId).parent("label").text();
+							appendBuffer += "<div class='qs-post-answers'>"+this.msgs.msgFeedbackRecallAnswerPrefix+"<span class='qs-you-answered'>"+answerText+"</span>"+"</div>";
 							break;
 						case "type-2":
 							appendBuffer += "<div class='qs-post-answers'>";
-							if(this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id !== "" && this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id !== undefined){;
+							
+							if(myAnswerId !== "" && myAnswerId !== undefined){;
 								appendBuffer += this.msgs.msgFeedbackRecallAnswerPrefix;
-								for(iii=0;iii<(this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(',').length;iii++){
-									appendBuffer += $('label[for='+(this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(',')[iii]+']').text()+(((this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(',').length===iii+1)?"":", ");
+								for(iii=0;iii<(myAnswerId).split(',').length;iii++){
+									
+									$inputLabel=$('label[for='+(myAnswerId).split(',')[iii]+']');
+									answerText=($inputLabel.length>0)?$inputLabel.text():$("#"+(myAnswerId).split(',')[iii]).parent("label").text();
+									appendBuffer += answerText+(((myAnswerId).split(',').length===iii+1)?"":", ");
 								}
+																							  
 							}else{
 								appendBuffer += this.msgs.msgFeedbackRecallNoAnswerPrefix;
 							}
@@ -2500,27 +2515,27 @@ fCe('type-5 → test for highlite all mode...');
 							break;
 						case "type-3":
 							appendBuffer += "<div class='qs-post-answers'>"+this.msgs.msgFeedbackRecallAnswerPrefix;
-							for(iii=0;iii<(this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(qSplt[1]).length;iii++){
-								appendBuffer += (this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(qSplt[1])[iii].split(qSplt[0])[1]+(((this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(qSplt[1]).length===iii+1)?"":", ");
+							for(iii=0;iii<(myAnswerId).split(qSplt[1]).length;iii++){
+								appendBuffer += (myAnswerId).split(qSplt[1])[iii].split(qSplt[0])[1]+(((myAnswerId).split(qSplt[1]).length===iii+1)?"":", ");
 							}
 							appendBuffer += "</div>";
 							break;
 						case "type-4":
 							appendBuffer += "<div class='qs-post-answers'>"+this.msgs.msgFeedbackRecallAnswerPrefix;
-							for(iii=0;iii<(this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(qSplt[1]).length;iii++){
-								appendBuffer += $("#"+(this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(qSplt[1])[iii].split(qSplt[0])[0]).find('option[value='+((this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(qSplt[1])[iii].split(qSplt[0])[1])+']').text();
-								if($("#"+(this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(qSplt[1])[iii].split(qSplt[0])[0]).attr('data-recap-text')!==undefined){
-									appendBuffer += ": "+$("#"+(this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(qSplt[1])[iii].split(qSplt[0])[0]).attr('data-recap-text');
-								}else if($("#"+(this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(qSplt[1])[iii].split(qSplt[0])[0]).attr('data-recap-label')!==undefined){
-									appendBuffer += ": "+$("#"+$("#"+(this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(qSplt[1])[iii].split(qSplt[0])[0]).attr('data-recap-label')).text();
+							for(iii=0;iii<(myAnswerId).split(qSplt[1]).length;iii++){
+								appendBuffer += $("#"+(myAnswerId).split(qSplt[1])[iii].split(qSplt[0])[0]).find('option[value='+((myAnswerId).split(qSplt[1])[iii].split(qSplt[0])[1])+']').text();
+								if($("#"+(myAnswerId).split(qSplt[1])[iii].split(qSplt[0])[0]).attr('data-recap-text')!==undefined){
+									appendBuffer += ": "+$("#"+(myAnswerId).split(qSplt[1])[iii].split(qSplt[0])[0]).attr('data-recap-text');
+								}else if($("#"+(myAnswerId).split(qSplt[1])[iii].split(qSplt[0])[0]).attr('data-recap-label')!==undefined){
+									appendBuffer += ": "+$("#"+$("#"+(myAnswerId).split(qSplt[1])[iii].split(qSplt[0])[0]).attr('data-recap-label')).text();
 								}
-								appendBuffer += (((this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id).split(qSplt[1]).length===iii+1)?"":", ");
+								appendBuffer += (((myAnswerId).split(qSplt[1]).length===iii+1)?"":", ");
 							}
 							appendBuffer += "</div>";
 							break;
 						case "type-5":
 							//**UNTESTED**
-							appendBuffer += "<div class='qs-post-answers'>"+this.msgs.msgFeedbackRecallAnswerPrefix+$('label[for='+this.activities[ancestryIDARR[0]].exercises[i].questions[ii].dv.my_answer_id+']').text()+"</div>";
+							appendBuffer += "<div class='qs-post-answers'>"+this.msgs.msgFeedbackRecallAnswerPrefix+$('label[for='+myAnswerId+']').text()+"</div>";
 							break;
 						default:
 							fCe('Recap feedback generation encountered unknown question type');
@@ -3073,6 +3088,7 @@ fCe('type-5 → test for highlite all mode...');
 	//pOption: "qat" (current question at), "qtot" (question nb total)
 	this.qsComputeProgression = function (activity_id,pOption){
 		var i,
+
 		//fCl('qsComputeProgression()');
 		question_answered = 0;
 		question_total = 0;
@@ -3736,6 +3752,7 @@ fCe('type-5 → test for highlite all mode...');
 			tmpMatrixArr[rRi] = rRi;
 		}
 		//CANIBALIZE FIRST ARRAY TO GENERATE 2ND RANDOM ONE
+
 		for(rRi=0;rRi<iNb;rRi++){
 			randMatrixArr[rRi] = tmpMatrixArr.splice(Math.floor(Math.random()*tmpMatrixArr.length),1);
 		}

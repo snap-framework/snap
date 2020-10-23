@@ -1,10 +1,10 @@
 /*
- * Web Experience Toolkit (WET) / Boîte à outils de l"expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
+* Web Experience Toolkit (WET) / Boîte à outils de l"expérience Web (BOEW)
+* wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+*/
 /*
 ----- French dictionary (il8n) ---
- */
+*/
 ( function( wb ) {
 "use strict";
 
@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "Précédent (touche gauche)",
 	first: "Premier",
 	last: "Dernier",
-	page: "Page",
+	page: "Aller à: Page",
 	"srch-menus": "Recherche et menus",
 	email: "Courriel",
 	"menu-close": "Fermer le menu",
@@ -107,6 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Le formulaire n'a pu être soumis car ",
 	"errs-fnd": " erreurs ont été trouvées.",
 	"err-fnd": " erreur a été trouvée.",
+	"err-correct": "(Corriger et resoumettre)",
 
 	/* Date picker */
 	"date-hide": "Masquer le calendrier",
@@ -156,6 +157,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "Tableau",
 	"tbl-dtls": "Graphique. Plus de détails dans le tableau suivant.",
+	"chrt-cmbslc": "Quartier regroupé",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "Votre session expirera automatiquement dans #min# min #sec# sec.",
@@ -196,9 +198,10 @@ wb.i18nDict = {
 	"geo-allyttl": "Instructions : comment naviguer dans la carte",
 	"geo-tgllyr": "Basculer l'affichage de la couche",
 	"geo-hdnlyr": "Cette couche est présentement cachée.",
-	"geo-bmapurl": "@geo-bmapurl@",
+	"geo-bmap-url": "//geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBCT3978/MapServer/WMTS/",
+	"geo-bmap-matrix-set": "default028mm",
 	"geo-bmapttl": "BaseMaps_CBCT3978",
-	"geo-bmapurltxt": "@geo-bmapurltxt@",
+	"geo-bmapurltxt": "//geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBCT_TXT_3978/MapServer/WMTS/tile/1.0.0/BaseMaps_CBMT3978/{Style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.jpg",
 	"geo-attrlnk": "//geogratis.gc.ca/geogratis/CBM_CBC?lang=fr",
 	"geo-attrttl": "GéoGratis - Carte de base du Canada",
 	"geo-sel": "Sélectionnez",
@@ -211,6 +214,7 @@ wb.i18nDict = {
 	"geo-aoi-south": "Sud",
 	"geo-aoi-west": "Ouest",
 	"geo-aoi-instructions": "Délimiter un territoire sur la carte ou entrer les coordonnées ci-dessous, puis cliquer sur le bouton &#171;&#160;Ajouter&#160;&#187;.",
+	"geo-aoi-title": "Délimiter un territoire sur la carte ou entrer les coordonnées",
 	"geo-aoi-btndraw": "Tracer",
 	"geo-aoi-btnclear": "Enlever",
 	"geo-geoloc-btn": "Zoom sur votre position actuelle",
@@ -219,10 +223,10 @@ wb.i18nDict = {
 	"geo-lgnd-grphc": "Graphique légende couche cartographique.",
 
 	/* Disable/enable WET plugins and polyfills */
-	"wb-disable": "Passer au version HTML simplifiée",
-	"wb-enable": "Passer au version standard",
-	"disable-notice-h": "Avis: Version HTML simplifiée",
-	"disable-notice": "Vous naviguez présentement sur la version HTML simplifiée de cette page. Certaine fonctionalités peuvent être déactivées.",
+	"wb-disable": "Passer à la version HTML simplifiée",
+	"wb-enable": "Passer à la version standard",
+	"disable-notice-h": "Avis : Version HTML simplifiée",
+	"disable-notice": "Vous naviguez présentement sur la version HTML simplifiée de cette page. Certaines fonctionnalités peuvent être désactivées.",
 
 	/* Dismissable content */
 	"dismiss": "Écarter",
@@ -238,6 +242,16 @@ wb.i18nDict = {
 } )( wb );
 
 wb.doc.one( "formLanguages.wb", function() {
+(function( factory ) {
+	if ( typeof define === "function" && define.amd ) {
+		define( ["jquery", "../jquery.validate"], factory );
+	} else if (typeof module === "object" && module.exports) {
+		module.exports = factory( require( "jquery" ) );
+	} else {
+		factory( jQuery );
+	}
+}(function( $ ) {
+
 /*
  * Translated default messages for the jQuery validation plugin.
  * Locale: FR (French; français)
@@ -253,6 +267,7 @@ $.extend( $.validator.messages, {
 	digits: "Veuillez fournir seulement des chiffres.",
 	creditcard: "Veuillez fournir un numéro de carte de crédit valide.",
 	equalTo: "Veuillez fournir encore la même valeur.",
+	notEqualTo: "Veuillez fournir une valeur différente, les valeurs ne doivent pas être identiques.",
 	extension: "Veuillez fournir une valeur avec une extension valide.",
 	maxlength: $.validator.format( "Veuillez fournir au plus {0} caractères." ),
 	minlength: $.validator.format( "Veuillez fournir au moins {0} caractères." ),
@@ -260,6 +275,7 @@ $.extend( $.validator.messages, {
 	range: $.validator.format( "Veuillez fournir une valeur entre {0} et {1}." ),
 	max: $.validator.format( "Veuillez fournir une valeur inférieure ou égale à {0}." ),
 	min: $.validator.format( "Veuillez fournir une valeur supérieure ou égale à {0}." ),
+	step: $.validator.format( "Veuillez fournir une valeur multiple de {0}." ),
 	maxWords: $.validator.format( "Veuillez fournir au plus {0} mots." ),
 	minWords: $.validator.format( "Veuillez fournir au moins {0} mots." ),
 	rangeWords: $.validator.format( "Veuillez fournir entre {0} et {1} mots." ),
@@ -287,6 +303,7 @@ $.extend( $.validator.messages, {
 	cifES: "Veuillez fournir un numéro CIF valide.",
 	postalCodeCA: "Veuillez fournir un code postal valide."
 } );
-
+return $;
+}));
 
 });

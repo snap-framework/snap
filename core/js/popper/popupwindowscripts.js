@@ -1,8 +1,8 @@
-define(['settings-core', 'labels'], function(CoreSettings, labels) {
+define(['settings-core', 'labels'], function (CoreSettings, labels) {
 	'use strict';
-	
+
 	var popup;
-	
+
 	//used only for launch page button
 	function launchPop(target) {
 		if (popup !== undefined) {
@@ -22,48 +22,48 @@ define(['settings-core', 'labels'], function(CoreSettings, labels) {
 			'width=' + screen.width,
 			'scrollbars=1',
 			'resizable=1'//,
-		   // 'fullscreen=yes' // only works in IE
+			// 'fullscreen=yes' // only works in IE
 		].join(',');
 
 		popup = window.open(target, 'popup_window_' + CoreSettings.courseLegacyCode, params);
 		popup.moveTo(0, 0);
 		window.top.resizeTo(100, 50);
 		window.top.moveTo(9999, 9999);
-		popup.addEventListener('beforeunload',closeCourse,false);				
+		popup.addEventListener('beforeunload', closeCourse, false);
 	}
 	window.launchPop = launchPop;
 
 	//used only for launch page to load course automatically if bookmarked
-	function checkLaunch(target){
+	function checkLaunch(target) {
 		var scormIsOn = getAPIHandle() != null;
 		if (scormIsOn) {
 			var isInit = doLMSInitialize();
 			if (isInit) {
-				var bookmark=doLMSGetValue("cmi.core.lesson_location");
+				var bookmark = doLMSGetValue("cmi.core.lesson_location");
 				var bookmarkPresent = (bookmark.length > 0) ? true : false;
-				if (doLMSGetValue("cmi.core.lesson_status") != "completed")	{
+				if (doLMSGetValue("cmi.core.lesson_status") != "completed") {
 					doLMSSetValue("cmi.core.lesson_status", "incomplete");
 					doLMSCommit();
-				}	
+				}
 			}
-		}		
+		}
 		if (CoreSettings.skipSplash || bookmarkPresent) {
 			launchPop(target);
 		}
 	}
 	window.checkLaunch = checkLaunch;
-	function closeCourse(){
-		if(popup && !popup.window.amINavigating){			
-			saveScormValues();			
+	function closeCourse() {
+		if (popup && !popup.window.amINavigating) {
+			saveScormValues();
 			popup.close();
 			window.top.close();
-		}		
-		
+		}
+
 	}
 	window.closeCourse = closeCourse; // used in browsereventscripts too!	
-	
+
 	window.addEventListener('load', loadScorm, false);
-	window.addEventListener('beforeunload',closeLauncher,false);
+	window.addEventListener('beforeunload', closeLauncher, false);
 
 	function loadScorm() {
 		//init the connection for the APIWrapper
@@ -79,8 +79,8 @@ define(['settings-core', 'labels'], function(CoreSettings, labels) {
 			}
 		}
 	}
-	function closeLauncher(e){
-		if(popup){
+	function closeLauncher(e) {
+		if (popup) {
 			popup.close();
 			window.top.close();
 		}
@@ -97,7 +97,7 @@ define(['settings-core', 'labels'], function(CoreSettings, labels) {
 				doLMSSetValue("cmi.core.exit", "suspend");
 			}
 			doLMSCommit();
-		}		
+		}
 	}
-	
+
 });

@@ -9,7 +9,7 @@ define([
    'modules/tutorial/tutorial-controller',
    'fullpage',
    'scrollto'
-], function(_, $, BaseModule, Logger, Utils, labels, CoreSettings, TutorialController) {
+], function (_, $, BaseModule, Logger, Utils, labels, CoreSettings, TutorialController) {
    'use strict';
 
    var MICRO_SETTINGS = CoreSettings.microLearning;
@@ -33,7 +33,7 @@ define([
          "keydown .accordion": "onAccordionKeyDown"
       },
 
-      initialize: function(options) {
+      initialize: function (options) {
          Logger.log("INIT: Micro-Learning");
          var that = this;
          this.options = options;
@@ -45,7 +45,7 @@ define([
          $('body').addClass('microModule');
 
          this.buildNav();
-         
+
          this.$sections = $("section.micro-section");
          this.$header = $("header[role=banner]");
          this.$main = $("main[role=main]");
@@ -64,7 +64,7 @@ define([
             //sometimes with shorter sections, 
             //we want the next one to appear as soon as possible
             MICRO_SETTINGS.TOP_MARGIN = 0.9;
-            Utils.hideLoadingBox(function() {
+            Utils.hideLoadingBox(function () {
                that.onAfterLoad();
             });
          }
@@ -76,7 +76,7 @@ define([
          this.onLoadScrollToHash();
       },
 
-      setEvents: function() {
+      setEvents: function () {
          var that = this;
 
          $(this).on("MicroLearning:destroy", _.bind(this.destroy, this));
@@ -84,9 +84,9 @@ define([
          $(this.router).on('Router:loadPage', _.bind(this.destroy, this));
 
          //handle WET popups so that the scrolling and key arrows don't affect the usability of those
-         $(".wb-lbx").on('mfpOpen', function(e) {
+         $(".wb-lbx").on('mfpOpen', function (e) {
             that.disableScroll();
-         }).on('mfpClose', function(e) {
+         }).on('mfpClose', function (e) {
             that.enableScroll();
          });
 
@@ -102,24 +102,24 @@ define([
          $(window).on('resize', _.bind(this.onResize, this)); //CSPS-TD: To be activated once things work on desktop mode
       },
 
-      onFirstModuleLoad: function() {
+      onFirstModuleLoad: function () {
          //not mobile, must have setting turned on, must be the first time a module is loaded
          if (!this.isMobile() && CoreSettings.enableTutorial && !masterStructure.isFirstTimeLoaded) {
             this.launchTutorial();
          }
       },
 
-      launchTutorial: function() {
+      launchTutorial: function () {
          this.disableScroll();
          var that = this;
-         
+
          this.tutorialController = new TutorialController({
             tutorials: {
                showCanScroll: {
                   condition: this.$sections.length > 1
                }
             },
-            afterTutorial: function() {
+            afterTutorial: function () {
                that.enableScroll();
             }
          });
@@ -127,7 +127,7 @@ define([
          masterStructure.isFirstTimeLoaded = true;
       },
 
-      buildNav: function() {
+      buildNav: function () {
          var $sm = $(".supermenu-wrapper").find("ul.supermenu");
          //hide the supermenu since we won't use it
          $sm.addClass("wb-inv");
@@ -135,21 +135,21 @@ define([
          //remove dupplicates just in case
          $('.micro-menu').remove();
          $('header[role=banner]').after("<section class='micro-menu col-md-3 col-sm-3 col-xs-3'><ul class='toc'></ul></section>");  //CSPS-TD- before>after
-         
+
          this.$el = $('.micro-menu');
          var state = Utils.queryString('state');
 
          this.$toc = this.$el.find("ul.toc");
-         
-         var items = $sm.clone().find("a[data-target^="+ state +"]").parent();
+
+         var items = $sm.clone().find("a[data-target^=" + state + "]").parent();
          this.$toc.append(items);
          //CSPS-TD-Add proper role to menu container (ul.toc) + label
-         this.$toc.attr("role",'menu').attr("aria-labelledby",'csps-modulenum');
+         this.$toc.attr("role", 'menu').attr("aria-labelledby", 'csps-modulenum');
          //CSPS-TD-Add proper role to navigation (section.micro-menu) + label
-         this.$el.attr("role",'navigation').attr("aria-label",(window.lang == "en")?"Main Navigation":"Navigation primaire");
+         this.$el.attr("role", 'navigation').attr("aria-label", (window.lang == "en") ? "Main Navigation" : "Navigation primaire");
       },
 
-      setupStage: function() {
+      setupStage: function () {
          var $body = $('body');
          var headerHeight = this.$header.outerHeight();
          var footerHeight = this.$footer.outerHeight();
@@ -170,12 +170,12 @@ define([
 
          //put the navigation under the title
          if (!this.isMobile()) {
-            this.$toc.css("margin-top", headerHeight + titleHeight); 
+            this.$toc.css("margin-top", headerHeight + titleHeight);
          }
-         
+
          //CSPS-KR: commented since we are using the mocule-name instead
          // $('.breadcrumb').css('top', headerHeight);
-         
+
          //make some space around for the header and the footer
          this.$el
             .css("padding-top", headerHeight)
@@ -185,10 +185,10 @@ define([
          //on mobile, the <main/> element scrolls instead of the body
          if (this.isMobile()) {
             this.$main.css({
-               height: 'calc(100% - '+ topMargin +'px - '+ this.$footer.outerHeight() +'px)',
-               width: 'calc(100% - '+ this.$el.outerWidth() +'px)',
+               height: 'calc(100% - ' + topMargin + 'px - ' + this.$footer.outerHeight() + 'px)',
+               width: 'calc(100% - ' + this.$el.outerWidth() + 'px)',
                top: topMargin,
-               'margin-left': this.$el.outerWidth() +'px'
+               'margin-left': this.$el.outerWidth() + 'px'
             });
          }
 
@@ -201,7 +201,7 @@ define([
          this.fixBacknext();
       },
 
-      fixBacknext: function() {
+      fixBacknext: function () {
          var $backnext = this.$footer.find('.backnext');
          //make sure that the backNext are on the right place
          //based on its surroundings
@@ -216,7 +216,7 @@ define([
          $backnext.find('> span').html(labels.vocab.modules);
       },
 
-      initFullpage: function() {
+      initFullpage: function () {
          //check if the plugin is already instanciated
          if ($('html').hasClass('fp-enabled')) {
             $.fn.fullpage.destroy('all');
@@ -252,22 +252,22 @@ define([
             //else fullpage will think we want a slider...
             slideSelector: '.micro-section-slide',
             //triggered once the fullPage is loaded
-            afterRender: function() {
-               Utils.hideLoadingBox(function() {
+            afterRender: function () {
+               Utils.hideLoadingBox(function () {
                   that.onFirstModuleLoad();
                });
             },
             //triggered after each section load
-            afterLoad: function(anchorLink, index, slideAnchor, slideIndex) {
+            afterLoad: function (anchorLink, index, slideAnchor, slideIndex) {
                that.onAfterLoad(index);
             },
-            onLeave: function(index, nextIndex, direction) {
+            onLeave: function (index, nextIndex, direction) {
                that.onLeave(nextIndex);
             }
          });
       },
 
-      onAfterLoad: function(index) {
+      onAfterLoad: function (index) {
          //show the first section by default if none is provided
          index = _.isUndefined(index) ? 1 : index;
          var that = this;
@@ -279,32 +279,32 @@ define([
          }
 
          this.animateELements();
-         
+
          this.firstPageLoad = false;
       },
 
-      onLeave: function(nextIndex) {
+      onLeave: function (nextIndex) {
          var that = this;
          //list is 0 based
          this.currentNavPos = nextIndex - 1;
          this.targetNavPos = nextIndex - 1;
          this.fadeOutElements();
          //give us time to fade out elements, then move section
-         setTimeout(function() {
+         setTimeout(function () {
             that.animateSections();
             that.setTheme(nextIndex);
             that.onPageScroll();
          }, FADE_OUT_SPEED);
       },
 
-      onLoadScrollToHash: function() {
+      onLoadScrollToHash: function () {
          //add handler for mobile in case user has selected a link
          //that targets a section
          if (this.isMobile()) {
             if (window.location.hash) {
                var hash = window.location.hash.substr(1);
                this.$main.scrollTo('[data-anchor=' + hash + ']', {
-                  onAfter: function(target, settings) {
+                  onAfter: function (target, settings) {
                      //make sure that the component knows where it's at
                      that.onMobileScroll();
                   }
@@ -320,18 +320,18 @@ define([
          }
       },
 
-      onMenuItemsTouch: function(e) {
+      onMenuItemsTouch: function (e) {
          var that = this;
          var hash = e.target.hash.substr(1);
          this.$main.scrollTo('[data-anchor=' + hash + ']', "slow", {
-            onAfter: function(target, settings) {
+            onAfter: function (target, settings) {
                //make sure that the component knows where it's at
                that.onMobileScroll();
             }
          });
       },
 
-      setTheme: function(index) {
+      setTheme: function (index) {
          //no need to set theme on mobile
          //since the header, footer and micro-menu will stay the same color,
          //we can simply style the odd-even sections.
@@ -352,13 +352,13 @@ define([
          }
       },
 
-      enableScroll: function() {
+      enableScroll: function () {
          if (!this.isMobile()) {
             $.fn.fullpage.setAllowScrolling(true);
             $.fn.fullpage.setKeyboardScrolling(true);
          }
       },
-      disableScroll: function() {
+      disableScroll: function () {
          if (!this.isMobile()) {
             $.fn.fullpage.setAllowScrolling(false);
             $.fn.fullpage.setKeyboardScrolling(false);
@@ -368,7 +368,7 @@ define([
       /**
        * animate the sections with css3 by adding-removing classes
        */
-      animateSections: function() {
+      animateSections: function () {
          this.prevSlide = $(".micro-section.selected");
          this.currentSlide = $(this.$sections[this.currentNavPos]);
 
@@ -377,11 +377,11 @@ define([
          this.currentSlide.prevAll(".micro-section").addClass("before").removeClass("after");
          this.currentSlide.nextAll(".micro-section").addClass("after").removeClass("before");
          /*CSPS-TD-Add proper aria-hidden values for assistive technologies*/
-         $(".micro-section").attr("aria-hidden",'true');
-         this.currentSlide.attr("aria-hidden",'false');
+         $(".micro-section").attr("aria-hidden", 'true');
+         this.currentSlide.attr("aria-hidden", 'false');
       },
 
-      fadeOutElements: function() {
+      fadeOutElements: function () {
          //do not fade out elements on mobile
          //as the autoScrolling is off.
          //we want the elements to remain visible at all time
@@ -395,18 +395,18 @@ define([
        * TODO: This could be a component on it's own... animate.js. 
        * It could be instantiated when needed on each module
        */
-      animateELements: function() {
+      animateELements: function () {
          var that = this;
          if (this.currentSlide) {
             if (this.currentSlide.prop('hasAnimated')) {
                //do not animate on mobile more than once
                return;
             }
-            
+
             //do not fade out elements on mobile
             //as the autoScrolling is off
             if (!this.isMobile()) {
-               setTimeout(function() {
+               setTimeout(function () {
                   //compare DOM elements as they don't change like jQuery objects
                   if (that.prevSlide && that.prevSlide[0] !== that.currentSlide[0]) {
                      that.$sections.not(that.currentSlide).removeClass("active animate");
@@ -416,10 +416,10 @@ define([
 
             //make sure we are not waiting indefinately...
             if (EFFECT_OFFSET > SECTION_ANIM_SPEED) {
-                EFFECT_OFFSET = SECTION_ANIM_SPEED;
+               EFFECT_OFFSET = SECTION_ANIM_SPEED;
             }
 
-            setTimeout(function() {
+            setTimeout(function () {
                that.currentSlide.addClass("animate");
             }, SECTION_ANIM_SPEED - EFFECT_OFFSET);
 
@@ -429,14 +429,14 @@ define([
          }
       },
 
-      onResize: function(e) {
-         if(!this.isMobile()){
+      onResize: function (e) {
+         if (!this.isMobile()) {
             this.setupStage();
          }
          this.checkIfRefreshNeeded();
       },
 
-      onPageScroll: function(e) {
+      onPageScroll: function (e) {
          var $lis = this.$toc.find('li');
          var newPos = this.currentNavPos + 1 > $lis.length ? this.currentNavPos : this.currentNavPos + 1;
          var $item = this.$toc.find('li').eq(this.currentNavPos);
@@ -444,7 +444,7 @@ define([
       },
 
       //accessibility functions
-      onAccordionKeyDown: function(e) {
+      onAccordionKeyDown: function (e) {
          var tabKey = 9;
          var upKey = 38;
          var downKey = 40;
@@ -455,7 +455,7 @@ define([
             $.fn.fullpage.setKeyboardScrolling(true);
          }
       },
-      onTOCKeyDown: function(e) {
+      onTOCKeyDown: function (e) {
          var tabKey = 9;
          var upKey = 38;
          var downKey = 40;
@@ -474,15 +474,15 @@ define([
             $.fn.fullpage.setKeyboardScrolling(true);
          }
       },
-      resetNavFocus: function() {
+      resetNavFocus: function () {
          this.currentNavPos = null;
          this.targetNavPos = null;
       },
-      setNavFocus: function() {
+      setNavFocus: function () {
          this.currentNavPos = this.targetNavPos;
          $(this.$items[this.targetNavPos]).focus();
       },
-      updateCurrentNavPos: function(offset) {
+      updateCurrentNavPos: function (offset) {
          if (_.isUndefined(this.currentNavPos) || _.isNull(this.currentNavPos)) {
             this.currentNavPos = 0;
             this.targetNavPos = 0;
@@ -496,12 +496,12 @@ define([
          this.setNavFocus();
       },
 
-      isMobile: function() {
+      isMobile: function () {
          return Utils.system.isMobile;
       },
 
       //Progress Nav
-      drawPathNav: function() {
+      drawPathNav: function () {
          if (this.$toc.find('.toc-marker').length === 0) {
             this.$toc.prepend('<span class="toc-marker"></span>');
             this.$tocMarker = this.$toc.find('.toc-marker');
@@ -515,15 +515,15 @@ define([
          this.syncPathNav();
       },
 
-      syncPathNav: function($target) {
+      syncPathNav: function ($target) {
          //if not provided, use the first one in list as DOM element
          $target = $target || this.$toc.find('li').eq(this.currentNavPos);
-         
+
          var offsetTop = $target[0].offsetTop;
          var height = $target.outerHeight();
 
          var top = offsetTop + (height / 2);
-         
+
          this.$toc.find('li').removeClass('active');
          $target.addClass('active');
 
@@ -533,11 +533,11 @@ define([
          }
       },
 
-      onMobileScroll: function(e) {
+      onMobileScroll: function (e) {
          var windowHeight = $('main').outerHeight();
          var firstItemFound = null;
 
-         this.$sections.each(function(index, item) {
+         this.$sections.each(function (index, item) {
             var targetBounds = item.getBoundingClientRect();
             if (firstItemFound === null && targetBounds.bottom > windowHeight * MICRO_SETTINGS.TOP_MARGIN && targetBounds.top < windowHeight * (1 - MICRO_SETTINGS.BOTTOM_MARGIN)) {
                firstItemFound = index + 1;
@@ -548,23 +548,23 @@ define([
          this.onAfterLoad(firstItemFound);
       },
 
-      checkIfRefreshNeeded: function(){
+      checkIfRefreshNeeded: function () {
          //Check if 'mouse-tutorial' is currently displayed
-         if($('body>div.tutorials').length){
+         if ($('body>div.tutorials').length) {
             return false;
          }
          //Check if refresh warning should be displayed (according to isMobile(), window width and existence of refreshTimer)
-         if((!this.isMobile() && $(window).width() <= interfaceToggleWidth && typeof refreshTimer === 'undefined') || (this.isMobile() && $(window).width()>interfaceToggleWidth && typeof refreshTimer === 'undefined')){
+         if ((!this.isMobile() && $(window).width() <= interfaceToggleWidth && typeof refreshTimer === 'undefined') || (this.isMobile() && $(window).width() > interfaceToggleWidth && typeof refreshTimer === 'undefined')) {
             //Start refresh timer if win width smaller/bigger than limit & timer doesn't already exist
             refreshTimer = setTimeout(this.refreshNeededWarning, refreshWarningDelay);
-         }else if((!this.isMobile() && $(window).width()>interfaceToggleWidth && typeof refreshTimer !== 'undefined') || (this.isMobile() && $(window).width()<=interfaceToggleWidth && typeof refreshTimer !== 'undefined')){
+         } else if ((!this.isMobile() && $(window).width() > interfaceToggleWidth && typeof refreshTimer !== 'undefined') || (this.isMobile() && $(window).width() <= interfaceToggleWidth && typeof refreshTimer !== 'undefined')) {
             //Destroy refresh timer if it exists but win width big/small enough
             clearTimeout(refreshTimer);
             refreshTimer = undefined;
          }
       },
 
-      refreshNeededWarning: function(){
+      refreshNeededWarning: function () {
          //Display warning that user should refresh for optimal experience (following window resize && || zoom)
          if (confirm(labels.nav.refreshNeeded) == true) {
             //Stop browser navigating away dialog from displaying
@@ -572,13 +572,13 @@ define([
             location.reload();
          }
       },
-      destroy: function() {
+      destroy: function () {
          //make sure the tutorials don't appear
          //after we changed to home page for instance
          clearTimeout(this.tutorialTimeout);
          this.$el.remove();
          $('body').removeClass('microModule')
-                  .removeAttr('data-theme');
+            .removeAttr('data-theme');
          if ($('html').hasClass('fp-enabled')) {
             $.fn.fullpage.destroy('all');
          }

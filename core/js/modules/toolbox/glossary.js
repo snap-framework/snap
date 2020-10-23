@@ -8,55 +8,55 @@ define([
 	'../BaseModule',
 	'modules/toolbox/glossary-term',
 	'hbs!templates/glossary/glossary-term'
-], function(_, $, Logger, labels, CoreSettings, Utils, BaseModule,glossaryTerm,templateTerm) {
+], function (_, $, Logger, labels, CoreSettings, Utils, BaseModule, glossaryTerm, templateTerm) {
 	'use strict';
 
 	return BaseModule.extend({
-		ui: {	
+		ui: {
 			glossaryBtn: ".top-menu .glossary"
 		},
-		
+
 		templateUrl: "content/tools/glossary_" + Utils.lang,
-		
-		initialize: function(options) {
+
+		initialize: function (options) {
 			Logger.log("INIT: Glossary");
 		},
 
-		setListeners: function() {},
+		setListeners: function () { },
 
-		serializeData: function() {
+		serializeData: function () {
 			return {};
 		},
 
-		render: function() {
-			if (!this.isRendered) {				
+		render: function () {
+			if (!this.isRendered) {
 				this.template = this.template(this.serializeData());
-				
+
 				this.setMagnificPopupTemplate();
 				this.setListeners();
 				this.isRendered = true;
 			}
 		},
 
-		onPageLoaded: function() {
+		onPageLoaded: function () {
 			this.render();
 			//this.scan();
 		},
 
-		setMagnificPopupTemplate: function() {
+		setMagnificPopupTemplate: function () {
 			this.ui.glossaryBtn.magnificPopup({
-			    items: { src: this.template },
-			    type: 'inline',
-			    callbacks: {
-    				open: function() {
-    					$('ul#glossaryIndex').listnav({
-							includeAll:  false,
+				items: { src: this.template },
+				type: 'inline',
+				callbacks: {
+					open: function () {
+						$('ul#glossaryIndex').listnav({
+							includeAll: false,
 							includeNums: false,
 							noMatchText: labels.glossary.emptyTerm,
-							showCounts:  false
+							showCounts: false
 						});
-    				}
-    			}
+					}
+				}
 			});
 		}
 	});

@@ -56,7 +56,7 @@
 *******************************************************************************/
 
 var _Debug = false;  // set this to false to turn debugging off
-                     // and get rid of those annoying alert boxes.
+// and get rid of those annoying alert boxes.
 
 // Define exception/error codes
 var _NoError = 0;
@@ -91,19 +91,16 @@ var findAPITries = 0;
 ** function which will be implemented by the LMS.
 **
 *******************************************************************************/
-function doLMSInitialize()
-{
+function doLMSInitialize() {
    var api = getAPIHandle();
-   if (api == null)
-   {
+   if (api == null) {
       //alert("Unable to locate the LMS's API Implementation.\nLMSInitialize was not successful.");
       //return "false";
-	  return false;
+      return false;
    }
 
    var result = api.LMSInitialize("");
-   if (result.toString() != "true")
-   {
+   if (result.toString() != "true") {
       var err = ErrorHandler();
    }
    return result.toString();
@@ -121,21 +118,17 @@ function doLMSInitialize()
 ** function which will be implemented by the LMS
 **
 *******************************************************************************/
-function doLMSFinish()
-{
+function doLMSFinish() {
    var api = getAPIHandle();
-   if (api == null)
-   {
+   if (api == null) {
       //alert("Unable to locate the LMS's API Implementation.\nLMSFinish was not successful.");
       return "false";
    }
-   else
-   {
+   else {
       // call the LMSFinish function that should be implemented by the API
 
       var result = api.LMSFinish("");
-      if (result.toString() != "true")
-      {
+      if (result.toString() != "true") {
          var err = ErrorHandler();
       }
 
@@ -157,30 +150,25 @@ function doLMSFinish()
 ** Wraps the call to the LMS LMSGetValue method
 **
 *******************************************************************************/
-function doLMSGetValue(name)
-{
+function doLMSGetValue(name) {
    var api = getAPIHandle();
-   if (api == null)
-   {
+   if (api == null) {
       //CSPS SJ
-	  //alert("Unable to locate the LMS's API Implementation.\nLMSGetValue was not successful.");
-	  console.log("SCORM IS OFF")
+      //alert("Unable to locate the LMS's API Implementation.\nLMSGetValue was not successful.");
+      console.log("SCORM IS OFF")
       return "";
    }
-   else
-   {
+   else {
       var value = api.LMSGetValue(name);
       var errCode = api.LMSGetLastError().toString();
-      if (errCode != _NoError)
-      {
+      if (errCode != _NoError) {
          // an error was encountered so display the error description
          var errDescription = api.LMSGetErrorString(errCode);
-         alert("LMSGetValue("+name+") failed. \n"+ errDescription);
+         alert("LMSGetValue(" + name + ") failed. \n" + errDescription);
          return "";
       }
-      else
-      {
-         
+      else {
+
          return value.toString();
       }
    }
@@ -198,20 +186,16 @@ function doLMSGetValue(name)
 ** Wraps the call to the LMS LMSSetValue function
 **
 *******************************************************************************/
-function doLMSSetValue(name, value)
-{
+function doLMSSetValue(name, value) {
    var api = getAPIHandle();
-   if (api == null)
-   {
+   if (api == null) {
       //CSPS SJ alert("Unable to locate the LMS's API Implementation.\nLMSSetValue was not successful.");
-	  console.log("no scorm")
+      console.log("no scorm")
       return;
    }
-   else
-   {
+   else {
       var result = api.LMSSetValue(name, value);
-      if (result.toString() != "true")
-      {
+      if (result.toString() != "true") {
          var err = ErrorHandler();
       }
    }
@@ -229,19 +213,15 @@ function doLMSSetValue(name, value)
 ** Call the LMSCommit function 
 **
 *******************************************************************************/
-function doLMSCommit()
-{
+function doLMSCommit() {
    var api = getAPIHandle();
-   if (api == null)
-   {
+   if (api == null) {
       alert("Unable to locate the LMS's API Implementation.\nLMSCommit was not successful.");
       return "false";
    }
-   else
-   {
+   else {
       var result = api.LMSCommit("");
-      if (result != "true")
-      {
+      if (result != "true") {
          var err = ErrorHandler();
       }
    }
@@ -259,11 +239,9 @@ function doLMSCommit()
 ** Call the LMSGetLastError function 
 **
 *******************************************************************************/
-function doLMSGetLastError()
-{
+function doLMSGetLastError() {
    var api = getAPIHandle();
-   if (api == null)
-   {
+   if (api == null) {
       alert("Unable to locate the LMS's API Implementation.\nLMSGetLastError was not successful.");
       //since we can't get the error code from the LMS, return a general error
       return _GeneralError;
@@ -282,11 +260,9 @@ function doLMSGetLastError()
 ** Call the LMSGetErrorString function 
 **
 ********************************************************************************/
-function doLMSGetErrorString(errorCode)
-{
+function doLMSGetErrorString(errorCode) {
    var api = getAPIHandle();
-   if (api == null)
-   {
+   if (api == null) {
       alert("Unable to locate the LMS's API Implementation.\nLMSGetErrorString was not successful.");
    }
 
@@ -304,11 +280,9 @@ function doLMSGetErrorString(errorCode)
 ** Call the LMSGetDiagnostic function
 **
 *******************************************************************************/
-function doLMSGetDiagnostic(errorCode)
-{
+function doLMSGetDiagnostic(errorCode) {
    var api = getAPIHandle();
-   if (api == null)
-   {
+   if (api == null) {
       alert("Unable to locate the LMS's API Implementation.\nLMSGetDiagnostic was not successful.");
    }
 
@@ -325,28 +299,23 @@ function doLMSGetDiagnostic(errorCode)
 ** Determines if the LMS API is currently initialized or not.
 **
 *******************************************************************************/
-function LMSIsInitialized()
-{
+function LMSIsInitialized() {
    // there is no direct method for determining if the LMS API is initialized
    // for example an LMSIsInitialized function defined on the API so we'll try
    // a simple LMSGetValue and trap for the LMS Not Initialized Error
 
    var api = getAPIHandle();
-   if (api == null)
-   {
+   if (api == null) {
       //alert("Unable to locate the LMS's API Implementation.\nLMSIsInitialized() failed.");
       return false;
    }
-   else
-   {
+   else {
       var value = api.LMSGetValue("cmi.core.student_name");
       var errCode = api.LMSGetLastError().toString();
-      if (errCode == _NotInitialized)
-      {
+      if (errCode == _NotInitialized) {
          return false;
       }
-      else
-      {
+      else {
          return true;
       }
    }
@@ -364,22 +333,18 @@ function LMSIsInitialized()
 ** has associated text it is also displayed.
 **
 *******************************************************************************/
-function ErrorHandler()
-{
+function ErrorHandler() {
    var api = getAPIHandle();
-   if (api == null)
-   {
+   if (api == null) {
       alert("Unable to locate the LMS's API Implementation.\nCannot determine LMS error code.");
       return;
    }
    // check for errors caused by or from the LMS
    var errCode = api.LMSGetLastError().toString();
-   if (errCode != _NoError)
-   {
+   if (errCode != _NoError) {
       // an error was encountered so display the error description
       var errDescription = api.LMSGetErrorString(errCode);
-      if (_Debug == true)
-      {
+      if (_Debug == true) {
          errDescription += "\n";
          errDescription += api.LMSGetDiagnostic(null);
          // by passing null to LMSGetDiagnostic, we get any available diagnostics
@@ -403,10 +368,8 @@ function ErrorHandler()
 ** otherwise it returns null
 **
 *******************************************************************************/
-function getAPIHandle()
-{
-   if (apiHandle == null)
-   {
+function getAPIHandle() {
+   if (apiHandle == null) {
       apiHandle = getAPI();
    }
    return apiHandle;
@@ -423,18 +386,15 @@ function getAPIHandle()
 ** This function looks for an object named API in parent and opener windows
 **
 *******************************************************************************/
-function findAPI(win)
-{
-   while ((win.API == null) && (win.parent != null) && (win.parent != win))
-   {
+function findAPI(win) {
+   while ((win.API == null) && (win.parent != null) && (win.parent != win)) {
       findAPITries++;
       // Note: 7 is an arbitrary number, but should be more than sufficient
-      if (findAPITries > 7) 
-      {
+      if (findAPITries > 7) {
          alert("Error finding API -- too deeply nested.");
          return null;
       }
-      
+
       win = win.parent;
 
    }
@@ -455,104 +415,101 @@ function findAPI(win)
 ** hierarchy (if there is an opener window).
 **
 *******************************************************************************/
-function getAPI()
-{
+function getAPI() {
    var theAPI = findAPI(window);
-   if ((theAPI == null) && (window.opener != null) && (typeof(window.opener) != "undefined"))
-   {
+   if ((theAPI == null) && (window.opener != null) && (typeof (window.opener) != "undefined")) {
       theAPI = findAPI(window.opener);
    }
-   if (theAPI == null)
-   {
-     // alert("Unable to find an API adapter");
+   if (theAPI == null) {
+      // alert("Unable to find an API adapter");
    }
    return theAPI
 }
 
 
-function addEvent(obj, evType, fn, useCapture){
-  if (obj.addEventListener){
-    obj.addEventListener(evType, fn, useCapture);
-    return true;
-  } else if (obj.attachEvent){
-    var r = obj.attachEvent("on"+evType, fn);
-    return r;
-  } else {
-    //alert("Handler could not be attached");
-  }
+function addEvent(obj, evType, fn, useCapture) {
+   if (obj.addEventListener) {
+      obj.addEventListener(evType, fn, useCapture);
+      return true;
+   } else if (obj.attachEvent) {
+      var r = obj.attachEvent("on" + evType, fn);
+      return r;
+   } else {
+      //alert("Handler could not be attached");
+   }
 }
 
-function removeEvent(obj, evType, fn, useCapture){
-  if (obj.removeEventListener){
-    obj.removeEventListener(evType, fn, useCapture);
-    return true;
-  } else if (obj.detachEvent){
-    var r = obj.detachEvent("on"+evType, fn);
-    return r;
-  } else {
-    //alert("Handler could not be removed");
-  }
-} 
+function removeEvent(obj, evType, fn, useCapture) {
+   if (obj.removeEventListener) {
+      obj.removeEventListener(evType, fn, useCapture);
+      return true;
+   } else if (obj.detachEvent) {
+      var r = obj.detachEvent("on" + evType, fn);
+      return r;
+   } else {
+      //alert("Handler could not be removed");
+   }
+}
 
 
 
-var rootPath="";
+var rootPath = "";
 var lessonStatus;
 
-function setCompletion(status){
-	if(isTracking&&lmsConnected){
-		doLMSSetValue("cmi.core.lesson_status",status);
-		doLMSCommit();
-	}
+function setCompletion(status) {
+   if (isTracking && lmsConnected) {
+      doLMSSetValue("cmi.core.lesson_status", status);
+      doLMSCommit();
+   }
 }
 
 
 //Fonctions se rapportant aux objectifs
-function setObjective(id,title,scoreMin,scoreMax){
-	//Création d'un objectif
-	var objective="cmi.objectives."+id
-	doLMSSetValue(objective+".id",title);
-	doLMSSetValue(objective+".status","not attempted");
-	doLMSSetValue(objective+".score.min",scoreMin);
-	doLMSSetValue(objective+".score.max",scoreMax);	
+function setObjective(id, title, scoreMin, scoreMax) {
+   //Création d'un objectif
+   var objective = "cmi.objectives." + id
+   doLMSSetValue(objective + ".id", title);
+   doLMSSetValue(objective + ".status", "not attempted");
+   doLMSSetValue(objective + ".score.min", scoreMin);
+   doLMSSetValue(objective + ".score.max", scoreMax);
 }
 
 
-function initObjectives(){
-	if(LMSIsInitialized()){
-	var objectivesCount=parseInt(doLMSGetValue("cmi.objectives._count"))
-		//Si les objectifs n'ont pas été initialisés, créer les objectifs avec leur valeurs par défaut.
-		if(objectivesCount==0){
-			setObjective(0,"Post-Test","100");
-		}
-	}
+function initObjectives() {
+   if (LMSIsInitialized()) {
+      var objectivesCount = parseInt(doLMSGetValue("cmi.objectives._count"))
+      //Si les objectifs n'ont pas été initialisés, créer les objectifs avec leur valeurs par défaut.
+      if (objectivesCount == 0) {
+         setObjective(0, "Post-Test", "100");
+      }
+   }
 }
 
 //Fonction d'évalution des objectifs
-function evalObjective(id,score){
-	var isTracking=true;
-	if(lmsConnected){
-	   //Vérifier si le status du cours n’est pas déjà complété. S'il ne l'est pas, mettre à jour les scores.
-	  //Vérifier le nombre d'objective	
-	  completionStatus=doLMSGetValue("cmi.core.lesson_status")
-	  if(completionStatus=="completed"||completionStatus=="passed") isTracking=false;
-	  if(isTracking){ 
-		 var objective="cmi.objectives."+id
-		 minScore=doLMSGetValue(objective+".score.min")
-		 if(minScore.length!==0)
-		 	minScore=parseInt(minScore);
-		 doLMSSetValue(objective+".score.raw",score)
-		 doLMSSetValue("cmi.core.score.raw",score)
+function evalObjective(id, score) {
+   var isTracking = true;
+   if (lmsConnected) {
+      //Vérifier si le status du cours n’est pas déjà complété. S'il ne l'est pas, mettre à jour les scores.
+      //Vérifier le nombre d'objective	
+      completionStatus = doLMSGetValue("cmi.core.lesson_status")
+      if (completionStatus == "completed" || completionStatus == "passed") isTracking = false;
+      if (isTracking) {
+         var objective = "cmi.objectives." + id
+         minScore = doLMSGetValue(objective + ".score.min")
+         if (minScore.length !== 0)
+            minScore = parseInt(minScore);
+         doLMSSetValue(objective + ".score.raw", score)
+         doLMSSetValue("cmi.core.score.raw", score)
 
-		if(score>=minScore){
-		 //Le cours est passé
-			doLMSSetValue(objective+".status","passed")
-			doLMSSetValue("cmi.core.lesson_status","passed");
-		}else{
-			doLMSSetValue(objective+".status","failed")
-			doLMSSetValue("cmi.core.lesson_status","incomplete");
-		}
-		doLMSCommit();
-	  }
-	}
+         if (score >= minScore) {
+            //Le cours est passé
+            doLMSSetValue(objective + ".status", "passed")
+            doLMSSetValue("cmi.core.lesson_status", "passed");
+         } else {
+            doLMSSetValue(objective + ".status", "failed")
+            doLMSSetValue("cmi.core.lesson_status", "incomplete");
+         }
+         doLMSCommit();
+      }
+   }
 }

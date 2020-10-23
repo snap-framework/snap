@@ -1,24 +1,23 @@
 /* ------------------ SPLASH FUNCTIONAL --------------*/
-/* line 3, ../courses/default/core/scss/launch.scss */
 .obfuscated {
-  display: none; }
+  display: none;
+}
 
 /* ------------------ SPLASH ELEMENTS --------------*/
-/* line 9, ../courses/default/core/scss/launch.scss */
 #wordmark, #canada-logo {
   position: fixed;
   width: 98%;
   padding-left: 1%;
   padding-right: 1%;
-  background-color: #fff; }
+  background-color: #fff;
+}
 
-/* line 17, ../courses/default/core/scss/launch.scss */
 #launch-placement > a {
   text-decoration: none;
   padding: 5px 15px;
-  font-weight: 600; }
+  font-weight: 600;
+}
 
-/* line 23, ../courses/default/core/scss/launch.scss */
 #splash-content {
   font-size: 1.5em;
   text-align: center;
@@ -26,36 +25,38 @@
   position: absolute;
   top: 40%;
   -webkit-transform: translateY(-40%);
-  transform: translateY(-40%); }
-  /* line 31, ../courses/default/core/scss/launch.scss */
-  #splash-content h1 {
-    font-size: 1.5em; }
-  /* line 32, ../courses/default/core/scss/launch.scss */
-  #splash-content:before {
-    background: none;
-    border: none; }
+  transform: translateY(-40%);
+}
 
-/* line 39, ../courses/default/core/scss/launch.scss */
+#splash-content h1 {
+  font-size: 1.5em;
+}
+
+#splash-content:before {
+  background: none;
+  border: none;
+}
+
 #manualpop {
   visibility: hidden;
   display: block;
   width: 1px;
   height: 1px;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
-/* line 47, ../courses/default/core/scss/launch.scss */
 #title-welcome {
-  display: block; }
+  display: block;
+}
 
-/* line 51, ../courses/default/core/scss/launch.scss */
 #canada-logo {
   bottom: 0px;
   text-align: right;
   margin-bottom: 0px;
-  padding-top: 10px; }
+  padding-top: 10px;
+}
 
-/* line 59, ../courses/default/core/scss/launch.scss */
 #wordmark {
-  height: 30px; }
-
+  height: 30px;
+}
 /*# sourceMappingURL=launch.css.map */

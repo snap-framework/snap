@@ -5,7 +5,7 @@ define([
 	'utils',
 	'../BaseModule',
 	'router'
-], function($, Logger, CoreSettings, Utils, BaseModule, Router) {
+], function ($, Logger, CoreSettings, Utils, BaseModule, Router) {
 	'use strict';
 
 	return BaseModule.extend({
@@ -14,12 +14,12 @@ define([
 		events: {
 			"click .lang": "onChangeLang",
 			"click .home": "onLoadHome",
-			"click .quit": "onQuitCourse"			
+			"click .quit": "onQuitCourse"
 		},
 
-		initialize: function(options) {
+		initialize: function (options) {
 			Logger.log("INIT: Navigation");
-			
+
 			this.options = options;
 
 			this.router = this.options.router;
@@ -28,57 +28,57 @@ define([
 			this.setListeners();
 
 			this.showTopMenu();
-		},		
-		setListeners: function() {
+		},
+		setListeners: function () {
 			var that = this;
 			$(this).on('Navigation:goToNextPage', _.throttle(_.bind(this.goToNextPage, this), 750));
 			$(this).on('Navigation:goToPrevPage', _.throttle(_.bind(this.goToPrevPage, this), 750));
 			$(this).on('Navigation:loadHome', _.bind(this.onLoadHome, this));
-			$(this).on('Navigation:changePage', function(e, itemID) {
+			$(this).on('Navigation:changePage', function (e, itemID) {
 				that.changePage(itemID);
 			});
 
 			$(this.router).on('Navigation:refreshNavState', _.bind(this.refreshNavState, this));
 			$(this.lockingSystem).on('Navigation:refreshNavState', _.bind(this.refreshNavState, this));
-			
+
 			$(window).on("resize", _.bind(this.onResize, this));
 		},
 
 		// clicked on a menu item
 		// fnav
-		changePage: function(itemID) {
+		changePage: function (itemID) {
 			this.router.changePage(itemID);
 		},
 
-		onLoadHome: function() {
+		onLoadHome: function () {
 			this.changePage(masterStructure.flatList[0].sPosition);
 
 			//return false so that links are not followed
 			return false;
 		},
-		loadLast: function() {
+		loadLast: function () {
 			this.changePage(masterStructure.flatList[masterStructure.flatList.length - 1].sPosition);
 
 			//return false so that links are not followed
 			return false;
 		},
-		onQuitCourse: function() {
-			if (window.confirm(labels.nav.quitConfirm)) {				
+		onQuitCourse: function () {
+			if (window.confirm(labels.nav.quitConfirm)) {
 				window.opener.closeCourse();
-			}			
+			}
 		},
 
-		refreshNavState: function() {
+		refreshNavState: function () {
 			var isLocked, locked;
 			var nextObj = masterStructure.nextPage();
 			var prevObj = masterStructure.prevPage();
 			var currentSub = masterStructure.currentSub;
 			var isLockedIn = masterStructure.allowedLockedInExit
-								  ? false
-								  : CoreSettings.enableLockingSystem
-								  ? this.lockingSystem.isLockedIn(currentSub.aPosition)
-								  : null;
-			if (CoreSettings.enableLockingSystem){
+				? false
+				: CoreSettings.enableLockingSystem
+					? this.lockingSystem.isLockedIn(currentSub.aPosition)
+					: null;
+			if (CoreSettings.enableLockingSystem) {
 				if (nextObj) {
 					isLocked = CoreSettings.enableLockingSystem ? this.lockingSystem.isLocked(nextObj.aPosition) : null;
 					locked = isLocked || isLockedIn;
@@ -92,7 +92,7 @@ define([
 			}
 		},
 
-		goToNextPage: function() {
+		goToNextPage: function () {
 			if (!$("footer .next").hasClass("disabled")) { //had to add this so that IE would stop causing errors.
 				var nextObj = masterStructure.nextPage();
 				this.router.changePage(nextObj.sPosition);
@@ -101,7 +101,7 @@ define([
 			//return false so that links are not followed
 			return false;
 		},
-		goToPrevPage: function() {
+		goToPrevPage: function () {
 			if (!$(".back").hasClass("disabled")) { //had to add this so that IE would stop causing errors.
 				var prevObj = masterStructure.prevPage();
 				this.router.changePage(prevObj.sPosition);
@@ -111,7 +111,7 @@ define([
 			return false;
 		},
 
-		onChangeLang: function() {
+		onChangeLang: function () {
 			var newLang = Utils.lang === "en" ? "fr" : "en";
 
 			this.router.changeLang(newLang);
@@ -121,25 +121,25 @@ define([
 		},
 
 		// clicked browser back forward button
-		popPage: function(itemID) {
+		popPage: function (itemID) {
 			var aPosition = Utils.getArrayFromString(itemID);
 			masterStructure.targetNav = aPosition;
 			masterStructure.loadTarget();
 		},
-		fClickedOutsideMenuNav: function() {
+		fClickedOutsideMenuNav: function () {
 			//Clicked outside , so set the target as current
 			masterStructure.targetNav = masterStructure.currentNav;
 			masterStructure.resetNav();
 			//now reset the menu
 			//level.disable/enable
 		},
-		onResize: function() {
+		onResize: function () {
 			this.showTopMenu();
 		},
-		showTopMenu: function() {
+		showTopMenu: function () {
 			var width = window.innerWidth
-						|| document.documentElement.clientWidth
-						|| document.body.clientWidth;
+				|| document.documentElement.clientWidth
+				|| document.body.clientWidth;
 			//find the correct top-menu based on the width of the screen
 			var $topMenu = width <= Utils.breakpoints.medium ? this.$el.find("#mb-pnl") : this.$el.find("ul.text-right");
 			var settingsButtonsMap = {
@@ -155,11 +155,11 @@ define([
 				showExit: ".quit"
 			};
 
-			_.each(_.keys(settingsButtonsMap), function(key, index) {
+			_.each(_.keys(settingsButtonsMap), function (key, index) {
 				if (!CoreSettings[key]) {
-					if(CoreSettings.editMode){
+					if (CoreSettings.editMode) {
 						$topMenu.find(settingsButtonsMap[key]).parent().hide();
-					}else{
+					} else {
 						$topMenu.find(settingsButtonsMap[key]).parent().remove();
 					}
 				} else {

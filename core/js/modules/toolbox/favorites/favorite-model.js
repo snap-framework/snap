@@ -1,34 +1,34 @@
 define([
-    'jquery',
-    'logger',
-    'settings-core',
-    'utils',
-    '../../BaseModule',
-    'modules/objSub/objSub-utils'
-], function($, Logger, CoreSettings, Utils, BaseModule, ObjSubUtils) {
+	'jquery',
+	'logger',
+	'settings-core',
+	'utils',
+	'../../BaseModule',
+	'modules/objSub/objSub-utils'
+], function ($, Logger, CoreSettings, Utils, BaseModule, ObjSubUtils) {
 	'use strict';
 
 	var favAddedClass = "fav-added";
-	
+
 	return BaseModule.extend({
-		initialize: function(options) {
+		initialize: function (options) {
 			Logger.log("INIT: Favorite model, page: " + options.page + ", target: " + options.target);
-			
+
 			this.options = options;
 			this.target = this.options.target; //the ID
 			this.page = this.options.page; //the changePage page
-			
+
 			//this.params=obj;//what IS this?
 
 			this.active = true;
 			this.isPage = this.target === "";
-		
+
 			this.parent = ObjSubUtils.findSub(Utils.getArrayFromString(this.page));
 			this.parent.aFav[this.parent.aFav.length] = this;
 
 		},
 
-		activate: function() {
+		activate: function () {
 			this.active = true;
 			//$(this.targetObj).addClass("favorite");
 			if (this.isPage) {
@@ -45,7 +45,7 @@ define([
 				$("[data-fav*='" + this.target + "']").addClass(favAddedClass);
 			}
 		},
-		disable: function() {
+		disable: function () {
 			this.active = false;
 			//$(this.targetObj).addClass("favorite");
 			if (this.isPage) {
@@ -61,7 +61,7 @@ define([
 			}
 		},
 
-		toggle: function() {
+		toggle: function () {
 			//toggling between stuff.
 			this.active = !this.active;
 			if (this.page == masterStructure.currentSub.sPosition) {

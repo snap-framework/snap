@@ -1,1 +1,5 @@
 .qs-elearning-activity {display:none;}
+.qs-elearning-activity.qs-step1 .qs-navgroup,
+.qs-elearning-activity.qs-step3 .qs-navgroup{
+	display:none;
+}

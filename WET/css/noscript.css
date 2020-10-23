@@ -2,10 +2,9 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.26 - 2017-08-15
+ * v4.0.37 - 2020-07-24
  *
  */
-@charset "UTF-8";
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -17,7 +16,7 @@
 /*
  * HOW TO USE THIS FILE
  * Use this file to override Bootstrap variables and WET custom variables.
- * If there is a Bootstrap variable not shown here that you want to override, go to "../lib/bootstrap-sass-official/assets/stylesheets/bootstrap/variables" to view the variables that you can override. Simply copy and paste the variable and its applicable section (if applicable) from the Bootstrap file into this override file and override the variables as applicable.
+ * If there is a Bootstrap variable not shown here that you want to override, go to "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables" to view the variables that you can override. Simply copy and paste the variable and its applicable section (if applicable) from the Bootstrap file into this override file and override the variables as applicable.
  */
 .wb-overlay, .mfp-hide {
   display: block !important; }
@@ -52,7 +51,6 @@
     margin-bottom: .5em;
     opacity: 1;
     -webkit-transform: none;
-        -ms-transform: none;
             transform: none; }
 
 /*
@@ -67,7 +65,9 @@
 
 @media screen {
   #wb-srch, #wb-sm, #wb-sm .nvbar, #wb-sec, #wb-info {
-    display: block !important; } }
+    display: block !important; }
+  #wb-sm .menu {
+    background: #0e4164; } }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)

@@ -1,14 +1,14 @@
-define(function() {
-	'use strict';
-	
+define(function () {
+    'use strict';
+
     //Configure loading modules from the js directory.
     require.config({
         waitSeconds: 20,
         //base url to lookup files
         baseUrl: 'core/js',
 
-		//add timestamp to force no-cache
-		urlArgs: "bust=" + (new Date()).getTime(),
+        //add timestamp to force no-cache
+        urlArgs: "bust=" + (new Date()).getTime(),
         //To get timely, correct error triggers in IE, force a define/shim exports
         enforceDefine: true,
 
@@ -27,7 +27,7 @@ define(function() {
                 exports: 'History'
             },
             "../../../../js/plugins/ckeditor/ckeditor": { "exports": "CKEDITOR" },
-			// "plugins/nestable/jquery.nestable": { "exports": "NESTABLE" }
+            // "plugins/nestable/jquery.nestable": { "exports": "NESTABLE" }
         },
         //shorten path for easier usage
         paths: {
@@ -41,7 +41,7 @@ define(function() {
             scrollto: 'lib/jquery/plugins/scrollto/scrollto',
 
             //requirejs plugins
-            hbs : 'lib/hbs/hbs',
+            hbs: 'lib/hbs/hbs',
             text: 'lib/require.text',
             json: 'lib/require.json',
 
@@ -49,7 +49,7 @@ define(function() {
             'wet-boew': '../../WET/js/wet-boew',
 
             //these serve as shortcut paths
-            labels: ['../../settings/labels','../settings/localization/labels'],
+            labels: ['../../settings/labels', '../settings/localization/labels'],
             'settings-core': '../settings/settings-core',
             'settings-general': '../../settings/settings-general',
             settingsOverride: 'helpers/settingsOveride',
@@ -58,19 +58,19 @@ define(function() {
             router: 'modules/router',
             history: 'plugins/native.history',
             //script used for creating custom code per course
-			'ga-List': 'modules/google-analytics/ga-list.json',
+            'ga-List': 'modules/google-analytics/ga-list.json',
             interactions: '../../content/scripts/interactions',
 
             //hbs templates path
             templates: "../templates",
             content: "../../content"
         },
-		
-		//https://github.com/SlexAxton/require-handlebars-plugin
-		//DO NOT UPDATE LIBRARY (custom changes)
-		hbs: {
-			templateExtension: 'html',
-        	handlebarsPath: 'lib/hbs/handlebars'
-		}
+
+        //https://github.com/SlexAxton/require-handlebars-plugin
+        //DO NOT UPDATE LIBRARY (custom changes)
+        hbs: {
+            templateExtension: 'html',
+            handlebarsPath: 'lib/hbs/handlebars'
+        }
     });
 });

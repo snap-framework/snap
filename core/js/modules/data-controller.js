@@ -1,10 +1,10 @@
 define([
 	'logger',
-    'modules/BaseModule'
-], function(Logger, BaseModule) {
-	
+	'modules/BaseModule'
+], function (Logger, BaseModule) {
+
 	'use strict';
-	
+
 	//unescape(encodeURIComponent(str)).length NO MAX THAN 4096
 
 	//SYNC MODE: ("agressive" || "passive")
@@ -42,11 +42,11 @@ define([
 		//JSON.parse()
 		//JSON.stringify() 
 		//OLD BROWSERS USE EVAL(terrible idea)
-		
+
 		//INITIALIZE SAVE OBJ; preparing the thing to work
-		initialize: function(options) {
+		initialize: function (options) {
 			Logger.log("INIT: Data Controller");
-			
+
 			this.options = options;
 			this.scorm = this.options.scorm;
 
@@ -78,24 +78,24 @@ define([
 			//ONCE LOADED...
 			this.isLoaded = true;
 			this.isSynchronized = true;
-			
-			if (this.scorm !== null){this.initPing();}
+
+			if (this.scorm !== null) { this.initPing(); }
 		},
-		
+
 		//ping the ILMS to keep an active connection and avoid losing data
-		initPing: function() {
+		initPing: function () {
 			if (this.scorm.getStatus() == "online") {
 				var that = this;
 				var time = 1200000; //20min
-				
-				var pingInterval = setInterval(function() {
+
+				var pingInterval = setInterval(function () {
 					that.scorm.saveSuspendData(JSON.stringify(that.data));
 				}, time);
 			}
 		},
-		
+
 		//SAVE DATA; you know, save stuff
-		saveData: function(id, dat) {
+		saveData: function (id, dat) {
 
 			//NOT SYNCHRONIZED NO MORE
 			this.isSynchronized = false;
@@ -127,7 +127,7 @@ define([
 		},
 
 		//RETRIEVE DATA; you know, return stuff you asked for
-		getData: function(id) {
+		getData: function (id) {
 			if (this.data[id] === undefined) {
 				//console.log('DataController.getData('+id+'): trying to retrieve data that doesnt exist.');
 				return undefined;
@@ -137,24 +137,24 @@ define([
 		},
 
 		//SYNCHRONIZE DATA; take current this.data{} and save it in iLMS
-		syncData: function() {
-			if (this.scorm !== null){
+		syncData: function () {
+			if (this.scorm !== null) {
 				this.scorm.saveSuspendData(JSON.stringify(this.data));
 				this.isSynchronized = true;
 			}
 		},
 
 		//GET TRACKING STRING FROM iLMS
-		fGetLMSData: function() {
-			if (this.scorm!== null){
+		fGetLMSData: function () {
+			if (this.scorm !== null) {
 				return this.scorm.getSuspendData();
-			}else{
+			} else {
 				return false;
 			}
 		},
 
 		//VALIDATE DATA
-		fValidateData: function(dat, mode) {
+		fValidateData: function (dat, mode) {
 			var isValid = true;
 			//IMPERATIVELY CHANGE UNDEFINEDs TO NULLs (JSON DOESNT LIKE UNDEFINED)
 			dat = (dat === undefined) ? null : dat;
@@ -175,20 +175,20 @@ define([
 					}
 					break;
 				default:
-					//console.error('DataController.fValidateData: validation mode does not exist');
+				//console.error('DataController.fValidateData: validation mode does not exist');
 			}
 			return isValid;
 		},
 
 		//REPLACE DATA IF NECESSARY (2ND PARAM FOR JSON.stringify())
-		fReplaceData: function(chk) {
+		fReplaceData: function (chk) {
 			//ESCAPES AND ENCODES...*TMP
 			return chk; //obvious passthrough is *TMP
 		},
 
 		//SETS THE FINAL cmi.score.raw SCORE - TYPICALLY CALLED IN CONJUNCTION WITH this.scorm.complete();//CSPS-TD-AJOUT G313
-		setFinalScore: function(score) {
-			if(this.scorm!== null){
+		setFinalScore: function (score) {
+			if (this.scorm !== null) {
 				this.scorm.saveScoreData(score);
 			}
 		}

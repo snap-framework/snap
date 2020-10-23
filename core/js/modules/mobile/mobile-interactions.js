@@ -1,9 +1,9 @@
 define([
-    'jquery',
-    'logger',
-    "settings-core",
-    '../BaseModule'
-], function($, Logger, CoreSettings, BaseModule) {
+	'jquery',
+	'logger',
+	"settings-core",
+	'../BaseModule'
+], function ($, Logger, CoreSettings, BaseModule) {
 	'use strict';
 
 	return BaseModule.extend({
@@ -15,9 +15,9 @@ define([
 			"touchcancel #dynamic_content": "touchCancel"
 		},
 
-		initialize: function(options) {
+		initialize: function (options) {
 			Logger.log("INIT: Mobile interactions");
-			
+
 			this.options = options;
 			this.navigation = this.options.navigation;
 
@@ -40,7 +40,7 @@ define([
 			this.swipeLength = 0;
 		},
 
-		touchStart: function(event) {
+		touchStart: function (event) {
 			if (event.originalEvent.touches) {
 				// disable the standard ability to select the touched object
 				//event.preventDefault();
@@ -61,7 +61,7 @@ define([
 			}
 		},
 
-		touchMove: function(event) {
+		touchMove: function (event) {
 			if (event.originalEvent.touches) {
 				//event.preventDefault();
 				if (event.originalEvent.touches.length == 1) {
@@ -73,7 +73,7 @@ define([
 			}
 		},
 
-		touchEnd: function(event) {
+		touchEnd: function (event) {
 			//event.preventDefault();
 			// check to see if more than one finger was used and that there is an ending coordinate
 			if (this.fingerCount == 1 && this.curX != 0) {
@@ -93,7 +93,7 @@ define([
 			}
 		},
 
-		touchCancel: function(event) {
+		touchCancel: function (event) {
 			// reset the variables back to default values
 			this.fingerCount = 0;
 			this.startX = 0;
@@ -108,7 +108,7 @@ define([
 			this.triggerElement = null;
 		},
 
-		caluculateAngle: function() {
+		caluculateAngle: function () {
 			var X = this.startX - this.curX;
 			var Y = this.curY - this.startY;
 			var Z = Math.round(Math.sqrt(Math.pow(X, 2) + Math.pow(Y, 2))); //the distance - rounded - in pixels
@@ -120,7 +120,7 @@ define([
 			return swipeAngle;
 		},
 
-		determineSwipeDirection: function() {
+		determineSwipeDirection: function () {
 			var swipeDirection;
 			var swipeAngle = caluculateAngle();
 			if ((swipeAngle <= 45) && (swipeAngle >= 0)) {
@@ -137,7 +137,7 @@ define([
 			return swipeDirection;
 		},
 
-		processingRoutine: function() {
+		processingRoutine: function () {
 			var swipedElement = $(this.triggerElement);
 			var swipeDirection = determineSwipeDirection();
 			if (swipeDirection == 'left') {

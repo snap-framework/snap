@@ -1,8 +1,8 @@
 
 // ----- background colors
-$btn-bg-color:#fdfdfd;
-$btn-bg-color-hover:inherit;
-$btn-bg-color-focus:inherit;
+$btn-bg-color:#eeeeee;
+$btn-bg-color-hover:#dddddd;
+$btn-bg-color-focus:#dddddd;
 
 $icon-bg-color:white;
 $icon-bg-color-hover:inherit;
@@ -10,14 +10,14 @@ $icon-bg-color-focus:inherit;
 
 
 //-------- BORDERS
-$border-radius:8px;
-$btn-border-color:inherit;
-$btn-border-color-hover:inherit;
-$btn-border-color-focus:inherit;
+$border-radius:0px;
+$btn-border-color:transparent;
+$btn-border-color-hover:transparent;
+$btn-border-color-focus:transparent;
 
-$icon-border-color:inherit;
-$icon-border-color-hover:inherit;
-$icon-border-color-focus:inherit;
+$icon-border-color:transparent;
+$icon-border-color-hover:transparent;
+$icon-border-color-focus:transparent;
 
 //-------- SIZE
 $small-btn:35px;
@@ -44,13 +44,29 @@ $o-ico-packs: (
 		13: theme,
 		14: editpage,
 		15: upload,
-		16: download, 
+		16: download,
 		17: trash,
 		18: tabs,
 		19: lightbox,
 		20: audio,
-		21: video
-    ),
+		21: video,
+        22: classPicker,
+        23: ribbonPicker,
+        24: resources,
+        25: login,
+        26: faq,
+        27: buildYourOwn,
+        28: btngroup,
+        29: search,
+        30: home,
+        31: course,
+        32: users,
+        33: notifications,
+        34: chat,
+        35: review,
+        36: board,
+        37: announcement
+	),
     QS: (
         1:  right,
         2:  left,
@@ -71,6 +87,15 @@ $o-ico-packs: (
 		8:	folder,
 		9:	folderclosed,
 		10:	warning
+    ),
+    
+    USERS: (
+        1:  user,
+        2:  reviewer,
+        3:  editor,
+        4:  designer,
+        5:  manager,
+        6:  admin,
     )
 );
 
@@ -89,11 +114,17 @@ $o-button-types:(
 
 
 @each $size, $size-value in $o-button-types{
-	button.snap-#{$size},input[type='button'].snap-#{$size}{
+	button.snap-#{$size},input[type='button'].snap-#{$size},input[type='file'].snap-#{$size}{
 		//colors, border radius
 		background-color:$btn-bg-color;
 		border-color:$btn-border-color;
 		border-radius: $border-radius;
+        border-style: solid;
+        transition: background-color 0.2s, opacity 0.2s;
+        
+        &:not(:last-of-type){
+            margin-bottom: 10px;
+        }
 		
 		&:hover{
 			//BUTTON HOVER
@@ -104,7 +135,7 @@ $o-button-types:(
 			//BUTTON FOCUS
 			background-color:$btn-bg-color-focus;
 			border-color:$btn-border-color-focus;
-			
+			outline: none;
 		}
 		
 
@@ -199,15 +230,12 @@ $o-button-types:(
 					&:disabled:before{
 						background-position-y: -($size-value*2)!important;
 						border-color:transparent;
-						
 					}
 					//--------------FOCUS BEFORE--------
 					&:focus:before,&:focus:before{
-						
+						background-position-y: -$size-value;
 						background-color:$icon-bg-color-focus;
 						border-color:$icon-border-color-focus;
-						
-						
 					}					
 				}
 			}
@@ -278,8 +306,8 @@ $o-button-types:(
 		display:block;
 		position:absolute;
 		/*background-color:$icon-bg-color;*/
-		border:#dddddd solid 1px;
-		border-radius:5px;
+		border:$icon-border-color solid 2px;
+		border-radius: 0px!important;
 	}
 
 	
@@ -296,6 +324,7 @@ $o-button-types:(
 		width: $small-btn;
 		margin-top: -7px;
 		margin-left: 1px;
+        border: none!important;
 	}
 	
 	
@@ -309,11 +338,15 @@ $o-button-types:(
 %small-icon{
 	padding-left:50px;
 	padding-right: 10px;
+    position: relative;
+    
 	&:before{
 		height: $small-btn;
 		width: $small-btn;
 		margin-left: -($small-btn+10);
-		margin-top: -7px;
+		margin-top: 0px;
+        border: none!important;
+        top: calc(50% - (#{$small-btn} / 2));
 	}
 
 }
@@ -364,9 +397,23 @@ $o-button-types:(
 		}
 	}
 	&.align-left{
+        padding-left:100px;
+        padding-right: 15px;
+        position: relative;
+        
 		&:before{
-			margin-left:-45px;
+			margin-left:-90px;
+            margin-top: 0;
+            top: calc(50% - (#{$large-btn} / 2));
 		}
+        &.snap-md{
+            padding-left: 60px;
+            
+            &:before{
+                margin-left:-50px;
+                top: calc(50% - (#{$small-btn} / 2));
+            }
+        }
 	}
 	
 	
@@ -417,7 +464,7 @@ $o-button-types:(
 	@each $pack-name, $pack in $o-ico-packs {
 		@each $index, $value in $pack{
 			@if $value == $class{
-				background-image:url(base/btn-iconpack_#{$pack-name}.png);
+				background-image:url(base/btn-iconpack_#{$pack-name}.png); 
 				background-position-x: -($size*$index);
 				@if ($state == hover){
 					background-position-y: -($size*1);
@@ -429,4 +476,8 @@ $o-button-types:(
 			}
 		}
 	}	
+}
+
+.btn.btn-default{
+    color: white!important;
 }

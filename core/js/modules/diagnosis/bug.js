@@ -1,11 +1,11 @@
 define([
 	'./diagnosis-constants',
 	'modules/BaseModule'
-], function(CONSTANTS, BaseModule) {
+], function (CONSTANTS, BaseModule) {
 	'use strict';
 
 	return BaseModule.extend({
-		initialize: function(options) {
+		initialize: function (options) {
 			this.options = options;
 
 			this.page = this.options.page;
@@ -17,10 +17,10 @@ define([
 			this.page.aBugs[this.page.aBugs.length] = this;
 		},
 
-		getInfoByType: function() {
+		getInfoByType: function () {
 			var returnWrapper = "<li class='bug-item bug-severity-" + this.severity + " bug-type-" + this.type + "'>";
 			var pagePosition = this.page.sPosition;
-			var returnPage = "<a href='#' data-position='"+pagePosition+"'>" + pagePosition + " " + this.page.title + "</a>";
+			var returnPage = "<a href='#' data-position='" + pagePosition + "'>" + pagePosition + " " + this.page.title + "</a>";
 			var returnText = "";
 			switch (this.type) {
 				case CONSTANTS.TYPES.COMMENTS:

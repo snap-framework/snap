@@ -7,61 +7,61 @@ define([
 	'../../BaseModule',
 	'modules/objSub/objSub-utils',
 	'./favorite-model'
-], function(_, $, Logger, CoreSettings, Utils, BaseModule, ObjSubUtils, FavoriteModel) {
+], function (_, $, Logger, CoreSettings, Utils, BaseModule, ObjSubUtils, FavoriteModel) {
 	'use strict';
 
 	var favAddedClass = "fav-added";
-	
+
 	return BaseModule.extend({
 		ui: {
 			favoritesBtn: ".top-menu .favorites"
 		},
-		
+
 		templateUrl: "content/tools/favorites_" + Utils.lang,
-		
-		initialize: function(options) {
+
+		initialize: function (options) {
 			Logger.log("INIT: Favorite Controller");
-			
+
 			masterStructure.aFav = []; //as of 1.5.1, a bookmark object
 
 			this.setListeners();
-			
+
 			this.loadFavorites();
-			
+
 			this.render();
 		},
 
-		serializeData: function() {
+		serializeData: function () {
 			return {};
 		},
 
-		render: function() {
+		render: function () {
 			this.template = this.template(this.serializeData());
 
 			this.setMagnificPopupTemplate();
 		},
 
-		setMagnificPopupTemplate: function() {
+		setMagnificPopupTemplate: function () {
 			this.ui.favoritesBtn.magnificPopup({
 				items: { src: this.template },
 				type: 'inline'
 			});
 		},
 
-		setListeners: function() {},
+		setListeners: function () { },
 
-		onPageLoaded: function() {
+		onPageLoaded: function () {
 			this.run();
 		},
 
-		run: function() {
+		run: function () {
 			//runs on every page.
 			//check if there are fav buttons in the page.
 			this.autoFav();
 			this.scanForButtons();
 		},
 
-		loadFavorites: function() {
+		loadFavorites: function () {
 			var aFavList = trackingObj.getData("favList");
 			//aFavList=["m70-2-14","m70-2-15#fav2", "#fav3"]
 			if (typeof aFavList === "undefined") {
@@ -97,7 +97,7 @@ define([
 					}
 
 					//build the object
-					new FavoriteModel({page: page, target: target});
+					new FavoriteModel({ page: page, target: target });
 				}
 				//rebuild the list?
 				//this.rebuildList
@@ -105,13 +105,13 @@ define([
 		},
 
 		//this is to add the favorite button automatically.
-		autoFav: function() {
+		autoFav: function () {
 			if (CoreSettings.autoAddFavoriteBtn && (!masterStructure.currentSub.isQuiz()) && (!masterStructure.currentSub.isIntro()) && (!masterStructure.currentSub.isActivity())) {
 				$("#dynamic_content h1").before("<span data-fav='' class='autofav'>" + labels.nav.togglefav + "</span>");
 				$("#dynamic_content h1").addClass("has-fav");
 			}
 		},
-		scanForButtons: function() {
+		scanForButtons: function () {
 			var btnList = $("[data-fav]");
 			this.btnInit(btnList);
 
@@ -127,19 +127,19 @@ define([
 			}
 		},
 		//initialize all the buttons in the page.
-		btnInit: function(btnList) {
+		btnInit: function (btnList) {
 			var $thisBtn;
 			var that = this;
 			for (var btnLoop = 0; btnLoop < btnList.length; btnLoop++) {
 				$thisBtn = $(btnList[btnLoop]);
 				//console.log(btnList[btnLoop])
 				//$(btnList[btnLoop]).html("wow")
-				$thisBtn.on("click", function() {
+				$thisBtn.on("click", function () {
 					that.toggleFavorite(this);
-					return false;	
+					return false;
 				}).addClass("btn-fav")
 					.append("<span class='debug'>&nbsp;" + $thisBtn.attr("data-fav") + "</span>");
-					
+
 				var attrFav = $thisBtn.attr("data-fav");
 				var objIndex = attrFav.indexOf("#");
 				var tempSub, favIndex;
@@ -171,7 +171,7 @@ define([
 			}
 		},
 
-		toggleFavorite: function(btn) {
+		toggleFavorite: function (btn) {
 			var dataTarget = $(btn).attr("data-fav");
 			var target;
 			var page;
@@ -204,7 +204,7 @@ define([
 			this.updateFav();
 		},
 
-		updateFav: function() {
+		updateFav: function () {
 			var saveFav = this.listFav();
 			//save to scorm!
 			trackingObj.saveData('favList', saveFav.toString());
@@ -212,7 +212,7 @@ define([
 			$("#displayFav").html(saveFav.toString());
 		},
 
-		listFav: function() {
+		listFav: function () {
 			var totalArray = [];
 			var pageList = masterStructure.flatList;
 			for (var i = 0; i < pageList.length; i++) {
@@ -229,7 +229,7 @@ define([
 			return totalArray;
 		},
 
-		prepareFavContent: function() {
+		prepareFavContent: function () {
 			var totalArray = [];
 			var pageList = masterStructure.flatList;
 			for (var i = 0; i < pageList.length; i++) {

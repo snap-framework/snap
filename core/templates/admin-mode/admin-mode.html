@@ -11,30 +11,34 @@
     </div>
     <section>
         <h2>Admin Mode</h2>
-            <button class="snap-md ico-SNAP-bug debug-btn">{{#if debugMode}}Deactivate {{else}}Activate {{/if}} Debug</button>
+        <button class="snap-md ico-SNAP-bug debug-btn">{{#if debugMode}}Deactivate {{else}}Activate {{/if}} Debug</button>
     </section>
     <section class="locks-admin">
-          <details id="details-panellocklist">
-             <summary class="wb-details"><h2>Locks</h2></summary>
-             <ul></ul>
-          </details>   
-    </section>    
+        <details id="details-panellocklist">
+            <summary class="wb-details">
+                <h2>Locks</h2>
+            </summary>
+            <ul></ul>
+        </details>
+    </section>
     <section class="scorm-admin">
         <h2>Scorm</h2>
         <ul>
             <li><a href="#" class="scormreset-btn disabled">Reset Scorm Values</a>
-            </li>    
+            </li>
             <li><a href="#" class="scorm-btn disabled">Activate Scorm Tracking</a>
-                <div id='scorm-tracker'><dl></dl></div>
+                <div id='scorm-tracker'>
+                    <dl></dl>
+                </div>
             </li>
         </ul>
-    </section>    
-    <section class="skrollr-offset">  
-		<h2>Skrollr</h2>
-		<div></div>
-		<div id="skrollr_status"></div>
-	</section>
-    <section class="diagnosis-admin">   
+    </section>
+    <section class="skrollr-offset">
+        <h2>Skrollr</h2>
+        <div></div>
+        <div id="skrollr_status"></div>
+    </section>
+    <section class="diagnosis-admin">
         <h2>Diagnosis</h2>
         <ul>
             <!--<li><a href="#" onclick='masterStructure.adminMode.toggleDiagnosis();return false' class="diagnosis-btn disabled">Turn AutoScan On</a></li>-->
@@ -44,9 +48,9 @@
         <div class='diag-window'></div>
     </section>
     <section class="aqa-tools">
-    	<h2>AQA Tools</h2>
+        <h2>AQA Tools</h2>
         <ul>
-	        <li><a href="#" class="headings-btn">Headings Toggle</a></li>
-		</ul>
+            <li><a href="#" class="headings-btn">Headings Toggle</a></li>
+        </ul>
     </section>
 </div>

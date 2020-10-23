@@ -6,9 +6,9 @@ define([
 	'settings-core'
 ], function ($, BaseModule, CONSTANTS, labels, CoreSettings) {
 	'use strict';
-	
+
 	return BaseModule.extend({
-		initialize: function(options) {
+		initialize: function (options) {
 			this.options = options;
 
 			this.aScorm = []; //array of all possible scorm values
@@ -16,7 +16,7 @@ define([
 			this.setListeners();
 
 			this.status = this.getStatus();
-			this.api=CoreSettings.api;
+			this.api = CoreSettings.api;
 
 			if (this.status !== "online") {
 				if (CoreSettings.debugMode) {
@@ -24,23 +24,23 @@ define([
 				}
 			} else {
 				//check if initialized already
-				
+
 				if (!this.api.LMSIsInitialized()) {
 					this.api.doLMSInitialize();
-					CoreSettings.scormversion=(CoreSettings.connectionMode==="scorm")?this.api.getAPIHandle().scormVersion:null;
+					CoreSettings.scormversion = (CoreSettings.connectionMode === "scorm") ? this.api.getAPIHandle().scormVersion : null;
 				} else {
 					//alredy initialized
 				}
 			}
 			this.initScormDefaults();
 		},
-		
-		setListeners: function() {
+
+		setListeners: function () {
 			$(this).on("ScormController:updateScorm", this.updateScorm);
 			$(this).on("ScormController:activateScorm", this.activateScorm);
 			$(this).on("ScormController:resetScorm", this.resetScorm);
 		},
-		getLessonStatus: function() {
+		getLessonStatus: function () {
 			if (this.getStatus() === "online") {
 				return this.api.doLMSGetValue(CONSTANTS.CMI.CORE.LESSON_STATUS);
 			} else {
@@ -48,7 +48,7 @@ define([
 				return "";
 			}
 		},
-		getBookmark: function() {
+		getBookmark: function () {
 			if (this.getStatus() === "online") {
 				return this.api.doLMSGetValue(CONSTANTS.CMI.CORE.LESSON_LOCATION);
 			} else {
@@ -56,7 +56,7 @@ define([
 				return "";
 			}
 		},
-		getSuspendData: function() {
+		getSuspendData: function () {
 			if (this.getStatus() === "online") {
 				return this.api.doLMSGetValue(CONSTANTS.CMI.SUSPEND_DATA);
 			} else {
@@ -64,7 +64,7 @@ define([
 				return "";
 			}
 		},
-		saveBookmark: function() {
+		saveBookmark: function () {
 			if (this.getStatus() === "online") {
 				this.api.doLMSSetValue(CONSTANTS.CMI.CORE.LESSON_LOCATION, masterStructure.currentSub.sPosition);
 			} else {
@@ -72,7 +72,7 @@ define([
 				return "";
 			}
 		},
-		saveSuspendData: function(data) {
+		saveSuspendData: function (data) {
 			if (this.getStatus() === "online") {
 				this.api.doLMSSetValue(CONSTANTS.CMI.SUSPEND_DATA, data);
 			} else {
@@ -80,7 +80,7 @@ define([
 				return "";
 			}
 		},
-		saveCommentsData: function(data) {
+		saveCommentsData: function (data) {
 			if (this.getStatus() === "online") {
 				this.api.doLMSSetValue(CONSTANTS.CMI.COMMENTS, data);
 			} else {
@@ -91,7 +91,7 @@ define([
 
 
 		/*CSPS-TD-AJOUT G313*/
-		saveScoreData: function(data) {
+		saveScoreData: function (data) {
 			if (this.getStatus() === "online") {
 				this.api.doLMSSetValue(CONSTANTS.CMI.CORE.SCORE_MIN, 0);
 				this.api.doLMSSetValue(CONSTANTS.CMI.CORE.SCORE_MAX, 100);
@@ -102,23 +102,23 @@ define([
 				return "";
 			}
 		},
-		isOnline: function() {
+		isOnline: function () {
 
-			if(CoreSettings.isPopped === true){
-				if(window.opener.getAPIHandle() !== null){
-					this.api=window.opener;
+			if (CoreSettings.isPopped === true) {
+				if (window.opener.getAPIHandle() !== null) {
+					this.api = window.opener;
 					return true;
 				}
-			}else{
-				if(getAPIHandle() !== null){
-					this.api=window;
+			} else {
+				if (getAPIHandle() !== null) {
+					this.api = window;
 					return true;
 				}
 			}
 		},
 
-		getStatus: function() {
-			if (CoreSettings.connectionMode === "scorm" ) { //if this window has access to poppup
+		getStatus: function () {
+			if (CoreSettings.connectionMode === "scorm") { //if this window has access to poppup
 				//check for ILMS
 				if (this.isOnline()) {
 					return "online";//labels.err.online.toLowerCase();
@@ -131,7 +131,7 @@ define([
 			}
 		},
 
-		checkStatusChange: function() {
+		checkStatusChange: function () {
 			//do SOMETHING if previous status hasn't been updated
 			if (this.status !== this.getStatus()) {
 				//SOMETHING CHANGED
@@ -139,8 +139,8 @@ define([
 				alert(labels.err.statusChange);
 			}
 		},
-		initScormDefaults: function(resetVars) {
-			resetVars=(typeof resetVars !=="undefined")?resetVars:null;
+		initScormDefaults: function (resetVars) {
+			resetVars = (typeof resetVars !== "undefined") ? resetVars : null;
 			this.aScorm = [
 				[CONSTANTS.CMI.CORE.STUDENT_ID, ""],
 				[CONSTANTS.CMI.CORE.STUDENT_NAME, ""],
@@ -166,7 +166,7 @@ define([
 				//[CONSTANTS.CMI.CORE.SPEED,0]
 			];
 		},
-		pullScormVars: function() {
+		pullScormVars: function () {
 			var scormName;
 			for (var sLoop = 0; sLoop < this.aScorm.length; sLoop++) {
 				scormName = this.aScorm[sLoop][0];
@@ -174,7 +174,7 @@ define([
 			}
 			return "done";
 		},
-		resetScormVars: function() {
+		resetScormVars: function () {
 			var scormName;
 			var scormValue;
 			for (var sLoop = 2; sLoop < this.aScorm.length; sLoop++) {
@@ -185,7 +185,7 @@ define([
 			this.api.doLMSCommit();
 			return "done";
 		},
-		incomplete: function() {
+		incomplete: function () {
 			if (this.getStatus() === "online") {
 				this.api.doLMSSetValue(CONSTANTS.CMI.CORE.LESSON_STATUS, "incomplete");
 				this.api.doLMSCommit();
@@ -194,7 +194,7 @@ define([
 				this.checkStatusChange();
 			}
 		},
-		complete: function() {
+		complete: function () {
 			if (this.getStatus() === "online") {
 				if (this.getLessonStatus() !== 'completed') {
 					this.api.doLMSSetValue(CONSTANTS.CMI.CORE.LESSON_STATUS, "completed");
@@ -206,7 +206,7 @@ define([
 			}
 		},
 
-		updateScorm: function() {
+		updateScorm: function () {
 			var scormName;
 			var scormValue;
 			$("#scorm-tracker").children("dl").html("");
@@ -219,14 +219,14 @@ define([
 				scormList.append("<dt>" + scormName + "</dt><dd>" + scormValue + "</dd>");
 			}
 		},
-		activateScorm: function() {
+		activateScorm: function () {
 			var btn = $(".scorm-btn");
 			if (this.status === "online") {
 				if (btn.hasClass("disabled")) {
 					btn.html("Disable Scorm Tracking");
 					$("html").addClass("debug");
 					this.updateScorm();
-					this.refreshScorm = window.setInterval(function() {
+					this.refreshScorm = window.setInterval(function () {
 						this.updateScorm();
 					}, 4000);
 				} else {
@@ -240,7 +240,7 @@ define([
 				alert("scorm status: " + this.status);
 			}
 		},
-		resetScorm: function() {
+		resetScorm: function () {
 			this.api.doLMSSetValue(CONSTANTS.CMI.SUSPEND_DATA, "");
 			this.api.doLMSSetValue(CONSTANTS.CMI.CORE.LESSON_LOCATION, "");
 			this.api.doLMSSetValue(CONSTANTS.CMI.CORE.LESSON_STATUS, "incomplete");

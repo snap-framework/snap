@@ -3,9 +3,9 @@ define([
 	'modules/BaseModule',
 	'logger',
 	'./tool-item',
-   "settings-core",
-   'utils',
-], function($, BaseModule, Logger, ToolItem, CoreSettings,Utils) {
+	"settings-core",
+	'utils',
+], function ($, BaseModule, Logger, ToolItem, CoreSettings, Utils) {
 	'use strict';
 
 	return BaseModule.extend({
@@ -14,11 +14,11 @@ define([
 			"keydown .tb-container a": "onToolboxItemKeyDown"
 		},
 
-		initialize: function(options) {
+		initialize: function (options) {
 			Logger.log("INIT: Toolbox");
 
 			this.options = options;
-			
+
 			this.$toolboxLink = $('a.toolbox');
 			//TODO: make mobile check dynamic instead of dupplicating code for both desktop and mobile
 			this.$toolboxLinkMobile = $("#mb-pnl").find("a.toolbox");
@@ -35,22 +35,22 @@ define([
 			$("section.lng-ofr").after("<ul id='mb-tb' class='list-unstyled open tb-container' role='menu' aria-hidden='true'></ul>");
 			$("#mb-tb").append($("ul.tb-container").html());
 			$("#mb-tb").hide();
-			this.$toolboxLink.append("<span class='wb-inv'>"+labels.nav.toolboxInstr+"</span>")
+			this.$toolboxLink.append("<span class='wb-inv'>" + labels.nav.toolboxInstr + "</span>")
 			this.menuAddCustom();
 			this.initializeItems();
 
 			this.setListeners();
 		},
 
-		initializeItems: function() {
+		initializeItems: function () {
 			//initialize items
 			//exceptions : dont init disabled items
-			var notList="";
-				notList+=((CoreSettings.showFavorites)?"":":not('.favorites')");
-				notList+=((CoreSettings.showGlossary)?"":":not('.glossary')");
-				notList+=((CoreSettings.showResources)?"":":not('.resources')");
-			var kids = this.$toolboxLink.next("ul").children("li").children("a"+notList).parent();
-			var mbKids = this.$toolboxLinkMobile.closest('section').next("ul#mb-tb").children("li").children("a"+notList).parent();; // fix mobile toolbox problem sc
+			var notList = "";
+			notList += ((CoreSettings.showFavorites) ? "" : ":not('.favorites')");
+			notList += ((CoreSettings.showGlossary) ? "" : ":not('.glossary')");
+			notList += ((CoreSettings.showResources) ? "" : ":not('.resources')");
+			var kids = this.$toolboxLink.next("ul").children("li").children("a" + notList).parent();
+			var mbKids = this.$toolboxLinkMobile.closest('section').next("ul#mb-tb").children("li").children("a" + notList).parent();; // fix mobile toolbox problem sc
 			for (var i = 0; i < kids.length; i++) {
 				this.items[i] = new ToolItem({
 					el: kids.eq(i)[0],
@@ -61,20 +61,20 @@ define([
 			}
 		},
 
-		setListeners: function() {
+		setListeners: function () {
 			var that = this;
 			//add aria-expanded and aria-hidden
 			//add attribute open		
 			//add role="menuitem"	
 
 			$(document).on("click", _.bind(this.onToolboxClick, this));
-			this.$toolboxLink.on("click", function(e) {
+			this.$toolboxLink.on("click", function (e) {
 				//do not interfere with other components that are listening on the click event for links
 				e.preventDefault();
 			});
 		},
 
-		onToolboxItemKeyDown: function(e) {
+		onToolboxItemKeyDown: function (e) {
 			//do not interfere with other components that are listening on the key down event
 			e.stopPropagation();
 
@@ -94,7 +94,7 @@ define([
 				this.$toolboxLink.focus();
 			}
 		},
-		onToolboxKeyDown: function(e) {
+		onToolboxKeyDown: function (e) {
 			//do not interfere with other components that are listening on the key down event
 			e.stopPropagation();
 
@@ -128,7 +128,7 @@ define([
 			}
 		},
 
-		onToolboxClick: function(e) {
+		onToolboxClick: function (e) {
 			var container = this.$toolboxLink.next("ul");
 			if (!container.is(e.target) // if the target of the click isn't the container...
 				&& container.has(e.target).length === 0 // ... nor a descendant of the container
@@ -143,66 +143,66 @@ define([
 			}
 		},
 
-		menuClose: function() {
+		menuClose: function () {
 			this.isOpen = false;
 			$("#mb-tb").slideToggle();
 			this.$toolboxLink.next("ul").slideToggle();
 		},
-		menuAddCustom: function() {
-			var pageName,itemFilename,itemTitle, lang,aCustomItem,itemClass,
-				itemID,itemExt, htmlCode,mbHtmlCode, flagLbx, flagSpot,textComp;
+		menuAddCustom: function () {
+			var pageName, itemFilename, itemTitle, lang, aCustomItem, itemClass,
+				itemID, itemExt, htmlCode, mbHtmlCode, flagLbx, flagSpot, textComp;
 			var aItems, aMbItems;//=$("#wb-lng>ul>li>ul>li");
-			aCustomItem=CoreSettings.addToolboxPage;
-			lang=Utils.lang;
+			aCustomItem = CoreSettings.addToolboxPage;
+			lang = Utils.lang;
 			//populate the list so we can
-			flagLbx=false;
-			if (aCustomItem){
-				for(var i=0;i<aCustomItem.length;i++){
-					aItems=$("#wb-lng>ul>li>ul>li");
-					aMbItems=$("#mb-tb>li");
+			flagLbx = false;
+			if (aCustomItem) {
+				for (var i = 0; i < aCustomItem.length; i++) {
+					aItems = $("#wb-lng>ul>li>ul>li");
+					aMbItems = $("#mb-tb>li");
 					//initialize some vars
-					itemFilename=(lang=="en")?aCustomItem[i].filename_en:aCustomItem[i].filename_fr;
-					itemTitle=(lang=="en")?aCustomItem[i].name_en:aCustomItem[i].name_fr;
-					itemExt=itemFilename.substr(itemFilename.lastIndexOf('.'));
-					itemExt=(itemExt.split(".").length - 1 <=1)?itemExt:".ext";
-					itemExt=(itemExt.replace(/\s/g, '').slice(-1)==";")?".exe":itemExt;
+					itemFilename = (lang == "en") ? aCustomItem[i].filename_en : aCustomItem[i].filename_fr;
+					itemTitle = (lang == "en") ? aCustomItem[i].name_en : aCustomItem[i].name_fr;
+					itemExt = itemFilename.substr(itemFilename.lastIndexOf('.'));
+					itemExt = (itemExt.split(".").length - 1 <= 1) ? itemExt : ".ext";
+					itemExt = (itemExt.replace(/\s/g, '').slice(-1) == ";") ? ".exe" : itemExt;
 					// write the html depending on the item type
-					switch(itemExt) {
-					    case ".ext":
-					    case ".ca":
-					    case ".com":
-					    case ".net":
-					    	itemID="external_"+i
-							itemClass="tb-item external tb-"+itemID;
-							itemFilename=(itemFilename.indexOf("http://")>0)?itemFilename:"http://"+itemFilename;
-							htmlCode="<li><a class='"+itemClass+"' id='"+itemID+"' href='"+itemFilename+"' role='menuitem' target=_blank>"+itemTitle+"</a></li>";
+					switch (itemExt) {
+						case ".ext":
+						case ".ca":
+						case ".com":
+						case ".net":
+							itemID = "external_" + i
+							itemClass = "tb-item external tb-" + itemID;
+							itemFilename = (itemFilename.indexOf("http://") > 0) ? itemFilename : "http://" + itemFilename;
+							htmlCode = "<li><a class='" + itemClass + "' id='" + itemID + "' href='" + itemFilename + "' role='menuitem' target=_blank>" + itemTitle + "</a></li>";
 							//$(".tb-container").prepend(htmlCode);
-							flagLbx=true;
-							mbHtmlCode=htmlCode.replace("id='","id='mb-");							
-					        break;
-					    case ".pdf":
-					    case ".doc":
-					    case ".docx":
-					    	itemID="pdf_"+itemFilename.substr(0, itemFilename.indexOf('.'))+i; 
-							itemClass="tb-item tb-"+itemID;
-							htmlCode="<li><a class='"+itemClass+"' id='"+itemID+"' href='content/tools/"+itemFilename+"' role='menuitem' target=_blank>"+itemTitle+"</a></li>";
-							mbHtmlCode=htmlCode.replace("id='","id='mb-");
-					        break;
-					    case ".exe":
-					    case ".js":
-					    	itemID="exec_"+i
-							itemClass="tb-item tb-"+itemID;
-							htmlCode="<li><a class='"+itemClass+"' id='"+itemID+"' href='#' role='menuitem' onclick=\""+itemFilename.substr(0, itemFilename.lastIndexOf('.'))+"\">"+itemTitle+"</a></li>";
-							mbHtmlCode=htmlCode.replace("id='","id='mb-");
-					        break;
-					    default:
-					        //not specified , aka a local lightbox
-					        itemID="ajax_"+itemFilename+i;
-					        itemFilename=(itemFilename.indexOf(".html")>0)?itemFilename:itemFilename+".html";
-							itemClass="wb-lbx tb-item tb-"+itemID;
-							htmlCode="<li><a class='"+itemClass+"' id='"+itemID+"' href='content/tools/"+itemFilename+"' role='menuitem'>"+itemTitle+"</a></li>";
-							mbHtmlCode=htmlCode.replace("id='","id='mb-");
-							flagLbx=true;
+							flagLbx = true;
+							mbHtmlCode = htmlCode.replace("id='", "id='mb-");
+							break;
+						case ".pdf":
+						case ".doc":
+						case ".docx":
+							itemID = "pdf_" + itemFilename.substr(0, itemFilename.indexOf('.')) + i;
+							itemClass = "tb-item tb-" + itemID;
+							htmlCode = "<li><a class='" + itemClass + "' id='" + itemID + "' href='content/tools/" + itemFilename + "' role='menuitem' target=_blank>" + itemTitle + "</a></li>";
+							mbHtmlCode = htmlCode.replace("id='", "id='mb-");
+							break;
+						case ".exe":
+						case ".js":
+							itemID = "exec_" + i
+							itemClass = "tb-item tb-" + itemID;
+							htmlCode = "<li><a class='" + itemClass + "' id='" + itemID + "' href='#' role='menuitem' onclick=\"" + itemFilename.substr(0, itemFilename.lastIndexOf('.')) + "\">" + itemTitle + "</a></li>";
+							mbHtmlCode = htmlCode.replace("id='", "id='mb-");
+							break;
+						default:
+							//not specified , aka a local lightbox
+							itemID = "ajax_" + itemFilename + i;
+							itemFilename = (itemFilename.indexOf(".html") > 0) ? itemFilename : itemFilename + ".html";
+							itemClass = "wb-lbx tb-item tb-" + itemID;
+							htmlCode = "<li><a class='" + itemClass + "' id='" + itemID + "' href='content/tools/" + itemFilename + "' role='menuitem'>" + itemTitle + "</a></li>";
+							mbHtmlCode = htmlCode.replace("id='", "id='mb-");
+							flagLbx = true;
 					}
 					/*----- INSERT ELEMENT sorting
 					possibilities: 
@@ -210,54 +210,54 @@ define([
 						-bigger than an elment and smaller than another
 						-bigger than last element
 					*/
-					flagSpot=false;
+					flagSpot = false;
 					//console.log("--------------"+itemTitle)
-					for (var j=0;j<aItems.length;j++){
-						textComp=itemTitle.localeCompare( $(aItems[j]).children().text());
-						if (textComp==-1 && !flagSpot){
+					for (var j = 0; j < aItems.length; j++) {
+						textComp = itemTitle.localeCompare($(aItems[j]).children().text());
+						if (textComp == -1 && !flagSpot) {
 							//term comes before, lock this and insert code
-							flagSpot=true;
+							flagSpot = true;
 							$(aItems[j]).before(htmlCode);
 							$(aMbItems[j]).before(mbHtmlCode);
 						}
-						if (textComp==0 && !flagSpot){
+						if (textComp == 0 && !flagSpot) {
 							//terms are equal. making a copy afterwards in case we wanna do something funny
-							flagSpot=true;
+							flagSpot = true;
 							$(aItems[j]).after(htmlCode);
 							$(aMbItems[j]).after(mbHtmlCode);
 						}
-						if (textComp==1 && !flagSpot){
+						if (textComp == 1 && !flagSpot) {
 							//console.log("keep going");
 						}
-						if (j==(aItems.length-1) && !flagSpot){
+						if (j == (aItems.length - 1) && !flagSpot) {
 							//if last of loop
 							$(aItems[j]).parent().append(htmlCode);
 							$(aMbItems[j]).parent().append(mbHtmlCode);
-							flagSpot=true;
+							flagSpot = true;
 						}
 					}
 				}
 				//if there was any lightboxes, lets hit it!
 			}
-if (flagLbx){initWbAdd(".wb-lbx", $("#wb-lng"));}
+			if (flagLbx) { initWbAdd(".wb-lbx", $("#wb-lng")); }
 		},
-		menuDisplay: function() {
+		menuDisplay: function () {
 			this.$toolboxLink.next("ul").slideToggle();
 			$("#mb-tb").slideToggle();
 			this.isOpen = true;
 		},
-		menuToggle: function() {
+		menuToggle: function () {
 			if (this.isOpen) {
 				this.menuClose();
 			} else {
 				this.menuDisplay();
 			}
 		},
-		setFocus: function() {
+		setFocus: function () {
 			this.current = this.target;
 			this.items[this.target].setFocus();
 		},
-		scrollItems: function(offset) {
+		scrollItems: function (offset) {
 			if (this.current == 0 && offset < 0) {
 				this.target = this.items.length - 1;
 			} else if (this.current == (this.items.length - 1) && offset > 0) {

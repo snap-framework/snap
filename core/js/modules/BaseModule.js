@@ -3,7 +3,7 @@ define([
    'jquery',
    'settings-core',
    'helpers/BaseClass'
-], function(_, $, CoreSettings, BaseClass) {
+], function (_, $, CoreSettings, BaseClass) {
    'use strict';
 
    // Usage: var Module = BaseModule.extend({});
@@ -48,7 +48,7 @@ define([
       //This will be called *before* the init of the module extending this class
       //
       //Note: options here are attached from the Module instantiation. e.g.: new Module(options)
-      __initialize: function(options) {
+      __initialize: function (options) {
          var that = this;
          var args = arguments;
          //module id
@@ -65,10 +65,10 @@ define([
 
          this.__setupOnPageLoaded();
 
-         this.__loadTemplate().done(function() {
+         this.__loadTemplate().done(function () {
             //template is done loading, we can now safely init the module
             if (_.isFunction(that.initialize)) {
-                that.initialize.apply(that, args);
+               that.initialize.apply(that, args);
             }
             //check of the page to be loaded
             that.__onPageLoaded();
@@ -79,18 +79,18 @@ define([
       //When intercepted, it checks if templateUrl is defined,
       //    if it is, call onPageLoaded when the templateIsLoaded
       //    if it's not, just call onPageLoaded     
-      __setupOnPageLoaded: function() {
+      __setupOnPageLoaded: function () {
          var that = this;
          this._pageIsLoaded = false;
 
          if (_.isFunction(this.onPageLoaded)) {
-            $(masterStructure).on("Framework:pageLoaded", function() {
+            $(masterStructure).on("Framework:pageLoaded", function () {
                that._pageIsLoaded = true;
                //page is loaded but we need to wait until everything is done like template loading
                if (that.templateUrl) {
                   if (that._templateIsLoaded) {
-					  that.__onPageLoaded();
-                     
+                     that.__onPageLoaded();
+
                   }
                } else {
                   that.__onPageLoaded();
@@ -99,12 +99,12 @@ define([
          }
       },
 
-      __loadTemplate: function() {
+      __loadTemplate: function () {
          var that = this;
          var $deferred = $.Deferred();
 
          if (this.templateUrl && _.isString(this.templateUrl)) {
-             $.when(require(["hbs!" + this.templateUrl], function(Template) {
+            $.when(require(["hbs!" + this.templateUrl], function (Template) {
                that.template = Template;
                that._templateIsLoaded = true;
                $deferred.resolve();
@@ -118,10 +118,10 @@ define([
 
       //This checks if the pageIsLoaded, that there is a function param onPageLoaded
       //and that it has never been called before
-      __onPageLoaded: function() {
+      __onPageLoaded: function () {
          //if (!this.onPageLoadedCalled && _.isFunction(this.onPageLoaded) && this._pageIsLoaded) {
-		 if (_.isFunction(this.onPageLoaded) && this._pageIsLoaded) {
-           //this.onPageLoadedCalled = true;
+         if (_.isFunction(this.onPageLoaded) && this._pageIsLoaded) {
+            //this.onPageLoadedCalled = true;
             this.onPageLoaded();
          }
       },
@@ -134,7 +134,7 @@ define([
        * @param context: Object; Data to be sent to the template
        * @param execOptions: Object
        */
-      renderTemplate: function(context, execOptions) {
+      renderTemplate: function (context, execOptions) {
          if (_.isFunction(this.template)) {
             if (!_.isNull(this.template) && !_.isUndefined(this.template)) {
                $(CoreSettings.contentContainer).html(this.template(context, execOptions));
@@ -144,7 +144,7 @@ define([
          }
       },
 
-      render: function() {
+      render: function () {
          //allow chaining
          return this;
       },
@@ -152,36 +152,36 @@ define([
       /*
        * Public method used in order to include data to the template
        */
-      serializeData: function() {
+      serializeData: function () {
          return {};
       },
 
       /*
        * Public method used in order to reset the jquery wrapping on the el
        */
-      resetElement: function() {
+      resetElement: function () {
          this.__setElement();
       },
 
-      
+
       // Creates the `this.el` and `this.$el` references for this view using the
       // given `el`. `el` can be a CSS selector or an HTML string, a jQuery
       // context or an element. Subclasses can override this to utilize an
       // alternative DOM manipulation API and are only required to set the
       // `this.el` property.
-      __setElement: function() {
+      __setElement: function () {
          this.$el = $(this.options.el).length ? $(this.options.el) : $(this.el);
          //element might not be on the DOM yet.
          this.el = this.$el[0] || this.$el.selector;
       },
 
-      __wrapUI: function() {
+      __wrapUI: function () {
          if (!_.isEmpty(this.ui)) {
             //always check from the cache as selectors have not been wrapped yet
             //make a copy without reference by strignify the object
             this.__cacheUI = this.__cacheUI || JSON.parse(JSON.stringify(this.ui));
             var that = this;
-            _.each(this.__cacheUI, function(value, key) {
+            _.each(this.__cacheUI, function (value, key) {
                value = value instanceof $ ? value.selector : value;
                that.ui[key] = that.$el.find(value);
             });
@@ -191,7 +191,7 @@ define([
       /*
        * Public method used in order to re-wrap all selectors with jquery
        */
-      resetUI: function() {
+      resetUI: function () {
          this.__wrapUI();
       },
 
@@ -208,7 +208,7 @@ define([
       // pairs. Callbacks will be bound to the view, with `this` set properly.
       // Uses event delegation for efficiency.
       // Omitting the selector binds the event to `this.el`.
-      __delegateEvents: function(events) {
+      __delegateEvents: function (events) {
          events || (events = _.result(this, 'events'));
          if (!events) return this;
          this.__undelegateEvents();
@@ -225,7 +225,7 @@ define([
       // Add a single event listener to the view's element (or a child element
       // using `selector`). This only works for delegate-able events: not `focus`,
       // `blur`, and not `change`, `submit`, and `reset` in Internet Explorer.
-      __delegate: function(eventName, selector, listener) {
+      __delegate: function (eventName, selector, listener) {
          this.$el.on(eventName + '.delegateEvents_' + this.mid, selector, listener);
          return this;
       },
@@ -233,7 +233,7 @@ define([
       // Clears all callbacks previously bound to the view by `delegateEvents`.
       // You usually don't need to use this, but may wish to if you have multiple
       // views attached to the same DOM element.
-      __undelegateEvents: function() {
+      __undelegateEvents: function () {
          if (this.$el) this.$el.off('.delegateEvents_' + this.mid);
          return this;
       }

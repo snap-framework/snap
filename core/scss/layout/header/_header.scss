@@ -29,6 +29,9 @@
 			margin: 0;
 			display: table-cell;
 			vertical-align: middle;
+            position: relative;
+            left: -15px;
+            
 			a {
 				text-decoration: none;
 				color: #000;
@@ -74,6 +77,8 @@
 // BANNER TITLE
 
 #wb-sttl {
+    margin-bottom: 5px;
+    
 	> a {
 	  color: $header-banner-title-color;
 	  font-size: 1.6em;

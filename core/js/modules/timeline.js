@@ -6,7 +6,7 @@ define([
 	'modules/BaseModule',
 	'labels',
 	'modules/navigation/navigation'
-], function(_, $, Logger, CoreSettings, BaseModule, labels, Navigation) {
+], function (_, $, Logger, CoreSettings, BaseModule, labels, Navigation) {
 	'use strict';
 
 	return BaseModule.extend({
@@ -16,9 +16,9 @@ define([
 			"click a.timeline-item": "onChangePage",
 		},
 
-		initialize: function(options) {
+		initialize: function (options) {
 			Logger.log("INIT: Timeline");
-			
+
 			this.options = options;
 			this.navigation = this.options.navigation;
 
@@ -29,13 +29,13 @@ define([
 			this.setListeners();
 		},
 
-		setListeners: function() {},
+		setListeners: function () { },
 
-		onPageLoaded: function() {
+		onPageLoaded: function () {
 			this.run();
 		},
 
-		run: function() {
+		run: function () {
 			var that = this;
 			var ms = masterStructure;
 			var localListInfo = ms.currentSub.localListInfo;
@@ -54,17 +54,17 @@ define([
 					ms.isTimelineBrowsing = false;
 					$(".peg.current").focus();
 				}
-			}	
+			}
 		},
 
-		onChangePage: function(e) {
+		onChangePage: function (e) {
 			var $el = $(e.currentTarget);
 			var position = $el.attr("data-position");
 			$(this.navigation).trigger("Navigation:changePage", position);
 			return false;
 		},
 
-		createTimelineItem: function(subArray, index) {
+		createTimelineItem: function (subArray, index) {
 			var percent = 100 / (subArray.length + 1),
 				width;
 			var style = "";
@@ -82,14 +82,14 @@ define([
 				subClass += (preFlag === 0) ? " pre" : "";
 				subGotoText = labels.vocab.goTo + " " + subArray[i].title;
 				subLink = subArray[i].sPosition;
-				subHtml += "\n<a href='#' data-position='"+ subLink +"' class='timeline-item "+ subClass +"' style='width:"+ width +"%' ";
+				subHtml += "\n<a href='#' data-position='" + subLink + "' class='timeline-item " + subClass + "' style='width:" + width + "%' ";
 				subHtml += " tabindex='-1' title='" + subGotoText + "' >";
-				subHtml += "<span>Page </span>"+ (i + 1) +"</a>";
+				subHtml += "<span>Page </span>" + (i + 1) + "</a>";
 			}
 			return subHtml;
 		},
 
-		timelinekeypress: function(e) {
+		timelinekeypress: function (e) {
 			var keyCode = e.keyCode ? e.keyCode : e.which;
 			var rightarrow = 39,
 				leftarrow = 37;

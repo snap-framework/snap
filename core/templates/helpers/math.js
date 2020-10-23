@@ -1,9 +1,9 @@
 //http://jsfiddle.net/mpetrovich/wMmHS/
 define([
     'lib/hbs/handlebars'
-], function(Handlebars) {
+], function (Handlebars) {
 
-    Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
+    Handlebars.registerHelper("math", function (lvalue, operator, rvalue, options) {
         lvalue = parseFloat(lvalue);
         rvalue = parseFloat(rvalue);
 

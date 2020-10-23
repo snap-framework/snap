@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 /* ------------------ HEADERS ------------------*/
 h1 {
 	margin-top: 0;
@@ -13,6 +15,10 @@ h3 {
 	font-size: 1.2em;
 }
 
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
+    font-weight: 700;
+}
+
 /* ------------------ Font ------------------ */
 
 .smaller {
@@ -21,4 +27,17 @@ h3 {
 
 .smallest {
 	font-size: 0.5em;
+}
+
+body{
+    font-family: "Open Sans";
+    font-weight: 400;
+}
+
+strong{
+    font-weight: 700;
+}
+
+em{
+    font-style: italic;
 }

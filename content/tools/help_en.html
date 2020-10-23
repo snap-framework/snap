@@ -1,29 +1,35 @@
-﻿<section class="modal-dialog modal-content overlay-def mfp-with-anim mfp-move-horizontal">
+<section class="modal-dialog modal-content overlay-def mfp-with-anim mfp-move-horizontal">
 	<header class="modal-header">
 		<h2 class="modal-title" id="lbx-title">Help</h2>
 		<button class="mfp-close overlay-close" title="Close">×<span class="wb-inv"> Close</span></button>
 	</header>
 	<div class="modal-body">
-		<h4>Back and Next</h4>
-		<p>Instead of a navigation bar with the “Back” and “Forward” buttons of a standard browser like Internet Explorer, some of MyAccount courses have "Back” and “Next” navigation buttons (shown as <&nbsp;and&nbsp;>) located at the top and bottom of the right hand side of the screen. Selecting the “&lt;” (or Back) button will take you to the previously viewed page and selecting the “&gt;” (or Next) button will bring you to the next page.</p>
-		<h4>“<span lang="fr">Français</span>” – French Toggle</h4>
-		<p>Select “Français” to switch from the English version of the course to the French version.</p>
-		<h4>Course Home</h4>
+		<h4>Previous and Next buttons</h4>
+		<p>Instead of a standard navigation bar with Previous and Next buttons, some GCcampus courses have navigation buttons shown as “&lt;” and “&gt;” located at the top and bottom of the right-hand side of the screen. Selecting the “&lt;” or Previous button will take you to the previously viewed page. Selecting the “&gt;” or Next button will bring you to the next page.</p>
+		<h4>French toggle – <span lang="fr">Français</span></h4>
+		<p>Select <span lang="fr">Français</span> to switch from the English version of the course to the French version.</p>
+		<h4>Course Home page</h4>
 		<p>Select the Home icon to return to the course Home page.</p>
 		<h4>Help</h4>
 		<p>Select the Help icon to access these help topics again.</p>
+		{{#if settings.showToolbox}}
 		<h4>Toolbox</h4>
-		<p>Select the Toolbox icon to access the course glossary and links to useful tools, guidelines, and other information related to this course.</p>
+		<p>Select the Toolbox icon to access course resources, glossary and links to useful tools, guidelines, and other information related to this course.</p>
+		{{/if}}
+		{{#if settings.showSitemap}}
 		<h4>Sitemap</h4>
-		<p>Select the Sitemap icon to display an exhaustive list of all pages and sections of the course.</p>
+		<p>Select the Sitemap icon to display a list of all the pages and sections of the course.</p>
+		{{/if}}
+		{{#if settings.showExit}}
 		<h4>Exit</h4>
-		<p>Select the Exit icon when you want to exit this course. A bookmark is automatically created to mark your current location in the course. The next time you launch the course you will have return to where you left off.</p>
+		<p>Select the Exit icon when you want to exit the course. A bookmark is automatically created to mark your current location in the course. The next time you launch the course, you will return to where you left off.</p>
+		{{/if}}
 		<h4>Navigation Bar</h4>
 		<ul>
-			<li>Select the navigation bar to navigate among the course.</li>
+			<li>Select a heading on the navigation bar to view the content of the modules or sections in the course.</li>
 			<li>Select a module title to see its related sections.</li>
 			{{#if settings.trackAllPages}}
-			<li>Checkmarks will appear next to modules and sections that you have completed.</li>
+			<li>Checkmarks will appear next to the completed modules and sections.</li>
 			{{/if}}
 		</ul>
 	</div>

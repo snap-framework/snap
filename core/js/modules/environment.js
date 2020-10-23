@@ -41,7 +41,7 @@ define(['jquery',
 				host = "prod";
 				break;
 		}
-		console.log(host);
+		//console.log(host);
 		return host;
 
 	}

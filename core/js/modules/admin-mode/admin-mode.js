@@ -1,13 +1,13 @@
 define([
-   'underscore',
-   'jquery',
-   'logger',
-   "settings-core",
-   '../BaseModule',
+	'underscore',
+	'jquery',
+	'logger',
+	"settings-core",
+	'../BaseModule',
 	'modules/diagnosis/diagnosis'
-], function(_, $, Logger, CoreSettings, BaseModule, Diagnosis) {
+], function (_, $, Logger, CoreSettings, BaseModule, Diagnosis) {
 	'use strict';
-	
+
 	return BaseModule.extend({
 		templateUrl: 'templates/admin-mode/admin-mode',
 
@@ -17,9 +17,9 @@ define([
 			locksAdmin: '.locks-admin'
 		},
 
-		initialize: function(options) {
+		initialize: function (options) {
 			Logger.log("INIT: Admin Mode");
-			this.parent=options.masterStructure;
+			this.parent = options.masterStructure;
 			this.options = options;
 			this.navigation = this.options.navigation;
 			this.scorm = this.options.scorm;
@@ -31,9 +31,9 @@ define([
 
 			this.render();
 		},
-		setListeners: function() {
+		setListeners: function () {
 			var that = this;
-			$(document).keydown(function(e) {
+			$(document).keydown(function (e) {
 				//CTRL+SHIFT+F12
 				if (e.ctrlKey && e.shiftKey && e.keyCode === 123) {
 					that.toggleAdminMode();
@@ -42,54 +42,54 @@ define([
 
 			var $adminMode = this.$el.find("#adminMode");
 			//remove scorm section if offline
-			if (CoreSettings.connectionMode !=="scorm") {
+			if (CoreSettings.connectionMode !== "scorm") {
 				this.$el.find(".scorm-admin").remove();
 			}
 
-			$adminMode.find('.debug-btn').on('click', function() {
+			$adminMode.find('.debug-btn').on('click', function () {
 				that.toggleDebug();
 				return false;
 			})
-			.end().find('.scorm-btn').on('click', function() {
-				that.activateScorm();
-				return false;
-			})
-			.end().find('.scormreset-btn').on('click', function() {
-				that.resetScorm();
-				return false;
-			})
-			.end().find('.comment-btn').on('click', function() {
-				that.addComment();
-				return false;
-			})			
-			.end().find('.headings-btn').on('click', function() {
-				that.highlightHeadings();
-				return false;
-			});
+				.end().find('.scorm-btn').on('click', function () {
+					that.activateScorm();
+					return false;
+				})
+				.end().find('.scormreset-btn').on('click', function () {
+					that.resetScorm();
+					return false;
+				})
+				.end().find('.comment-btn').on('click', function () {
+					that.addComment();
+					return false;
+				})
+				.end().find('.headings-btn').on('click', function () {
+					that.highlightHeadings();
+					return false;
+				});
 
-			$(this).on('Diagnosis:addMissingPage', function(e, sub, xhr) {
+			$(this).on('Diagnosis:addMissingPage', function (e, sub, xhr) {
 				$(that.diagnosis).trigger('Diagnosis:addMissingPage', [sub, xhr]);
 			});
 			$(this.lockingSystem).on('AdminMode:addUnlocks', _.bind(this.addUnlocks, this));
 		},
 
-		serializeData: function() {
-			var that=this;
+		serializeData: function () {
+			var that = this;
 			return {
 				version: that.parent.version,
 				WETversion: that.parent.WETversion,
 				debugMode: CoreSettings.debugMode,
 				environment: CoreSettings.environment,
-				localmode: (CoreSettings.environment==="local")?true:false,
-				connectionMode: (CoreSettings.connectionMode==="scorm")?"Scorm "+CoreSettings.scormversion:"offline",
+				localmode: (CoreSettings.environment === "local") ? true : false,
+				connectionMode: (CoreSettings.connectionMode === "scorm") ? "Scorm " + CoreSettings.scormversion : "offline",
 				labels: labels
 			};
 		},
 
-		render: function() {
+		render: function () {
 			this.template = this.template(this.serializeData());
-			
-			this.$el.html(this.template);	
+
+			this.$el.html(this.template);
 			this.setListeners();
 
 			this.initDiagnosis();
@@ -97,21 +97,21 @@ define([
 			this.addUnlocks();
 		},
 
-		initDiagnosis: function() {
-			var that=this;
+		initDiagnosis: function () {
+			var that = this;
 			//CSPS-KR: Add to global namespace for now since it is used in non-related functionalities
 			that.parent.diagnosis = this.diagnosis = new Diagnosis({
 				navigation: this.navigation
 			});
 		},
 
-		toggleAdminMode: function() {
+		toggleAdminMode: function () {
 			Logger.log("---activating admin mode---");
 			this.$el.toggle();
 		},
-		
+
 		//TODO: This should be handled by the template itself
-		toggleDebug: function() {
+		toggleDebug: function () {
 			var btn = this.$el.find(".debug-btn");
 			if (!CoreSettings.debugMode) {
 				CoreSettings.debugMode = true;
@@ -136,11 +136,11 @@ define([
 		 * and populates a list of links to unlock them.
 		 * This will append links in the locks list in the Admin mode panel.
 		 */
-		addUnlocks: function() {
+		addUnlocks: function () {
 			var that = this;
 			this.ui.locksAdmin.find("ul").html("");
-			var lockSubs = _.where(that.parent.flatList, {isLocked: true});//this only finds pages
-			Array.prototype.push.apply(lockSubs,_.where(that.parent.subs, {isLocked: true, isPage:false})); //this adds modules			
+			var lockSubs = _.where(that.parent.flatList, { isLocked: true });//this only finds pages
+			Array.prototype.push.apply(lockSubs, _.where(that.parent.subs, { isLocked: true, isPage: false })); //this adds modules			
 			if (lockSubs.length > 0) {
 				var itemTarget;
 				var addItem;
@@ -148,44 +148,44 @@ define([
 				var target;
 				for (var i = 0; i < lockSubs.length; i++) {
 					itemTarget = lockSubs[i].$el.attr("data-target");
-					addItem = "<li><a href='#' title='Unlock this page' data-target='"+itemTarget+"'>" + itemTarget + "</a></li>";
+					addItem = "<li><a href='#' title='Unlock this page' data-target='" + itemTarget + "'>" + itemTarget + "</a></li>";
 					this.ui.locksAdmin.find("ul").append(addItem);
-					this.ui.locksAdmin.find("a[data-target='"+itemTarget+"']").off("click").on('click', function() {
+					this.ui.locksAdmin.find("a[data-target='" + itemTarget + "']").off("click").on('click', function () {
 						$this = $(this);
 						target = $this.attr("data-target");
 						$(that.lockingSystem).trigger('LockingSystem:unlockPage', target);
 						return false;
 					});
 				}
-			}else{
+			} else {
 				this.ui.locksAdmin.find("ul").append("<li>No locks</li>");
 			}
 		},
-		
+
 		////TODO: Theses should go in their own modules
 		/*------------------------------------------
-		           scorm
+				   scorm
 		------------------------------------------*/
-		activateScorm: function() {
+		activateScorm: function () {
 			$(this.scorm).trigger("ScormController:activateScorm");
 		},
-		updateScorm: function() {
+		updateScorm: function () {
 			$(this.scorm).trigger("ScormController:updateScorm");
 		},
-		resetScorm: function() {
+		resetScorm: function () {
 			$(this.scorm).trigger("ScormController:resetScorm");
 		},
-		
+
 		////TODO: Theses should go in their own modules
 		/*------------------------------------------
-		           AQA
+				   AQA
 		------------------------------------------*/
-		highlightHeadings: function() {
+		highlightHeadings: function () {
 			//$(this.scorm).trigger("ScormController:activateScorm");
 			$("body").toggleClass("highlight-headings");
-			var hiddenHeadings=$("h1:hidden,h2:hidden,h3:hidden,h4:hidden,h5:hidden,h6:hidden");
+			var hiddenHeadings = $("h1:hidden,h2:hidden,h3:hidden,h4:hidden,h5:hidden,h6:hidden");
 
-			$(".headings-btn").html("headings Toggle"+"(hidden:"+hiddenHeadings.length);
+			$(".headings-btn").html("headings Toggle" + "(hidden:" + hiddenHeadings.length);
 			/*for (var h=1;h<7;h++){
 				$("h"+h).addClass("highlight")
 				.before("<span class='heading-highlight'>Heading"+h+"</span>")
@@ -194,15 +194,15 @@ define([
 		},
 
 		/*------------------------------------------
-		           diagnosis
+				   diagnosis
 		------------------------------------------*/
-		addComment: function() {
+		addComment: function () {
 			$(this.diagnosis).trigger("Diagnosis:addComment");
 		},
-		toggleDiagnosis: function() {
+		toggleDiagnosis: function () {
 			$(this.diagnosis).trigger("Diagnosis:toggleDiagnosis");
 		},
-		diagnoseImages: function() {
+		diagnoseImages: function () {
 			$(this.diagnosis).trigger("Diagnosis:diagnoseImages");
 		}
 	});

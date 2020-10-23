@@ -1,15 +1,15 @@
 define([
-    'jquery',
-    'settings-core',
-    'labels',
-    'utils'
-], function($, CoreSettings, Utils, labels) {
+	'jquery',
+	'settings-core',
+	'labels',
+	'utils'
+], function ($, CoreSettings, Utils, labels) {
 	'use strict';
-	
+
 	/* v1.05 added this so that interactions that are regular are not in the nav.js anymore*/
 
 	return {
-		initCollapsible: function(obj) {
+		initCollapsible: function (obj) {
 			obj.html("<div class='wrapper'>" + obj.html() + "</div>\n<p class='handle' aria-hidden='true'><span>More<a href='#'>&nbsp;</a></span></p>");
 			var lang = $('html').attr('lang');
 			var strings = {
@@ -19,14 +19,14 @@ define([
 
 			obj.children("p.handle").children("span").html(strings.more + "<a href='#'>&nbsp;<span class=\'wb-inv\'>Click to toggle</span></a>");
 			var $handle = obj.children("p.handle").children("span").children("a");
-			$handle.click(function(e) {
+			$handle.click(function (e) {
 				var $this = $(this);
 				var $box = $this.parent().parent().parent();
 				var $span = $this.parent();
 				e.preventDefault();
 				$this.toggleClass('opened');
 				$box.toggleClass('opened');
-				
+
 				$span[0].childNodes[0].nodeValue = ($this.hasClass('opened') ? strings.less : strings.more);
 				return false;
 			});
@@ -36,11 +36,11 @@ define([
 		},
 
 		/* switch the css theme */
-		toggleCss: function(file) {
+		toggleCss: function (file) {
 			$("link.theme").attr("href", "./theme/" + file + ".css");
 		},
 		/* list All pages */
-		listAllPages: function() {
+		listAllPages: function () {
 			var sitemap = masterStructure.flatList;
 			var returnHtml = "";
 			for (i = 0; i < sitemap.length; i++) {
@@ -53,13 +53,13 @@ define([
 		},
 
 		//----------------------disable enable-------------------------
-		openDetails: function(target) {
+		openDetails: function (target) {
 			this.toggleDetails(target, true);
 		},
-		closeDetails: function(target) {
+		closeDetails: function (target) {
 			this.toggleDetails(target, false);
 		},
-		toggleDetails: function(target, isOpen) {
+		toggleDetails: function (target, isOpen) {
 			if (typeof target === "undefined") {
 				target = CoreSettings.contentContainer;
 			}
@@ -69,13 +69,13 @@ define([
 			collection.attr("open", isOpen);
 		},
 
-		hideVideos: function(target) {
+		hideVideos: function (target) {
 			this.toggleVideos(target, false);
 		},
-		showVideos: function(target) {
+		showVideos: function (target) {
 			this.toggleVideos(target, true);
 		},
-		toggleVideos: function(target, isShown) {
+		toggleVideos: function (target, isShown) {
 			if (typeof target === "undefined") {
 				target = CoreSettings.contentContainer;
 			}
@@ -84,13 +84,13 @@ define([
 			collection.toggle(isShown);
 		},
 
-		disableLink: function(target) {
+		disableLink: function (target) {
 			this.toggleLink(target, true);
 		},
-		activateLink: function(target) {
+		activateLink: function (target) {
 			this.toggleLink(target, false);
 		},
-		toggleLink: function(target, isActive) {
+		toggleLink: function (target, isActive) {
 			if (typeof target === "undefined") {
 				target = CoreSettings.contentContainer;
 			}

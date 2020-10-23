@@ -87,3 +87,36 @@ a {
     	border-color: $button-default-border-color-hover;
     }
 }
+
+
+
+button.btn, input[type="submit"].btn, input[type="button"].btn, a.btn{
+    border-radius: 0px;
+    border: none;
+
+    transition: background-color 0.2s;
+}
+
+details{
+    &[open]{
+        border-radius: 0;
+        padding-bottom: 0;
+
+        p:last-child{
+            margin-bottom: 0;
+        }
+        & > .tgl-panel{
+            padding: 25px 0;
+        }
+        summary{
+            margin-bottom: 0;
+        }
+    }
+    summary{
+        border-radius: 0;
+    }
+}
+
+html:not(.LOM-pageEdit-active) .LOM-element[data-lom-element="button"]:not(:last-of-type) button.LOM-btn{
+    margin-bottom: 10px;
+}

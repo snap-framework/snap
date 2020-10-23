@@ -1,49 +1,49 @@
 <section class="modal-dialog modal-content overlay-def toolbox mfp-with-anim mfp-zoom-in">
-<a id="backToTop" title="back to top of document"></a>
-<header class="modal-header">
-<h2 class="modal-title">To Learn List: Favourites</h2>
-<button title="Close overlay (escape key)" type="button" class="mfp-close overlay-close">×<span class="wb-inv"> Close overlay (escape key)</span></button>
-</header>
-<div class="modal-body col-md-12">
+	<a id="backToTop" title="back to top of document"></a>
+	<header class="modal-header">
+		<h2 class="modal-title">To Learn List: Favourites</h2>
+		<button title="Close overlay (escape key)" type="button" class="mfp-close overlay-close">×<span class="wb-inv"> Close overlay (escape key)</span></button>
+	</header>
+	<div class="modal-body col-md-12">
 
 
-	<div id="favorite_output">
-    
-    
-    </div>
-   
-</div>
+		<div id="favorite_output">
 
 
-<script type="text/javascript">
-	var aFav=masterStructure.favoriteController.prepareFavContent();
+		</div>
 
-	var pagePath;
-	var loadVar;
-	if(aFav.length>0){
-		for (var fLoop=0;fLoop<aFav.length;fLoop++){
-			pagePath=aFav[fLoop].parent.pagePath();
-			$("#favorite_output").append("<div id='favObj_"+fLoop+"' class='favorite-item'></div>")
-			loadVar=(aFav[fLoop].isPage)?pagePath:pagePath+" "+aFav[fLoop].target;
-			$("#favObj_"+fLoop).append("<h1>"+loadVar+"</h1>")
-			var loadingFav = $("#favObj_"+fLoop).load(loadVar, function (response, status, xhr) {if (status == 'error') {			}			else {}});
-			
-			
-			
+	</div>
+
+
+	<script type="text/javascript">
+		var aFav = masterStructure.favoriteController.prepareFavContent();
+
+		var pagePath;
+		var loadVar;
+		if (aFav.length > 0) {
+			for (var fLoop = 0; fLoop < aFav.length; fLoop++) {
+				pagePath = aFav[fLoop].parent.pagePath();
+				$("#favorite_output").append("<div id='favObj_" + fLoop + "' class='favorite-item'></div>")
+				loadVar = (aFav[fLoop].isPage) ? pagePath : pagePath + " " + aFav[fLoop].target;
+				$("#favObj_" + fLoop).append("<h1>" + loadVar + "</h1>")
+				var loadingFav = $("#favObj_" + fLoop).load(loadVar, function (response, status, xhr) { if (status == 'error') { } else { } });
+
+
+
+			}
+		} else {
+			$("#favorite_output").html("List is empty. Time to learn some more!");
 		}
-	}else{
-		$("#favorite_output").html("List is empty. Time to learn some more!");
-	}
-	
-	
-function scanPop(){
-	
-	target="#favorite_output"
 
 
-disableLink(target);
-openDetails(target);
+		function scanPop() {
 
-}	
-</script>
+			target = "#favorite_output"
+
+
+			disableLink(target);
+			openDetails(target);
+
+		}	
+	</script>
 </section>

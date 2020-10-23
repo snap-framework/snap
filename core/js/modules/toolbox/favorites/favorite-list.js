@@ -6,11 +6,11 @@ define([
 	'settings-core',
 	'../../BaseModule',
 	'./favorite-model'
-], function(_, $, Logger, labels, CoreSettings, BaseModule, FavoriteModel) {
+], function (_, $, Logger, labels, CoreSettings, BaseModule, FavoriteModel) {
 	'use strict';
 
 	return BaseModule.extend({
-		initialize: function(options) {
+		initialize: function (options) {
 			Logger.log("INIT: Favorite list, objSub: ", options.objSub);
 
 			this.options = options;
@@ -22,22 +22,22 @@ define([
 		/**
 		 * listen to events from the objSub
 		 */
-		setListeners: function() {
+		setListeners: function () {
 			var that = this;
 			var $objSub = $(this.objSub);
-			$objSub.on("FavoriteList:findFavoriteIndexByTarget", function(e, target) {
+			$objSub.on("FavoriteList:findFavoriteIndexByTarget", function (e, target) {
 				//call with that context
 				return that.findFavoriteIndexByTarget.call(that, target);
 			});
-			$objSub.on("FavoriteList:toggleFavorite", function(e, target) {
+			$objSub.on("FavoriteList:toggleFavorite", function (e, target) {
 				//call with that context
 				that.toggleFavorite.call(that, target);
 			});
-			$objSub.on("FavoriteList:generateFavArray", function(e) {
+			$objSub.on("FavoriteList:generateFavArray", function (e) {
 				//call with that context
 				return that.generateFavArray.call(that);
 			});
-			$objSub.on("FavoriteList:spitFavContent", function(e) {
+			$objSub.on("FavoriteList:spitFavContent", function (e) {
 				//call with that context
 				return that.spitFavContent.call(that);
 			});
@@ -48,7 +48,7 @@ define([
 		 * @param  {string}	target: index of the favorite in the favorite list, ex: "#fav2"
 		 * @return {number}
 		 */
-		findFavoriteIndexByTarget: function(target) {
+		findFavoriteIndexByTarget: function (target) {
 			var index = -1;
 			//try to find the fav
 			for (var i = 0; i < this.objSub.aFav.length; i++) {
@@ -63,7 +63,7 @@ define([
 		 * looks through the objects, toggles the one found; if not found, adds one.
 		 * @param  {string}	target: anchor location of the favorite, ex: #fav2
 		 */
-		toggleFavorite: function(target) {
+		toggleFavorite: function (target) {
 			var index = this.findFavoriteIndexByTarget(target);
 			//is it found?
 			if (index === -1) {
@@ -80,7 +80,7 @@ define([
 			return false;
 		},
 
-		createFavorite: function(target) {
+		createFavorite: function (target) {
 			this.objSub.aFav[this.objSub.aFav.length] = new FavoriteModel({
 				page: this.objSub.sPosition, target: target
 			});
@@ -95,7 +95,7 @@ define([
 		 * 		 ex: [m70-2-14, m70-2-15, m70-2-15#fav2]
 		 * 		 	  isPage    isPage
 		 */
-		reorderFavorite: function() {
+		reorderFavorite: function () {
 			var pageFlag = false;
 			var pageObj;
 			var newArray = [];
@@ -124,7 +124,7 @@ define([
 			this.objSub.aFav = tmpArray;
 		},
 
-		generateFavArray: function() {
+		generateFavArray: function () {
 			var returnArray = [];
 			var start = 0;
 			if (this.objSub.aFav[0].isPage) {
@@ -151,7 +151,7 @@ define([
 			return returnArray;
 		},
 
-		spitFavContent: function() {
+		spitFavContent: function () {
 			var returnArray = [];
 			if (this.objSub.aFav[0].isPage && this.objSub.aFav[0].active) {
 				return [this.objSub.aFav[0]];

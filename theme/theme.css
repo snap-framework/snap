@@ -1,76 +1,89 @@
 /*@import "./_various";*/
 /*@import "./_prefixers";*/
-/* line 156, ../common/scss/utils/mixins/helpers/_animations.scss */
 .LOM-feedback-transition {
   /*-webkit-transition: background-color 1s linear;
-  -moz-transition: background-color 1s linear;
-  -o-transition: background-color 1s linear;
-  transition: background-color 1s linear;*/
+   -moz-transition: background-color 1s linear;
+   -o-transition: background-color 1s linear;
+   transition: background-color 1s linear;*/
   /*background: white;*/
-  animation: color-me-in 0.75s; }
+  -webkit-animation: color-me-in 0.75s;
+          animation: color-me-in 0.75s;
+}
+
+@-webkit-keyframes color-me-in {
+  0% {
+    background: #c8f9af;
+  }
+  100% {
+    background: white;
+  }
+}
 
 @keyframes color-me-in {
   0% {
-    background: #c8f9af; }
+    background: #c8f9af;
+  }
   100% {
-    background: white; } }
+    background: white;
+  }
+}
+
 /*@import "./_animations";*/
 /*@import "./helpers/_helpers";*/
-/* line 1, ../common/scss/utils/_shorthands.scss */
 .alignLeft {
-  text-align: left; }
+  text-align: left;
+}
 
-/* line 4, ../common/scss/utils/_shorthands.scss */
 .alignRight {
-  text-align: right; }
+  text-align: right;
+}
 
-/* line 7, ../common/scss/utils/_shorthands.scss */
 .alignCenter {
-  text-align: center; }
+  text-align: center;
+}
 
-/* line 11, ../common/scss/utils/_shorthands.scss */
 .verticalCenter {
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+}
 
-/* line 22, ../common/scss/utils/_shorthands.scss */
 .w10 {
-  width: 10%; }
+  width: 10%;
+}
 
-/* line 22, ../common/scss/utils/_shorthands.scss */
 .w20 {
-  width: 20%; }
+  width: 20%;
+}
 
-/* line 22, ../common/scss/utils/_shorthands.scss */
 .w30 {
-  width: 30%; }
+  width: 30%;
+}
 
-/* line 22, ../common/scss/utils/_shorthands.scss */
 .w40 {
-  width: 40%; }
+  width: 40%;
+}
 
-/* line 22, ../common/scss/utils/_shorthands.scss */
 .w50 {
-  width: 50%; }
+  width: 50%;
+}
 
-/* line 22, ../common/scss/utils/_shorthands.scss */
 .w60 {
-  width: 60%; }
+  width: 60%;
+}
 
-/* line 22, ../common/scss/utils/_shorthands.scss */
 .w70 {
-  width: 70%; }
+  width: 70%;
+}
 
-/* line 22, ../common/scss/utils/_shorthands.scss */
 .w80 {
-  width: 80%; }
+  width: 80%;
+}
 
-/* line 22, ../common/scss/utils/_shorthands.scss */
 .w90 {
-  width: 90%; }
+  width: 90%;
+}
 
-/* line 22, ../common/scss/utils/_shorthands.scss */
 .w100 {
-  width: 100%; }
-
+  width: 100%;
+}
 /*# sourceMappingURL=theme.css.map */

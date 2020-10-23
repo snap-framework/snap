@@ -6,21 +6,21 @@ define([
 	'./diagnosis-constants',
 	'./bug',
 	'./bug-type'
-], function(_, $, BaseModule, Logger, CONSTANTS, Bug, BugType) {
+], function (_, $, BaseModule, Logger, CONSTANTS, Bug, BugType) {
 	'use strict';
 
 	var bugTypesMap = [
-		{index: CONSTANTS.TYPES.COMMENTS, name: "Comments"},
-		{index: CONSTANTS.TYPES.MISSING_PAGE, name: "Missing Page"},
-		{index: CONSTANTS.TYPES.BROKEN_IMAGE, name: "Broken Image"},
-		{index: CONSTANTS.TYPES.UNINDEXED_EXTERNAL_LINK, name: "Unindexed External Link"},
-		{index: CONSTANTS.TYPES.BROKEN_EXTERNAL_LINK, name: "Broken External Link"},
-		{index: CONSTANTS.TYPES.BROKEN_GLOSSARY_REFERENCE, name: "Broken Glossary Reference"}
+		{ index: CONSTANTS.TYPES.COMMENTS, name: "Comments" },
+		{ index: CONSTANTS.TYPES.MISSING_PAGE, name: "Missing Page" },
+		{ index: CONSTANTS.TYPES.BROKEN_IMAGE, name: "Broken Image" },
+		{ index: CONSTANTS.TYPES.UNINDEXED_EXTERNAL_LINK, name: "Unindexed External Link" },
+		{ index: CONSTANTS.TYPES.BROKEN_EXTERNAL_LINK, name: "Broken External Link" },
+		{ index: CONSTANTS.TYPES.BROKEN_GLOSSARY_REFERENCE, name: "Broken Glossary Reference" }
 	];
 
 	return BaseModule.extend({
 
-		initialize: function(options) {
+		initialize: function (options) {
 			Logger.log("INIT: Diagnosis");
 
 			this.options = options;
@@ -35,31 +35,31 @@ define([
 			this.initializeBugTypes();
 			this.setListeners();
 		},
-		initializeBugTypes: function() {
+		initializeBugTypes: function () {
 			for (var i = 0; i < bugTypesMap.length; i++) {
 				this.aTypes[i] = new BugType(bugTypesMap[i]);
 			}
 		},
-		
-		setListeners: function() {
+
+		setListeners: function () {
 			var that = this;
 			$(this).on("Diagnosis:toggleDiagnosis", _.bind(this.toggleDiagnosis, this));
 			$(this).on("Diagnosis:addComment", _.bind(this.addComment, this));
-			$(this).on("Diagnosis:addMissingPage", function(e, sub, xhr) {
+			$(this).on("Diagnosis:addMissingPage", function (e, sub, xhr) {
 				that.addMissingPage(sub, xhr);
 			});
 			$(this).on("Diagnosis:diagnoseImages", _.bind(this.diagnoseImages, this));
 		},
 
-		onPageLoaded: function() {
+		onPageLoaded: function () {
 			this.autoScan();
 		},
 
-		diagnoseImages: function() {
+		diagnoseImages: function () {
 			this.aTypes[CONSTANTS.TYPES.BROKEN_IMAGE].diagnose(masterStructure.currentSub);
 		},
 
-		addBug: function(severity, type, info, subObj) {
+		addBug: function (severity, type, info, subObj) {
 			this.aBugs[this.aBugs.length] = new Bug({
 				severity: severity,
 				type: type,
@@ -68,13 +68,13 @@ define([
 			});
 			this.refreshDiagWindow();
 		},
-		addComment: function() {
+		addComment: function () {
 			var msg = prompt("Enter Comment", "here");
 			if (msg) {
 				this.addBug(CONSTANTS.SEVERITY.COMMENTS, CONSTANTS.TYPES.COMMENTS, msg, masterStructure.currentSub);
 			}
 		},
-		addMissingPage: function(subObj, xhr) {
+		addMissingPage: function (subObj, xhr) {
 			xhr = xhr || {};
 			//add a missing page
 			if (!subObj.isMissing) {
@@ -85,17 +85,17 @@ define([
 				this.addBug(CONSTANTS.SEVERITY.MISSING_PAGE, CONSTANTS.TYPES.MISSING_PAGE, xhr.status || "404", subObj);
 			}
 		},
-		addBrokenImage: function(msg, subObj) {
+		addBrokenImage: function (msg, subObj) {
 			this.addBug(CONSTANTS.SEVERITY.BROKEN_IMAGE, CONSTANTS.TYPES.BROKEN_IMAGE, msg, subObj);
 		},
-		addUnindexedLink: function(msg, subObj) {
+		addUnindexedLink: function (msg, subObj) {
 			this.addBug(CONSTANTS.SEVERITY.UNINDEXED_EXTERNAL_LINK, CONSTANTS.TYPES.UNINDEXED_EXTERNAL_LINK, msg, subObj);
 		},
-		addGlossary: function(msg, subObj) {
+		addGlossary: function (msg, subObj) {
 			this.addBug(CONSTANTS.SEVERITY.BROKEN_GLOSSARY_REFERENCE, CONSTANTS.TYPES.BROKEN_GLOSSARY_REFERENCE, msg, subObj);
 		},
 
-		reorderBugs: function() {
+		reorderBugs: function () {
 			//order by page, type and severity
 			//create a temp array
 			//loop through flatlist
@@ -122,7 +122,7 @@ define([
 				}
 			}
 		},
-		listByType: function(target) {
+		listByType: function (target) {
 			//loop through types
 			var that = this;
 			var type;
@@ -138,7 +138,7 @@ define([
 						nbBugs++;
 						$target.children("#details-panel-bug" + type.index).append("<ul>" + type.aBugs[lBugs].getInfoByType() + "</ul>");
 						$target.children("#details-panel-bug" + type.index).children("summary").children("span").html(nbBugs);
-						$target.find("a[data-position='"+type.aBugs[lBugs].page.sPosition+"']").off("click").on("click", function() {
+						$target.find("a[data-position='" + type.aBugs[lBugs].page.sPosition + "']").off("click").on("click", function () {
 							var position = $(this).attr("data-position");
 							$(that.navigation).trigger("Navigation:changePage", position);
 							return false;
@@ -147,15 +147,15 @@ define([
 
 				}
 			}
-			$target.find('summary').trigger( "wb-init.wb-details" ); // fix IE details not opening problem
+			$target.find('summary').trigger("wb-init.wb-details"); // fix IE details not opening problem
 		},
-		refreshDiagWindow: function() {
+		refreshDiagWindow: function () {
 			if (this.isAutoScan) {
 				this.reorderBugs();
 				this.listByType('.diag-window');
 			}
 		},
-		autoScan: function() {
+		autoScan: function () {
 			if (this.isAutoScan) {
 				//0 and 1 are automatic
 				//check the list of what needs to be scanned
@@ -169,7 +169,7 @@ define([
 			}
 		},
 
-		toggleDiagnosis: function() {
+		toggleDiagnosis: function () {
 			if (!this.isVisible) {
 				this.isVisible = true;
 				$(".diagnosis-admin").find(".diagnosis-btn").html("Turn AutoScan Off");

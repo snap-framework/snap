@@ -33,7 +33,7 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
   var getXhr;
   var progIds = ['Msxml2.XMLHTTP', 'Microsoft.XMLHTTP', 'Msxml2.XMLHTTP.4.0'];
   var fetchText = function () {
-      throw new Error('Environment unsupported.');
+    throw new Error('Environment unsupported.');
   };
   var buildMap = [];
   var filecode = 'w+';
@@ -45,7 +45,7 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
   var buildCSSFileName = 'screen.build.css';
   var onHbsReadMethod = "onHbsRead";
 
-  Handlebars.registerHelper('$', function() {
+  Handlebars.registerHelper('$', function () {
     //placeholder for translation helper
   });
 
@@ -65,7 +65,7 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
           try {
             xhr = new ActiveXObject(progId);
           }
-          catch (e) {}
+          catch (e) { }
 
           if (xhr) {
             // Faster next time
@@ -76,7 +76,7 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
       }
 
       if (!xhr) {
-          throw new Error('getXhr(): XMLHttpRequest not available');
+        throw new Error('getXhr(): XMLHttpRequest not available');
       }
 
       return xhr;
@@ -85,14 +85,14 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
     // Returns the version of Windows Internet Explorer or a -1
     // (indicating the use of another browser).
     // Note: this is only for development mode. Does not run in production.
-    getIEVersion = function(){
+    getIEVersion = function () {
       // Return value assumes failure.
       var rv = -1;
       if (navigator.appName == 'Microsoft Internet Explorer') {
         var ua = navigator.userAgent;
         var re = new RegExp('MSIE ([0-9]{1,}[\.0-9]{0,})');
         if (re.exec(ua) != null) {
-          rv = parseFloat( RegExp.$1 );
+          rv = parseFloat(RegExp.$1);
         }
       }
       return rv;
@@ -102,26 +102,26 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
       var xdm = false;
       // If url is a fully qualified URL, it might be a cross domain request. Check for that.
       // IF url is a relative url, it cannot be cross domain.
-      if (url.indexOf('http') != 0 ){
-          xdm = false;
-      }else{
-          var uidx = (url.substr(0,5) === 'https') ? 8 : 7;
-          var hidx = (window.location.href.substr(0,5) === 'https') ? 8 : 7;
-          var dom = url.substr(uidx).split('/').shift();
-          var msie = getIEVersion();
-              xdm = ( dom != window.location.href.substr(hidx).split('/').shift() ) && (msie >= 7);
+      if (url.indexOf('http') != 0) {
+        xdm = false;
+      } else {
+        var uidx = (url.substr(0, 5) === 'https') ? 8 : 7;
+        var hidx = (window.location.href.substr(0, 5) === 'https') ? 8 : 7;
+        var dom = url.substr(uidx).split('/').shift();
+        var msie = getIEVersion();
+        xdm = (dom != window.location.href.substr(hidx).split('/').shift()) && (msie >= 7);
       }
 
-      if ( xdm ) {
-         var xdr = getXhr(true);
+      if (xdm) {
+        var xdr = getXhr(true);
         xdr.open('GET', url);
-        xdr.onload = function() {
+        xdr.onload = function () {
           callback(xdr.responseText, url);
         };
-        xdr.onprogress = function(){};
-        xdr.ontimeout = function(){};
-        xdr.onerror = function(){};
-        setTimeout(function(){
+        xdr.onprogress = function () { };
+        xdr.ontimeout = function () { };
+        xdr.onerror = function () { };
+        setTimeout(function () {
           xdr.send();
         }, 0);
       }
@@ -147,7 +147,7 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
   ) {
     //Using special require.nodeRequire, something added by r.js.
     fs = require.nodeRequire('fs');
-    fetchText = function ( path, callback ) {
+    fetchText = function (path, callback) {
       var body = fs.readFileSync(path, 'utf8') || '';
       // we need to remove BOM stuff from the file content
       body = body.replace(/^\uFEFF/, '');
@@ -155,7 +155,7 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
     };
   }
   else if (typeof java !== 'undefined' && typeof java.io !== 'undefined') {
-    fetchText = function(path, callback) {
+    fetchText = function (path, callback) {
       var fis = new java.io.FileInputStream(path);
       var streamReader = new java.io.InputStreamReader(fis, "UTF-8");
       var reader = new java.io.BufferedReader(streamReader);
@@ -170,12 +170,12 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
   }
 
   var cache = {};
-  var fetchOrGetCached = function ( path, callback ){
-    if ( cache[path] ){
+  var fetchOrGetCached = function (path, callback) {
+    if (cache[path]) {
       callback(cache[path]);
     }
     else {
-      fetchText(path, function(data, path){
+      fetchText(path, function (data, path) {
         cache[path] = data;
         callback.call(this, data);
       });
@@ -194,7 +194,7 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
     },
 
     write: function (pluginName, name, write) {
-      if ( (name + customNameExtension ) in buildMap) {
+      if ((name + customNameExtension) in buildMap) {
         var text = buildMap[name + customNameExtension];
         write.asModule(pluginName + '!' + name, text);
       }
@@ -209,45 +209,45 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
       config.hbs = config.hbs || {};
       var disableHelpers = (config.hbs.helpers == false); // be default we enable helpers unless config.hbs.helpers is false
       var partialsUrl = '';
-      if(config.hbs.partialsUrl) {
+      if (config.hbs.partialsUrl) {
         partialsUrl = config.hbs.partialsUrl;
-        if(!partialsUrl.match(/\/$/)) partialsUrl += '/';
+        if (!partialsUrl.match(/\/$/)) partialsUrl += '/';
       }
 
       // Let redefine default fetchText
-      if(config.hbs.fetchText) {
-          fetchText = config.hbs.fetchText;
+      if (config.hbs.fetchText) {
+        fetchText = config.hbs.fetchText;
       }
 
       var partialDeps = [];
 
-      function recursiveNodeSearch( statements, res ) {
-        _(statements).forEach(function ( statement ) {
-          if ( statement && statement.type && statement.type === 'PartialStatement' ) {
-          //Don't register dynamic partials as undefined
-            if(statement.name.type !== "SubExpression"){
+      function recursiveNodeSearch(statements, res) {
+        _(statements).forEach(function (statement) {
+          if (statement && statement.type && statement.type === 'PartialStatement') {
+            //Don't register dynamic partials as undefined
+            if (statement.name.type !== "SubExpression") {
               res.push(statement.name.original);
             }
           }
-          if ( statement && statement.program && statement.program.body ) {
-            recursiveNodeSearch( statement.program.body, res );
+          if (statement && statement.program && statement.program.body) {
+            recursiveNodeSearch(statement.program.body, res);
           }
-          if ( statement && statement.inverse && statement.inverse.body ) {
-            recursiveNodeSearch( statement.inverse.body, res );
+          if (statement && statement.inverse && statement.inverse.body) {
+            recursiveNodeSearch(statement.inverse.body, res);
           }
         });
         return res;
       }
 
       // TODO :: use the parser to do this!
-      function findPartialDeps( nodes , metaObj) {
+      function findPartialDeps(nodes, metaObj) {
         var res = [];
-        if ( nodes && nodes.body ) {
-          res = recursiveNodeSearch( nodes.body, [] );
+        if (nodes && nodes.body) {
+          res = recursiveNodeSearch(nodes.body, []);
         }
 
-        if(metaObj && metaObj.partials && metaObj.partials.length){
-          _(metaObj.partials).forEach(function ( partial ) {
+        if (metaObj && metaObj.partials && metaObj.partials.length) {
+          _(metaObj.partials).forEach(function (partial) {
             res.push(partial);
           });
         }
@@ -256,13 +256,13 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
       }
 
       // See if the first item is a comment that's json
-      function getMetaData( nodes ) {
+      function getMetaData(nodes) {
         var statement, res, test;
-        if ( nodes && nodes.body ) {
+        if (nodes && nodes.body) {
           statement = nodes.body[0];
-          if ( statement && statement.type === 'CommentStatement' ) {
+          if (statement && statement.type === 'CommentStatement') {
             try {
-              res = ( statement.value ).replace(new RegExp('^[\\s]+|[\\s]+$', 'g'), '');
+              res = (statement.value).replace(new RegExp('^[\\s]+|[\\s]+$', 'g'), '');
               test = JSON.parse(res);
               return res;
             }
@@ -276,8 +276,8 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
         return '{}';
       }
 
-      function composeParts ( parts ) {
-        if ( !parts ) {
+      function composeParts(parts) {
+        if (!parts) {
           return [];
         }
         var res = [parts[0]];
@@ -285,54 +285,54 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
         var i;
 
         for (i = 1; i < parts.length; ++i) {
-          if ( parts.hasOwnProperty(i) ) {
+          if (parts.hasOwnProperty(i)) {
             cur += '.' + parts[i];
-            res.push( cur );
+            res.push(cur);
           }
         }
         return res;
       }
 
       //Taken from Handlebar.AST.helpers.helperExpression with slight modification
-      function isHelper(statement){
+      function isHelper(statement) {
         return !!(statement.type === 'SubExpression' || (statement.params && statement.params.length) || statement.hash);
       }
 
-      function checkStatementForHelpers(statement, helpersres){
+      function checkStatementForHelpers(statement, helpersres) {
 
-        if(isHelper(statement)){
-          if(typeof statement.path !== 'undefined'){
-            registerHelper(statement.path.original,helpersres);
+        if (isHelper(statement)) {
+          if (typeof statement.path !== 'undefined') {
+            registerHelper(statement.path.original, helpersres);
           }
         }
 
-        if(statement && statement.params){
+        if (statement && statement.params) {
           statement.params.forEach(function (param) {
             checkStatementForHelpers(param, helpersres);
           });
         }
 
-        if(statement && statement.hash && statement.hash.pairs){
-          _(statement.hash.pairs).forEach(function(pair) {
+        if (statement && statement.hash && statement.hash.pairs) {
+          _(statement.hash.pairs).forEach(function (pair) {
             checkStatementForHelpers(pair.value, helpersres);
           });
         }
       }
 
-      function registerHelper(helperName,helpersres){
-        if(typeof Handlebars.helpers[helperName] === 'undefined'){
+      function registerHelper(helperName, helpersres) {
+        if (typeof Handlebars.helpers[helperName] === 'undefined') {
           helpersres.push(helperName);
         }
       }
 
-      function recursiveVarSearch( statements, res, prefix, helpersres ) {
+      function recursiveVarSearch(statements, res, prefix, helpersres) {
         prefix = prefix ? prefix + '.' : '';
 
-        var  newprefix = '';
+        var newprefix = '';
         var flag = false;
 
         // loop through each statement
-        _(statements).forEach(function(statement) {
+        _(statements).forEach(function (statement) {
           var parts;
           var part;
           var sideways;
@@ -343,29 +343,29 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
           }
 
           // If it's a meta block, not sure what this is. It should probably never happen
-          if ( statement && statement.mustache  ) {
-            recursiveVarSearch( [statement.mustache], res, prefix + newprefix, helpersres );
+          if (statement && statement.mustache) {
+            recursiveVarSearch([statement.mustache], res, prefix + newprefix, helpersres);
           }
 
           // if it's a whole new program
-          if ( statement && statement.program && statement.program.body ) {
-            sideways = recursiveVarSearch([statement.path],[], '', helpersres)[0] || '';
-            if ( statement.inverse && statement.inverse.body ) {
-             recursiveVarSearch( statement.inverse.body, res, prefix + newprefix + (sideways ? (prefix+newprefix) ? '.'+sideways : sideways : ''), helpersres);
+          if (statement && statement.program && statement.program.body) {
+            sideways = recursiveVarSearch([statement.path], [], '', helpersres)[0] || '';
+            if (statement.inverse && statement.inverse.body) {
+              recursiveVarSearch(statement.inverse.body, res, prefix + newprefix + (sideways ? (prefix + newprefix) ? '.' + sideways : sideways : ''), helpersres);
             }
-            recursiveVarSearch( statement.program.body, res, prefix + newprefix + (sideways ? (prefix+newprefix) ? '.'+sideways : sideways : ''), helpersres);
+            recursiveVarSearch(statement.program.body, res, prefix + newprefix + (sideways ? (prefix + newprefix) ? '.' + sideways : sideways : ''), helpersres);
           }
         });
         return res;
       }
 
       // This finds the Helper dependencies since it's soooo similar
-      function getExternalDeps( nodes ) {
-        var res   = [];
+      function getExternalDeps(nodes) {
+        var res = [];
         var helpersres = [];
 
-        if ( nodes && nodes.body ) {
-          res = recursiveVarSearch( nodes.body, [], undefined, helpersres );
+        if (nodes && nodes.body) {
+          res = recursiveVarSearch(nodes.body, [], undefined, helpersres);
         }
 
         var defaultHelpers = [
@@ -380,18 +380,18 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
         ];
 
         return {
-          vars: _(res).chain().unique().map(function(e) {
-            if ( e === '' ) {
+          vars: _(res).chain().unique().map(function (e) {
+            if (e === '') {
               return '.';
             }
-            if ( e.length && e[e.length-1] === '.' ) {
-              return e.substr(0,e.length-1) + '[]';
+            if (e.length && e[e.length - 1] === '.') {
+              return e.substr(0, e.length - 1) + '[]';
             }
             return e;
           }).value(),
 
-          helpers: _(helpersres).chain().unique().map(function(e){
-            if ( _(defaultHelpers).contains(e) ) {
+          helpers: _(helpersres).chain().unique().map(function (e) {
+            if (_(defaultHelpers).contains(e)) {
               return undefined;
             }
             return e;
@@ -401,51 +401,51 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
 
       function cleanPath(path) {
         var tokens = path.split('/');
-        for(var i=0;i<tokens.length; i++) {
-          if(tokens[i] === '..') {
-            delete tokens[i-1];
+        for (var i = 0; i < tokens.length; i++) {
+          if (tokens[i] === '..') {
+            delete tokens[i - 1];
             delete tokens[i];
           } else if (tokens[i] === '.') {
             delete tokens[i];
           }
         }
-        return tokens.join('/').replace(/\/\/+/g,'/');
+        return tokens.join('/').replace(/\/\/+/g, '/');
       }
 
       function fetchAndRegister(langMap) {
-        fetchText(path, function(text, path) {
+        fetchText(path, function (text, path) {
 
-          var readCallback = (config.isBuild && config[onHbsReadMethod]) ? config[onHbsReadMethod]:  function(name,path,text){return text} ;
+          var readCallback = (config.isBuild && config[onHbsReadMethod]) ? config[onHbsReadMethod] : function (name, path, text) { return text };
           // for some reason it doesn't include hbs _first_ when i don't add it here...
-          var nodes = Handlebars.parse( readCallback(name, path, text));
-          var meta = getMetaData( nodes );
-          var extDeps = getExternalDeps( nodes );
+          var nodes = Handlebars.parse(readCallback(name, path, text));
+          var meta = getMetaData(nodes);
+          var extDeps = getExternalDeps(nodes);
           var vars = extDeps.vars;
           var helps = (extDeps.helpers || []);
           var debugOutputStart = '';
-          var debugOutputEnd   = '';
+          var debugOutputEnd = '';
           var debugProperties = '';
           var deps = [];
           var depStr, helpDepStr, metaObj, head, linkElem;
-          var baseDir = name.substr(0,name.lastIndexOf('/')+1);
+          var baseDir = name.substr(0, name.lastIndexOf('/') + 1);
 
-          if(meta !== '{}') {
+          if (meta !== '{}') {
             try {
               metaObj = JSON.parse(meta);
-            } catch(e) {
+            } catch (e) {
               console.log('couldn\'t parse meta for %s', path);
             }
           }
-          var partials = findPartialDeps( nodes,metaObj );
+          var partials = findPartialDeps(nodes, metaObj);
           config.hbs = config.hbs || {};
           config.hbs._partials = config.hbs._partials || {};
 
-          for ( var i in partials ) {
-            if ( partials.hasOwnProperty(i) && typeof partials[i] === 'string') {  // make sure string, because we're iterating over all props
+          for (var i in partials) {
+            if (partials.hasOwnProperty(i) && typeof partials[i] === 'string') {  // make sure string, because we're iterating over all props
               var partialReference = partials[i];
 
               var partialPath;
-              if(partialReference.match(/^(\.|\/)+/)) {
+              if (partialReference.match(/^(\.|\/)+/)) {
                 // relative path
                 partialPath = cleanPath(baseDir + partialReference);
               }
@@ -456,11 +456,11 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
 
               // check for recursive partials
               if (omitExtension) {
-                if(path === parentRequire.toUrl(partialPath)) {
+                if (path === parentRequire.toUrl(partialPath)) {
                   continue;
                 }
               } else {
-                if(path === parentRequire.toUrl(partialPath +'.'+ (config.hbs && config.hbs.templateExtension ? config.hbs.templateExtension : templateExtension))) {
+                if (path === parentRequire.toUrl(partialPath + '.' + (config.hbs && config.hbs.templateExtension ? config.hbs.templateExtension : templateExtension))) {
                   continue;
                 }
               }
@@ -473,7 +473,7 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
 
               config.hbs._loadedDeps = config.hbs._loadedDeps || {};
 
-              deps[i] = "hbs!"+partialPath;
+              deps[i] = "hbs!" + partialPath;
             }
           }
 
@@ -481,22 +481,22 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
 
           helps = helps.concat((metaObj && metaObj.helpers) ? metaObj.helpers : []);
           helpDepStr = disableHelpers ?
-            '' : (function (){
+            '' : (function () {
               var i;
               var paths = [];
               var pathGetter = config.hbs && config.hbs.helperPathCallback
                 ? config.hbs.helperPathCallback
-                : function (name){
+                : function (name) {
                   return (config.hbs && config.hbs.helperDirectory ? config.hbs.helperDirectory : helperDirectory) + name;
                 };
 
-              for ( i = 0; i < helps.length; i++ ) {
+              for (i = 0; i < helps.length; i++) {
                 paths[i] = "'" + pathGetter(helps[i], path) + "'"
               }
               return paths;
             })().join(',');
 
-          if ( helpDepStr ) {
+          if (helpDepStr) {
             helpDepStr = ',' + helpDepStr;
           }
 
@@ -506,10 +506,10 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
                 styleList = _.union(styleList, metaObj.styles);
 
                 // In dev mode in the browser
-                if ( require.isBrowser && ! config.isBuild ) {
+                if (require.isBrowser && !config.isBuild) {
                   head = document.head || document.getElementsByTagName('head')[0];
                   _(metaObj.styles).forEach(function (style) {
-                    if ( !styleMap[style] ) {
+                    if (!styleMap[style]) {
                       linkElem = document.createElement('link');
                       linkElem.href = config.baseUrl + devStyleDirectory + style + '.css';
                       linkElem.media = 'all';
@@ -520,21 +520,21 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
                     }
                   });
                 }
-                else if ( config.isBuild ) {
-                  (function(){
-                    var fs  = require.nodeRequire('fs');
+                else if (config.isBuild) {
+                  (function () {
+                    var fs = require.nodeRequire('fs');
                     var str = _(metaObj.styles).map(function (style) {
                       if (!styleMap[style]) {
                         styleMap[style] = true;
-                        return '@import url('+style+'.css);\n';
+                        return '@import url(' + style + '.css);\n';
                       }
                       return '';
                     }).join('\n');
 
                     // I write out my import statements to a file in order to help me build stuff.
                     // Then I use a tool to inline my import statements afterwards. (you can run r.js on it too)
-                    fs.open(__dirname + buildStyleDirectory + buildCSSFileName, filecode, '0666', function( e, id ) {
-                      fs.writeSync(id, str, null, encoding='utf8');
+                    fs.open(__dirname + buildStyleDirectory + buildCSSFileName, filecode, '0666', function (e, id) {
+                      fs.writeSync(id, str, null, encoding = 'utf8');
                       fs.close(id);
                     });
                     filecode = 'a';
@@ -542,51 +542,51 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
                 }
               }
             }
-            catch(e){
+            catch (e) {
               console.log('error injecting styles');
             }
           }
 
-          if ( ! config.isBuild && ! config.serverRender ) {
+          if (!config.isBuild && !config.serverRender) {
             debugOutputStart = '<!-- START - ' + name + ' -->';
             debugOutputEnd = '<!-- END - ' + name + ' -->';
             debugProperties = 't.meta = ' + meta + ';\n' +
-                              't.helpers = ' + JSON.stringify(helps) + ';\n' +
-                              't.deps = ' + JSON.stringify(deps) + ';\n' +
-                              't.vars = ' + JSON.stringify(vars) + ';\n';
+              't.helpers = ' + JSON.stringify(helps) + ';\n' +
+              't.deps = ' + JSON.stringify(deps) + ';\n' +
+              't.vars = ' + JSON.stringify(vars) + ';\n';
           }
 
           var mapping = false;
           var configHbs = config.hbs || {};
           var options = _.extend(configHbs.compileOptions || {}, { originalKeyFallback: configHbs.originalKeyFallback });
-          var prec = precompile( text, mapping, options);
-          
+          var prec = precompile(text, mapping, options);
+
           //CSPS-KR: causing a "No define call for..." with requireJS param "enforceDefine"
           //see: https://github.com/SlexAxton/require-handlebars-plugin/issues/225
           //var tmplName = "'hbs!" + name + "',";
           var tmplName = config.isBuild ? '' : "'" + name + "',";
           //END CSPS-KR
 
-          if(depStr) depStr = ", '"+depStr+"'";
+          if (depStr) depStr = ", '" + depStr + "'";
 
           var partialReferences = [];
-          if(config.hbs._partials[name])
+          if (config.hbs._partials[name])
             partialReferences = config.hbs._partials[name].references;
 
           var handlebarsPath = (config.hbs && config.hbs.handlebarsPath) ? config.hbs.handlebarsPath : 'hbs/handlebars';
 
           text = '/* START_TEMPLATE */\n' +
-                 'define('+tmplName+"['"+handlebarsPath+"'"+depStr+helpDepStr+'], function( Handlebars ){ \n' +
-                   'var t = Handlebars.template(' + prec + ');\n' +
-                   "Handlebars.registerPartial('" + name + "', t);\n";
+            'define(' + tmplName + "['" + handlebarsPath + "'" + depStr + helpDepStr + '], function( Handlebars ){ \n' +
+            'var t = Handlebars.template(' + prec + ');\n' +
+            "Handlebars.registerPartial('" + name + "', t);\n";
 
-          for(var i=0; i<partialReferences.length;i++)
+          for (var i = 0; i < partialReferences.length; i++)
             text += "Handlebars.registerPartial('" + partialReferences[i] + "', t);\n";
 
           text += debugProperties +
-                   'return t;\n' +
-                 '});\n' +
-                 '/* END_TEMPLATE */\n';
+            'return t;\n' +
+            '});\n' +
+            '/* END_TEMPLATE */\n';
 
           //Hold on to the transformed text if a build.
           if (config.isBuild) {
@@ -601,8 +601,8 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
           }
           /*@end@*/
 
-          if ( !config.isBuild ) {
-            parentRequire( deps, function (){
+          if (!config.isBuild) {
+            parentRequire(deps, function () {
               load.fromText(text);
 
               //Give result to load. Need to wait until the module
@@ -624,7 +624,7 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
             });
           }
 
-          if ( config.removeCombined && path ) {
+          if (config.removeCombined && path) {
             filesToRemove.push(path);
           }
 
@@ -637,8 +637,8 @@ define(['lib/hbs/handlebars', 'underscore', 'lib/hbs/json2'], function (Handleba
       if (omitExtension) {
         path = parentRequire.toUrl(name);
       } else {
-	  	path = parentRequire.toUrl(name +'.'+ (config.hbs && config.hbs.templateExtension ? config.hbs.templateExtension : templateExtension));
-	  }
+        path = parentRequire.toUrl(name + '.' + (config.hbs && config.hbs.templateExtension ? config.hbs.templateExtension : templateExtension));
+      }
 
       fetchAndRegister(false);
     },

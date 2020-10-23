@@ -2,11 +2,11 @@ define([
 	'jquery',
 	'./diagnosis-constants',
 	'../BaseModule'
-], function($, CONSTANTS, BaseModule) {
+], function ($, CONSTANTS, BaseModule) {
 	'use strict';
 
 	return BaseModule.extend({
-		initialize: function(options) {
+		initialize: function (options) {
 			this.options = options;
 
 			this.name = this.options.name;
@@ -14,7 +14,7 @@ define([
 			this.aBugs = [];
 		},
 
-		diagnose: function(subObj) {
+		diagnose: function (subObj) {
 			switch (this.index) {
 				case CONSTANTS.TYPES.BROKEN_IMAGE:
 					this.diagnoseImg(subObj);
@@ -31,8 +31,8 @@ define([
 			}
 		},
 
-		diagnoseImg: function(subObj) {
-			$("img").each(function() {
+		diagnoseImg: function (subObj) {
+			$("img").each(function () {
 				var image = $(this);
 				if (image.context.naturalWidth == 0 || image.readyState == 'uninitialized') {
 					//check if this image is already in the list
@@ -48,7 +48,7 @@ define([
 				}
 			});
 		},
-		diagnoseUnindexedExtLink: function(subObj) {
+		diagnoseUnindexedExtLink: function (subObj) {
 			var linkCollection = $("#dynamic_content a[href^='http'][class!='external']");
 			for (var loopLinks = 0; loopLinks < linkCollection.length; loopLinks++) {
 				var imgBugFlag = false;
@@ -63,7 +63,7 @@ define([
 			}
 		},
 
-		diagnoseIndexedExtLink: function(subObj) {
+		diagnoseIndexedExtLink: function (subObj) {
 			var linkCollection = $("#dynamic_content a[rel='external']");
 			//	this needs serverside :(
 			//we'll try to hook it up later down the road
@@ -78,7 +78,7 @@ define([
 
 		},
 		//CSPS-KR TODO: this should be in the glossary module; diagnose() 
-		diagnoseGlossary: function(subObj) {
+		diagnoseGlossary: function (subObj) {
 			var glossaryCollection = $(".csps-glossary");
 			var searched;
 			var found;

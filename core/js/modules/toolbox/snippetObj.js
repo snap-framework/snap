@@ -5,53 +5,53 @@ define([
 	'settings-core',
 	'utils',
 	'../BaseModule'
-], function(_, $, Logger, CoreSettings, Utils, BaseModule) {
+], function (_, $, Logger, CoreSettings, Utils, BaseModule) {
 	'use strict';
 
 	return BaseModule.extend({
 
 
-		initialize: function(options) {
-			this.master=options.master;
-			this.parent=options.parent;
-			this.id=options.id;
-			
-			this.html=options.html;
+		initialize: function (options) {
+			this.master = options.master;
+			this.parent = options.parent;
+			this.id = options.id;
+
+			this.html = options.html;
 		},
-/*---------------------------------------------------------------------------------------------
-		-------------------------houseKeeping
----------------------------------------------------------------------------------------------*/	
-		
+		/*---------------------------------------------------------------------------------------------
+				-------------------------houseKeeping
+		---------------------------------------------------------------------------------------------*/
 
-/*---------------------------------------------------------------------------------------------
-		-------------------------
----------------------------------------------------------------------------------------------*/	
-		generateInstance:function($el){
+
+		/*---------------------------------------------------------------------------------------------
+				-------------------------
+		---------------------------------------------------------------------------------------------*/
+		generateInstance: function ($el) {
 			var div = document.createElement("div");
-			div.setAttribute("data-csps-replace", this.id); 
-			div.innerHTML=this.html;
+			div.setAttribute("data-csps-replace", this.id);
+			div.innerHTML = this.html;
 
-			this.replaceInstance($el,div);
+			this.replaceInstance($el, div);
 			return false;
 		},
-		cleanUpInstance:function($el){			
+		cleanUpInstance: function ($el) {
 			var div = document.createElement("div");
-			div.setAttribute("data-csps-replace", this.id); 
-			div.textContent="";
-			
-			this.replaceInstance($el,div);
+			div.setAttribute("data-csps-replace", this.id);
+			div.textContent = "";
+
+			this.replaceInstance($el, div);
 			return false;
-		},		
-		replaceInstance:function($el, html){
-			if($el.is("span") || $el.is("li")){
+		},
+		replaceInstance: function ($el, html) {
+			if ($el.is("span") || $el.is("li")) {
 				$el.html(this.html);
-			}else{
+			} else {
 				$el.replaceWith(html);
 			}
-			
+
 		}
-		
-		
+
+
 
 
 	});

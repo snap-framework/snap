@@ -1,32 +1,32 @@
 define([
-    'underscore',
+	'underscore',
 	'jquery',
 	'utils',
 	'logger',
-    '../BaseModule',
-    'settings-core',
-    'modules/objSub/objSub-utils'
-], function(_, $, Utils, Logger, BaseModule, CoreSettings, ObjSubUtils) {
+	'../BaseModule',
+	'settings-core',
+	'modules/objSub/objSub-utils'
+], function (_, $, Utils, Logger, BaseModule, CoreSettings, ObjSubUtils) {
 	'use strict';
-	
+
 	return BaseModule.extend({
-		initialize: function(options) {
+		initialize: function (options) {
 			Logger.log("INIT: Locking Sytem");
 
 			this.setListeners();
 		},
 
-		setListeners: function() {
+		setListeners: function () {
 			var that = this;
-			$(this).on('LockingSystem:lockPage', function(e, target) {
+			$(this).on('LockingSystem:lockPage', function (e, target) {
 				that.lockPage(target);
 			});
-			$(this).on('LockingSystem:unlockPage', function(e, target) {
+			$(this).on('LockingSystem:unlockPage', function (e, target) {
 				that.unlockPage(target);
 			});
 		},
 
-		onPageLoaded: function() {
+		onPageLoaded: function () {
 			var gettingData = trackingObj.getData("lockList");
 			//gettingData="m2-3,m3-3";
 			if (typeof gettingData === "undefined") {
@@ -40,13 +40,13 @@ define([
 				this.lockList = this.updateLockList(aLockList);
 			}
 			// check the Allowexit flag
-			if(CoreSettings.persistentLockedIn){
-				if(masterStructure.allowedLockedInExit)	masterStructure.allowedLockedInExit = false;
-			}			
+			if (CoreSettings.persistentLockedIn) {
+				if (masterStructure.allowedLockedInExit) masterStructure.allowedLockedInExit = false;
+			}
 		},
 
 		//checks whats currently locked (class) and refreshes our memory.
-		updateLockList: function(updatedList) {
+		updateLockList: function (updatedList) {
 			var lockList = [];
 
 			var modulesLocked = [];
@@ -73,17 +73,17 @@ define([
 		//collection is the list of all pages or all modules		
 		//lockList is the new list being populated
 		//updatedList is the saveObj
-		checkLockLoop: function(collection, lockList, updatedList) {
+		checkLockLoop: function (collection, lockList, updatedList) {
 			//check locked modules
 			for (var i = 0; i < collection.length; i++) {
 				if (collection[i].isLocked || collection[i].isLockedIn) {
 					//lets check if it's still in memory
 					if (typeof updatedList != "undefined") {
 						//going through memory using "update"
-						 var found = false;					
-						 for(var j=0;j<updatedList.length && !found;j++){
-							if(updatedList[j] ==collection[i].sPosition)
-							found=true;
+						var found = false;
+						for (var j = 0; j < updatedList.length && !found; j++) {
+							if (updatedList[j] == collection[i].sPosition)
+								found = true;
 						}
 						//is this sub still locked?
 						if (found) {
@@ -96,7 +96,7 @@ define([
 								collection[i].unlock();
 							} else if (collection[i].isLockedIn) {
 								//if(!CoreSettings.persistentLockedIn)
-									collection[i].unlockIn();
+								collection[i].unlockIn();
 							}
 						}
 					} else {
@@ -107,7 +107,7 @@ define([
 			return lockList;
 		},
 
-		isSoftLocked: function() {
+		isSoftLocked: function () {
 			//Check if locked, confirm if user really wants leave
 			if (masterStructure.isSoftLocked) {
 				var lockCheck = confirm(labels.nav.isSoftLockedMessage);
@@ -121,13 +121,13 @@ define([
 		 * @param  {[object]}  subObj: the page
 		 * @return {Boolean}
 		 */
-		isLocked: function(sPosition) {			
+		isLocked: function (sPosition) {
 			//checks whether the current page is locked or the entire section is locked 
 			var targetSub = ObjSubUtils.findSub(sPosition);
 			return !!(targetSub && (targetSub.isLocked || targetSub.getTop().isLocked));
 		},
 
-		isLockedIn: function(sPosition) {
+		isLockedIn: function (sPosition) {
 			//checks whether the current page is lockedin or the entire section is lockedin
 			var targetSub = ObjSubUtils.findSub(sPosition);
 			return !!(targetSub && (targetSub.isLockedIn || targetSub.getTop().isLockedIn));
@@ -143,7 +143,7 @@ define([
 		 * @param  {String} target   	[module's page name]
 		 * @param  {Boolean} softLock [soft lock current page]
 		 */
-		lockPage: function(target, softLock) {
+		lockPage: function (target, softLock) {
 			//if we have only one argument, and it is a boolean,
 			//means that we are trying to softLock
 			//we need this since we are not supporting ES6's default param value feature :( 
@@ -159,7 +159,7 @@ define([
 			var subToLock = ObjSubUtils.findSub(Utils.getArrayFromString(target));
 			subToLock.lock();
 			//grab all the elements from menu and sitemap, and lock them
-			$('[data-target='+target+'], [data-position='+target+']').addClass('locked');
+			$('[data-target=' + target + '], [data-position=' + target + ']').addClass('locked');
 
 			this.lockList = this.updateLockList();
 
@@ -175,7 +175,7 @@ define([
 		 * @param  {String} target   	[module's page name]
 		 * @param  {Boolean} softLock [remove soft lock of current page]
 		 */
-		unlockPage: function(target, softUnlock) {
+		unlockPage: function (target, softUnlock) {
 			//if we have only one argument, and it is a boolean,
 			//means that we are trying to softUnlock
 			//we need this since we are not supporting ES6's default param value feature :( 
@@ -192,7 +192,7 @@ define([
 			var subToUnlock = ObjSubUtils.findSub(Utils.getArrayFromString(target));
 			subToUnlock.unlock();
 			//grab all the elements from menu and sitemap, and unlock them
-			$('[data-target='+target+'], [data-position='+target+']').removeClass('locked');
+			$('[data-target=' + target + '], [data-position=' + target + ']').removeClass('locked');
 
 			this.lockList = this.updateLockList();
 
@@ -200,7 +200,7 @@ define([
 			$(this).trigger('AdminMode:addUnlocks');
 		},
 
-		unlockInPage: function(target) {
+		unlockInPage: function (target) {
 			//if undefined, just take the current page
 			target = target || Utils.queryString("state");
 
@@ -210,7 +210,7 @@ define([
 			} else {
 				var subToUnlock = ObjSubUtils.findSub(Utils.getArrayFromString(target));
 				subToUnlock.unlockIn();
-				
+
 				this.updateLockList();
 			}
 			//grab all the elements from menu and sitemap, and unlock them

@@ -5,51 +5,51 @@ define([
    'logger',
    'modules/BaseModule',
    'modules/objSub/objSub-utils'
-], function(labels, CoreSettings, Utils, Logger, BaseModule, ObjSubUtils) {
+], function (labels, CoreSettings, Utils, Logger, BaseModule, ObjSubUtils) {
    'use strict';
 
    var pageName = "index";
 
    return BaseModule.extend({
-      initialize: function(options) {
+      initialize: function (options) {
          this.options = options;
          this.lockingSystem = this.options.lockingSystem;
       },
-      addPageToHistory: function(itemID) {
+      addPageToHistory: function (itemID) {
          History.pushState({
             _index: History.getCurrentIndex()
          }, document.title, pageName + "_" + Utils.lang + ".html?state=" + itemID);
       },
 
-      changePage: function(itemID) {
-            var isLockedIn = masterStructure.allowedLockedInExit
-                          ? false
-                          : CoreSettings.enableLockingSystem
-                          ? this.lockingSystem.isLockedIn(masterStructure.currentNav)
-                          : null;
-                          
+      changePage: function (itemID) {
+         var isLockedIn = masterStructure.allowedLockedInExit
+            ? false
+            : CoreSettings.enableLockingSystem
+               ? this.lockingSystem.isLockedIn(masterStructure.currentNav)
+               : null;
+
          if (isLockedIn) {
-			 
-             //locked in, CANCEL EVERYTHING
+
+            //locked in, CANCEL EVERYTHING
             alert(labels.nav.lockedIn);
             return false;
 
-			 
+
          }
-			 if(masterStructure.isSoftLocked){
-				 
-				 if(!confirm(labels.nav.isSoftLockedMessage)){
-					 return false;
-				 }
-				 masterStructure.isSoftLocked=false
-			 }
+         if (masterStructure.isSoftLocked) {
+
+            if (!confirm(labels.nav.isSoftLockedMessage)) {
+               return false;
+            }
+            masterStructure.isSoftLocked = false
+         }
 
          var currentPos = masterStructure.currentSub.sPosition;
          //don't change page if target is the current one
          if (itemID !== currentPos) {
             var aPosition = Utils.getArrayFromString(itemID);
             var isLocked = CoreSettings.enableLockingSystem ? this.lockingSystem.isLocked(aPosition) : null;
-            if (isLocked ) {
+            if (isLocked) {
                //locked out
                alert(labels.nav.lockedOut);
                return false;
@@ -69,55 +69,55 @@ define([
          }
       },
 
-      prepareLoadPage: function() {
+      prepareLoadPage: function () {
          //close popup if any, then show loading box
          $.magnificPopup.close();
       },
-      loadPage: function(params) {   
-     
+      loadPage: function (params) {
+
          var that = this;
          var scriptPath = params.scriptPath || "";
          var pagePath = params.pagePath || "";
          var subIsMissing = params.isMissing || false;
 
          var context = masterStructure.firstPageLoad ? '' : 'main';
-         
+
          //200ms equals to the transition duration in wet.scss
          var loadDelay = $.magnificPopup.instance.isOpen ? 200 : 0;
-         
+
          this.prepareLoadPage();
 
-         _.delay(function() {
-            Utils.showLoadingBox(function() {
-				$("html").removeClass("page404");
+         _.delay(function () {
+            Utils.showLoadingBox(function () {
+               $("html").removeClass("page404");
                $(that).trigger('Router:loadPage');
-               
+
                //unload the page
                /*CSPS-TD ↓ */
                window.fQsEventDispatcher = null;
                /* ↑ CSPS-TD*/
-				if(CoreSettings.editMode){subIsMissing=false;}
+               if (CoreSettings.editMode) { subIsMissing = false; }
                if (!subIsMissing) {
                   var targetDiv = (masterStructure.loadAllMode) ? masterStructure.loadAllPlace() : CoreSettings.contentContainer;
-                  $(targetDiv).load(pagePath, function(response, status, xhr) {
+                  $(targetDiv).load(pagePath, function (response, status, xhr) {
                      //did the load succeed or fail?
                      var success = (status != 'error');
                      if (!success) {
                         masterStructure.loadFailed(xhr);
                      }
                      //checks for override on require loading a script for every page
-                     if(CoreSettings.requireLoadPageScript){
-                     
+                     if (CoreSettings.requireLoadPageScript) {
+
                         //look for JS file with same name without language if any
                         //NOTE: js files that do not follow AMD will still be loaded
                         //      but not interpreted as a "module".
                         //      JS files loaded through require are loaded once and cached.
-                        require([scriptPath], function(module) {
+                        require([scriptPath], function (module) {
                            var urlsFetched = Object.keys(require.s.contexts._.urlFetched);
                            //get the last one fetched
-                           var lastFetched = urlsFetched[urlsFetched.length-1];
+                           var lastFetched = urlsFetched[urlsFetched.length - 1];
                            Logger.log("Custom JS file: " + lastFetched + " initialize");
-                           
+
                            //script has been found, load it!
                            if (_.isFunction(module)) {
                               new module();
@@ -125,7 +125,7 @@ define([
 
                            masterStructure.loadSuccessful();
                            $(that).trigger('Navigation:refreshNavState');
-                        }, function(error) {
+                        }, function (error) {
 
                            //no JS file found or no define found inside JS file,
                            //too bad! Life goes on.
@@ -137,7 +137,7 @@ define([
                            masterStructure.loadSuccessful();
                            $(that).trigger('Navigation:refreshNavState');
                         });
-                     }else{
+                     } else {
                         //still a successful load since the html has been loaded
                         masterStructure.loadSuccessful();
                         $(that).trigger('Navigation:refreshNavState');
@@ -156,11 +156,11 @@ define([
       },
 
       // replace history
-      replacePage: function(page) {                  
-         History.replaceState(null, document.title, pageName + "_" + Utils.lang + ".html?state=" + page);         
+      replacePage: function (page) {
+         History.replaceState(null, document.title, pageName + "_" + Utils.lang + ".html?state=" + page);
       },
 
-      changeLang: function(newLang) {
+      changeLang: function (newLang) {
          if (this.lockingSystem.isSoftLocked()) {
             return false;
          } //Intercept if page is locked

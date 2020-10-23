@@ -1,0 +1,22 @@
+[data-filter-view="hidden"] .wb-filter{
+	.input-group,[aria-live],h2{
+		display:none;
+	}
+	h3{
+		margin:0px;
+	}
+}
+[data-filter-view="notext"] .wb-filter{
+	[aria-live]{
+		display:none;
+	}
+}
+
+//for ALL
+[data-filter-view]{
+	li{
+		button{
+			border:none;
+		}
+	}
+}

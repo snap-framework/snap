@@ -5,44 +5,44 @@ define([
 	'settings-core',
 	'utils',
 	'../BaseModule'
-], function(_, $, Logger, CoreSettings, Utils, BaseModule) {
+], function (_, $, Logger, CoreSettings, Utils, BaseModule) {
 	'use strict';
 
 	return BaseModule.extend({
-		ui: {	
+		ui: {
 			resourcesBtn: ".top-menu .resources"
 		},
-		
+
 		templateUrl: "content/tools/resources_" + Utils.lang,
 
-		initialize: function(options) {
+		initialize: function (options) {
 			Logger.log("INIT: Resources");
 		},
 
-		setListeners: function() {},
+		setListeners: function () { },
 
-		serializeData: function() {
+		serializeData: function () {
 			return {};
 		},
 
-		render: function() {
+		render: function () {
 			if (!this.isRendered) {
 				this.template = this.template(this.serializeData());
-				
+
 				this.setMagnificPopupTemplate();
 				this.setListeners();
 				this.isRendered = true;
 			}
 		},
 
-		onPageLoaded: function() {
+		onPageLoaded: function () {
 			this.render();
 		},
 
-		setMagnificPopupTemplate: function() {
+		setMagnificPopupTemplate: function () {
 			this.ui.resourcesBtn.magnificPopup({
-			    items: { src: this.template },
-			    type: 'inline'
+				items: { src: this.template },
+				type: 'inline'
 			});
 		}
 	});

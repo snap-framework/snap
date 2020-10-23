@@ -1,11 +1,11 @@
 define([
-    'jquery',
-    'modules/BaseModule'
-], function($, BaseModule) {
+	'jquery',
+	'modules/BaseModule'
+], function ($, BaseModule) {
 	'use strict';
 
 	return BaseModule.extend({
-		initialize: function(options) {
+		initialize: function (options) {
 			this.options = options;
 			this.index = this.options.index;
 			this.setsize = this.options.setsize;
@@ -13,11 +13,11 @@ define([
 
 			this.setAttributes();
 		},
-		setAttributes: function() {
+		setAttributes: function () {
 			this.$el.attr({
 				"aria-posinset": this.index + 1,
 				"aria-setsize": this.setsize
-				})
+			})
 			this.$el.children("a").attr({
 				"tabindex": "-1",
 				"aria-haspopup": "true",
@@ -27,7 +27,7 @@ define([
 			$(this.mbObj).attr({
 				"aria-posinset": this.index + 1,
 				"aria-setsize": this.setsize
-			});			
+			});
 			$(this.mbObj).children("a").attr({
 				"tabindex": "-1",
 				"aria-haspopup": "true",
@@ -35,7 +35,7 @@ define([
 				//"role": "menuitem"
 			});
 		},
-		setFocus: function() {
+		setFocus: function () {
 			// find out if we are in mobile view and put focus on
 			if ($(this.mbObj).closest('section').find('a.toolbox:focus').length > 0 || ($('*:focus').hasClass('tb-item') && $('*:focus').closest('ul').attr('id') == "mb-tb")) {
 				$(this.mbObj).children('a').focus();

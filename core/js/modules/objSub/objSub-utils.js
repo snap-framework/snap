@@ -1,17 +1,17 @@
 define([
-    'underscore',
-    'jquery',
-    'utils'
-], function(_, $, Utils) {
+	'underscore',
+	'jquery',
+	'utils'
+], function (_, $, Utils) {
 	'use strict';
-	
+
 	var ObjSubUtils = {
 		/*
 		 * this method searches through the flatlist to find a page and returns the object.
 		 * @param {array} aFind: a position array of object tofind
 		 * @return the sub if found, else false.
 		 */
-		findSub: function(aFind) {
+		findSub: function (aFind) {
 			//cycle through the subs in a level (found by length of the array (depth=level)
 			var lvl = aFind.length;
 			var flagFound = false;

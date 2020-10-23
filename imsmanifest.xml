@@ -27,12 +27,12 @@
    </organizations>
    <resources>
 
-      <resource identifier="RC999F_S01" type="webcontent" adlcp:scormtype="sco" href="launch_en.html">
+      <resource identifier="RC999F_S01" type="webcontent" adlcp:scormtype="sco" href="index_en.html">
          <metadata>
             <schema>ADL SCORM</schema>
             <schemaversion>1.2</schemaversion>
          </metadata>
-         <file href="launch_en.html" />
+         <file href="index_en.html" />
       </resource>
    </resources>
 </manifest>

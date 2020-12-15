@@ -1,29 +1,25 @@
 'use strict';
 
 define({
+	presets: null,
 	debugMode: false,
 	enableAdminMode: true,
 
 	contentContainer: "#dynamic_content",
 
-	cssFileName: "theme.css",		//name of the css theme file to load.
-
-
-	skipSplash: false,
-
 	/*------------------ Course info -----------------*/
 	courseLegacyCode: "C000",
-	courseTitle_en: "The Catalog",
-	courseTitle_fr: "Le catalogue",
+	courseTitle_en: "SNAP!",
+	courseTitle_fr: "SNAP!",
 	courseSubtitle_en: "",
 	courseSubtitle_fr: "",
-	seriesTitle_en: "The CSPS Framework",
-	seriesTitle_fr: "La plateforme EFPC",
+	seriesTitle_en: "",
+	seriesTitle_fr: "",
 
 	/*------------------ Toolbar -----------------*/
 	showLangSwitch: true,
 	showHome: true,
-	showHelp: true,
+	showHelp: false,
 	showSitemap: true,
 	showToolbox: true,
 	showFavorites: false,
@@ -62,6 +58,7 @@ define({
 
 	/*------------------ Scorm settings ---------------*/
 	trackAllPages: true,
+	autoComplete: false, //trigger completion as soon as the course is done loading
 	triggerCompletionWhenAllPagesViewed: false,
 	markModuleAsViewedOnLastPage: false, //broken	
 
@@ -71,7 +68,7 @@ define({
 
 	/*------------------ DATA / Matomo Analytics -----------------*/
 
-	matomoAnalytics: true,
+	matomoAnalytics: false,
 
 	/*------------------ Navigation -----------------*/
 	topNavFullwidth: true,
@@ -79,14 +76,15 @@ define({
 	loopLevel: 3,		// 0 is a course loop, 1 takes you back to home after each module, 3 is none (2 makes no sense so far)
 	lvlPageOf: 0,		//Level at which the pageOf acts (lvlTimeline)
 	pageOfPermissive: true, 	//determines if the pageOf will take into account subPages (tlPermissive)
-	navigationMode: 1, //1 is legacy, 2 is P930, 3 is newNav
+	navigationMode: 1, //1 is legacy, 2 is P930, 3 is newNav DEPRECATED
+	showSupermenu: true,
 
+	/*------------------ MODDING THE DOM ----------------*/
+	removeFooter: false,
 
-	/*------------------ TIMELINE Object -----------------*/
-	//deprecated.
-	activateTimeline: false,
-	tlContent: true, 	//is the timeline within the content (not in the frame).
-	tlPlace: "",		//this is the spot where we need to append and add the timeline div. default is below the first h1
+	/*------------------ POPPER and window management -----------------*/
+	selfClose: false, // on quit course, do you need to self close?
+
 
 
 	/*------------------ External Links-----------------*/
@@ -95,8 +93,11 @@ define({
 	/*------------------ Favorites -----------------*/
 	autoAddFavoriteBtn: false,		//adds the favorite button on every page
 
-	/*------------------ Loading Box ---------------*/
+	/*------------------ animations ---------------*/
 	loadingBoxTransitionSpeed: 1000,
+	backnextThrottleSpeed: 750,
+	loadingFast: 200,
+	loadingSlow: 600,
 
 	/*------------------ Locking System ---------------*/
 	enableLockingSystem: true,
@@ -104,7 +105,6 @@ define({
 	//after quitting the course or after completing the course
 	//and returning to that page. Persistent.
 	persistentLockedIn: true,
-
 
 	/*------------------ Tutorial ---------------*/
 	enableTutorial: false,

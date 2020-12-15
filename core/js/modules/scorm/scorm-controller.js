@@ -18,7 +18,7 @@ define([
 			this.status = this.getStatus();
 			this.api = CoreSettings.api;
 
-			if (this.status !== "online") {
+			if (this.status !== "online" || this.isFakeScorm() === false) {
 				if (CoreSettings.debugMode) {
 					$("#wb-sttl").children("a").append("<div id='status'>- " + labels.err.offline + "</div>");
 				}
@@ -102,6 +102,19 @@ define([
 				return "";
 			}
 		},
+		//this detects the localhost scorm wrapper
+		isFakeScorm: function () {
+			if (window.frameElement !== null) {
+				if (window.frameElement.name === "wndSTAGEFRAME") {
+					console.log("FAKE PLAYER")
+					return true;
+				}
+			} else {
+				return false;
+			}
+
+		},
+
 		isOnline: function () {
 
 			if (CoreSettings.isPopped === true) {
@@ -118,7 +131,8 @@ define([
 		},
 
 		getStatus: function () {
-			if (CoreSettings.connectionMode === "scorm") { //if this window has access to poppup
+
+			if (CoreSettings.connectionMode === "scorm" || this.isFakeScorm()) { //if this window has access to poppup
 				//check for ILMS
 				if (this.isOnline()) {
 					return "online";//labels.err.online.toLowerCase();

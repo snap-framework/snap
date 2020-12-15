@@ -154,8 +154,12 @@
    }
 }
 
-
+html .wb-tabs.carousel-s1 figure, .wb-tabs.carousel-s2 figure {
+   
+   background-color:transparent;
+}
 [data-lom-element="carousel"]{
+   margin-bottom:45px;
 	ul[role="tablist"]{
 		top:0px;
 		height: 100%;

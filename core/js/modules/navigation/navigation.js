@@ -31,8 +31,8 @@ define([
 		},
 		setListeners: function () {
 			var that = this;
-			$(this).on('Navigation:goToNextPage', _.throttle(_.bind(this.goToNextPage, this), 750));
-			$(this).on('Navigation:goToPrevPage', _.throttle(_.bind(this.goToPrevPage, this), 750));
+			$(this).on('Navigation:goToNextPage', _.throttle(_.bind(this.goToNextPage, this), CoreSettings.backnextThrottleSpeed));
+			$(this).on('Navigation:goToPrevPage', _.throttle(_.bind(this.goToPrevPage, this), CoreSettings.backnextThrottleSpeed));
 			$(this).on('Navigation:loadHome', _.bind(this.onLoadHome, this));
 			$(this).on('Navigation:changePage', function (e, itemID) {
 				that.changePage(itemID);
@@ -64,7 +64,10 @@ define([
 		},
 		onQuitCourse: function () {
 			if (window.confirm(labels.nav.quitConfirm)) {
-				window.opener.closeCourse();
+				if (CoreSettings.selfClose) {
+					window.opener.closeCourse();
+
+				}
 			}
 		},
 

@@ -174,7 +174,7 @@ define(['jquery', 'settings-core'], function ($, CoreSettings) {
       showLoadingBox: function (callback, context) {
          //if undefined, grab the spinner direct child of body
          context = context || 'body >';
-         var fastDuration = 200;
+         var fastDuration = CoreSettings.loadingFast;
          $(CoreSettings.contentContainer).attr("aria-busy", "true");
          $(".spinner", context).fadeIn(fastDuration, function () {
             //quick transition just to mask all the positioning
@@ -187,7 +187,7 @@ define(['jquery', 'settings-core'], function ($, CoreSettings) {
       //instead of passing a context param here
       //we just hide all the spinners
       hideLoadingBox: function (callback) {
-         var slowDuration = 600;
+         var slowDuration = CoreSettings.loadingSlow;
          //CSPS-KR: TODO: make loading more layout specific...
          //each part of the layout should have its own loading process
          //e.g.: when top bar is ready, addClass('ready')

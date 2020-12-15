@@ -1,0 +1,145 @@
+$mixin-def-color:maroon;
+
+@function encodecolor($string) {
+    @if type-of($string) == 'color' and str-index(#{$string}, '#') == 1 {
+      $hex: str-slice(ie-hex-str($string), 4);
+      $string: unquote('#{$hex}');
+  
+      @return '%23' + $string;
+    }
+  
+    @return $string;
+  } 
+
+  @mixin getcode($name, $new-color){
+    //background-color:red;
+    $icon-color:encodecolor($new-color);
+    @include getIconsToolbar($name, $icon-color);
+    @include getIconsSnap($name, $icon-color);
+    @include getIconsLOM($name, $icon-color);
+    @include getIconsQS($name, $icon-color);
+    @include getIconsUsers($name, $icon-color);
+    @include getIconsRibbons($name, $icon-color);
+    @include getIconsFontawesome($name, $icon-color);
+    @include getIconsNew($name, $icon-color);
+}  
+
+/* *************************************************************
+ * adjust size
+ * ************************************************************/
+ @mixin iconsize($size, $padding){
+  width: $size;
+  height: $size;
+  margin:$padding;
+
+
+}
+
+/* *************************************************************************
+ * -------------------------------- generate icon extends-------------------
+ * usage @include iconpack
+ * ************************************************************************/
+ @mixin iconpack($class, $size, $color:#404040) {
+	@if ($size == md){
+		$size : $small-btn;
+	}@else{
+		$size : $large-btn;
+		
+    }
+    
+    @include getcode($class, $color);
+    background-repeat: no-repeat;
+	  width: $size;
+    height: $size;
+}
+
+
+@mixin loopIcons($ico-packs){
+@each $pack-name, $pack in $ico-packs {
+  @each $index, $value in $pack{
+      button[class*=snap-], input[type='button'][class*=snap-], input[type='file'][class*=snap-]{
+        &.ico-#{$pack-name}-#{$value}{ 
+              &:before{
+                @if variable-exists(btn-icon-color) {
+                  /* I get output to the CSS file */
+                    html &{
+                      @include getcode($value, $btn-icon-color);
+                    }
+                }@else{
+                  @include getcode($value, #6c6c6c);
+                }
+              }
+              &:focus:before,&:hover:before{
+                  @if variable-exists(btn-icon-color-hover) {
+                    /* I get output to the CSS file */
+                    html &{
+                      @include getcode($value, $btn-icon-color-hover);
+                    }
+                  }@else{
+                    @include getcode($value, #404040);
+                  }
+              }
+          }
+      }
+      .LOM-ribbon.icon-#{$value},.LOM-ribbon-top.icon-#{$value}{
+        &:after{
+
+          @if variable-exists(ribbon-color) {
+            @include getcode($value, $ribbon-color);
+          }@else{
+            @include getcode($value, #ffffff);
+          } 
+          
+        
+        }
+      }
+      .LOM-circle-ribbon.icon-#{$value}, .LOM-square-ribbon.icon-#{$value}{
+        &:before{
+
+          @if variable-exists(ribbon-color) {
+            @include getcode($value, $ribbon-color);
+          }@else{
+            @include getcode($value, #ffffff);
+          } 
+          
+        
+        }
+      }
+
+      .LOM-iconbox.icon-#{$value} .cke_editable,.LOM-iconbox.icon-#{$value} .LOM-editable{
+        &>h2,&>h3,&>h4,&>h5{
+          &:first-child{
+            &:before{
+
+
+              @if variable-exists(iconbox-color) {
+                /* I get output to the CSS file */
+                html &{
+                  @include getcode($value, $iconbox-color);
+                }
+              }@else{
+                @include getcode($value, #ffffff);
+              }
+            }
+          }
+        }
+      }
+
+
+      span.LOM-icon.icon-#{$value}{
+        &:before{
+          @if variable-exists(ribbon-color) {
+            @include getcode($value, $ribbon-color);
+          }@else{
+            @include getcode($value, #ffffff);
+          } 
+
+        }
+      }
+
+
+  }
+}
+
+
+}

@@ -47,7 +47,7 @@ define(['settings-core', 'labels'], function (CoreSettings, labels) {
 				}
 			}
 		}
-		if (CoreSettings.skipSplash || bookmarkPresent) {
+		if (bookmarkPresent) {
 			launchPop(target);
 		}
 	}

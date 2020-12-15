@@ -1,76 +1,81 @@
-/* ----------------Icon pack----------------*/
-#wb-bar ul.text-right > li a, .supermenu > li > .home {
-  background: url('base/#{$icon-pack-url}') no-repeat;
+@import "./iconpacks/_iconpacks";
+
+@function encodecolor($string) {
+  @if type-of($string) == 'color' and str-index(#{$string}, '#') == 1 {
+    $hex: str-slice(ie-hex-str($string), 4);
+    $string: unquote('#{$hex}');
+
+    @return '%23' + $string;
+  }
+
+  @return $string;
+} 
+
+@mixin getcode($name, $new-color){
+  $icon-color:encodecolor($new-color);
+  @include getIconsToolbar($name, $icon-color);
 }
 
-#wb-bar ul.text-right {
-  > li a.home {
-    background-position: 5px 4px;
-    &:hover {
-      background-position: 5px -38px;
-    }
+@mixin toolbar-icons($icon){
+  #wb-lng li>a.#{$icon}{
+    position:relative;
+      background-image:none!important;
+      &:before{
+          content:'';
+          display:block;
+          position:absolute;
+          background-size: contain;
+          background-position: center;
+          background-repeat:no-repeat;
+          @include getcode($icon, $toolbar-icon-color);
+          @include iconsize(30px, 10px);
+  
+      }
+      &:focus:before, &:hover:before{
+          @include getcode($icon, $toolbar-icon-color-hover);
+  
+      }
   }
-  li a {
-    &.home:focus {
-      background-position: 5px -38px;
-    }
-    &.help:focus {
-      background-position: -102px -38px;
-    }
-    &.toolbox:focus {
-      background-position: -49px -38px;
-    }
-    &.sitemap:focus {
-      background-position: -200px -38px;
-    }
-    &.quit:focus {
-      background-position: -150px -38px;
-    }
-    &.print:focus {
-      background-position: -247px -38px;
-    }
-    &.save-edit-mode:focus {
-      background-position: -400px -38px;
-    }
-  }
-  > li a.help {
-    background-position: -102px 4px;
-    &:hover {
-      background-position: -102px -38px;
-    }
-  }
-  > li a.toolbox {
-    background-position: -49px 4px;
-    &:hover {
-      background-position: -49px -38px;
-    }
-  }
-  > li a.sitemap {
-    background-position: -200px 4px;
-    &:hover {
-      background-position: -200px -38px;
-    }
-  }
-  > li a.quit {
-    background-position: -150px 4px;
-    &:hover {
-      background-position: -150px -38px;
-    }
-  }
-  > li a.print {
-    background-position: -252px 4px;
-    &:hover {
-      background-position: -252px -38px;
-    }
-  }
-> li a.save-edit-mode {
-    background-position: -400px 4px;
-    &:hover {
-      background-position: -400px -38px;
-    }
-  }	
 }
 
-/* ----------------Circle bundle----------------*/
+@include toolbar-icons(home);
+@include toolbar-icons(help);
+@include toolbar-icons(toolbox);
+@include toolbar-icons(save);
+@include toolbar-icons(print);
+@include toolbar-icons(sitemap);
+@include toolbar-icons(quit);
 
 
+
+
+.LOM-icon{
+  
+
+  &:before{
+    content: '';
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 1.3em;
+    height: 1.3em;
+    margin: 2px;
+  }
+}
+html:not(.LOM-pageEdit-active) .LOM-icon{
+  white-space: nowrap;
+  text-indent: 9999px;
+  height: 1.5em;
+  width: 1.5em;
+  display: inline-block;
+  background-color: $ribbon-bg-color;
+  &:before{
+    
+    display: block;
+    position: absolute;
+  }
+}
+html.LOM-pageEdit-active .LOM-icon:before{
+  display: inline-block;
+  position: relative;
+  background-color: $ribbon-bg-color;
+}

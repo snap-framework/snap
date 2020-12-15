@@ -15,6 +15,8 @@ $box-shadow-color: #2f2f2f;
 $spinner-overlay-background-color: #fff;
 
 
+
+
 //---------- Modules ----------//
 
 //Progress-bar
@@ -102,6 +104,12 @@ $header-button-color: #555;
 //Top Navigation
 $top-nav-text-color: $base-text-color;
 $top-nav-button-color: $base-text-color;
+// TOOLBAR ICONS
+$toolbar-icon-color:#404040;
+$toolbar-icon-color-hover:#999999;
+
+$toolbar-icon-secondary-color:$toolbar-icon-color;
+$toolbar-icon-secondary-color-hover:$toolbar-icon-color-hover;
 //mobile only
 $top-nav-button-color-mobile: #fff;
 $top-nav-button-background-color: #777;
@@ -148,3 +156,17 @@ $micro-mobile-course-title-color: $micro-mobile-footer-arrows-color;
 $micro-menu-toc-marker-background-color: #111;
 $micro-menu-mobile-bullet-list-item-border-color: #d7e059;
 $micro-menu-mobile-bullet-list-item-border-color-active: #d7e059;
+
+//---------- Iconography ----------//
+//buttons
+$btn-icon-color:#606060;
+$btn-icon-color-hover:#404040;
+//default for others
+$default-icon-color:#ffffff;
+$default-icon-bg-color:#606060;
+
+$ribbon-color:$default-icon-color; //ribbon icon color
+$ribbon-bg-color:$default-icon-bg-color; //ribbon bg color
+$iconbox-color:$default-icon-color;
+$iconbox-bg-color:$default-icon-bg-color;
+

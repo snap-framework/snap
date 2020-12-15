@@ -1,0 +1,19 @@
+/* *************************************************************
+ * GET THE SVG CODE
+ * ************************************************************/
+ @mixin getIconsNew($name, $icon-color){
+    
+    $icons-list:(
+        //EXAMPL: bug:"%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:green;%7D%3C/style%3E%3C/defs%3E%3Cpath class='a' d='M86,42.48,41.42,87A31.5,31.5,0,0,1,86,42.48Z' transform='translate(0 -1.06)'/%3E%3Cpath class='a' d='M200,111.8H163.07a47.68,47.68,0,0,0-13.73-29v0L142.58,76l25.9-25.91-6.76-6.76-25.9,25.91L109.05,42.49V1.06H99.48V42.49h0L41.43,100.55H0v9.56H41.43l26.78,26.75L42.28,162.79,49,169.55,75,143.62l-4.51-4.51,11.15,11.16a.69.69,0,0,0,.1.12,47.51,47.51,0,0,0,29,13.77h0v36.9h9.57v-36.9a47.54,47.54,0,0,0,25.49-10.55L79.73,87.55l6.76-6.76,66.07,66.07a47.8,47.8,0,0,0,10.51-25.5H200Z' transform='translate(0 -1.06)'/%3E%3C/svg%3E"
+    );
+
+    
+    
+    @each $icon-name, $code in $icons-list{
+        @if $name == $icon-name{
+            //return the background image;
+            background-image: url("data:image/svg+xml, #{$code}");
+        }
+
+    }
+}

@@ -1,0 +1,223 @@
+
+// ----- background colors
+$btn-bg-color:#eeeeee; //background for the button
+$btn-bg-color-hover:#dddddd;
+$btn-bg-color-focus:#dddddd;
+
+//-------- BORDERS
+$border-radius:0px;
+
+$icon-border-color:transparent;
+$icon-border-color-hover:transparent;
+$icon-border-color-focus:transparent;
+
+//-------- SIZE
+$small-btn:30px;
+$large-btn:55px;
+
+$big-padding:15px;
+$small-padding:5px;
+
+
+/* *******************************************************************
+ * BUTTON ENGINE
+ * ***************************************************************** */
+
+ button[class*=snap-], input[type='button'][class*=snap-], input[type='file'][class*=snap-]{
+  @if variable-exists(btn-bg-color) {
+    /* I get output to the CSS file */
+    background-color:$btn-bg-color;
+  }@else{
+    background-color:$btn-bg-color;
+  }
+
+
+  height:45px;
+  position: relative;
+  border-color:$icon-border-color;
+  text-align:left;
+  transition: background-color 0.2s, opacity 0.2s;
+
+  &:before{
+      content: '';
+      display: block;
+      position: absolute;
+      border: transparent solid 2px;
+      border-radius: 0px !important;
+      
+
+      background-position:center;
+      background-repeat:no-repeat;
+      //background-size:contain;
+      top:0px;
+      left:0px;
+  }
+  &:hover{background-color:$btn-bg-color-hover;border-color:$icon-border-color-hover;}
+  &:focus{background-color:$btn-bg-color-focus;border-color:$icon-border-color-focus;}
+
+
+}
+//--------------------JUST ICON------------------
+button.snap-xs{ 
+  display: inline;
+  text-indent: -9999px;
+  overflow: hidden;
+  white-space: nowrap;
+
+}
+//-------------- smol height--------------
+button.snap-md, button.snap-sm, button.snap-xs{
+  padding:0px 10px 0px 50px;
+  &:before{
+    @include iconsize($small-btn, 5px 7px);
+  }
+
+
+}
+//-------------- BIG height--------------
+button.snap-lg, button.snap-xl{
+  padding:1px 15px 1px 100px;
+  min-height:100px;
+  &:before{
+      @include iconsize($large-btn, 20px);
+  }
+
+
+}
+
+//--------------FULL WIDTH --------------
+button.snap-md, button.snap-lg, button.snap-xl{
+  width:100%;
+  margin-bottom: 10px;
+
+}
+
+
+//-------------- ONLY XS--------------
+button.snap-xs{
+  width:45px;
+  padding-left: 0px;
+
+}
+
+/* *************************************************************************
+* -------------------------------- ICONPACK LIST generation-------------------
+*   
+* ************************************************************************/
+
+$o-ico-packs: (
+  LOM: (
+      1:  newpage,
+      2:  plus,
+      3:  layout,
+      4: texttool,
+      5: custom,
+      6: image,
+      7: wrench,
+      8: preview,
+      9: details,
+      10: move,
+      11: gear,
+      12: structure,
+      13: theme,
+      14: editpage,
+      15: upload,
+      16: download,
+      17: trash,
+      18: tabs,
+      19: lightbox,
+      20: audio,
+      21: video,
+      22: classPicker,
+      23: ribbonPicker,
+      24: resources,
+      25: login,
+      26: faq,
+      27: buildYourOwn,
+      28: btngroup,
+      29: search,
+      30: home,
+      31: course,
+      32: users,
+      33: notifications,
+      34: chat,
+      35: review,
+      36: board,
+      37: announcement,
+      38: carousel
+),
+  QS: (
+      1:  right,
+      2:  left,
+      3:  check,
+      4:  activity,
+      5:  exam,
+      6:  radio,
+      7:  checkbox
+  ),
+  SNAP: (
+      1:  save,
+      2:  bug,
+      3:  delete,
+      4:  lock,
+      5:  unlock,
+      6:  edit,
+  7:	page,
+  8:	folder,
+  9:	folderclosed,
+  10:	warning
+  ),
+  
+  USERS: (
+      1:  user,
+      2:  reviewer,
+      3:  editor,
+      4:  designer,
+      5:  manager,
+      6:  admin,
+  ),
+
+  ribbons: (
+    
+    0:  tip,
+    1:  information,
+    2:  dyk,
+    3:	warning,
+    4:	exam,
+    5: 	click,
+    6:	alarm,
+    7:	clock,
+    8:	graph,
+    9:	docs,
+    10:	links,
+    11:	activity,
+    12:	magnify
+  ),
+
+  fontawesome:(
+    0: goto,
+    1: calc,
+    2: formula,
+    3: legal,
+    4: nicetoknow,
+    5: note,
+    6: case,
+    7: poll,
+    8: preptime,
+    9: read,
+    10: web,
+    11: screen,
+    12: puzzle,
+    13: thumbsup,
+    14: call,
+    15: checklist,
+    16: keyword,
+    17: paperclip,
+    18: hammer,
+    19: network
+  )
+);
+
+
+@include loopIcons($o-ico-packs);
+

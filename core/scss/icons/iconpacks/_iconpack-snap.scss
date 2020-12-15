@@ -1,0 +1,29 @@
+/* *************************************************************
+ * GET THE SVG CODE
+ * ************************************************************/
+ @mixin getIconsSnap($name, $icon-color){
+    
+    $icons-list:(
+        save: "%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200.36'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:#{$icon-color};%7D%3C/style%3E%3C/defs%3E%3Cpath class='a' d='M0,0V171.12l29.24,29.24H200V0ZM157,11.62v81H42.84v-81ZM93.44,188.73H61.64v-55h31.8Zm94.94,0H149.51V122.06H50v66.67h-16L11.62,166.31V11.62H31.21v92.66H168.66V11.62h19.72Z'/%3E%3C/svg%3E",
+        bug:"%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:#{$icon-color};%7D%3C/style%3E%3C/defs%3E%3Cpath class='a' d='M86,42.48,41.42,87A31.5,31.5,0,0,1,86,42.48Z' transform='translate(0 -1.06)'/%3E%3Cpath class='a' d='M200,111.8H163.07a47.68,47.68,0,0,0-13.73-29v0L142.58,76l25.9-25.91-6.76-6.76-25.9,25.91L109.05,42.49V1.06H99.48V42.49h0L41.43,100.55H0v9.56H41.43l26.78,26.75L42.28,162.79,49,169.55,75,143.62l-4.51-4.51,11.15,11.16a.69.69,0,0,0,.1.12,47.51,47.51,0,0,0,29,13.77h0v36.9h9.57v-36.9a47.54,47.54,0,0,0,25.49-10.55L79.73,87.55l6.76-6.76,66.07,66.07a47.8,47.8,0,0,0,10.51-25.5H200Z' transform='translate(0 -1.06)'/%3E%3C/svg%3E",
+        delete:"%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42.43 42.43'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:none;stroke:#{$icon-color};stroke-miterlimit:10;stroke-width:10px;%7D%3C/style%3E%3C/defs%3E%3Cline class='a' x1='3.54' y1='38.89' x2='38.89' y2='3.54'/%3E%3Cline class='a' x1='38.89' y1='38.89' x2='3.54' y2='3.54'/%3E%3C/svg%3E",
+        lock:"%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 42.02'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:#{$icon-color};%7D%3C/style%3E%3C/defs%3E%3Cpath class='a' d='M54.11,73V98h30V73Zm16.77,13.6v7H67.35v-7a4.77,4.77,0,1,1,3.53,0Z' transform='translate(-54.11 -55.99)'/%3E%3Cpath class='a' d='M69.12,56A11.27,11.27,0,0,0,57.85,67.25V73h3V67.25a8.27,8.27,0,0,1,16.53,0V73h3V67.25A11.27,11.27,0,0,0,69.12,56Z' transform='translate(-54.11 -55.99)'/%3E%3C/svg%3E",
+        unlock:"%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 45.78 42.02'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:#{$icon-color};%7D%3C/style%3E%3C/defs%3E%3Cpath class='a' d='M84.33,75.88v25h30v-25Zm16.77,13.6v7H97.57v-7a4.77,4.77,0,1,1,3.53,0Z' transform='translate(-84.33 -58.86)'/%3E%3Cpath class='a' d='M118.85,58.86a11.28,11.28,0,0,0-11.27,11.26v5.76h3V70.12a8.27,8.27,0,0,1,16.53,0v5.76h3V70.12A11.27,11.27,0,0,0,118.85,58.86Z' transform='translate(-84.33 -58.86)'/%3E%3C/svg%3E",
+        edit:"%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 57.42 57.42'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:#{$icon-color};%7D%3C/style%3E%3C/defs%3E%3Crect class='a' x='57.1' y='95.07' width='37' height='3' transform='translate(-94.72 15.58) rotate(-45)'/%3E%3Crect class='a' x='90.37' y='70.29' width='15' height='8' transform='translate(32.62 -113.61) rotate(45)'/%3E%3Cpath class='a' d='M87.62,73.94,53,108.59l-4.39,15,15-4.38L98.23,84.55Zm0,4.24L94,84.55,63.58,115l-6.37-6.36Z' transform='translate(-48.58 -66.16)'/%3E%3C/svg%3E",
+        page:"%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 43.04 58.04'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:#{$icon-color};%7D%3C/style%3E%3C/defs%3E%3Cpath class='a' d='M115.23,61.76h-2.1v18h18v-2.1Zm.9,15V66.9L126,76.78Z' transform='translate(-88.11 -61.76)'/%3E%3Cpath class='a' d='M131.15,88.28V77.65L115.26,61.76H88.11v58h43V108.28h0v-20Zm-40,28.48v-52H114l2.13,2.13L126,76.78l2.13,2.13v8.51h0v21.71h0v7.63Z' transform='translate(-88.11 -61.76)'/%3E%3C/svg%3E",
+        folder:"%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.44 46.89'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:none;stroke:#{$icon-color};stroke-miterlimit:10;stroke-width:3px;%7D%3C/style%3E%3C/defs%3E%3Cpolygon class='a' points='1.94 45.39 1.94 1.5 20.26 1.5 24.22 5.63 49.8 5.63 49.8 12.67 51.94 12.67 51.94 20.15 45.34 45.39 1.94 45.39'/%3E%3Cpath class='a' d='M78.3,135.54' transform='translate(-76.35 -90.15)'/%3E%3Cpolygon class='a' points='49.8 12.67 10.5 12.67 1.94 45.39 45.34 45.39 51.94 20.15 51.94 12.67 49.8 12.67'/%3E%3Cline class='a' x1='5.47' y1='31.92' x2='1.94' y2='45.39'/%3E%3C/svg%3E",
+        folderclosed:"%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50.85 46.89'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:none;stroke:#{$icon-color};stroke-miterlimit:10;stroke-width:3px;%7D%3C/style%3E%3C/defs%3E%3Cpolygon class='a' points='1.5 45.39 1.5 1.5 19.82 1.5 23.78 5.63 49.35 5.63 49.35 45.39 1.5 45.39'/%3E%3C/svg%3E",
+        warning:"%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 54.72 47.39'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:#{$icon-color};%7D%3C/style%3E%3C/defs%3E%3Cpath class='a' d='M103.07,89.9,75.71,137.29h54.73Zm2.77,16.81-.8,15.44h-3.86l-.81-15.44Zm-.73,22.82a2.74,2.74,0,0,1-2,.72,2.81,2.81,0,0,1-2-.71,3.12,3.12,0,0,1,0-4,2.88,2.88,0,0,1,2.07-.68,2.78,2.78,0,0,1,2,.7,3.07,3.07,0,0,1,0,4Z' transform='translate(-75.71 -89.9)'/%3E%3C/svg%3E"
+    );
+
+    
+    
+    @each $icon-name, $code in $icons-list{
+        @if $name == $icon-name{
+            //return the background image;
+            background-image: url("data:image/svg+xml, #{$code}");
+        }
+
+    }
+}
+

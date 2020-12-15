@@ -21,7 +21,7 @@ require(['require-configs'], function () {
 
 			$(function (e) {
 				//custom theme css
-				document.getElementById('theme-style').href = "./theme/" + CoreSettings.cssFileName;
+				document.getElementById('theme-style').href = "./theme/theme.css";
 
 				//setup titles
 				//document.title = CoreSettings.courseLegacyCode + " - " + courseTitle;

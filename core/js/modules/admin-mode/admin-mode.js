@@ -3,9 +3,8 @@ define([
 	'jquery',
 	'logger',
 	"settings-core",
-	'../BaseModule',
-	'modules/diagnosis/diagnosis'
-], function (_, $, Logger, CoreSettings, BaseModule, Diagnosis) {
+	'../BaseModule'
+], function (_, $, Logger, CoreSettings, BaseModule) {
 	'use strict';
 
 	return BaseModule.extend({
@@ -67,9 +66,7 @@ define([
 					return false;
 				});
 
-			$(this).on('Diagnosis:addMissingPage', function (e, sub, xhr) {
-				$(that.diagnosis).trigger('Diagnosis:addMissingPage', [sub, xhr]);
-			});
+
 			$(this.lockingSystem).on('AdminMode:addUnlocks', _.bind(this.addUnlocks, this));
 		},
 
@@ -92,18 +89,11 @@ define([
 			this.$el.html(this.template);
 			this.setListeners();
 
-			this.initDiagnosis();
 			this.resetUI();
 			this.addUnlocks();
 		},
 
-		initDiagnosis: function () {
-			var that = this;
-			//CSPS-KR: Add to global namespace for now since it is used in non-related functionalities
-			that.parent.diagnosis = this.diagnosis = new Diagnosis({
-				navigation: this.navigation
-			});
-		},
+
 
 		toggleAdminMode: function () {
 			Logger.log("---activating admin mode---");
@@ -191,19 +181,6 @@ define([
 				.before("<span class='heading-highlight'>Heading"+h+"</span>")
 				.css("background-color", "coral");
 			}*/
-		},
-
-		/*------------------------------------------
-				   diagnosis
-		------------------------------------------*/
-		addComment: function () {
-			$(this.diagnosis).trigger("Diagnosis:addComment");
-		},
-		toggleDiagnosis: function () {
-			$(this.diagnosis).trigger("Diagnosis:toggleDiagnosis");
-		},
-		diagnoseImages: function () {
-			$(this.diagnosis).trigger("Diagnosis:diagnoseImages");
 		}
 	});
 });

@@ -1,22 +1,5 @@
-
-
-$icons: (
-	0:  tip,
-	1:  information,
-	2:  dyk,
-	3:	warning,
-	4:	exam,
-	5: 	click,
-	6:	alarm,
-	7:	clock,
-	8:	graph,
-	9:	docs,
-	10:	links,
-	11:	activity,
-	12:	magnify
-);
-
-
+//@use "./../_vars";
+$ribbon-background-color:encodecolor($ribbon-bg-color); //ribbon bg color
 
 /*-----BOTH -----*/
 
@@ -31,109 +14,173 @@ $icons: (
 
 
 
-.ribbon {
-	padding-left: 50px;
-	padding-top:30px;
-  &:before {
-    margin-left: -74px;
-	margin-top: -30px;
-    background-image: url(base/ico_bundle_ribbons.png);
-    width: 70px;
-    height: 90px;
-  }
-  h2 {
-    margin: 3px 0px 30px 0px;
-	}
-}
-
-/* ----------------RIBBONS TOP----------------*/
-
-.ribbon-top {
-	//clear:both;
-  padding-left: 40px;
-  &:before {
-    margin-left: -40px;
-    margin-top: -8px;
-    background-image: url(base/ico_bundle_ribbons_top.png) !important;
-    width: 90px;
-    height: 60px;
-  }
-  h2 {
-    margin: 55px 0px 5px 0px;
-  }
-
-}
 
 /* ----------------circle-icon ----------------*/
 
-.circle-icon {
-	//clear:both;
-  padding-left: 40px;
-  &:before {
-	margin-left: -35px;
-    margin-top: 15px;
-    background-image: url(base/ico_bundle_circles.png) !important;
-    width: 30px;
-    height: 30px;
-  }
-  h2 {
-    margin: 20px 0px 5px 0px;
-  }
 
-}
-//-------------- ICONS!!!--------------
-
-.ribbon{
-	@each $index, $icon-value in $icons{
-		&.#{$icon-value}:before{
-			background-position-y:-0px;
-			background-position-x:-75px*($index);
-		}
-	}
-	
-}
-.ribbon-top{
-	@each $index, $icon-value in $icons{
-		&.#{$icon-value}:before{
-			background-position-y:-0px;
-			background-position-x:-90px*($index);
-		}
-	}
-	
-}
-
-.circle-icon,.circle-bundle{  
-	&:before {
-    content: "";
-    background-image: url(base/ico_bundle_circles.png);
-    background-repeat: no-repeat;
-    display: inline-block;
-    overflow: hidden;
-    @include size(30px);
-  }
-	@each $index, $icon-value in $icons{
-		&.#{$icon-value}:before{
-			background-position-y:-15px;
-			background-position-x:-45px*($index)-15px;
-		}
-	}
-	
-}
-
-a.circle-bundle{
- // background-image: url(base/ico_bundle_circles.png);
-  @include size(30px);
-  display: inline-block;
-  overflow: hidden;
-	@include hide-text;
+//
+.LOM-circle-ribbon, .LOM-square-ribbon{
+	position:relative;
+	min-height:100px;
+	padding-left: 50px;
+	padding-top:10px;
 	&:before{
+		content:'';
+		position: absolute;
+		display: block;
+		background-color: $ribbon-bg-color;
+		border-width: 0px;
+		top:0px;
 		left:0px;
-		background-position-y:-60px!important;
+		width: 40px;
+		height: 40px;
+		background-repeat: no-repeat;
+		background-size: 40%;
+		background-position: center;		
+		.LOM-pageEdit-active &{
+			margin-left: -38px;
+		}		
 	}
-	&:hover,&:focus{
-		&:before{
-		background-position-y:-105px!important;
-			
+}
+.LOM-circle-ribbon:before{
+	
+	border-radius: 50%;
+}
+
+.LOM-ribbon{
+	position:relative;
+	min-height:100px;
+	padding-left: 50px;
+	padding-top:20px;
+	&:before{
+		content:'';
+		position:absolute;
+		display:block;
+		$ribbon:"%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMid' viewBox='0 0 54.17 80.99'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:%23bcbcbc;%7D.b%7Bfill:%23121212;%7D.c%7Bfill:%23b3b3b3;%7D.d%7Bfill:%23222;%7D.e%7Bfill:%232c2c2c;%7D.f%7Bfill:%233b3b3b;%7D.g%7Bfill:%232d2d2d;%7D.h%7Bfill:%233f3f3f;%7D.i%7Bfill:%23d6d6d6;%7D.j%7Bfill:%23cacaca;%7D.k%7Bfill:%23a3a3a3;%7D.l%7Bfill:%23777;%7D.m%7Bfill:%23636363;%7D.n%7Bfill:%23878787;%7D.o%7Bfill:%239c9c9c;%7D.p%7Bfill:%23f0f0f0;%7D.q%7Bfill:%238d8d8d;%7D.r%7Bfill:%23606060;%7D.s%7Bfill:%23505050;%7D.t%7Bfill:%23525252;%7D.u%7Bfill:%23797979;%7D.v%7Bfill:%23dfdfdf;%7D.w%7Bfill:#{$ribbon-background-color};%7D%3C/style%3E%3C/defs%3E%3Cpath class='a' d='M79.25,109.06q1.08-21.39,2.17-42.76.45,0,.9-.06v3l-.84,3.1c0,.66,0,1.32,0,2l0,3,0,2v2l0,6,0,6v10L81.27,108Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='b' d='M79.25,109.06l2-1c0,1.41.07,2.82.11,4.23q0,3,0,6l-.27,1.7.2.28-2-1-5-4v-2Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='c' d='M79.3,119.26l2,1c.07,1,.15,1.94.23,2.9,0,.68,0,1.35,0,2l0,2.93.79,3.13v3h-1Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='d' d='M81.5,103.22v-10l.81,0v10Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='e' d='M81.5,103.22h.82v9l-.94,0c0-1.41-.08-2.82-.11-4.23C81.34,106.43,81.42,104.83,81.5,103.22Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='f' d='M81.49,87.25l0-6c.27,0,.53,0,.8,0v6Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='g' d='M81.49,87.25h.83v6l-.81,0Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='h' d='M81.38,112.27l.94,0v6l-.92,0Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='i' d='M82.32,66.24q-.45,0-.9.06l.9-4.06Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='j' d='M81.35,134.22h1v4l-1,0Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='k' d='M81.48,72.34l.84-3.1v3A6,6,0,0,0,81.48,72.34Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='l' d='M81.49,77.29c0-1,0-2,0-3a6.82,6.82,0,0,1,.79-.08v3A7.7,7.7,0,0,0,81.49,77.29Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='m' d='M81.56,123.15c-.08-1-.16-1.93-.23-2.9l-.2-.28,1.19.26v3A6.31,6.31,0,0,1,81.56,123.15Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='n' d='M81.53,128.1c0-1,0-1.95,0-2.93.25,0,.51,0,.77.06v3A6.85,6.85,0,0,1,81.53,128.1Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='o' d='M81.53,128.1a6.85,6.85,0,0,0,.79.13v3Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='p' d='M82.32,143.23l-1-3h1Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='q' d='M82.32,74.24a6.82,6.82,0,0,0-.79.08c0-.66,0-1.32,0-2a6,6,0,0,1,.84-.1Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='r' d='M81.49,77.29a7.7,7.7,0,0,1,.83-.05v2q-.41,0-.81,0Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='s' d='M81.51,79.27q.4,0,.81,0v2c-.27,0-.53,0-.8,0C81.52,80.61,81.51,79.94,81.51,79.27Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='t' d='M82.32,120.23,81.13,120l.27-1.7.92,0Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='u' d='M82.32,125.23c-.26,0-.52,0-.77-.06,0-.67,0-1.34,0-2a6.31,6.31,0,0,0,.76.08Z' transform='translate(-74.32 -62.24)'/%3E%3Cpath class='v' d='M82.32,140.23h-1c0-.67,0-1.34,0-2l1,0Z' transform='translate(-74.32 -62.24)'/%3E%3Cpolygon class='w' points='43.17 52.9 0.17 52.9 0.17 20.9 43.17 20.9 54.17 36.9 43.17 52.9'/%3E%3C/svg%3E";
+		background-image: url("data:image/svg+xml, #{$ribbon}");
+		background-position-y:top;
+		background-position-x:left;
+		width: 48px;
+		height: 72px;
+		background-repeat: no-repeat;
+
+		//margin-left: -57px;
+		//margin-top: -20px;
+		top:0px!important;
+		left:-8px;
+		.LOM-pageEdit-active &{
+			left: -8px;
 		}
 	}
+	&:after{
+		content: '';
+		display: block;
+		position: absolute;
+		background-repeat:no-repeat;
+		color: white;
+		width: 20px;
+		height: 20px;
+		left: -8px;
+		margin: 5px 10px;
+		top: 18px;
+		background-position: center;
+	}
+	.LOM-pageEdit-active &>form{
+		margin-left:15px;
+	}
+}
+.LOM-ribbon-top{
+	&.LOM-element[class*="col-"] {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	min-height:100px;
+	//padding-left: 50px;
+	padding-top:50px;
+	position:relative;
+	&:before{
+		content:'';
+		position:absolute;
+		display:block;
+		$ribbon:"%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 105.62 54.17'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:%23bcbcbc;%7D.b%7Bfill:%23121212;%7D.c%7Bfill:%23b3b3b3;%7D.d%7Bfill:%23222;%7D.e%7Bfill:%232c2c2c;%7D.f%7Bfill:%233b3b3b;%7D.g%7Bfill:%232d2d2d;%7D.h%7Bfill:%233f3f3f;%7D.i%7Bfill:%23d6d6d6;%7D.j%7Bfill:%23cacaca;%7D.k%7Bfill:%23a3a3a3;%7D.l%7Bfill:%23777;%7D.m%7Bfill:%23636363;%7D.n%7Bfill:%23878787;%7D.o%7Bfill:%239c9c9c;%7D.p%7Bfill:%23f0f0f0;%7D.q%7Bfill:%238d8d8d;%7D.r%7Bfill:%23606060;%7D.s%7Bfill:%23505050;%7D.t%7Bfill:%23525252;%7D.u%7Bfill:%23797979;%7D.v%7Bfill:%23dfdfdf;%7D.w%7Bfill:#{$ribbon-background-color};%7D%3C/style%3E%3C/defs%3E%3Cpath class='a' d='M86.87,58.5l55.76,2.16c0,.3.07.6.08.9H138.8l-4-.84-2.59.06-3.87,0h-2.58l-2.62,0-7.8,0-7.81,0-13,0-6.29-.23Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='b' d='M86.87,58.5l1.33,2-5.52.11-7.82,0-2.22-.27-.36.2,1.28-2,5.26-5h2.61Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='c' d='M73.56,58.54c-.43.68-.85,1.36-1.28,2l-3.79.23H62L58,61.56H54.05c0-.32,0-.65,0-1Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='d' d='M94.49,60.74l13,0c0,.26,0,.53,0,.8h-13C94.47,61.29,94.48,61,94.49,60.74Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='e' d='M94.49,60.74c0,.27,0,.55,0,.82H82.73c0-.31,0-.62,0-.94l5.52-.11Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='f' d='M115.3,60.74l7.8,0c0,.26,0,.53.05.79h-7.82C115.33,61.29,115.32,61,115.3,60.74Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='g' d='M115.3,60.74c0,.27,0,.55,0,.82h-7.82c0-.27,0-.54,0-.8Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='h' d='M82.68,60.62c0,.32,0,.63,0,.94H74.91c0-.3,0-.61,0-.92Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='i' d='M142.71,61.56c0-.3,0-.6-.08-.9l5.3.9Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='j' d='M54.06,60.59c0,.32,0,.65,0,1H48.83q0-.48,0-1Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='k' d='M134.76,60.72l4,.84h-3.91A6.1,6.1,0,0,0,134.76,60.72Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='l' d='M128.3,60.74l3.87,0a7,7,0,0,1,.11.78h-3.91A7.56,7.56,0,0,0,128.3,60.74Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='m' d='M68.49,60.8l3.79-.23.36-.2c-.11.4-.23.8-.34,1.19H68.39A6.59,6.59,0,0,1,68.49,60.8Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='n' d='M62,60.78h3.82a6.94,6.94,0,0,0-.08.77H61.87A4.36,4.36,0,0,1,62,60.78Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='o' d='M62,60.78a4.36,4.36,0,0,0-.17.78H58Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='p' d='M42.31,61.56l3.92-1c0,.33,0,.66,0,1Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='q' d='M132.28,61.56a7,7,0,0,0-.11-.78l2.59-.06a6.1,6.1,0,0,1,.13.84Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='r' d='M128.3,60.74a7.56,7.56,0,0,1,.07.82h-2.61c0-.27,0-.54,0-.81Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='s' d='M125.72,60.75c0,.27,0,.54,0,.81h-2.61c0-.26,0-.53-.05-.79Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='t' d='M72.3,61.56c.11-.39.23-.79.34-1.19l2.22.27c0,.31,0,.62,0,.92Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='u' d='M65.78,61.56a6.94,6.94,0,0,1,.08-.77h2.63a6.59,6.59,0,0,0-.1.76Z' transform='translate(-42.31 -53.56)'/%3E%3Cpath class='v' d='M46.22,61.56c0-.33,0-.66,0-1l2.63,0q0,.48,0,1Z' transform='translate(-42.31 -53.56)'/%3E%3Cpolygon class='w' points='36.63 43.17 36.63 0.17 78.36 0.17 78.36 43.17 57.5 54.17 36.63 43.17'/%3E%3C/svg%3E";
+		background-image: url("data:image/svg+xml, #{$ribbon}");
+		width: 90px;
+		height: 47px;
+		top: -8px;
+		background-repeat: no-repeat;
+		.LOM-pageEdit-active &{
+			left: 0px;
+		}
+	}
+	&:after{
+		content: '';
+		display: block;
+		position: absolute;
+		background-repeat: no-repeat;
+		background-position: center;
+		color: white;
+		width: 25px;
+		height: 25px;
+
+		left: 31px;
+		top: -6px;
+		margin: 5px;
+		background-position: center;
+		
+	}
+	.LOM-pageEdit-active &>form{
+		margin-top:20px;
+	}
+	
+
+}
+
+$iconbox-main-color:$iconbox-bg-color;
+
+.LOM-iconbox{
+	border:2px solid $iconbox-main-color;
+	&.LOM-element[class*="col-"] {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.cke_editable,.LOM-editable{
+		&>h2,&>h3,&>h4,&>h5{
+			&:first-child{
+				background-color:$iconbox-main-color;
+				color:white;
+				margin-top: 0px;
+				margin-left: 0px;
+				margin-right: 0px;
+				margin-bottom: inherit;
+				line-height: 43px;
+				padding-left: 50px;
+				&:before{
+					content: '';
+					display: block;
+					position: absolute;
+					background-repeat: no-repeat;
+					background-position: center;
+					width: 25px;
+					height: 25px;
+					left: 3px;
+					margin: 8px;
+					
+				}			
+			}
+		}
+	}
+
+
+}
+
+/* ************************************************
+ *  heading adjuste
+ * *-********************************************/
+ .LOM-ribbon, .LOM-ribbon-top, .LOM-circle-ribbon, .LOM-square-ribbon{
+ h2, h3, h4, h5, h6{
+	 &:first-child{
+	 margin-top:0px;
+	 }
+ }
 }

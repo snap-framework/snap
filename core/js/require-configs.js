@@ -51,8 +51,9 @@ define(function () {
             //these serve as shortcut paths
             labels: ['../../settings/labels', '../settings/localization/labels'],
             'settings-core': '../settings/settings-core',
+            'settings-presets': '../settings/settings-presets',
             'settings-general': '../../settings/settings-general',
-            settingsOverride: 'helpers/settingsOveride',
+            settingsOverride: 'helpers/settingsOverride',
             utils: 'helpers/utils',
             logger: 'helpers/logger',
             router: 'modules/router',

@@ -1,0 +1,23 @@
+
+@import "./../_vars";
+@import "./../../../common/scss/utils/_utils";
+
+#dynamic_content{
+    padding-left:10%;
+    padding-right:10%;
+}
+
+
+/* -------- GENERAL HEADERS ----------*/
+h2,h3,h4,h5,h6{
+    font-size:2rem;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 8px;
+    font-weight: 300;
+    color:$header-text-color;
+    position:relative;
+}
+[data-lom-subtype="title"] + .LOM-element{
+    margin-top:40px;
+}

@@ -1,0 +1,50 @@
+
+@import "./../_vars";
+@import "./../../../common/scss/utils/_utils";
+
+
+
+body main.container{
+    background-color:transparent;
+}
+
+#wb-sm{
+
+    //background-image: url(./images/banner.jpg);
+    background-color:$banner-color;
+    background-size: cover;
+    background-repeat: no-repeat;   
+    min-height:220px;
+
+}
+
+
+
+#dynamic_content [data-lom-subtype="title"]{
+
+    
+    text-align: center;
+    padding-top: 10px;
+    h1{
+        font-size: 3rem;
+    }
+}
+html:not([class*=smallview]){
+    #dynamic_content{
+        & [data-lom-subtype="title"]{
+            color: white;
+            min-height: 160px;
+            background-color: transparent;    
+            margin-top: 0px;
+
+
+        }
+        &>section:first-of-type{
+            margin-top: -180px;
+        
+            &>.LOM-frame{
+                background-color:transparent;
+            }
+        }
+    }
+}

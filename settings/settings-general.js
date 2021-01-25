@@ -1,13 +1,14 @@
 'use strict';
 define({
-  "courseTitle_en": "Learn-O-Matic",
-  "courseTitle_fr": "Learn-O-Matic",
-  "courseSubtitle_en": "SNAP! Tool",
-  "courseSubtitle_fr": "Outils SNAP!",
-  "seriesTitle_en": "Series Title",
-  "seriesTitle_fr": "Titre de série",
-  "addToolboxPage": [],
-	
-	showFavorites: true,
-  "editMode": true
+  "presets": {
+    "general": "CSPS",
+    "completion": "allViewed"
+  },
+  "courseTitle_en": "Course Name Goes Here",
+  "courseSubtitle_en": "the life and times of a course",
+  "courseSubtitle_fr": "la vie pis ltemps d'un cours",
+  "seriesTitle_en": "ESDC College MeD thing",
+  "seriesTitle_fr": "EDSC etc etc",
+  "enforceFirstHeading": false,
+  "editMode": false
 });

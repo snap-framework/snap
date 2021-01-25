@@ -1,11 +1,113 @@
+// -----------------------------------------------------
+//
+//   Course theme options   
+//
+// -----------------------------------------------------
+
+$fontFamily: "Open Sans",Helvetica, sans-serif;
+$body-background-color: white;
+$course-default-width:1024px;
+$header-bg-image:url("../content/medias/images/bgtest.png");
+
+// -----------------------------------------------------
+//
+//   Standard Template color set
+//
+// -----------------------------------------------------
+
+$main-background-color: #fff;
+$main-text-color: #171717;
+
+$alternate-background-color: #f3f3f3;
+$alternate-text-color: #171717;
+
+$banner-color: #0f2a4a;
+$banner-text-color: #fff;
+
+$callout-color: #0f2a4a;
+$callout-text-color: #fff;
+
+$header-text-color: #0077c8;
+$instructions-text-color: #333333;
+
+$interactive-color: #1c4e8a;
+$interactive-hover-color: #205a9f;
+$interactive-disabled-color: #5b5b5b;
+$interactive-text-color: #fff;
+
+$main-accent-color: #ccc;
+$alternate-accent-color: #ebf2fc;
+
+//ESDC Colors
+/*
+$article-color-1: #ff8d6b;
+$article-color-2: #e53d51;
+$article-color-3: #62b9af;
+$article-color-4: #66cdd6;
+*/
+
+//College colors
+$article-color-1: #69459c;
+$article-color-2: #cd1c6a;
+$article-color-3: #306a9c;
+$article-color-4: #9fa1a4;
+	
+// -----------------------------------------------------
+//
+//   Course theme colors
+//
+// -----------------------------------------------------
+
+// PRIMARY --------------------------------------------------
+$color-1: orange; //rgba(51, 152, 198, 1);
+$color-1-light: orange; //rgba(229,242,248, 1);//lighten($primary-color, 40%); 
+$color-1-dark: orange; //rgba(0,126,184,1); //darken($primary-color, 40%);
+$color-1-text:orange; //white;
+$color-1-light-text:orange; //black;
+$color-1-dark-txt:orange; //white;
+
+$primary-color: orange; //rgba(51, 152, 198, 1);
+$primary-color-lighter: orange; //rgba(229,242,248, 1);//lighten($primary-color, 40%); 
+$primary-color-darker: orange; //rgba(0,126,184,1); //darken($primary-color, 40%);
+$primary-color-text:orange; //white;
+$primary-color-lighter-text:orange; //black;
+$primary-color-darker-text:orange; //white;
+
+// SECONDARY -------------------------------------------------
+$secondary-color: orange; //rgba(175, 60, 67, 1);
+$secondary-color-lighter: orange; //lighten($secondary-color, 40%);
+$secondary-color-darker: orange; //darken($secondary-color, 40%);
+$secondary-color-text:orange; //white;
+$secondary-color-lighter-text:orange; //black;
+$secondary-color-darker-text:orange; //white;
+
+// TERTIARY -------------------------------------------------
+$tertiary-color: orange; //rgba(51,80,117,1);
+$tertiary-color-lighter: orange; //lighten($tertiary-color, 20%);
+$tertiary-color-darker: orange; //darken($tertiary-color, 20%);
+$tertiary-color-text:orange; //white;
+$tertiary-color-lighter-text:orange; //black;
+$tertiary-color-darker-text:orange; //white;
+
+//block-backgrounds
+$block-background: orange; //white;
+$block-background-alternate: orange; //rgb(233,233,233);
+
+
+
 //---------- Global -----------//
-$error-color: #FF4136;
+
+$snap-topbar-edges:rgb(190, 190, 190);
+$snap-topbar-background-color:white;
+$snap-bottombar-background-color:#cfcfcf;
+
+$error-color: #904136; 
 $warning-color: #FF851B;
 $base-text-color: #222;
 $link-color: #295376;
 $link-color-visited: #7834bc;
 $box-shadox-color: #999;
-$button-default-color: #555;
+$button-default-color: #fff;
 $button-default-color-hover: #fff;
 $button-default-background-color: #3b3b3b;
 $button-default-background-color-hover: #4f4f4f;
@@ -13,8 +115,6 @@ $button-default-border-color: #dcdee1;
 $button-default-border-color-hover: #bbbfc5;
 $box-shadow-color: #2f2f2f;
 $spinner-overlay-background-color: #fff;
-
-
 
 
 //---------- Modules ----------//
@@ -50,8 +150,8 @@ $collapsibleBox-border-bottom-color: #666;
 $collapsibleBox-handle-color: #222;
 
 //Modal
-$modal-header-color: #555;
-$modal-header-background-color: #eee;
+$modal-header-color: #fff;
+$modal-header-background-color: #555;
 $modal-body-background-color: #fff;
 
 //Zoom
@@ -78,32 +178,32 @@ $card-text-color-hover: #3f4040;
 //---------- Layout ----------//
 
 //Footer
-$footer-button-color: #000;
+$footer-button-color: #fff;
 $footer-button-color-mobile: #fff;
-$footer-button-background-color: #b4b4b4;
-$footer-button-color-hover: #000;
-$footer-button-background-color-hover: #c6c8ca;
-$footer-text-color: $base-text-color;
-$footer-page-of-text-color: #000;
-$footer-page-of-text-color-mobile: $base-text-color;
-$footer-container-background-color: transparent;
+$footer-button-background-color: $interactive-color;
+$footer-button-color-hover: #fff;
+$footer-button-background-color-hover: $interactive-hover-color;
+$footer-text-color: #fff;
+$footer-page-of-text-color: #fff;
+$footer-page-of-text-color-mobile: #fff;
+$footer-container-background-color: #fff;
 $footer-button-border-color: #fff;
 $footer-button-color-disabled: #5b5b5b;
 $footer-button-background-color-disabled: #e6e6e6;
-$footer-mobile-button-background-color: #eee;
+$footer-mobile-button-background-color: #555;
 
 //Header
-$header-background-color: transparent;
-$header-text-color: #666;
-$header-banner-title-color: #555;
-$header-module-name-color: #eee;
+$header-background-color: $snap-topbar-background-color;
+//$header-text-color: #fff;
+$header-banner-title-color: black;
+$header-module-name-color: #555;
 $header-button-background-color: transparent;
 $header-button-color-hover: #000;
-$header-button-background-color-hover: #eee;
-$header-button-color: #555;
+$header-button-background-color-hover: transparent;
+$header-button-color: #000;
 //Top Navigation
-$top-nav-text-color: $base-text-color;
-$top-nav-button-color: $base-text-color;
+$top-nav-text-color: white;
+$top-nav-button-color: white;
 // TOOLBAR ICONS
 $toolbar-icon-color:#404040;
 $toolbar-icon-color-hover:#999999;
@@ -113,26 +213,26 @@ $toolbar-icon-secondary-color-hover:$toolbar-icon-color-hover;
 //mobile only
 $top-nav-button-color-mobile: #fff;
 $top-nav-button-background-color: #777;
-$hamburger-menu-color-mobile: $button-default-color;
+$hamburger-menu-color-mobile: #fff;
 
 //Toolbar
 $toolbox-link-color: $base-text-color;
 $toolbox-link-background-color: #fff;
-$toolbox-link-color-hover: #000;
-$toolbox-link-background-color-hover: #eee;
+$toolbox-link-color-hover: $base-text-color;
+$toolbox-link-background-color-hover: #ccc;
 
 //Supermenu
-$supermenu-button-color: #555;
-$supermenu-button-background-color: #eee;
-$supermenu-button-color-hover: #333;
-$supermenu-button-background-color-hover: #eee;
+$supermenu-button-color: white;
+$supermenu-button-background-color: transparent;
+$supermenu-button-color-hover: #eee;
+$supermenu-button-background-color-hover: black;
 $supermenu-dropdown-button-color: $base-text-color;
 $supermenu-dropdown-border-color: #000;
 $supermenu-dropdown-button-background-color: #fff;
 $supermenu-dropdown-button-color-hover: #000;
-$supermenu-dropdown-button-background-color-hover: #eee;
+$supermenu-dropdown-button-background-color-hover: #e6e6e6;
 //mobile only
-$supermenu-link-color: #333 ;
+$supermenu-link-color: #555;
 //icons
 $supermenu-dropdown-icons-color:#777;
 $supermenu-dropdown-icons-color-hover:#fff;
@@ -150,7 +250,7 @@ $micro-mobile-footer-arrows-color: #d7df58;
 $micro-module-info-button-color: #d7e059;
 $micro-vertical-spacers-lines-border-color: #d7e059;
 $micro-mobile-edges-background-color: #222;
-$micro-mobile-course-title-color: $micro-mobile-footer-arrows-color;
+$micro-mobile-course-title-color: #d7df58;
 
 //Micro-menu
 $micro-menu-toc-marker-background-color: #111;
@@ -159,11 +259,11 @@ $micro-menu-mobile-bullet-list-item-border-color-active: #d7e059;
 
 //---------- Iconography ----------//
 //buttons
-$btn-icon-color:#606060;
-$btn-icon-color-hover:#404040;
+$btn-icon-color:$interactive-color;
+$btn-icon-color-hover:$interactive-hover-color;
 //default for others
 $default-icon-color:#ffffff;
-$default-icon-bg-color:#606060;
+$default-icon-bg-color:$callout-color;
 
 $ribbon-color:$default-icon-color; //ribbon icon color
 $ribbon-bg-color:$default-icon-bg-color; //ribbon bg color

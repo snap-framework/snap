@@ -27,6 +27,23 @@ define({
 			loadingSlow: 0,
 			removeFooter: true,
 			showSupermenu: false
+		},
+		"jobaid": {
+			showLangSwitch: false,
+			showHome: false,
+			showHelp: false,
+			showSitemap: false,
+			showToolbox: false,
+			showFavorites: false,
+			showGlossary: false,
+			showResources: false,
+			showExit: false,
+			showSecondHome: false,
+			backnextThrottleSpeed: 25,
+			loadingFast: 0,
+			loadingSlow: 0,
+			removeFooter: true,
+			showSupermenu: false
 		}
 	},
 	"completion": {

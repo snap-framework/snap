@@ -11,7 +11,9 @@ require(['require-configs'], function () {
 		"settings-general",
 		"settingsOverride"
 	], function ($, Logger, Utils, App, CoreSettings, GeneralSettings, settingsOverride) {
-		$.ajaxSetup({ cache: false });
+		$.ajaxSetup({
+			cache: false
+		});
 
 		require(['wet-boew'], function () {
 			var courseTitle = Utils.lang === "en" ? CoreSettings.courseTitle_en : CoreSettings.courseTitle_fr;

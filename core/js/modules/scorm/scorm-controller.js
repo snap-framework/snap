@@ -135,7 +135,7 @@ define([
 			if (CoreSettings.connectionMode === "scorm" || this.isFakeScorm()) { //if this window has access to poppup
 				//check for ILMS
 				if (this.isOnline()) {
-					return "online";//labels.err.online.toLowerCase();
+					return "online"; //labels.err.online.toLowerCase();
 				} else {
 					return labels.err.noScorm.toLowerCase();
 				}
@@ -259,6 +259,9 @@ define([
 			this.api.doLMSSetValue(CONSTANTS.CMI.CORE.LESSON_LOCATION, "");
 			this.api.doLMSSetValue(CONSTANTS.CMI.CORE.LESSON_STATUS, "incomplete");
 			this.api.doLMSSetValue(CONSTANTS.CMI.CORE.SCORE.RAW, 0);
+			this.api.doLMSCommit();
+		},
+		forceCommit: function () {
 			this.api.doLMSCommit();
 		}
 	});

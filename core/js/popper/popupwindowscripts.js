@@ -21,7 +21,7 @@ define(['settings-core', 'labels'], function (CoreSettings, labels) {
 			'height=' + screen.height,
 			'width=' + screen.width,
 			'scrollbars=1',
-			'resizable=1'//,
+			'resizable=1' //,
 			// 'fullscreen=yes' // only works in IE
 		].join(',');
 
@@ -52,6 +52,7 @@ define(['settings-core', 'labels'], function (CoreSettings, labels) {
 		}
 	}
 	window.checkLaunch = checkLaunch;
+
 	function closeCourse() {
 		if (popup && !popup.window.amINavigating) {
 			saveScormValues();
@@ -79,12 +80,14 @@ define(['settings-core', 'labels'], function (CoreSettings, labels) {
 			}
 		}
 	}
+
 	function closeLauncher(e) {
 		if (popup) {
 			popup.close();
 			window.top.close();
 		}
 	}
+
 	function saveScormValues(e) {
 		var isInit = LMSIsInitialized();
 
@@ -92,8 +95,7 @@ define(['settings-core', 'labels'], function (CoreSettings, labels) {
 			lessonStatus = doLMSGetValue("cmi.core.lesson_status");
 			if (lessonStatus == "completed" || lessonStatus == "passed") {
 				doLMSSetValue("cmi.core.exit", "");
-			}
-			else {
+			} else {
 				doLMSSetValue("cmi.core.exit", "suspend");
 			}
 			doLMSCommit();

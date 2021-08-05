@@ -76,11 +76,11 @@ define([
 			var nextObj = masterStructure.nextPage();
 			var prevObj = masterStructure.prevPage();
 			var currentSub = masterStructure.currentSub;
-			var isLockedIn = masterStructure.allowedLockedInExit
-				? false
-				: CoreSettings.enableLockingSystem
-					? this.lockingSystem.isLockedIn(currentSub.aPosition)
-					: null;
+			var isLockedIn = masterStructure.allowedLockedInExit ?
+				false :
+				CoreSettings.enableLockingSystem ?
+				this.lockingSystem.isLockedIn(currentSub.aPosition) :
+				null;
 			if (CoreSettings.enableLockingSystem) {
 				if (nextObj) {
 					isLocked = CoreSettings.enableLockingSystem ? this.lockingSystem.isLocked(nextObj.aPosition) : null;
@@ -140,11 +140,11 @@ define([
 			this.showTopMenu();
 		},
 		showTopMenu: function () {
-			var width = window.innerWidth
-				|| document.documentElement.clientWidth
-				|| document.body.clientWidth;
+			var width = window.innerWidth ||
+				document.documentElement.clientWidth ||
+				document.body.clientWidth;
 			//find the correct top-menu based on the width of the screen
-			var $topMenu = width <= Utils.breakpoints.medium ? this.$el.find("#mb-pnl") : this.$el.find("ul.text-right");
+			var $topMenu = width <= Utils.breakpoints.small ? this.$el.find("#mb-pnl") : this.$el.find("ul.text-right");
 			var settingsButtonsMap = {
 				showLangSwitch: ".lang",
 				showHome: ".home",

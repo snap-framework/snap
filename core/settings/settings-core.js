@@ -1,7 +1,7 @@
 'use strict';
 
 define({
-	presets: null,
+	presets: {},
 	debugMode: false,
 	enableAdminMode: true,
 
@@ -26,7 +26,7 @@ define({
 	showGlossary: false,
 	showResources: true,
 	showExit: false,
-	showPrint: false, 		//PLEASE don't turn this on!!
+	showPrint: false, //PLEASE don't turn this on!!
 	showSecondHome: false,
 	//in construction
 	addToolboxPage: [
@@ -49,7 +49,7 @@ define({
 
 	enablePopClose: null,
 	environment: null, //local, public, prod
-	connectionMode: null,//"scorm", 	//currently only supports "scorm" , noscorm
+	connectionMode: null, //"scorm", 	//currently only supports "scorm" , noscorm
 
 	/*------------------ LEARN-O-MATIC ---------------*/
 	editMode: false,
@@ -64,7 +64,8 @@ define({
 
 	/*------------------ DATA / Google Analytics -----------------*/
 
-	googleAnalyticsID: "",	/*UA-101907595-7*/
+	googleAnalyticsID: "",
+	/*UA-101907595-7*/
 
 	/*------------------ DATA / Matomo Analytics -----------------*/
 
@@ -73,9 +74,9 @@ define({
 	/*------------------ Navigation -----------------*/
 	topNavFullwidth: true,
 	breadCrumbs: true,
-	loopLevel: 3,		// 0 is a course loop, 1 takes you back to home after each module, 3 is none (2 makes no sense so far)
-	lvlPageOf: 0,		//Level at which the pageOf acts (lvlTimeline)
-	pageOfPermissive: true, 	//determines if the pageOf will take into account subPages (tlPermissive)
+	loopLevel: 3, // 0 is a course loop, 1 takes you back to home after each module, 3 is none (2 makes no sense so far)
+	lvlPageOf: 0, //Level at which the pageOf acts (lvlTimeline)
+	pageOfPermissive: true, //determines if the pageOf will take into account subPages (tlPermissive)
 	navigationMode: 1, //1 is legacy, 2 is P930, 3 is newNav DEPRECATED
 	showSupermenu: true,
 
@@ -88,10 +89,10 @@ define({
 
 
 	/*------------------ External Links-----------------*/
-	extMethod: "",		//default is target=_blank, other valudes : "lightbox" "popup". overridé local avec data-extmethod="value"
+	extMethod: "", //default is target=_blank, other valudes : "lightbox" "popup". overridé local avec data-extmethod="value"
 
 	/*------------------ Favorites -----------------*/
-	autoAddFavoriteBtn: false,		//adds the favorite button on every page
+	autoAddFavoriteBtn: false, //adds the favorite button on every page
 
 	/*------------------ animations ---------------*/
 	loadingBoxTransitionSpeed: 1000,

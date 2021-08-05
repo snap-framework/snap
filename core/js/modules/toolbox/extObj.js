@@ -4,8 +4,9 @@ define([
 	'logger',
 	'settings-core',
 	'utils',
-	'../BaseModule'
-], function (_, $, Logger, CoreSettings, Utils, BaseModule) {
+	'../BaseModule',
+	"labels"
+], function (_, $, Logger, CoreSettings, Utils, BaseModule, Labels) {
 	'use strict';
 
 	return BaseModule.extend({
@@ -19,7 +20,6 @@ define([
 
 			this.$aTag = options.$dt.children("a").eq(0);
 			this.url = this.$aTag.attr("href");
-
 			this.description = this.$aTag.text();
 			this.linkTo = options.$dd.text();
 
@@ -33,15 +33,16 @@ define([
 				-------------------------LAUNCH CKE
 		---------------------------------------------------------------------------------------------*/
 		generateInstance: function ($el) {
+			var classVar = (typeof $el.attr("class") !== "undefined") ? $el.attr("class") + " external" : "external";
 			var link = document.createElement("a");
 			link.setAttribute("href", this.url);
 			link.setAttribute("target", "_blank");
 			link.setAttribute("rel", "external");
-			link.setAttribute("title", this.description);
-			link.setAttribute("aria-aspopup", "true");
+			//link.setAttribute("title", this.description);
+			link.setAttribute("aria-haspopup", "true");
 			link.setAttribute("data-ext", this.id);
-			link.setAttribute("class", "external");
-			link.textContent = $el.text();
+			link.setAttribute("class", classVar);
+			link.innerHTML = $el.html() + "<span class='wb-inv'>(" + Labels.nav.external + this.linkTo + ")</span>";
 			this.replaceInstance($el, link);
 			return false;
 		},

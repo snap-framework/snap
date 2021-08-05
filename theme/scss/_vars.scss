@@ -5,6 +5,74 @@ $base-text-color: #222;
 $link-color: #295376;
 $link-color-visited: #7834bc;
 $box-shadox-color: #999;
+
+//---------- header ----------//
+
+$header-banner-title-color: #555; //course title and subtitle
+$header-background-color: transparent; //toolbad fullwidth color
+$header-text-color: #666; //series title is being overwritten by the link
+$header-module-name-color: #eee; //modules when used
+
+
+//Top BackNext
+$top-nav-text-color: $base-text-color; //TOP BACK NEXT
+$top-nav-button-color: $base-text-color; // TOP BACK NEXT ARROWS
+
+//---------- Toolbar ----------//
+
+$header-button-color: #555; //text-based toolbar buttons
+$header-button-background-color: transparent; //
+$header-button-color-hover: #000; //text-based toolbar buttons
+$header-button-background-color-hover: #eee; //background to toolbar buttons
+
+// TOOLBAR ICONS
+$toolbar-icon-color:#404040; //icon for toolbar buttons
+$toolbar-icon-color-hover:#999999; //icon for toolbar rollover
+$toolbar-icon-secondary-color:$toolbar-icon-color; //this never happens
+$toolbar-icon-secondary-color-hover:$toolbar-icon-color-hover; //not happening
+
+//Toolbox
+$toolbox-link-color: $base-text-color;
+$toolbox-link-background-color: #fff;
+$toolbox-link-color-hover: #000;
+$toolbox-link-background-color-hover: #eee;
+
+
+//---------- Footer ----------//
+
+
+$footer-page-of-text-color: #000;
+$footer-container-background-color: transparent;
+$footer-button-border-color: #fff;
+$footer-button-color-disabled: #5b5b5b;
+$footer-button-background-color-disabled: #e6e6e6;
+//Back Next
+$footer-button-color: #000;
+$footer-button-background-color: #b4b4b4;
+$footer-button-color-hover: #000;
+$footer-button-background-color-hover: #c6c8ca;
+
+//---------- supermenu ----------//
+$supermenu-button-color: #555;
+$supermenu-button-background-color: #eee;
+$supermenu-button-color-hover: #333;
+$supermenu-button-background-color-hover: #eee;
+//dropdown
+$supermenu-dropdown-button-color: $base-text-color;
+$supermenu-dropdown-button-background-color: #fff;
+$supermenu-dropdown-border-color: #000;
+$supermenu-dropdown-button-color-hover: #000;
+$supermenu-dropdown-button-background-color-hover: #eee;
+
+//icons
+$supermenu-dropdown-icons-color:#777;
+$supermenu-dropdown-icons-color-hover:#fff;
+
+//Scrollbar
+$scrollbar-track-background-color: #222;
+$scrollbar-thumb-background-color: #d7e059;
+
+//---------- Buttons ----------//
 $button-default-color: #555;
 $button-default-color-hover: #fff;
 $button-default-background-color: #3b3b3b;
@@ -14,8 +82,30 @@ $button-default-border-color-hover: #bbbfc5;
 $box-shadow-color: #2f2f2f;
 $spinner-overlay-background-color: #fff;
 
+//---------- Mobile ----------//
+$hamburger-menu-color-mobile: $button-default-color;
+$supermenu-link-color: #333 ;
+$top-nav-button-color-mobile: #fff;
+$top-nav-button-background-color: #777;
+//Footer
+$footer-button-color-mobile: #fff;
+$footer-page-of-text-color-mobile: $base-text-color;
+$footer-mobile-button-background-color: #eee;
 
 
+//---------- Iconography ----------//
+//buttons
+$btn-icon-color:#606060;
+$btn-icon-color-hover:#404040;
+//default for others
+$default-icon-color:#ffffff;
+$default-icon-bg-color:#606060;
+//ribbons
+$ribbon-color:$default-icon-color; //ribbon icon color
+$ribbon-bg-color:$default-icon-bg-color; //ribbon bg color
+//Iconbox
+$iconbox-color:$default-icon-color;
+$iconbox-bg-color:$default-icon-bg-color;
 
 //---------- Modules ----------//
 
@@ -75,71 +165,6 @@ $card-text-color: #d7e059;
 $card-text-color-hover: #3f4040;
 
 
-//---------- Layout ----------//
-
-//Footer
-$footer-button-color: #000;
-$footer-button-color-mobile: #fff;
-$footer-button-background-color: #b4b4b4;
-$footer-button-color-hover: #000;
-$footer-button-background-color-hover: #c6c8ca;
-$footer-text-color: $base-text-color;
-$footer-page-of-text-color: #000;
-$footer-page-of-text-color-mobile: $base-text-color;
-$footer-container-background-color: transparent;
-$footer-button-border-color: #fff;
-$footer-button-color-disabled: #5b5b5b;
-$footer-button-background-color-disabled: #e6e6e6;
-$footer-mobile-button-background-color: #eee;
-
-//Header
-$header-background-color: transparent;
-$header-text-color: #666;
-$header-banner-title-color: #555;
-$header-module-name-color: #eee;
-$header-button-background-color: transparent;
-$header-button-color-hover: #000;
-$header-button-background-color-hover: #eee;
-$header-button-color: #555;
-//Top Navigation
-$top-nav-text-color: $base-text-color;
-$top-nav-button-color: $base-text-color;
-// TOOLBAR ICONS
-$toolbar-icon-color:#404040;
-$toolbar-icon-color-hover:#999999;
-
-$toolbar-icon-secondary-color:$toolbar-icon-color;
-$toolbar-icon-secondary-color-hover:$toolbar-icon-color-hover;
-//mobile only
-$top-nav-button-color-mobile: #fff;
-$top-nav-button-background-color: #777;
-$hamburger-menu-color-mobile: $button-default-color;
-
-//Toolbar
-$toolbox-link-color: $base-text-color;
-$toolbox-link-background-color: #fff;
-$toolbox-link-color-hover: #000;
-$toolbox-link-background-color-hover: #eee;
-
-//Supermenu
-$supermenu-button-color: #555;
-$supermenu-button-background-color: #eee;
-$supermenu-button-color-hover: #333;
-$supermenu-button-background-color-hover: #eee;
-$supermenu-dropdown-button-color: $base-text-color;
-$supermenu-dropdown-border-color: #000;
-$supermenu-dropdown-button-background-color: #fff;
-$supermenu-dropdown-button-color-hover: #000;
-$supermenu-dropdown-button-background-color-hover: #eee;
-//mobile only
-$supermenu-link-color: #333 ;
-//icons
-$supermenu-dropdown-icons-color:#777;
-$supermenu-dropdown-icons-color-hover:#fff;
-
-//Scrollbar
-$scrollbar-track-background-color: #222;
-$scrollbar-thumb-background-color: #d7e059;
 
 
 //---------- Micro-learning ----------//
@@ -157,16 +182,5 @@ $micro-menu-toc-marker-background-color: #111;
 $micro-menu-mobile-bullet-list-item-border-color: #d7e059;
 $micro-menu-mobile-bullet-list-item-border-color-active: #d7e059;
 
-//---------- Iconography ----------//
-//buttons
-$btn-icon-color:#606060;
-$btn-icon-color-hover:#404040;
-//default for others
-$default-icon-color:#ffffff;
-$default-icon-bg-color:#606060;
 
-$ribbon-color:$default-icon-color; //ribbon icon color
-$ribbon-bg-color:$default-icon-bg-color; //ribbon bg color
-$iconbox-color:$default-icon-color;
-$iconbox-bg-color:$default-icon-bg-color;
 

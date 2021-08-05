@@ -46,9 +46,9 @@ define([
 			}
 
 			$adminMode.find('.debug-btn').on('click', function () {
-				that.toggleDebug();
-				return false;
-			})
+					that.toggleDebug();
+					return false;
+				})
 				.end().find('.scorm-btn').on('click', function () {
 					that.activateScorm();
 					return false;
@@ -65,7 +65,10 @@ define([
 					that.highlightHeadings();
 					return false;
 				});
-
+			$('.Copy-Structure').click(function () {
+				that.copyStructure($(this));
+				return false;
+			})
 
 			$(this.lockingSystem).on('AdminMode:addUnlocks', _.bind(this.addUnlocks, this));
 		},
@@ -121,6 +124,32 @@ define([
 			}
 		},
 
+		//TODO: 
+		copyStructure: function ($btn) {
+			$btn.after("<textarea id=\"clipboard_paste\"></textarea>");
+			var mf, mfa, htmlPadder = ['<!DOCTYPE html>\n<html lang="en">\n<head>\n\t<meta charset="UTF-8">\n\t<meta name="viewport" content="width=device-width, initial-scale=1.0">\n\t<title>Static links for SiteImprove crawling feature</title>\n</head>\n<body>\n\t<div>\n\t\t<ul>\n', "\t\t</ul>\n\t</div>\n</body>\n</html>"],
+				langs = ["en", "fr"],
+				buildBuffer = "",
+				folderLookout = "",
+				fileLookout = "";
+			for (var i in masterStructure.flatList)
+				for (var ii in mfa = (mf = masterStructure.flatList[i]).aPosition, langs) {
+					buildBuffer += '\t\t\t<li><a href="index_' + langs[ii] + ".html?state=" + masterStructure.flatList[i].sPosition + '">' + mf.title + (1 == ii ? " (Translation)" : "") + "</a></li>\n";
+				}
+
+			$("#clipboard_paste").html(htmlPadder[0] + buildBuffer + htmlPadder[1]);
+			let copier = document.getElementById("clipboard_paste");
+			copier.select();
+			copier.setSelectionRange(0, 99999);
+			document.execCommand("copy");
+
+			$("#clipboard_paste").remove();
+			$btn.after("<div id='copy_msg'>Structure Copied to ClipBoard</div>")
+			$("#copy_msg").fadeOut(1600, function () {
+				$(this).remove();
+			});
+		},
+
 		/**
 		 * iterates through the items in the menu marked as locked, 
 		 * and populates a list of links to unlock them.
@@ -129,8 +158,13 @@ define([
 		addUnlocks: function () {
 			var that = this;
 			this.ui.locksAdmin.find("ul").html("");
-			var lockSubs = _.where(that.parent.flatList, { isLocked: true });//this only finds pages
-			Array.prototype.push.apply(lockSubs, _.where(that.parent.subs, { isLocked: true, isPage: false })); //this adds modules			
+			var lockSubs = _.where(that.parent.flatList, {
+				isLocked: true
+			}); //this only finds pages
+			Array.prototype.push.apply(lockSubs, _.where(that.parent.subs, {
+				isLocked: true,
+				isPage: false
+			})); //this adds modules			
 			if (lockSubs.length > 0) {
 				var itemTarget;
 				var addItem;

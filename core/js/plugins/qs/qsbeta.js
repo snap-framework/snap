@@ -110,7 +110,9 @@ if (typeof String.prototype.trim !== 'function') {
 if (!Array.prototype.indexOf) {
 	Array.prototype.indexOf = function (obj, start) {
 		for (var i = (start || 0), j = this.length; i < j; i++) {
-			if (this[i] === obj) { return i; }
+			if (this[i] === obj) {
+				return i;
+			}
 		}
 		return -1;
 	}
@@ -120,11 +122,15 @@ var alertFallback = false;
 if (typeof console === "undefined" || typeof console.log === "undefined") {
 	console = {};
 	if (alertFallback) {
-		console.log = function (msg) { alert(msg); };
-		console.error = function (msg) { alert(msg); };
+		console.log = function (msg) {
+			alert(msg);
+		};
+		console.error = function (msg) {
+			alert(msg);
+		};
 	} else {
-		console.log = function () { };
-		console.error = function () { };
+		console.log = function () {};
+		console.error = function () {};
 	}
 }
 
@@ -305,16 +311,21 @@ function qsBeta(objAcc, paramObj) {
 	//CHECK IF TRACKING OBJ EXISTS, IF NOT BUILD FAKE ONE!
 	try {
 		fCl(trackingObj.isLoaded);
-	}
-	catch (err) {
+	} catch (err) {
 		fCl("NO TRACKING OBJECT DETECTED, ALL TRACKING DISABLED\n" + err);
 		trackingObj = {};
 		if (this.settings.debugMode) {
-			trackingObj.getData = function () { return $("#qs-tracking-debug").val(); }; //'PURE GENIUS' he said sarcastically!
+			trackingObj.getData = function () {
+				return $("#qs-tracking-debug").val();
+			}; //'PURE GENIUS' he said sarcastically!
 		} else {
-			trackingObj.getData = function () { return false; };
+			trackingObj.getData = function () {
+				return false;
+			};
 		}
-		trackingObj.saveData = function () { return false; };
+		trackingObj.saveData = function () {
+			return false;
+		};
 	}
 
 	//ENCODE ANSWERS AUTOMATICALLY -> PUT IN THIS.SETTINGS
@@ -322,7 +333,9 @@ function qsBeta(objAcc, paramObj) {
 
 	/*WIP*/
 	if (this.settings.cheatMode) {
-		if (this.settings.encodeAnswers) { fCl('Answers are encoded, cheatMode not will not work!'); }
+		if (this.settings.encodeAnswers) {
+			fCl('Answers are encoded, cheatMode not will not work!');
+		}
 		//type-0 (**NOTHING TO DO**)
 		//type-1,type-2, type-5 (**UNTESTED**)
 		$('.qs-elearning-activity .ra').prop('checked', true).parent().css('border', '1px solid green'); //#raware!
@@ -358,7 +371,12 @@ function qsBeta(objAcc, paramObj) {
 	//TRACKING VARS
 	//  -DEFINE MARKERS
 	// qsMarkerStart = "░QS▒{";	// qsMarkerEnd = "}▒QS▓";		// qsActMarkerStart = "░ACT▒{";	// qsActMarkerEnd = "}▒ACT▓";		// qsExMarkerStart = "░EX▒{";	// qsExMarkerEnd = "}▒EX▓";
-	var qsMarkerStart = "¹{", qsMarkerEnd = "}¹", qsActMarkerStart = "²{", qsActMarkerEnd = "}²", qsExMarkerStart = "³{", qsExMarkerEnd = "}³";
+	var qsMarkerStart = "¹{",
+		qsMarkerEnd = "}¹",
+		qsActMarkerStart = "²{",
+		qsActMarkerEnd = "}²",
+		qsExMarkerStart = "³{",
+		qsExMarkerEnd = "}³";
 
 	//TEST AGAINST THESE AS THEY MAY BREAK EVERYTHING (THEY ARE RESERVED FOR STRING SPLITING)
 	//"░▒▓╠╣┌┐║♥♦♠♣";"¼½¾Ð¶¢®©ª¤£¦§±þ§Þß¥º·¹²³¨÷|";
@@ -373,7 +391,9 @@ function qsBeta(objAcc, paramObj) {
 	// ♥ -> ¼
 	// ♦ -> ½
 	//--------
-	var tSplt = ['¦', '§', '¤', '±', 'º'], qSplt = ['¼', '½'], replaceIllegalCharWith = "¿";
+	var tSplt = ['¦', '§', '¤', '±', 'º'],
+		qSplt = ['¼', '½'],
+		replaceIllegalCharWith = "¿";
 
 	//LOW LEVEL VARS
 	//GENERIC BASE SPEED (IN MS) FOR ANIMATIONS
@@ -390,7 +410,7 @@ function qsBeta(objAcc, paramObj) {
 	var statusStrings = ["unattempted", "incomplete", "failed", "completed"];
 
 	//DYNAMIC (don't change anything!)
-	var trackingString = "";//:String = eventuellement contenu de iLMS "cmi.content" si existant
+	var trackingString = ""; //:String = eventuellement contenu de iLMS "cmi.content" si existant
 
 	//DEFAULT QUESTION TYPES PARAMS//QUESTION TYPES
 	//
@@ -470,7 +490,7 @@ function qsBeta(objAcc, paramObj) {
 				//"final_feedback_score_threshold":this.objDefVal.activity.final_feedback_score_threshold, //*TMP, needs data-SOMETHING from DOM eventually *WIP
 				"submit_all_at_once": ($(currElem).attr('data-submit-all-at-once') == undefined) ? this.objDefVal.activity.submit_all_at_once : eval($(currElem).attr('data-submit-all-at-once')),
 				"submit_aao_disable_right_anwers": ($(currElem).attr('data-submit-aao-disable-right-answers') == undefined) ? this.objDefVal.activity.submit_aao_disable_right_anwers : eval($(currElem).attr('data-submit-aao-disable-right-answers')),
-				"simple_act_disable_mode": ($(currElem).attr('data-simple-act-disable-mode') == undefined) ? this.objDefVal.activity.simple_act_disable_mode : $(currElem).attr('data-simple-act-disable-mode'),//SIMPLE ACTIVITY DISABLE MODE (NEEDS activity_type=simple): 'any'||'onright'||'never' **WIP**
+				"simple_act_disable_mode": ($(currElem).attr('data-simple-act-disable-mode') == undefined) ? this.objDefVal.activity.simple_act_disable_mode : $(currElem).attr('data-simple-act-disable-mode'), //SIMPLE ACTIVITY DISABLE MODE (NEEDS activity_type=simple): 'any'||'onright'||'never' **WIP**
 				"animations_and_transitions": this.objDefVal.activity.animations_and_transitions, //*TMP, needs data-SOMETHING from DOM eventually *WIP
 				"auto_scroll_to_question": this.objDefVal.activity.auto_scroll_to_question, //*TMP, needs data-SOMETHING from DOM eventually *WIP
 				"force_insert_final_submit": this.objDefVal.activity.force_insert_final_submit, //*TMP: G313 EXCEPTION, forces final submit button placement via span/div.qs-final-submit-placeholder, needs data-SOMETHING from DOM eventually *WIP
@@ -537,7 +557,7 @@ function qsBeta(objAcc, paramObj) {
 				//   III
 				//
 
-				this.questionsArr = new Array();//Array list des questions...
+				this.questionsArr = new Array(); //Array list des questions...
 
 				for (iii = 0; iii < $(currElem_ii).find(".qs-question").length; iii++) {
 
@@ -597,7 +617,7 @@ function qsBeta(objAcc, paramObj) {
 
 							break;
 						default:
-						//fCe('INIT::DEFAULT OVERRIDES NOT IMPLEMENTED FOR:'+this.questionsArr[nID].question_type);
+							//fCe('INIT::DEFAULT OVERRIDES NOT IMPLEMENTED FOR:'+this.questionsArr[nID].question_type);
 					}
 
 					//SECOND SWITCH (WHY?)
@@ -729,7 +749,7 @@ function qsBeta(objAcc, paramObj) {
 					//fCl('Pool, need '+this.activities[i].exercises[ii].pool_picks+' questions, contains '+this.activities[i].exercises[ii].nb_questions+' with the following random order: '+this.activities[i].exercises[ii].random_order);
 				}
 
-			}//END EXERCISE LOOP
+			} //END EXERCISE LOOP
 
 		}; //END ACTIVITY LOOP
 
@@ -961,7 +981,9 @@ function qsBeta(objAcc, paramObj) {
 
 
 		//DISPATCHER CALL!
-		fQsEvDp('activity_started', { activity_dom_id: activity_stringID });
+		fQsEvDp('activity_started', {
+			activity_dom_id: activity_stringID
+		});
 
 	}
 
@@ -1300,7 +1322,7 @@ function qsBeta(objAcc, paramObj) {
 				//$("#"+this.activities[ancestryIDARR[0]].id).find('.qs-submit-activity').attr('data-passthrough',this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]+1].id);//#1
 
 
-				$("#" + this.activities[ancestryIDARR[0]].id).find('.qs-submit-activity').attr('data-passthrough', this.activities[ancestryIDARR[0]].exercises[this.activities[ancestryIDARR[0]].nb_exercises - 1].questions[this.activities[ancestryIDARR[0]].exercises[this.activities[ancestryIDARR[0]].nb_exercises - 1].nb_questions - 1].id);//#1b
+				$("#" + this.activities[ancestryIDARR[0]].id).find('.qs-submit-activity').attr('data-passthrough', this.activities[ancestryIDARR[0]].exercises[this.activities[ancestryIDARR[0]].nb_exercises - 1].questions[this.activities[ancestryIDARR[0]].exercises[this.activities[ancestryIDARR[0]].nb_exercises - 1].nb_questions - 1].id); //#1b
 			}
 			//PASSTHROUGH INFO FOR LATER (TARGET ACTIVITY (THE ONE TO SUBMIT!))
 			//$("#"+this.activities[ancestryIDARR[0]].id).find('.qs-submit-activity').attr('data-passthrough',this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]+1].id);//#1
@@ -1315,7 +1337,7 @@ function qsBeta(objAcc, paramObj) {
 					//FIND QUESTION ELEMENT
 
 
-					mThis.qsAnswerQuestion($("#" + $(this).attr('data-passthrough')), 'final-submit');//#1
+					mThis.qsAnswerQuestion($("#" + $(this).attr('data-passthrough')), 'final-submit'); //#1
 
 					//mThis.qsAnswerQuestion($("#"+$(this).attr('data-passthrough')),'auto');//#7 XYZ
 
@@ -1323,12 +1345,13 @@ function qsBeta(objAcc, paramObj) {
 					//mThis.qsAnswerQuestion($("#"+mThis.activities[tmpAncestryIDArr[0]].exercises[tmpAncestryIDArr[1]].questions[tmpAncestryIDArr[2]].id),'final-submit');//#2
 				}
 			});
-		}/*else{
-		//TMP V0.9003 ADD AUTO SUBMIT FINAL POUR SONYA (G313)
-			if($("#"+this.activities[ancestryIDARR[0]].id+" .qs-final-submit-placeholder").length && eval(this.qsComputeProgression(ancestryIDARR[0],"qat")+1) == eval(this.qsComputeProgression(ancestryIDARR[0],"qtot"))){
-				$("#"+this.activities[ancestryIDARR[0]].id+" .qs-final-submit-placeholder").append(this.objDefVal.domButtons.qs_submit_activity);
-			}
-		}*/
+		}
+		/*else{
+				//TMP V0.9003 ADD AUTO SUBMIT FINAL POUR SONYA (G313)
+					if($("#"+this.activities[ancestryIDARR[0]].id+" .qs-final-submit-placeholder").length && eval(this.qsComputeProgression(ancestryIDARR[0],"qat")+1) == eval(this.qsComputeProgression(ancestryIDARR[0],"qtot"))){
+						$("#"+this.activities[ancestryIDARR[0]].id+" .qs-final-submit-placeholder").append(this.objDefVal.domButtons.qs_submit_activity);
+					}
+				}*/
 
 
 		if ((current_question + qOffset) >= nb_question || (current_question + qOffset) < 0) {
@@ -1349,7 +1372,10 @@ function qsBeta(objAcc, paramObj) {
 			//NEXT/PREVIOUS QUESTION...
 
 			//Dispatch event
-			fQsEvDp('question_navigation', { activity_dom_id: this.activities[ancestryIDARR[0]].id, direction: qOffset });
+			fQsEvDp('question_navigation', {
+				activity_dom_id: this.activities[ancestryIDARR[0]].id,
+				direction: qOffset
+			});
 
 			this.activities[ancestryIDARR[0]].dv.current_question_id = current_question + qOffset;
 			//fCe('NEW QAt='+this.activities[ancestryIDARR[0]].dv.current_question_id+' Status='+this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[this.activities[ancestryIDARR[0]].dv.current_question_id].dv.status);
@@ -1458,10 +1484,10 @@ function qsBeta(objAcc, paramObj) {
 				});
 				this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]].dv.my_answer_id = saveBuff.join(qSplt[1]);
 				break;
-			//
-			//  TYPE-1
-			//
-			//CHOIX REPONSE UNIQUE (RADIO)
+				//
+				//  TYPE-1
+				//
+				//CHOIX REPONSE UNIQUE (RADIO)
 			case "type-1":
 				//CHECK IF NO ANSWER
 				if ($(this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]].answers.elem).find('input[type="radio"]:checked').length <= 0) {
@@ -1537,10 +1563,10 @@ function qsBeta(objAcc, paramObj) {
 				//SAVE ANSWER
 				this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]].dv.my_answer_id = $(this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]].answers.elem).find('input[type="radio"]:checked').attr('id');
 				break;
-			//
-			//  TYPE-2
-			//
-			//CHOIX REPONSE MULTIPLE (CHECKBOX)
+				//
+				//  TYPE-2
+				//
+				//CHOIX REPONSE MULTIPLE (CHECKBOX)
 			case "type-2":
 				//NO ANSWER SELECTED IS NOT A POSSIBILITY, VALIDATE NO SELECTION UNLESS EMPTY_ALLOWED
 				if ($(this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]].answers.elem).find('input[type="checkbox"]:checked').length <= 0 && !this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]].empty_allowed) {
@@ -1651,10 +1677,10 @@ function qsBeta(objAcc, paramObj) {
 				this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]].dv.my_answer_id = ($(this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]].answers.elem).find('input[type="checkbox"]:checked').length < 1) ? "" : saveBuff.join(',');
 				break;
 
-			//
-			//  TYPE-3
-			//
-			//TEXTFIELD(S) SIMPLE
+				//
+				//  TYPE-3
+				//
+				//TEXTFIELD(S) SIMPLE
 			case "type-3":
 				//CHECK IF NO ANSWER (ANY EMPTY TEXTFIELD)
 				tfEmpty = false;
@@ -1779,10 +1805,10 @@ function qsBeta(objAcc, paramObj) {
 				this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]].dv.my_answer_id = saveBuff.join(qSplt[1]);
 
 				break;
-			//
-			//  TYPE-4
-			//
-			//DROPDOWN(S)
+				//
+				//  TYPE-4
+				//
+				//DROPDOWN(S)
 			case "type-4":
 				//CHECK IF EMPTIES
 				dDEmpty = false;
@@ -1841,7 +1867,7 @@ function qsBeta(objAcc, paramObj) {
 				//CHECK IF ALL GOOD ANSWERS
 				right_answer = true;
 
-				for (i = 0; i < dDAnswerArr.length; i++) {//for(i in dDAnswerArr){
+				for (i = 0; i < dDAnswerArr.length; i++) { //for(i in dDAnswerArr){
 					if (!dDAnswerArr[i][1]) {
 						right_answer = false;
 					}
@@ -1905,10 +1931,10 @@ function qsBeta(objAcc, paramObj) {
 					} else if (this.activities[ancestryIDARR[0]].activity_type === "simple" && this.activities[ancestryIDARR[0]].simple_act_disable_mode === "onright") {
 						if (answerStatus === "right") {
 							$("select#" + dDAnswerArr[i][0]).prop('disabled', 'disabled');
-						} else if (dDAnswerArr.length > 1 && dDAnswerArr[i][1]) {//CSPS-SJ
+						} else if (dDAnswerArr.length > 1 && dDAnswerArr[i][1]) { //CSPS-SJ
 							//if there are alot of answers in the same page.
 							$("#" + dDAnswerArr[i][0]).prop('disabled', 'disabled');
-						}//ELSE NOTHING!
+						} //ELSE NOTHING!
 
 					} else {
 						$("select#" + dDAnswerArr[i][0]).prop('disabled', 'disabled');
@@ -1943,10 +1969,10 @@ function qsBeta(objAcc, paramObj) {
 
 				break;
 
-			//
-			//  TYPE-4
-			//
-			//INPUT BUTTONS
+				//
+				//  TYPE-4
+				//
+				//INPUT BUTTONS
 			case "type-5":
 				//CHECK IF NO ANSWER (UNNECESSARY!)
 
@@ -2169,9 +2195,9 @@ function qsBeta(objAcc, paramObj) {
 				if (qMode === "default") {
 					this.qsNextQuestion(elem);
 					fCl('DEFAULT');
-				} else if (qMode === "final-submit") {//final-submit-all-at-once
+				} else if (qMode === "final-submit") { //final-submit-all-at-once
 					//this.qsNextQuestion(elem);//SHOULDNT THAT BE THE LAST ELEMENT ALWAY, NO MATTER WHAT?
-					this.qsNextQuestion(elem, 123456, 'final-submit');//SHOULDNT THAT BE THE LAST ELEMENT, NO MATTER WHAT?
+					this.qsNextQuestion(elem, 123456, 'final-submit'); //SHOULDNT THAT BE THE LAST ELEMENT, NO MATTER WHAT?
 					fCe('*WIP !IMPORTANT! PLEASE FIX FORCED HARDCODED INTEGER "123456"!!!');
 
 
@@ -2279,7 +2305,10 @@ function qsBeta(objAcc, paramObj) {
 				});
 			}
 			//DISPATCHER CALL!
-			fQsEvDp('question_answered', { activity_dom_id: this.activities[ancestryIDARR[0]].id, answer_status: answerStatus });
+			fQsEvDp('question_answered', {
+				activity_dom_id: this.activities[ancestryIDARR[0]].id,
+				answer_status: answerStatus
+			});
 		} else {
 			//DISPLAY FEEDBACK
 			qsFadeIn($(this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]].elem).find('.qs-feedback'));
@@ -2363,8 +2392,7 @@ function qsBeta(objAcc, paramObj) {
 				fCl('TRIGGER COURSE COMPLETION!');
 				try {
 					scorm.complete();
-				}
-				catch (err) {
+				} catch (err) {
 					fCe(err.message);
 				}
 			}
@@ -2564,7 +2592,7 @@ function qsBeta(objAcc, paramObj) {
 					//MAKE .qs-get-current-question STATIC IN RECAP
 					$(recapTemplateElem).find('.qs-get-current-question').removeClass('qs-get-current-question').html(iCounter);
 					//console.error($(recapTemplateElem).find('.qs-get-current-question'));
-					$("#" + recapItemID + " .qs-post-feedback").find('a, input[type=button]').remove();
+					$("#" + recapItemID + " .qs-post-feedback").find('a[class^=\'qs-\'], input[type=button][class^=\'qs-\']').remove();
 
 				}
 			}
@@ -2584,7 +2612,9 @@ function qsBeta(objAcc, paramObj) {
 		qsTransition($(this.activities[ancestryIDARR[0]].exercises[ancestryIDARR[1]].questions[ancestryIDARR[2]].elem), "#" + this.activities[ancestryIDARR[0]].id + " .qs-feedback-final");
 
 		//DISPATCHER CALL!
-		fQsEvDp('activity_completed', { activity_dom_id: this.activities[ancestryIDARR[0]].id });
+		fQsEvDp('activity_completed', {
+			activity_dom_id: this.activities[ancestryIDARR[0]].id
+		});
 
 
 
@@ -2703,7 +2733,7 @@ function qsBeta(objAcc, paramObj) {
 				qsShow($('#' + qStrID + ' .qs-feedback .qs-second-chance > div.qs-chance-1'))
 				return true; //FIRST SECOND CHANCE
 
-			} else {	//NOT THE FIRST SECOND CHANCE
+			} else { //NOT THE FIRST SECOND CHANCE
 
 
 				//CHECK IF LAST SECOND CHANCE
@@ -3335,7 +3365,12 @@ function qsBeta(objAcc, paramObj) {
 		var qArr = [];
 		var exercise_reorder_list;
 
-		var qStatusArr = { u: "unattempted", i: "incomplete", c: "completed", f: "failed" };
+		var qStatusArr = {
+			u: "unattempted",
+			i: "incomplete",
+			c: "completed",
+			f: "failed"
+		};
 
 		//INSERT IN OBJS
 		for (i = 0; i < nbAct; i++) {
@@ -3847,7 +3882,7 @@ function qsBeta(objAcc, paramObj) {
 		}
 
 		//SET TAB INDEX:0, GIVE FOCUS
-		$(elem).attr('tabindex', 0).focus();//.removeAttr('tabindex');
+		$(elem).attr('tabindex', 0).focus(); //.removeAttr('tabindex');
 		/*setTimeout(function(){
 			$(elem).attr('tabindex',0).focus();//.removeAttr('tabindex');
 		}, 0);*/
@@ -3868,6 +3903,7 @@ function qsBeta(objAcc, paramObj) {
 			console.log(msg);
 		}
 	}
+
 	function fCe(msg) {
 		console.error(msg);
 	}
@@ -4028,9 +4064,9 @@ $(document).ready(function () {
 							/*else{if(wetComponentRequiredToLoad>0){console.error('Waiting for all WET component to be loaded');}else{console.error('Only one instance of qsBeta allowed');}}*/
 						});
 						break;
-					//INSERT OTHER EXCEPTIONS HERE...
+						//INSERT OTHER EXCEPTIONS HERE...
 					default:
-					//NO CONTROL ON COMPONENT
+						//NO CONTROL ON COMPONENT
 				}
 			}
 		}

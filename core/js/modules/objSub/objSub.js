@@ -50,7 +50,9 @@ define([
 			this.isLocked = null;
 
 			//initialize the favoriteList constructor so that we can trigger events later on
-			new FavoriteList({ objSub: this });
+			new FavoriteList({
+				objSub: this
+			});
 
 			//this is a function to call when all is created.
 			this.nest();
@@ -74,6 +76,7 @@ define([
 			}
 			this.checkLockPage();
 			//this.updateLockPages();
+			this.getKeywords();
 		},
 
 		/*
@@ -711,8 +714,7 @@ define([
 			//add to actual supermenu
 			if (Utils.lang === "en") {
 				$("[data-id ='nav" + (this.depth + 1) + "']").append(startup_en);
-			}
-			else if (Utils.lang === "fr") {
+			} else if (Utils.lang === "fr") {
 				$("[data-id ='nav" + (this.depth + 1) + "']").append(startup_fr);
 			}
 			this.resetSupermenuSub();
@@ -764,6 +766,15 @@ define([
 				this.subs[i].resetDepths(newDepth);
 			}
 
+		},
+
+		getKeywords: function () {
+
+			if (this.aPosition[0] !== 98) {
+				if (typeof this.$el.attr("data-keywords") !== "undefined") {
+					this.keywords = this.$el.attr("data-keywords");
+				}
+			}
 		}
 
 
